@@ -11,7 +11,7 @@ This is an implementation of an interactie timeline for the museum assistance ap
 |YANNICK DE CALUWE|6418396|AnonyDragon|
 |GEORGE BARAKAT|6429161|gebt2000|
 |HENRY TU|6464143|Henry-Tu|
-|ARSHDEEP LASTNAME|ST#|arshdeep42|
+|ARSHDEEP SINGH|6837827|arshdeep42|
 |FAHAD UMAIR|6797658|fahadumair|
 
 ## Features
