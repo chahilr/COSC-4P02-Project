@@ -14,9 +14,16 @@ This is an implementation of an interactie timeline for the museum assistance ap
 |ARSHDEEP SINGH|6837827|arshdeep42|
 |FAHAD UMAIR|6797658|fahadumair|
 
+## Documents
+
+All documents and reports will be in the documents folders.
+
 ## Features
 
 ## Key Technologies Used
+Front-end: HTML, CSS, JS, React.js \
+Backend: Node.js \
+Database: Firebase Firestore
 
 ## Setup
 
