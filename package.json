@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run build && npm run serve",
     "serve": "webpack serve --mode development",
     "build": "webpack --mode production"
   },
@@ -21,7 +22,8 @@
   "dependencies": {
     "firebase": "^9.16.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
