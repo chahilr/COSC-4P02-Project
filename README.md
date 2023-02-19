@@ -27,4 +27,6 @@ Database: Firebase Firestore
 
 ## Setup
 
+run npm i
+run npm start
 ## License

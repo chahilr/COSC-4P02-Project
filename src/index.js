@@ -1,10 +1,12 @@
-require('file-loader?name=[name].[ext]!./index.html');//loads into webpack and includes in final output
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {App} from './App'
-import './App.scss';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+//import App from './App';
+import App from './final/App';
 
-
-const appElement = document.getElementById('app');
-
-ReactDOM.render(<App />, appElement);
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
