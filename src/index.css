@@ -1,6 +1,66 @@
-ul {
-  display: flex;
+/* ╔⏤⏤⏤⏤╝ Website Fonts ╚⏤⏤⏤⏤╗*/
+
+/* Monsterrat Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Open Sans Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/* ╚⏤⏤⏤⏤╗ Website Fonts ╔⏤⏤⏤⏤╝*/
+
+
+
+/* Website's Colour Palette */
+:root {
+  --red: #EA252E;
+  --black: #353238;
+  --grey: #7C7B81;
+  --white: #FAFAFA;
+}
+
+/* ╔⏤⏤⏤⏤╝ Homepage Button/Button-wrappers ╚⏤⏤⏤⏤╗*/
+
+/* Styles the UL that wraps all 4 buttons */
+#exhibit-options-list {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0em 2em;
 }
+
+/* Styles each button on the home page */
+/* @TODO: Move some of these stylings to a general button target if needed */
+#exhibit-options-list > div > li > button {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+
+  background-color: var(--grey);
+  color: var(--white);
+
+  width: 33vw;
+  padding: 25px 0px;
+  border-radius: 20px ;
+
+  transition-duration: 500ms;
+}
+
+/* Styles the home page exhibit buttons on hover */
+#exhibit-options-list > div > li > button:hover {
+  background-color: var(--red);
+}
+
+/* Spaces the first row of buttons appropriately for desktop styles */
+#exhibit-options-outer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+/* Spaces the second row of buttons appropriately for desktop styles */
+#exhibit-options-inner {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* ╚⏤⏤⏤⏤╗ Homepage Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
