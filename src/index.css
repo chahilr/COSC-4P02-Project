@@ -84,6 +84,47 @@ body.home {
   padding: 0em 2em;
 }
 
+/* Generic Button - Made by Reet */
+.instruction-heading {
+  font-family: 'Montserrat';
+  font-size: 20px;
+  text-align: center;
+}
+.option-button {
+  font-family: 'Montserrat';
+  font-size: 20px;
+
+  background-color: var(--grey);
+  color: var(--white);
+
+  width: 25vw;
+  padding: 25px 0px;
+  margin: 1vw;
+  border-radius: 20px;
+
+  transition-duration: 500ms;
+}
+.option-button:hover {
+  background-color: var(--red);
+}
+.button-row {
+  display: flex;
+  justify-content: space-between;
+}
+.submit-button {
+  font-family: 'Montserrat';
+  font-size: 20px;
+  background-color: var(--red);
+  color: var(--white);
+  border-style: none;
+  border-radius: 10px;
+
+  display: flex;
+  margin: auto;
+  padding: 10px 50px;
+}
+
+
 /* Styles each button on the home page */
 /* @TODO: Move some of these stylings to a general button target if needed */
 #exhibit-options-list > div > li > button {
