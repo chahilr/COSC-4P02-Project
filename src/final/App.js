@@ -1,7 +1,12 @@
 import { createTheme, colors, ThemeProvider } from '@mui/material';
 import SelectButton from './components/SelectButton';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import YearRangeSlider from './components/YearRangeSlider';
+import ancientgreece from '../images/ancient-greece.png';
+import ancientrome from '../images/ancient-rome.png';
+import ancientegypt from '../images/ancient-egypt.png';
+import persianempire from '../images/persian-empire.png';
+import museum from '../images/museum.png';
 
 const theme = createTheme({
   palette: {
@@ -11,84 +16,13 @@ const theme = createTheme({
   },
 });
 
-// function App() {
-//   useEffect(() => {
-//     document.body.className = 'home';
-//     return () => {
-//       document.body.className = '';
-//     };
-//   });
-
-//   return (
-//     <>
-//       <div id="logo-and-language">
-//         {/* Logo */}
-//         <div className="logo">
-//           <div className="logo-image">
-//             <img
-//               src={require('../images/museum-logo.jpg')}
-//               alt="Museum logo"
-//               style={{ float: 'left', marginRight: '10px' }}
-//             />
-//           </div>
-
-//           <div className="logo-text">
-//             <span>Canadian Museum of History</span>
-//             <hr></hr>
-//             <span>Museé Canadien de L'Histoire</span>
-//           </div>
-
-//           <div style={{ clear: 'both' }}></div>
-//         </div>
-
-//         {/* Language */}
-//         <div className="logo-text">
-//           <span>Language Select</span>
-//         </div>
-//       </div>
-
-//       <div className="center">
-//         <ul id="main-button-group">
-//           <li>Create Personalized Timeline</li>
-//           <li>Search for Artifact</li>
-//         </ul>
-//       </div>
-
-//       <span className="translucent-banner">Travel Through Time</span>
-
-//       <ul id="exhibit-options-list">
-//         {/* First set of buttons, further apart */}
-//         <div id="exhibit-options-outer">
-//           <li>
-//             <SelectButton name="Ancient Greece" />
-//           </li>
-//           <li>
-//             <SelectButton name="Ancient Rome" />
-//           </li>
-//         </div>
-
-//         {/* Second set of buttons, closer together */}
-//         <div id="exhibit-options-inner">
-//           <li>
-//             <SelectButton name="Ancient Egypt" />
-//           </li>
-//           <li>
-//             <SelectButton name="Persian Empire" />
-//           </li>
-//         </div>
-//       </ul>
-//     </>
-//   );
-// }
-import ancientgreece from '../images/ancient-greece.png';
-import ancientrome from '../images/ancient-rome.png';
-import ancientegypt from '../images/ancient-egypt.png';
-import persianempire from '../images/persian-empire.png';
-import museum from '../images/museum.png';
-
 function App() {
-  /** Adds the class 'home' to the body for the purpose of dynamic background image changes. */
-  const [val, setVal] = useState([-1000, 1000]);
+  useEffect(() => {
+    document.body.className = 'home';
+    return () => {
+      document.body.className = '';
+    };
+  });
 
   /** Handles mousing over any of the exhibit buttons.
    * @TODO: Add transition to the background image change.
@@ -116,6 +50,7 @@ function App() {
         break;
     }
     document.body.style.background = 'url(' + image_id + ')';
+    document.body.style.transitionDuration = '1s';
   };
 
   /** Handles mousing away from a button... changes the background image back to default
@@ -124,7 +59,90 @@ function App() {
   const handleMouseLeave = (event) => {
     const image_id = { museum }.museum;
     document.body.style.background = 'url(' + image_id + ')';
+    document.body.style.transitionDuration = '1s';
   };
+
+  return (
+    <>
+      <div id="logo-and-language">
+        {/* Logo */}
+        <div className="logo">
+          <div className="logo-image">
+            <img
+              src={require('../images/museum-logo.jpg')}
+              alt="Museum logo"
+              style={{ float: 'left', marginRight: '10px' }}
+            />
+          </div>
+
+          <div className="logo-text">
+            <span>Canadian Museum of History</span>
+            <hr></hr>
+            <span>Museé Canadien de L'Histoire</span>
+          </div>
+
+          <div style={{ clear: 'both' }}></div>
+        </div>
+
+        {/* Language */}
+        <div className="logo-text">
+          <span>Language Select</span>
+        </div>
+      </div>
+
+      <div className="center">
+        <ul id="main-button-group">
+          <li>Create Personalized Timeline</li>
+          <li>Search for Artifact</li>
+        </ul>
+      </div>
+
+      <span className="translucent-banner">Travel Through Time</span>
+
+      <ul id="exhibit-options-list">
+        {/* First set of buttons, further apart */}
+        <div id="exhibit-options-r1">
+          <li>
+            <SelectButton
+              name="Ancient Greece"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            />
+          </li>
+          <li>
+            <SelectButton
+              name="Ancient Rome"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            />
+          </li>
+        </div>
+
+        {/* Second set of buttons, closer together */}
+        <div id="exhibit-options-r2">
+          <li>
+            <SelectButton
+              name="Ancient Egypt"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            />
+          </li>
+          <li>
+            <SelectButton
+              name="Persian Empire"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            />
+          </li>
+        </div>
+      </ul>
+    </>
+  );
+}
+
+function App1() {
+  /** Adds the class 'home' to the body for the purpose of dynamic background image changes. */
+  const [val, setVal] = useState([-1000, 1000]);
 
   return (
     <ThemeProvider theme={theme}>

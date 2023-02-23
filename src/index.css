@@ -91,12 +91,13 @@ body.home {
   padding: 0em 2em;
 }
 
-/* Generic Button - Made by Reet */
+/* Following rules made by Reet for the timeline customizer*/
 .instruction-heading {
   font-family: 'Montserrat';
   font-size: 20px;
   text-align: center;
 }
+/* Generic button */
 .option-button {
   font-family: 'Montserrat';
   font-size: 20px;
