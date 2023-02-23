@@ -1,4 +1,4 @@
-import '../styles/SelectButton.css';
+import '../../index.css';
 
 const SelectButton = (props) => {
   return <button>{props.name}</button>;

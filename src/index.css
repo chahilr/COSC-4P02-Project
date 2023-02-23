@@ -8,19 +8,76 @@
 
 /* ╚⏤⏤⏤⏤╗ Website Fonts ╔⏤⏤⏤⏤╝*/
 
-
-
-/* Website's Colour Palette */
+/* Defining Variables */
 :root {
+  /* Website's Colour Palette */
   --red: #EA252E;
   --black: #353238;
   --grey: #7C7B81;
   --white: #FAFAFA;
+  --translucent-red: #ea252e80;
+  --translucent-grey: #7c7b8180;
+
+  /* Website's sizes */
+  --logo-size: 80px;
 }
 
-/* ╔⏤⏤⏤⏤╝ Homepage Button/Button-wrappers ╚⏤⏤⏤⏤╗*/
+/* Homepage Background */
+body.home {
+  background: url('images/museum.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
-/* Styles the UL that wraps all 4 buttons */
+
+/* ╔⏤⏤⏤⏤╝ Museum Logo and Language Toggle ╚⏤⏤⏤⏤╗*/
+#logo-and-language {
+  background: var(--translucent-grey);
+  padding: 0em 1em;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  display: flex;
+  width: 100%;
+}
+
+.logo-image > img {
+  height: var(--logo-size);
+  width: var(--logo-size);
+  border-radius: 50%;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-text > span {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  color: var(--white);
+}
+
+.logo-text > hr {
+  border: 1px solid var(--white);
+  margin: 0px 0px;
+  width: auto;
+}
+
+/* ╚⏤⏤⏤⏤╗ Museum Logo ╔⏤⏤⏤⏤╝*/
+
+
+
+/* ╔⏤⏤⏤⏤╝ Homepage Exhibit Buttons/Button-wrappers ╚⏤⏤⏤⏤╗*/
+
+/* Styles the UL that wraps all 4 exhibit buttons */
 #exhibit-options-list {
   list-style-type: none;
   margin: 0;
@@ -40,7 +97,7 @@
 
   width: 33vw;
   padding: 25px 0px;
-  border-radius: 20px ;
+  border-radius: 20px;
 
   transition-duration: 500ms;
 }
@@ -64,3 +121,62 @@
 }
 
 /* ╚⏤⏤⏤⏤╗ Homepage Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
+
+
+/* ╔⏤⏤⏤⏤╝ Homepage Time/Search Button/Button-wrappers ╚⏤⏤⏤⏤╗*/
+
+#main-button-group {
+  display: flex;
+  margin-top: 8em;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 1em;
+}
+
+#main-button-group > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 59px;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  
+  background: var(--white);
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+/* ╚⏤⏤⏤⏤╗ Homepage Time/Search Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
+
+
+
+/* ╔⏤⏤⏤⏤╝ Banners ╚⏤⏤⏤⏤╗*/
+
+.translucent-banner {
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 61px;
+  width: 100vw;
+  margin: 2em 0em;
+
+  background: var(--translucent-red);
+  color: var(--white);
+  
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 32px;
+}
+
+/* ╚⏤⏤⏤⏤╗ Banners ╔⏤⏤⏤⏤╝*/
