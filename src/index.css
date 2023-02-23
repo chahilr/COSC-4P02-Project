@@ -24,11 +24,18 @@
 
 /* Homepage Background */
 body.home {
-  background: url('images/museum.png') no-repeat center center fixed; 
+  background: url('images/museum.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+  -webkit-transition: background-image 0.2s ease-in-out;
+  transition: background-image 0.2s ease-in-out;
 }
 
 
@@ -108,14 +115,14 @@ body.home {
 }
 
 /* Spaces the first row of buttons appropriately for desktop styles */
-#exhibit-options-outer {
+#exhibit-options-r1 {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2em;
 }
 
 /* Spaces the second row of buttons appropriately for desktop styles */
-#exhibit-options-inner {
+#exhibit-options-r2 {
   display: flex;
   justify-content: space-around;
 }
