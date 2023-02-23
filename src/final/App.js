@@ -1,6 +1,6 @@
 import { createTheme, colors, ThemeProvider } from '@mui/material';
 import SelectButton from './components/SelectButton';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import YearRangeSlider from './components/YearRangeSlider';
 
 const theme = createTheme({
@@ -80,9 +80,51 @@ const theme = createTheme({
 //     </>
 //   );
 // }
+import ancientgreece from '../images/ancient-greece.png';
+import ancientrome from '../images/ancient-rome.png';
+import ancientegypt from '../images/ancient-egypt.png';
+import persianempire from '../images/persian-empire.png';
+import museum from '../images/museum.png';
 
 function App() {
+  /** Adds the class 'home' to the body for the purpose of dynamic background image changes. */
   const [val, setVal] = useState([-1000, 1000]);
+
+  /** Handles mousing over any of the exhibit buttons.
+   * @TODO: Add transition to the background image change.
+   */
+  const handleMouseEnter = (event) => {
+    const target = event.target;
+    const button_id = target.innerText.toLowerCase().replace(/\s/g, '');
+    let image_id;
+
+    switch (button_id) {
+      case 'ancientgreece':
+        image_id = { ancientgreece }.ancientgreece;
+        break;
+
+      case 'ancientrome':
+        image_id = { ancientrome }.ancientrome;
+        break;
+
+      case 'ancientegypt':
+        image_id = { ancientegypt }.ancientegypt;
+        break;
+
+      case 'persianempire':
+        image_id = { persianempire }.persianempire;
+        break;
+    }
+    document.body.style.background = 'url(' + image_id + ')';
+  };
+
+  /** Handles mousing away from a button... changes the background image back to default
+   * @TODO: Add transition to background image change.
+   */
+  const handleMouseLeave = (event) => {
+    const image_id = { museum }.museum;
+    document.body.style.background = 'url(' + image_id + ')';
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -109,7 +151,6 @@ function App() {
           <div style={{ clear: 'both' }}></div>
         </div>
       </div>
-
       <h4 className="instruction-heading">Select one or more exhibits</h4>
       <div className="button-row">
         <SelectButton name="Ancient Greece" />
@@ -118,6 +159,7 @@ function App() {
         <SelectButton name="Persian Empire" />
       </div>
       <h4 className="instruction-heading">Select one or more tags</h4>
+      {/* Create Personalized Timeline and Search for Artifact */}
       <div className="button-row">
         <SelectButton name="Paintings" />
         <SelectButton name="Technology" />
