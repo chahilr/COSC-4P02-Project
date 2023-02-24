@@ -185,7 +185,45 @@ body.home {
   gap: 1em;
 }
 
-#main-button-group > li {
+.landing-page-main-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 59px;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+
+  background: var(--white);
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+#landing-page-artifact-search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 675px;
+  height: 59px;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+
+  background: var(--white);
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+
+  padding-left: 25px;
+}
+
+/* #main-button-group > li {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -201,7 +239,7 @@ body.home {
   border: 1px solid #000000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-}
+} */
 
 /* ╚⏤⏤⏤⏤╗ Homepage Time/Search Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
 
