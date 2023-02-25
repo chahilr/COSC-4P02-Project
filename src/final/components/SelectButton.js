@@ -3,14 +3,31 @@ import '../../index.css';
 
 const SelectButton = (props) => {
   const [clicked, setClicked] = useState(false);
+  const [hover, setHover] = useState(false);
+
+  const handleMouseEnter = () => {
+    setHover(true);
+  };
+  const handleMouseLeave = () => {
+    setHover(false);
+  };
 
   return (
     <button
       className="option-button"
-      onClick={() => setClicked(!clicked)}
-      onMouseEnter={props.onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
-      // style={{ backgroundColor: clicked ? '#EA252E' : '#7C7B81' }}
+      onClick={() => {
+        props.onClick?.(props.name);
+        setClicked(!clicked);
+      }}
+      onMouseEnter={() => {
+        props.onMouseEnter?.();
+        handleMouseEnter();
+      }}
+      onMouseLeave={() => {
+        props.onMouseLeave?.();
+        handleMouseLeave();
+      }}
+      style={{ backgroundColor: clicked || hover ? '#EA252E' : '#7C7B81' }}
     >
       {props.name}
     </button>

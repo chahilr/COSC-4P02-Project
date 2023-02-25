@@ -43,7 +43,6 @@ export default function Home() {
    */
   const handleMouseLeave = (event) => {
     const image_id = { museum }.museum;
-    console.log(event.target);
     const homeDiv = document.querySelector('.home');
     homeDiv.style.background = 'url(' + image_id + ')';
     homeDiv.style.transitionDuration = '200ms';

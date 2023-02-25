@@ -12,8 +12,33 @@ const theme = createTheme({
 });
 
 export default function TimelineCustomizer() {
-  /** Adds the class 'home' to the body for the purpose of dynamic background image changes. */
+  // TODO: Clicking buttons does not always flip boolean for exhibits/tags
+  let selectedExhibits = {
+    'Ancient Greece': false,
+    'Ancient Rome': false,
+    'Ancient Egypt': false,
+    'Persian Empire': false,
+  };
+  let selectedTags = {
+    Paintings: false,
+    Technology: false,
+    Weapons: false,
+    Tools: false,
+  };
+
   const [val, setVal] = useState([-1000, 1000]);
+
+  function toggle(buttonName) {
+    if (selectedExhibits[buttonName] != null) {
+      selectedExhibits[buttonName] = !selectedExhibits[buttonName];
+    } else {
+      selectedTags[buttonName] = !selectedTags[buttonName];
+    }
+    // console.log(
+    //   Object.keys(selectedExhibits).filter((key) => selectedExhibits[key])
+    // );
+    // console.log(Object.keys(selectedTags).filter((key) => selectedTags[key]));
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -42,24 +67,34 @@ export default function TimelineCustomizer() {
       </div>
       <h4 className="instruction-heading">Select one or more exhibits</h4>
       <div className="button-row">
-        <SelectButton name="Ancient Greece" />
-        <SelectButton name="Ancient Rome" />
-        <SelectButton name="Ancient Egypt" />
-        <SelectButton name="Persian Empire" />
+        <SelectButton name="Ancient Greece" onClick={toggle} />
+        <SelectButton name="Ancient Rome" onClick={toggle} />
+        <SelectButton name="Ancient Egypt" onClick={toggle} />
+        <SelectButton name="Persian Empire" onClick={toggle} />
       </div>
       <h4 className="instruction-heading">Select one or more tags</h4>
       {/* Create Personalized Timeline and Search for Artifact */}
       <div className="button-row">
-        <SelectButton name="Paintings" />
-        <SelectButton name="Technology" />
-        <SelectButton name="Weapons" />
-        <SelectButton name="Tools" />
+        <SelectButton name="Paintings" onClick={toggle} />
+        <SelectButton name="Technology" onClick={toggle} />
+        <SelectButton name="Weapons" onClick={toggle} />
+        <SelectButton name="Tools" onClick={toggle} />
       </div>
       <h4 className="instruction-heading">Filter your date range</h4>
       <div style={{ width: '80%', margin: '75px auto' }}>
-        <YearRangeSlider value={val} onChange={(e, data) => setVal(data)} />
+        <YearRangeSlider
+          value={val}
+          onChange={(e, data) => {
+            setVal(data);
+          }}
+        />
       </div>
-      <button className="submit-button">Search</button>
+      <button
+        className="submit-button"
+        onClick={() => console.log(selectedExhibits, selectedTags, val)}
+      >
+        Search
+      </button>
     </ThemeProvider>
   );
 }
