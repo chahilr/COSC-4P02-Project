@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import SelectButton from '../components/SelectButton';
 import ancientgreece from '../../images/ancient-greece.png';
 import ancientrome from '../../images/ancient-rome.png';
@@ -8,9 +7,7 @@ import museum from '../../images/museum.png';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
-  /** Handles mousing over any of the exhibit buttons.
-   * @TODO: Add transition to the background image change.
-   */
+  /** Handles mousing over any of the exhibit buttons. */
   const handleMouseEnter = (event) => {
     const target = event.target;
     const button_id = target.innerText.toLowerCase().replace(/\s/g, '');
@@ -32,6 +29,7 @@ export default function Home() {
       case 'persianempire':
         image_id = { persianempire }.persianempire;
         break;
+      default:
     }
     const homeDiv = document.querySelector('.home');
     homeDiv.style.background = 'url(' + image_id + ')';
@@ -78,7 +76,7 @@ export default function Home() {
 
       <div className="center">
         <ul id="main-button-group">
-          <Link to="/customizer">
+          <Link to="/customizer" style={{ textDecoration: 'none' }}>
             <li className="landing-page-main-button">
               Create Personalized Timeline
             </li>
@@ -98,37 +96,21 @@ export default function Home() {
       <ul id="exhibit-options-list">
         {/* First set of buttons, further apart */}
         <div id="exhibit-options-r1">
-          <li>
-            <SelectButton
-              name="Ancient Greece"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            />
+          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <SelectButton name="Ancient Greece" />
           </li>
-          <li>
-            <SelectButton
-              name="Ancient Rome"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            />
+          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <SelectButton name="Ancient Rome" />
           </li>
         </div>
 
         {/* Second set of buttons, closer together */}
         <div id="exhibit-options-r2">
-          <li>
-            <SelectButton
-              name="Ancient Egypt"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            />
+          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <SelectButton name="Ancient Egypt" />
           </li>
-          <li>
-            <SelectButton
-              name="Persian Empire"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            />
+          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <SelectButton name="Persian Empire" />
           </li>
         </div>
       </ul>

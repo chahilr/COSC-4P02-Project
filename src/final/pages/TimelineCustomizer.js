@@ -3,6 +3,7 @@ import { useState } from 'react';
 import YearRangeSlider from '../components/YearRangeSlider';
 import { createTheme, colors, ThemeProvider } from '@mui/material';
 
+// Theme for Slider
 const theme = createTheme({
   palette: {
     secondary: {
@@ -13,6 +14,7 @@ const theme = createTheme({
 
 export default function TimelineCustomizer() {
   const [selectedExhibits, setSelectedExhibits] = useState(
+    // stores what exhibits are clicked
     new Map([
       ['Ancient Greece', false],
       ['Ancient Rome', false],
@@ -21,6 +23,7 @@ export default function TimelineCustomizer() {
     ])
   );
   const [selectedTags, setSelectedTags] = useState(
+    // stores what tags are clicked
     new Map([
       ['Paintings', false],
       ['Technology', false],
@@ -29,8 +32,9 @@ export default function TimelineCustomizer() {
     ])
   );
 
-  const [val, setVal] = useState([-1000, 1000]);
+  const [yearRange, setYearRange] = useState([-1000, 1000]); // stores [start year, end year] from slider
 
+  // handles button clicks
   function toggle(buttonName) {
     if (selectedExhibits.get(buttonName) !== undefined) {
       setSelectedExhibits(
@@ -51,6 +55,7 @@ export default function TimelineCustomizer() {
     }
   }
 
+  // when search button is clicked, user inputs are retrieved.
   function getUserInputs() {
     let exhibitKeys = [];
     for (let key of selectedExhibits.keys()) {
@@ -64,7 +69,7 @@ export default function TimelineCustomizer() {
         tagKeys.push(key);
       }
     }
-    console.log(exhibitKeys, tagKeys, val);
+    console.log(exhibitKeys, tagKeys, yearRange);
   }
 
   return (
@@ -92,15 +97,17 @@ export default function TimelineCustomizer() {
           <div style={{ clear: 'both' }}></div>
         </div>
       </div>
+
       <h4 className="instruction-heading">Select one or more exhibits</h4>
       <div className="button-row">
+        {/* Row of Exhibit Buttons */}
         <SelectButton name="Ancient Greece" onClick={toggle} />
         <SelectButton name="Ancient Rome" onClick={toggle} />
         <SelectButton name="Ancient Egypt" onClick={toggle} />
         <SelectButton name="Persian Empire" onClick={toggle} />
       </div>
       <h4 className="instruction-heading">Select one or more tags</h4>
-      {/* Create Personalized Timeline and Search for Artifact */}
+      {/* Row of Tag Buttons */}
       <div className="button-row">
         <SelectButton name="Paintings" onClick={toggle} />
         <SelectButton name="Technology" onClick={toggle} />
@@ -109,10 +116,11 @@ export default function TimelineCustomizer() {
       </div>
       <h4 className="instruction-heading">Filter your date range</h4>
       <div style={{ width: '80%', margin: '75px auto' }}>
+        {/* Slider */}
         <YearRangeSlider
-          value={val}
+          value={yearRange}
           onChange={(e, data) => {
-            setVal(data);
+            setYearRange(data);
           }}
         />
       </div>
