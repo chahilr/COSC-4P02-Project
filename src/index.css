@@ -108,7 +108,6 @@ div.home {
 
   width: 25vw;
   padding: 25px 0px;
-  margin: 1vw;
   border-radius: 20px;
 
   transition-duration: 500ms;
@@ -161,7 +160,7 @@ div.home {
 #exhibit-options-r1 {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2em;
+  margin-bottom: 4em;
 }
 
 /* Spaces the second row of buttons appropriately for desktop styles */

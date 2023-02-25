@@ -27,7 +27,10 @@ const SelectButton = (props) => {
         props.onMouseLeave?.();
         handleMouseLeave();
       }}
-      style={{ backgroundColor: clicked || hover ? '#EA252E' : '#7C7B81' }}
+      style={{
+        backgroundColor: clicked || hover ? '#EA252E' : '#7C7B81',
+        padding: hover ? '2vw' : '1vw',
+      }}
     >
       {props.name}
     </button>
