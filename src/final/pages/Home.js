@@ -8,13 +8,6 @@ import museum from '../../images/museum.png';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
-  useEffect(() => {
-    document.body.className = 'home';
-    return () => {
-      document.body.className = '';
-    };
-  });
-
   /** Handles mousing over any of the exhibit buttons.
    * @TODO: Add transition to the background image change.
    */
@@ -40,8 +33,9 @@ export default function Home() {
         image_id = { persianempire }.persianempire;
         break;
     }
-    document.body.style.background = 'url(' + image_id + ')';
-    document.body.style.transitionDuration = '1s';
+    const homeDiv = document.querySelector('.home');
+    homeDiv.style.background = 'url(' + image_id + ')';
+    homeDiv.style.transitionDuration = '200ms';
   };
 
   /** Handles mousing away from a button... changes the background image back to default
@@ -49,12 +43,14 @@ export default function Home() {
    */
   const handleMouseLeave = (event) => {
     const image_id = { museum }.museum;
-    document.body.style.background = 'url(' + image_id + ')';
-    document.body.style.transitionDuration = '1s';
+    console.log(event.target);
+    const homeDiv = document.querySelector('.home');
+    homeDiv.style.background = 'url(' + image_id + ')';
+    homeDiv.style.transitionDuration = '200ms';
   };
 
   return (
-    <>
+    <div className="home">
       <div id="logo-and-language">
         {/* Logo */}
         <div className="logo">
@@ -137,6 +133,6 @@ export default function Home() {
           </li>
         </div>
       </ul>
-    </>
+    </div>
   );
 }

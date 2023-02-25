@@ -23,7 +23,8 @@
 }
 
 /* Homepage Background */
-body.home {
+div.home {
+  height: 100vh;
   background: url('images/museum.png');
   background-repeat: no-repeat;
   background-position: center;
