@@ -15,24 +15,24 @@ export default function Home() {
 
     switch (button_id) {
       case 'ancientgreece':
-        image_id = { ancientgreece }.ancientgreece;
+        image_id = ancientgreece;
         break;
 
       case 'ancientrome':
-        image_id = { ancientrome }.ancientrome;
+        image_id = ancientrome;
         break;
 
       case 'ancientegypt':
-        image_id = { ancientegypt }.ancientegypt;
+        image_id = ancientegypt;
         break;
 
       case 'persianempire':
-        image_id = { persianempire }.persianempire;
+        image_id = persianempire;
         break;
       default:
     }
     const homeDiv = document.querySelector('.home');
-    homeDiv.style.background = 'url(' + image_id + ')';
+    homeDiv.style.backgroundImage = 'url(' + image_id + ')';
     homeDiv.style.transitionDuration = '200ms';
   };
 
@@ -40,9 +40,9 @@ export default function Home() {
    * @TODO: Add transition to background image change.
    */
   const handleMouseLeave = (event) => {
-    const image_id = { museum }.museum;
+    const image_id = museum;
     const homeDiv = document.querySelector('.home');
-    homeDiv.style.background = 'url(' + image_id + ')';
+    homeDiv.style.backgroundImage = 'url(' + image_id + ')';
     homeDiv.style.transitionDuration = '200ms';
   };
 
@@ -76,7 +76,7 @@ export default function Home() {
 
       <div className="center">
         <ul id="main-button-group">
-          <Link to="/customizer" style={{ textDecoration: 'none' }}>
+          <Link className="landing-page-main-button-link" to="/customizer">
             <li className="landing-page-main-button">
               Create Personalized Timeline
             </li>

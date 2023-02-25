@@ -29,7 +29,7 @@ const SelectButton = (props) => {
       }}
       style={{
         backgroundColor: clicked || hover ? '#EA252E' : '#7C7B81',
-        padding: hover ? '2vw' : '1vw',
+        // padding: hover ? '2vw' : '1vw',
       }}
     >
       {props.name}

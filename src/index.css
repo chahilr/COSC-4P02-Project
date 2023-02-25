@@ -34,9 +34,6 @@ div.home {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
-  -webkit-transition: background-image 0.2s ease-in-out;
-  transition: background-image 0.2s ease-in-out;
 }
 
 
@@ -203,10 +200,16 @@ div.home {
   border-radius: 20px;
 }
 
+.landing-page-main-button-link {
+  text-decoration: none;
+}
+
+.landing-page-main-button-link:visited {
+  color: var(--black);
+}
+
 #landing-page-artifact-search-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   width: 675px;
   height: 59px;
 
