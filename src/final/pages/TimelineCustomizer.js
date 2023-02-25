@@ -12,32 +12,59 @@ const theme = createTheme({
 });
 
 export default function TimelineCustomizer() {
-  // TODO: Clicking buttons does not always flip boolean for exhibits/tags
-  let selectedExhibits = {
-    'Ancient Greece': false,
-    'Ancient Rome': false,
-    'Ancient Egypt': false,
-    'Persian Empire': false,
-  };
-  let selectedTags = {
-    Paintings: false,
-    Technology: false,
-    Weapons: false,
-    Tools: false,
-  };
+  const [selectedExhibits, setSelectedExhibits] = useState(
+    new Map([
+      ['Ancient Greece', false],
+      ['Ancient Rome', false],
+      ['Ancient Egypt', false],
+      ['Persian Empire', false],
+    ])
+  );
+  const [selectedTags, setSelectedTags] = useState(
+    new Map([
+      ['Paintings', false],
+      ['Technology', false],
+      ['Weapons', false],
+      ['Tools', false],
+    ])
+  );
 
   const [val, setVal] = useState([-1000, 1000]);
 
   function toggle(buttonName) {
-    if (selectedExhibits[buttonName] != null) {
-      selectedExhibits[buttonName] = !selectedExhibits[buttonName];
+    if (selectedExhibits.get(buttonName) !== undefined) {
+      setSelectedExhibits(
+        (prevSelectedExhibits) =>
+          new Map([
+            ...prevSelectedExhibits,
+            [buttonName, !selectedExhibits.get(buttonName)],
+          ])
+      );
     } else {
-      selectedTags[buttonName] = !selectedTags[buttonName];
+      setSelectedTags(
+        (prevSelectedTags) =>
+          new Map([
+            ...prevSelectedTags,
+            [buttonName, !selectedTags.get(buttonName)],
+          ])
+      );
     }
-    // console.log(
-    //   Object.keys(selectedExhibits).filter((key) => selectedExhibits[key])
-    // );
-    // console.log(Object.keys(selectedTags).filter((key) => selectedTags[key]));
+  }
+
+  function getUserInputs() {
+    let exhibitKeys = [];
+    for (let key of selectedExhibits.keys()) {
+      if (selectedExhibits.get(key)) {
+        exhibitKeys.push(key);
+      }
+    }
+    let tagKeys = [];
+    for (let key of selectedTags.keys()) {
+      if (selectedTags.get(key)) {
+        tagKeys.push(key);
+      }
+    }
+    console.log(exhibitKeys, tagKeys, val);
   }
 
   return (
@@ -89,10 +116,7 @@ export default function TimelineCustomizer() {
           }}
         />
       </div>
-      <button
-        className="submit-button"
-        onClick={() => console.log(selectedExhibits, selectedTags, val)}
-      >
+      <button className="submit-button" onClick={getUserInputs}>
         Search
       </button>
     </ThemeProvider>
