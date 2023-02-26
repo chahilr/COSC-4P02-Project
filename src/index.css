@@ -35,10 +35,10 @@ div.home {
   -o-background-size: cover;
   background-size: cover;
 
-  -webkit-transition: background-image 250ms ease-in-out;
-  -moz-transition: background-image 250ms ease-in-out;
-  -o-transition: background-image 250ms ease-in-out;
-  transition: background-image 250ms ease-in-out;
+  -webkit-transition: background-image 200ms ease-in-out;
+  -moz-transition: background-image 200ms ease-in-out;
+  -o-transition: background-image 200ms ease-in-out;
+  transition: background-image 200ms ease-in-out;
 }
 
 
