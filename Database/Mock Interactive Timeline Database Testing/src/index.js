@@ -9,7 +9,7 @@ import {queryTagsExhibitsYearRange,queryTags,queryYearRange,queryName,queryExhib
     addArtifact,updateArtifactDescription,updateArtifactExhibit,updateArtifactName,updateArtifactYear,
     addArtifactPhotos,removeArtifactPhotos,updateArtifactPhotos,addArtifactVideos,removeArtifactVideos,
     updateArtifactVideos,addArtifactTags,removeArtifactTags,updateArtifactTags,addData, getArtifact, deleteArtifact,
-    removeRelated, addRelated, updateRelated} from './fireStoreFunctions.js'
+    removeRelated, addRelated, updateRelated} from './firestoreFunctions.js'
 
 
 /* EXAMPLE CALLS */
