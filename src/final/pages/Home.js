@@ -33,7 +33,6 @@ export default function Home() {
     }
     const homeDiv = document.querySelector('.home');
     homeDiv.style.backgroundImage = 'url(' + image_id + ')';
-    homeDiv.style.transitionDuration = '200ms';
   };
 
   /** Handles mousing away from a button... changes the background image back to default
@@ -43,7 +42,6 @@ export default function Home() {
     const image_id = museum;
     const homeDiv = document.querySelector('.home');
     homeDiv.style.backgroundImage = 'url(' + image_id + ')';
-    homeDiv.style.transitionDuration = '200ms';
   };
 
   return (

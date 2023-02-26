@@ -34,6 +34,11 @@ div.home {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+  -webkit-transition: background-image 250ms ease-in-out;
+  -moz-transition: background-image 250ms ease-in-out;
+  -o-transition: background-image 250ms ease-in-out;
+  transition: background-image 250ms ease-in-out;
 }
 
 
@@ -201,6 +206,7 @@ div.home {
 }
 
 .landing-page-main-button-link {
+  color: var(--black);
   text-decoration: none;
 }
 
