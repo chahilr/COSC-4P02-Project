@@ -1,0 +1,27 @@
+.timeline-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-segment {
+    display: flex;
+}
+
+.timeline-image {
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: var(--black);
+}
+
+.timeline-line {
+    width: 40px;
+    height: 200px;
+    margin: 0px 50px;
+    background-color: var(--red);
+}
