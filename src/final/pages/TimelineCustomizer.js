@@ -2,6 +2,7 @@ import SelectButton from '../components/SelectButton';
 import { useState } from 'react';
 import YearRangeSlider from '../components/YearRangeSlider';
 import { createTheme, colors, ThemeProvider } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 // Theme for Slider
 const theme = createTheme({
@@ -124,9 +125,14 @@ export default function TimelineCustomizer() {
           }}
         />
       </div>
-      <button className="submit-button" onClick={getUserInputs}>
-        Search
-      </button>
+      <Link
+        style={{ textDecoration: 'none', backgroundColor: 'white' }}
+        to="/timeline"
+      >
+        <button className="submit-button" onClick={getUserInputs}>
+          Search
+        </button>
+      </Link>
     </ThemeProvider>
   );
 }
