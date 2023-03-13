@@ -70,7 +70,7 @@ export default function TimelineCustomizer() {
         tagKeys.push(key);
       }
     }
-    console.log(exhibitKeys, tagKeys, yearRange);
+    return { exhibitKeys, tagKeys, yearRange };
   }
 
   return (
@@ -128,6 +128,7 @@ export default function TimelineCustomizer() {
       <Link
         style={{ textDecoration: 'none', backgroundColor: 'white' }}
         to="/timeline"
+        state={getUserInputs()}
       >
         <button className="submit-button" onClick={getUserInputs}>
           Search
