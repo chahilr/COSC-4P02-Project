@@ -125,15 +125,20 @@ export default function TimelineCustomizer() {
           }}
         />
       </div>
-      <Link
-        style={{ textDecoration: 'none', backgroundColor: 'white' }}
-        to="/timeline"
-        state={getUserInputs()}
-      >
-        <button className="submit-button" onClick={getUserInputs}>
-          Search
-        </button>
-      </Link>
+      <div style={{ textAlign: 'center' }}>
+        <Link
+          style={{
+            textDecoration: 'none',
+            display: 'inline-block',
+          }}
+          to="/timeline"
+          state={getUserInputs()}
+        >
+          <button className="submit-button" onClick={getUserInputs}>
+            Search
+          </button>
+        </Link>
+      </div>
     </ThemeProvider>
   );
 }
