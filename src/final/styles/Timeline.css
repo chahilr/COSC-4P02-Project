@@ -1,10 +1,18 @@
+.background {
+    position: fixed;
+    overflow-y: scroll;
+    background-color: var(--black);
+    width: 100vw;
+    height: 100vh;
+}
+
 .timeline-container {
     position: absolute;
     top: 0;
-    left: 50%;
-    right: 50%;
     display: flex;
+    margin: 0 50%;
     justify-content: center;
+    flex-flow: column wrap;
 }
 
 .timeline-segment {
