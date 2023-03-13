@@ -1,16 +1,24 @@
 import '../styles/Timeline.css';
 import '../../utils/firestoreFunctions';
-import { getArtifact } from '../../utils/firestoreFunctions';
+import { queryTagsExhibitsYearRange } from '../../utils/firestoreFunctions';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-export default function Timeline(props) {
+export default function Timeline() {
+  const { state } = useLocation();
   const [artifacts, setArtifacts] = useState();
 
   useEffect(() => {
     const fetchArtifacts = async () => {
-      await getArtifact('08C1DHn7Wp6kD0v87HFo').then((val) =>
-        setArtifacts(val.Photos[0])
-      );
+      await queryTagsExhibitsYearRange(
+        state.exhibitKeys,
+        state.tagKeys,
+        state.yearRange[0],
+        state.yearRange[1]
+      ).then((val) => {
+        setArtifacts(val);
+        console.log(val);
+      });
     };
     fetchArtifacts();
   }, []);
@@ -47,11 +55,21 @@ export default function Timeline(props) {
       </div>
 
       <div className="timeline-container">
-        <div className="timeline-segment">
-          <img className="timeline-image" src={artifacts} alt="Artifact" />
-          <div className="timeline-line"></div>
-          <img className="timeline-image" src={artifacts} alt="Artifact" />
-        </div>
+        {/* {artifacts.map((artifact) =>  (
+            <div className="timeline-segment">
+              <img
+                className="timeline-image"
+                src={artifact.Photos[0]}
+                alt="Artifact"
+              />
+              <div className="timeline-line"></div>
+              <img
+                className="timeline-image"
+                src={artifact.Photos[0]}
+                alt="Artifact"
+              />
+            </div>
+          ))} */}
       </div>
     </>
   );
