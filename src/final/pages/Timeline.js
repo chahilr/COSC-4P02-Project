@@ -6,25 +6,24 @@ import { useLocation } from 'react-router-dom';
 
 export default function Timeline() {
   const { state } = useLocation();
-  const [artifacts, setArtifacts] = useState();
+  const [artifacts, setArtifacts] = useState([]);
 
   useEffect(() => {
-    const fetchArtifacts = async () => {
-      await queryTagsExhibitsYearRange(
-        state.exhibitKeys,
-        state.tagKeys,
-        state.yearRange[0],
-        state.yearRange[1]
-      ).then((val) => {
-        setArtifacts(val);
-        console.log(val);
-      });
-    };
-    fetchArtifacts();
+    queryTagsExhibitsYearRange(
+      state.exhibitKeys,
+      state.tagKeys,
+      state.yearRange[0],
+      state.yearRange[1]
+    ).then((val) => {
+      setArtifacts(val);
+      console.log(val);
+    });
   }, []);
 
+  // useEffect(() => {}, [retrievedArtifacts]);
+
   return (
-    <>
+    <div className="background">
       <div
         id="logo-and-language"
         style={{
@@ -45,9 +44,9 @@ export default function Timeline() {
           </div>
 
           <div className="logo-text">
-            <span style={{ color: 'black' }}>Canadian Museum of History</span>
-            <hr style={{ borderColor: 'black' }}></hr>
-            <span style={{ color: 'black' }}>Museé Canadien de L'Histoire</span>
+            <span style={{ color: 'white' }}>Canadian Museum of History</span>
+            <hr style={{ borderColor: 'white' }}></hr>
+            <span style={{ color: 'white' }}>Museé Canadien de L'Histoire</span>
           </div>
 
           <div style={{ clear: 'both' }}></div>
@@ -55,22 +54,22 @@ export default function Timeline() {
       </div>
 
       <div className="timeline-container">
-        {/* {artifacts.map((artifact) =>  (
-            <div className="timeline-segment">
-              <img
-                className="timeline-image"
-                src={artifact.Photos[0]}
-                alt="Artifact"
-              />
-              <div className="timeline-line"></div>
-              <img
-                className="timeline-image"
-                src={artifact.Photos[0]}
-                alt="Artifact"
-              />
-            </div>
-          ))} */}
+        {artifacts.map((artifact) => (
+          <div key={artifact[0]} className="timeline-segment">
+            <img
+              className="timeline-image"
+              src={artifact[1].Photos[0]}
+              alt="Artifact"
+            />
+            <div className="timeline-line"></div>
+            <img
+              className="timeline-image"
+              src={artifact[1].Photos[0]}
+              alt="Artifact"
+            />
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }
