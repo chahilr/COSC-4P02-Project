@@ -3,6 +3,7 @@ import '../../utils/firestoreFunctions';
 import { queryTagsExhibitsYearRange } from '../../utils/firestoreFunctions';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import ArtifactBubble from '../components/ArtifactBubble';
 
 export default function Timeline() {
   const { state } = useLocation();
@@ -56,17 +57,9 @@ export default function Timeline() {
       <div className="timeline-container">
         {artifacts.map((artifact) => (
           <div key={artifact[0]} className="timeline-segment">
-            <img
-              className="timeline-image"
-              src={artifact[1].Photos[0]}
-              alt="Artifact"
-            />
+            <ArtifactBubble artifact={artifact[1]} />
             <div className="timeline-line"></div>
-            <img
-              className="timeline-image"
-              src={artifact[1].Photos[0]}
-              alt="Artifact"
-            />
+            <ArtifactBubble artifact={artifact[1]} />
           </div>
         ))}
       </div>
