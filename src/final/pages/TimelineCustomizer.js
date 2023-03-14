@@ -129,16 +129,25 @@ export default function TimelineCustomizer() {
         />
       </div>
       <div style={{ textAlign: 'center' }}>
-        <Link
-          style={{
-            textDecoration: 'none',
-            display: 'inline-block',
-          }}
-          to={getUserInputs() != null ? '/timeline' : '#'}
-          state={getUserInputs()}
-        >
-          <button className="submit-button">Search</button>
-        </Link>
+        {getUserInputs() != null ? (
+          <Link
+            style={{
+              textDecoration: 'none',
+              display: 'inline-block',
+            }}
+            to={getUserInputs() != null ? '/timeline' : '#'}
+            state={getUserInputs()}
+          >
+            <button className="submit-button">Search</button>
+          </Link>
+        ) : (
+          <button
+            className="submit-button"
+            onClick={() => alert('Must add atleast 1 exhibit and tag!')}
+          >
+            Search
+          </button>
+        )}
       </div>
     </ThemeProvider>
   );
