@@ -7,6 +7,9 @@ import museum from '../../images/museum.png';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
+  const presetTags = ['Weapons', 'Paintings', 'Tools', 'Technology'];
+  const presetYearRange = [-2000, 2000];
+
   /** Handles mousing over any of the exhibit buttons. */
   const handleMouseEnter = (event) => {
     const target = event.target;
@@ -95,20 +98,56 @@ export default function Home() {
         {/* First set of buttons, further apart */}
         <div id="exhibit-options-r1">
           <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <SelectButton name="Ancient Greece" />
+            <Link
+              to="/timeline"
+              state={{
+                exhibitKeys: ['Ancient Greece'],
+                tagKeys: presetTags,
+                yearRange: presetYearRange,
+              }}
+            >
+              <SelectButton name="Ancient Greece" />
+            </Link>
           </li>
           <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <SelectButton name="Ancient Rome" />
+            <Link
+              to="/timeline"
+              state={{
+                exhibitKeys: ['Ancient Rome'],
+                tagKeys: presetTags,
+                yearRange: presetYearRange,
+              }}
+            >
+              <SelectButton name="Ancient Rome" />
+            </Link>
           </li>
         </div>
 
         {/* Second set of buttons, closer together */}
         <div id="exhibit-options-r2">
           <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <SelectButton name="Ancient Egypt" />
+            <Link
+              to="/timeline"
+              state={{
+                exhibitKeys: ['Ancient Egypt'],
+                tagKeys: presetTags,
+                yearRange: presetYearRange,
+              }}
+            >
+              <SelectButton name="Ancient Egypt" />
+            </Link>
           </li>
           <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <SelectButton name="Persian Empire" />
+            <Link
+              to="/timeline"
+              state={{
+                exhibitKeys: ['Persian Empire'],
+                tagKeys: presetTags,
+                yearRange: presetYearRange,
+              }}
+            >
+              <SelectButton name="Persian Empire" />
+            </Link>
           </li>
         </div>
       </ul>
