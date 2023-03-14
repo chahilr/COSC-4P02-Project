@@ -8,6 +8,7 @@ import ArtifactBubble from '../components/ArtifactBubble';
 export default function Timeline() {
   const { state } = useLocation();
   const [artifacts, setArtifacts] = useState([]);
+  let alternator = 0;
 
   useEffect(() => {
     queryTagsExhibitsYearRange(
@@ -55,13 +56,25 @@ export default function Timeline() {
       </div>
 
       <div className="timeline-container">
-        {artifacts.map((artifact) => (
-          <div key={artifact[0]} className="timeline-segment">
-            <ArtifactBubble artifact={artifact[1]} />
-            <div className="timeline-line"></div>
-            <ArtifactBubble artifact={artifact[1]} />
-          </div>
-        ))}
+        {artifacts.map((artifact) => {
+          if (alternator++ % 2 === 0) {
+            return (
+              <div key={artifact[0]} className="timeline-segment">
+                <ArtifactBubble visible={true} artifact={artifact[1]} />
+                <div className="timeline-line"></div>
+                <ArtifactBubble visible={false} artifact={artifact[1]} />
+              </div>
+            );
+          } else {
+            return (
+              <div key={artifact[0]} className="timeline-segment">
+                <ArtifactBubble visible={false} artifact={artifact[1]} />
+                <div className="timeline-line"></div>
+                <ArtifactBubble visible={true} artifact={artifact[1]} />
+              </div>
+            );
+          }
+        })}
       </div>
     </div>
   );

@@ -19,7 +19,10 @@ const ArtifactBubble = (props) => {
   return (
     <img
       className="timeline-image"
-      style={{ border: `5px solid ${color}` }}
+      style={{
+        border: `5px solid ${color}`,
+        visibility: props.visible ? 'visible' : 'hidden',
+      }}
       src={props.artifact.Photos[0]}
       alt="Artifact"
     />
