@@ -70,6 +70,9 @@ export default function TimelineCustomizer() {
         tagKeys.push(key);
       }
     }
+    if (exhibitKeys.length === 0 || tagKeys.length === 0) {
+      return null;
+    }
     return { exhibitKeys, tagKeys, yearRange };
   }
 
@@ -131,12 +134,10 @@ export default function TimelineCustomizer() {
             textDecoration: 'none',
             display: 'inline-block',
           }}
-          to="/timeline"
+          to={getUserInputs() != null ? '/timeline' : '#'}
           state={getUserInputs()}
         >
-          <button className="submit-button" onClick={getUserInputs}>
-            Search
-          </button>
+          <button className="submit-button">Search</button>
         </Link>
       </div>
     </ThemeProvider>
