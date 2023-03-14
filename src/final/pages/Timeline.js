@@ -18,7 +18,6 @@ export default function Timeline() {
       state.yearRange[1]
     ).then((val) => {
       setArtifacts(val);
-      console.log(val);
     });
   }, []);
 
