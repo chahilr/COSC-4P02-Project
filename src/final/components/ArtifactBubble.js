@@ -25,6 +25,7 @@ const ArtifactBubble = (props) => {
       }}
       src={props.artifact.Photos[0]}
       alt="Artifact"
+      onClick={props.onClick}
     />
   );
 };

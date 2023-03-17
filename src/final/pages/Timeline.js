@@ -1,13 +1,18 @@
 import '../styles/Timeline.css';
 import '../../utils/firestoreFunctions';
-import { queryTagsExhibitsYearRange } from '../../utils/firestoreFunctions';
+import {
+  getDescrption,
+  queryTagsExhibitsYearRange,
+} from '../../utils/firestoreFunctions';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ArtifactBubble from '../components/ArtifactBubble';
+import ArtifactPreview from '../components/ArtifactPreview';
 
 export default function Timeline() {
   const { state } = useLocation();
   const [artifacts, setArtifacts] = useState([]);
+  const [showPreview, setShowPreview] = useState(null);
   let alternator = 0;
 
   useEffect(() => {
@@ -21,10 +26,17 @@ export default function Timeline() {
     });
   }, []);
 
-  // useEffect(() => {}, [retrievedArtifacts]);
+  const handleArtifactClick = (artifact) => {
+    getDescrption(artifact[0]).then((description) => {
+      setShowPreview({
+        title: artifact[1].Name,
+        description: description.content,
+      });
+    });
+  };
 
   return (
-    <div className="background">
+    <div className="background" onClick={() => setShowPreview(null)}>
       <div
         id="logo-and-language"
         style={{
@@ -55,21 +67,43 @@ export default function Timeline() {
       </div>
 
       <div className="timeline-container">
+        {showPreview != null && (
+          <ArtifactPreview
+            title={showPreview.title}
+            description={showPreview.description}
+          />
+        )}
         {artifacts.map((artifact) => {
           if (alternator++ % 2 === 0) {
             return (
               <div key={artifact[0]} className="timeline-segment">
-                <ArtifactBubble visible={true} artifact={artifact[1]} />
+                <ArtifactBubble
+                  visible={true}
+                  artifact={artifact[1]}
+                  onClick={() => handleArtifactClick(artifact)}
+                />
                 <div className="timeline-line"></div>
-                <ArtifactBubble visible={false} artifact={artifact[1]} />
+                <ArtifactBubble
+                  visible={false}
+                  artifact={artifact[1]}
+                  onClick={() => handleArtifactClick(artifact)}
+                />
               </div>
             );
           } else {
             return (
               <div key={artifact[0]} className="timeline-segment">
-                <ArtifactBubble visible={false} artifact={artifact[1]} />
+                <ArtifactBubble
+                  visible={false}
+                  artifact={artifact[1]}
+                  onClick={() => handleArtifactClick(artifact)}
+                />
                 <div className="timeline-line"></div>
-                <ArtifactBubble visible={true} artifact={artifact[1]} />
+                <ArtifactBubble
+                  visible={true}
+                  artifact={artifact[1]}
+                  onClick={() => handleArtifactClick(artifact)}
+                />
               </div>
             );
           }
