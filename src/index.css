@@ -52,7 +52,7 @@ div.home {
 
 .logo {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .logo-image > img {
