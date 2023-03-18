@@ -12,7 +12,6 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/customizer" element={<TimelineCustomizer />} />
       <Route path="/artifact" element={<ArtifactOverview/>} />
-      
       <Route path="/addartifact" element={<AddArtifact/>} />      
     </Routes>
   );
