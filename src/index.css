@@ -182,7 +182,7 @@ div.home {
   align-items: center;
   list-style: none;
   gap: 1em;
-  padding-left: 0; /*Padding is being added to this somewhere else... overwriting here.*/
+  padding-left: 0!important; /*Padding is being added to this somewhere else... overwriting here.*/
 }
 
 .landing-page-main-button {

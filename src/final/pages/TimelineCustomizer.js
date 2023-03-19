@@ -105,18 +105,26 @@ export default function TimelineCustomizer() {
       <h4 className="instruction-heading">Select one or more exhibits</h4>
       <div className="button-row">
         {/* Row of Exhibit Buttons */}
-        <SelectButton name="Ancient Greece" onClick={toggle} />
-        <SelectButton name="Ancient Rome" onClick={toggle} />
-        <SelectButton name="Ancient Egypt" onClick={toggle} />
-        <SelectButton name="Persian Empire" onClick={toggle} />
+        <div class="customizer-button-group">
+          <SelectButton name="Ancient Greece" onClick={toggle} />
+          <SelectButton name="Ancient Rome" onClick={toggle} />
+        </div>
+        <div class="customizer-button-group">
+          <SelectButton name="Ancient Egypt" onClick={toggle} />
+          <SelectButton name="Persian Empire" onClick={toggle} />
+        </div>
       </div>
       <h4 className="instruction-heading">Select one or more tags</h4>
       {/* Row of Tag Buttons */}
       <div className="button-row">
-        <SelectButton name="Paintings" onClick={toggle} />
-        <SelectButton name="Technology" onClick={toggle} />
-        <SelectButton name="Weapons" onClick={toggle} />
-        <SelectButton name="Tools" onClick={toggle} />
+        <div class="customizer-button-group">
+          <SelectButton name="Paintings" onClick={toggle} />
+          <SelectButton name="Technology" onClick={toggle} />
+        </div>
+        <div class="customizer-button-group">
+          <SelectButton name="Weapons" onClick={toggle} />
+          <SelectButton name="Tools" onClick={toggle} />
+        </div>
       </div>
       <h4 className="instruction-heading">Filter your date range</h4>
       <div style={{ width: '80%', margin: '75px auto' }}>
