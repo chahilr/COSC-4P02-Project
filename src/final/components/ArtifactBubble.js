@@ -1,3 +1,5 @@
+import '../styles/ArtifactBubble.css';
+
 const ArtifactBubble = (props) => {
   let color;
   switch (props.artifact.Exhibition) {
@@ -17,16 +19,42 @@ const ArtifactBubble = (props) => {
       color = 'white';
   }
   return (
-    <img
-      className="timeline-image"
-      style={{
-        border: `5px solid ${color}`,
-        visibility: props.visible ? 'visible' : 'hidden',
-      }}
-      src={props.artifact.Photos[0]}
-      alt="Artifact"
-      onClick={props.onClick}
-    />
+    <>
+      {props.alternator % 2 !== 0 && (
+        <p
+          className="artifact-bubble-heading"
+          style={{
+            color: 'white',
+            visibility: props.visible ? 'visible' : 'hidden',
+          }}
+        >
+          {props.artifact.Name} | {props.artifact.Year}
+        </p>
+      )}
+
+      <img
+        className="timeline-image"
+        style={{
+          border: `5px solid ${color}`,
+          visibility: props.visible ? 'visible' : 'hidden',
+        }}
+        src={props.artifact.Photos[0]}
+        alt="Artifact"
+        onClick={props.onClick}
+      />
+
+      {props.alternator % 2 === 0 && (
+        <p
+          className="artifact-bubble-heading"
+          style={{
+            color: 'white',
+            visibility: props.visible ? 'visible' : 'hidden',
+          }}
+        >
+          {props.artifact.Name} | {props.artifact.Year}
+        </p>
+      )}
+    </>
   );
 };
 
