@@ -37,21 +37,6 @@ export default function AddArtifact() {
   
   //
 
-//image stuff
-const [myFile, setFile] = useState('');
-const input = document.querySelector("uploadFile")
-const output = document.querySelector("output")
-const image = null
-let imagesArray = []
-
-  function uploadFile(){
-  	alert("uploading");
-  	  	console.log("uploading");
-  	console.image(myFile);
-  }
-
-
-//
 
   return (
   
@@ -175,8 +160,6 @@ let imagesArray = []
                   <input
                     type="file"
                     accept="image/jpeg, image/png, image/jpg"
-                    onChange={uploadFile}
-                    value={myFile}
                     hidden
                   />
                 </Button>
@@ -209,7 +192,6 @@ let imagesArray = []
               </Button>
 
             </div>
-            <img id="myImage" src={myFile} />
           </div>
           
           <div>
@@ -248,7 +230,7 @@ let imagesArray = []
               onClick={onImageUpload}
               {...dragProps}
             >
-              Click or Drop here
+              Upload File (click or drop here)
             </button>
             &nbsp;
 
