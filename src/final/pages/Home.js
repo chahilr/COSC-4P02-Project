@@ -69,10 +69,10 @@ export default function Home() {
           <div style={{ clear: 'both' }}></div>
         </div>
 
-        {/* Language */}
+        {/* Language
         <div className="logo-text">
           <span>Language Select</span>
-        </div>
+        </div> */}
       </div>
 
       <div className="center">
