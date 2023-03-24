@@ -33,6 +33,7 @@ export default function Timeline() {
         year: artifact[1].Year,
         exhibit: artifact[1].Exhibition,
         description: description.content,
+        image: artifact[1].Photos[0],
       });
     });
   };
@@ -110,7 +111,33 @@ export default function Timeline() {
             }
           })}
         </div>
+        <Legend exhibits={state.exhibitKeys} />
       </div>
     </>
   );
 }
+
+const Legend = ({ exhibits }) => {
+  const color = {
+    'Ancient Greece': 'green',
+    'Ancient Rome': 'red',
+    'Ancient Egypt': 'blue',
+    'Persian Empire': 'yellow',
+  };
+
+  return (
+    <div className="legend-container">
+      <ul>
+        {exhibits.map((exhibit, id) => (
+          <li className={exhibit} key={id}>
+            <div
+              className="icon"
+              style={{ backgroundColor: color[exhibit] }}
+            ></div>
+            {exhibit}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};

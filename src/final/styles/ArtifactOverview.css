@@ -88,23 +88,30 @@
     bottom: 0;
     width: 90%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     padding: 40px;
   }
   
-  button {
-    color: white;
-    font-size: 16px;
-    background-color:#EA252E; /* Change background color to red */
-    border-radius: 20px;
-    padding: 13px 35px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  .button-container > button {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    background-color: var(--red);
+    color: var(--white);
+    border-style: none;
+    border-radius: 10px;
+  
+    display: flex;
+    margin: 0 5rem;
+    width: 20%;
+    justify-content: center;
+    padding: 10px 50px;
+    transition: all ease-in-out 200ms;
   }
   
-  button:hover {
-    background-color: #7C7B81;
+  .button-container > button:hover {
+    background-color: var(--white);
+    color: var(--red);
   }
   
   
