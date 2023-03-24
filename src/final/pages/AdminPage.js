@@ -1,9 +1,12 @@
-import React, { useState } from "react";
-import "../styles/AdminPage.css";
+
+import React, { useState } from 'react';
+import '../styles/AdminPage.css';
+import Logo from '../components/Logo';
 
 const Login = () => {
-  const [username, setUsername] = useState("Username");
-  const [password, setPassword] = useState("Password");
+  const [username, setUsername] = useState('Username');
+  const [password, setPassword] = useState('Password');
+
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
 
@@ -13,7 +16,7 @@ const Login = () => {
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-    setCapsLockOn(event.getModifierState("CapsLock"));
+
   };
 
   const handleShowPasswordClick = () => {
@@ -22,42 +25,33 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Submitted:", { username, password });
+    console.log('Submitted:', { username, password });
   };
 
   return (
-    <div className="login-container">
-      <div className="login-form">
+    <>
+      <div className="login-container">
         <form onSubmit={handleSubmit}>
-          <label>
+          <Logo color="var(--white)" />
+          <input id="username" placeholder="Username or Email"></input>
+          <span>
             <input
-              type="text"
-              value={username}
-              onChange={handleUsernameChange}
-              className={capsLockOn ? "caps-on" : ""}
-            />
-          </label>
-          <label>
-            <div className="password-input-container">
-              <input
-                type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={handlePasswordChange}
-                className={capsLockOn ? "caps-on" : ""}
-              />
-              <span
-                onClick={handleShowPasswordClick}
-                className="show-password-button"
-              >
-                {showPassword ? "Hide" : "Show"}
-              </span>
-            </div>
-          </label>
-          <button type="submit" style={{marginTop: "20px", fontSize: "0.8em"}}>Login</button>
+              id="password"
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Password"
+            ></input>
+            <button className="showButton" onClick={handleShowPasswordClick}>
+              {showPassword ? 'Hide' : 'Show'}
+            </button>
+          </span>
+
+          <button className="submit-button" type="submit-button">
+            Login
+          </button>
         </form>
       </div>
-    </div>
-    
+    </>
+
   );
 };
 
