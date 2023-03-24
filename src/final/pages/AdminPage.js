@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import '../styles/AdminPage.css';
 import Logo from '../components/Logo';
@@ -5,6 +6,7 @@ import Logo from '../components/Logo';
 const Login = () => {
   const [username, setUsername] = useState('Username');
   const [password, setPassword] = useState('Password');
+
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
 
@@ -14,7 +16,7 @@ const Login = () => {
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-    setCapsLockOn(event.getModifierState('CapsLock'));
+
   };
 
   const handleShowPasswordClick = () => {
@@ -49,6 +51,7 @@ const Login = () => {
         </form>
       </div>
     </>
+
   );
 };
 
