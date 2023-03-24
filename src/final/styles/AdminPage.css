@@ -1,0 +1,64 @@
+.login-container {
+    background-image: url('../../images/black-background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+  }
+  
+  .login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+
+  input[type="text"], input[type="password"] {
+    border: none;
+    width: 140%;
+    padding: 10%;
+    border-bottom: 2px solid #ccc;
+    background: transparent;
+  }
+  
+  
+  input.caps-on {
+    border-color: red;
+  }
+  
+  .password-input-container {
+    position: relative;
+  }
+  
+  .show-password-button {
+    position: absolute;
+    top: 60%;
+    left: 200px;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+  }
+  input {
+    color: white;
+  }
+  input:focus {
+    outline: none;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  button[type="submit"] {
+    font-size: 0.8em;
+    align-self: auto;
+  }
+  
