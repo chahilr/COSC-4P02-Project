@@ -1,0 +1,150 @@
+/* Homepage Background */
+.home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: url('../../images/museum.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    -webkit-transition: background-image 200ms ease-in-out;
+    -moz-transition: background-image 200ms ease-in-out;
+    -o-transition: background-image 200ms ease-in-out;
+    transition: background-image 200ms ease-in-out;
+}
+
+/* Styles each button on the home page */
+/* @TODO: Move some of these stylings to a general button target if needed */
+#exhibit-options-list>div>li>button {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+
+    background-color: var(--grey);
+    color: var(--white);
+
+    width: 33vw;
+    padding: 25px 0px;
+    border-radius: 20px;
+
+    transition-duration: 500ms;
+}
+
+/* Styles the UL that wraps all 4 exhibit buttons */
+#exhibit-options-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0em 2em;
+}
+
+/* Styles the home page exhibit buttons on hover */
+#exhibit-options-list>div>li>button:hover {
+    background-color: var(--red);
+}
+
+/* Spaces the first row of buttons appropriately for desktop styles */
+#exhibit-options-r1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4em;
+}
+
+/* Spaces the second row of buttons appropriately for desktop styles */
+#exhibit-options-r2 {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* ╚⏤⏤⏤⏤╗ Homepage Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
+
+
+/* ╔⏤⏤⏤⏤╝ Homepage Time/Search Button/Button-wrappers ╚⏤⏤⏤⏤╗*/
+
+#main-button-group {
+    display: flex;
+    margin-top: 8em;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 1em;
+}
+
+.landing-page-main-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 59px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+
+    background: var(--white);
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.landing-page-main-button-link {
+    color: var(--black);
+    text-decoration: none;
+}
+
+.landing-page-main-button-link:visited {
+    color: var(--black);
+}
+
+#landing-page-artifact-search-bar {
+    text-align: center;
+    width: 675px;
+    height: 60px;
+    padding: 0 15px !important;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    color: var(--black);
+
+    background: var(--white);
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+
+
+/* ╔⏤⏤⏤⏤╝ Banners ╚⏤⏤⏤⏤╗*/
+
+.translucent-banner {
+    /* position: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 61px;
+    width: 100vw;
+    margin: 2em 0em;
+
+    background: var(--translucent-red);
+    color: var(--white);
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+}
+
+/* ╚⏤⏤⏤⏤╗ Banners ╔⏤⏤⏤⏤╝*/

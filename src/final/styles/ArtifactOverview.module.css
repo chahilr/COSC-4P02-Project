@@ -1,11 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--black);
+  height: 100dvh;
+}
 .artifact-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin: 0 0;
-    padding: 0px 50px;
-    background-color: black;
-    height: 100vh;
+    padding: 20dvh 50px 0 50px;
   }
   
   .artifact-text {
@@ -22,8 +26,8 @@
   }
   
   .artifact-image img {
-    max-width: 100%;
-    height: auto;
+    width: auto;
+    height: 50dvh;
     border-radius: 40px;
   }
   

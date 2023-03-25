@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import '../styles/AdminPage.css';
+import styles from '../styles/AdminPage.module.css';
 import Logo from '../components/Logo';
 
 const Login = () => {
@@ -16,7 +15,6 @@ const Login = () => {
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-
   };
 
   const handleShowPasswordClick = () => {
@@ -30,17 +28,25 @@ const Login = () => {
 
   return (
     <>
-      <div className="login-container">
+      <div className={styles['login-container']}>
         <form onSubmit={handleSubmit}>
           <Logo color="var(--white)" />
-          <input id="username" placeholder="Username or Email"></input>
+          <input
+            id="username"
+            className={styles['login-field']}
+            placeholder="Username or Email"
+          ></input>
           <span>
             <input
               id="password"
+              className={styles['login-field']}
               type={showPassword ? 'text' : 'password'}
               placeholder="Password"
             ></input>
-            <button className="showButton" onClick={handleShowPasswordClick}>
+            <button
+              className={styles['showButton']}
+              onClick={handleShowPasswordClick}
+            >
               {showPassword ? 'Hide' : 'Show'}
             </button>
           </span>
@@ -51,7 +57,6 @@ const Login = () => {
         </form>
       </div>
     </>
-
   );
 };
 
