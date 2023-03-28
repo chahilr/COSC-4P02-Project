@@ -1,5 +1,5 @@
 # Node Modules ( 'npm start express' > 'npm start' for each user )
-node_modules
+/node_modules
 
 # Logs
 logs
