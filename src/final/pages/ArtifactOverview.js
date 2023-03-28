@@ -1,6 +1,7 @@
+import styles from '../styles/ArtifactOverview.module.css';
 import React from 'react';
 import '../../mobile.css';
-import '../styles/ArtifactOverview.module.css';
+import { useLocation } from 'react-router-dom';
 
 
 export default function ArtifactOverview() {

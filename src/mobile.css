@@ -2,66 +2,9 @@
 
 /* ╔⏤⏤⏤⏤╝ HOME PAGE ╚⏤⏤⏤⏤╗*/
 
-
-/* ╔⏤⏤⏤⏤╝ Museum Text ╚⏤⏤⏤⏤╗*/
-  .logo-text > span {
-    font-size: 18px !important;
-  }
-/* ╚⏤⏤⏤⏤╗ Museum Text ╔⏤⏤⏤⏤╝*/
-
-/* ╔⏤⏤⏤⏤╝ Banners ╚⏤⏤⏤⏤╗*/
-  .translucent-banner {
-    margin: 1em 0em;
-    font-size: 22px;
-  }
-/* ╚⏤⏤⏤⏤╗ Banners ╔⏤⏤⏤⏤╝*/
-
-/* ╔⏤⏤⏤⏤╝ Artifact Search/Timeline Generation ╚⏤⏤⏤⏤╗*/
-  .landing-page-main-button {
-    width: 95vw;
-    height: 2em;
-    font-size: 22px;
-  }
-
-  #landing-page-artifact-search-bar {
-    width: 95vw;
-    height: 2em;
-    font-size: 22px;
-  }
-/* ╚⏤⏤⏤⏤╗ Artifact Search/Timeline Generation ╔⏤⏤⏤⏤╝*/
-
-
-/* ╔⏤⏤⏤⏤╝ Homepage Exhibit Buttons/Button-wrappers ╚⏤⏤⏤⏤╗*/
-  #exhibit-options-list {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-  }
-
-  #exhibit-options-list > div > li > a > .option-button {
+  .option-button {
     width: 75vw !important;
   }
-
-  /* Spaces the first row of buttons appropriately for desktop styles */
-  #exhibit-options-r1 {
-    flex-direction: column;
-    gap: 1em;
-    margin-bottom: 1em;
-  }
-
-  /* Spaces the second row of buttons appropriately for desktop styles */
-  #exhibit-options-r2 {
-    flex-direction: column;
-    gap: 1em;
-  }
-
-  #exhibit-options-list > div > li > a > .option-button {
-    font-size: 18px;
-    padding: 22px 0px;
-    border-radius: 20px;
-  }
-/* ╚⏤⏤⏤⏤╗ Homepage Exhibit Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
 
 /* ╚⏤⏤⏤⏤╗ HOME PAGE ╔⏤⏤⏤⏤╝*/
 
@@ -84,6 +27,12 @@
     text-align: center;
     width: 45%;
     padding: 0.8em 0em;
+  }
+  .search-button-container {
+    padding-bottom: 2em;
+  }
+  .slider-container {
+    margin-bottom: 2em !important;
   }
 
 }

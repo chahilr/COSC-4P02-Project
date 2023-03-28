@@ -106,7 +106,7 @@ export default function TimelineCustomizer() {
         </div>
       </div>
       <h4 className="instruction-heading">Filter your date range</h4>
-      <div style={{ width: '80%', margin: '75px auto' }}>
+      <div style={{ width: '80%', margin: '75px auto' }} className="slider-container">
         {/* Slider */}
         <YearRangeSlider
           value={yearRange}
@@ -115,7 +115,7 @@ export default function TimelineCustomizer() {
           }}
         />
       </div>
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'center' }} className="search-button-container">
         {getUserInputs() != null ? (
           <Link
             style={{
