@@ -137,8 +137,8 @@ export default function Timeline() {
                                 <ListItemAvatar>
                                 <Avatar></Avatar>
                                 </ListItemAvatar>
-                                <ListItemText primary="Photos" secondary="Jan 9, 2014" />
-                                    <p>{artifact.Name}    {artifact.Exhibition}    {artifact.Year} {console.log(artifact)}</p>
+                                <ListItemText primary={artifact.Name}  secondary={artifact.Year}  />
+                                    <p>   {artifact.Exhibition}     {console.log(artifact)}</p>
                                 
                                 </ListItem> 
                             )
