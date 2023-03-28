@@ -140,6 +140,8 @@ async function addArtifactPhotos(id, photos){
     return "Done";
 }
 
+
+
 //This method will add photos to the given artifact
 async function removeArtifactPhotos(id, photos){
     let artifact = doc(firestore, 'Artifacts/'+id);
@@ -292,6 +294,19 @@ async function getDescrption(id){
     let artifact = doc(firestore, 'Artifacts/'+id+"/Description/1");
     const docSnap = await getDoc(artifact);
     return docSnap.data();
+}
+
+//get all artifacts
+async function getAllArtifacts() {
+    try {
+        const docsSnap = await getDocs(colRef);
+        docsSnap.forEach(doc => {
+            console.log(doc.data());
+            
+        })
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 async function getArtifact(id){
@@ -464,5 +479,5 @@ export {queryTagsExhibitsYearRange,queryTags,queryYearRange,queryName,queryExhib
     addArtifact,updateArtifactDescription,updateArtifactExhibit,updateArtifactName,updateArtifactYear,
     addArtifactPhotos,removeArtifactPhotos,updateArtifactPhotos,addArtifactVideos,removeArtifactVideos,
     updateArtifactVideos,addArtifactTags,removeArtifactTags,updateArtifactTags,addData, getArtifact, 
-    deleteArtifact, removeRelated, addRelated, updateRelated
+    deleteArtifact, removeRelated, addRelated, updateRelated, getAllArtifacts
 };

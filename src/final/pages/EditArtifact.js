@@ -25,7 +25,7 @@ const theme = createTheme({
       main: colors.red[500],
     },
   },
-});
+}); 
 
 export default function EditArtifact() {
 

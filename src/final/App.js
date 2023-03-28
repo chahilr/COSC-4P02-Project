@@ -23,10 +23,11 @@ function App() {
         <Route path="/admin" element={<AdminPage />} />
         <Route element={<AdminRoutes />}>
           <Route path="/adminHome" element={<AdminHome />} />
-          <Route path="/addartifact" element={<AddArtifact/>} />      
-      <Route path="/editartifact" element={<EditArtifact/>} />
-      <Route path="/artifactlist" element={<Artifactlist/>} />
         </Route>
+        <Route path="/addartifact" element={<AddArtifact/>} />      
+        <Route path="/editartifact" element={<EditArtifact/>} />
+        <Route path="/artifactlist" element={<Artifactlist/>} />
+        
       </Routes>
     </AuthenticationContext>
 

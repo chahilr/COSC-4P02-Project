@@ -1,194 +1,157 @@
-import SelectButton from '../components/SelectButton';
-import { useState } from 'react';
-import TimelineItem from '../components/TimelineItem';
-//import FileUpload from '../components/FileUpload';
-import { createTheme, colors, ThemeProvider, Slider, Box, TextField, MenuItem, FormControl, InputLabel, Select, Button, Input} from '@mui/material';
 
-import '../styles/EditArtifact.css';
-//image upload stuff
-import React from 'react';
-import ImageUploading from 'react-images-uploading';
-import {useLocation} from 'react-router-dom';
+import '../styles/ArtifactList.css';
+import '../../utils/firestoreFunctions';
+import { Link } from 'react-router-dom';
+import {
+  getDescrption,
+  queryTagsExhibitsYearRange,
+  getAllArtifacts
+} from '../../utils/firestoreFunctions';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import ArtifactBubble from '../components/ArtifactBubble';
+import ArtifactPreview from '../components/ArtifactPreview';
+import { initializeApp } from "firebase/app";
+import { collection,getFirestore, doc, getDocs } from 'firebase/firestore';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
 
+export default function Timeline() {
 
-
-/**
- * Fahad Umair / Evan's code as reference
- * March 19th, 2023
- */
-
-
-// Theme for Slider
-const theme = createTheme({
-  palette: {
-    secondary: {
-      main: colors.red[500],
-    },
-  },
-});
-
-export default function EditArtifact() {
-
-    const location = useLocation();
-    const [name, setName]=React.useState("location.state.name");
-    const [year, setYear]=React.useState("location.state.year");
-    const [era, setEra]=React.useState("location.state.era");
-    const [description,setDescription]=React.useState("location.state.description");
-    const [exhibit,setExibit]=React.useState("location.state.exhibit");
-
-    function handleChange() {
-
-    }
-    //new image stuff
-    const [images, setImages] = React.useState([]);
-    const maxNumber = 1;
+    const theme = createTheme({
+        components: {
+          MuiStack: {
+            defaultProps: {
+              useFlexGap: true,
+            },
+          },
+        },
+    });
     
-    const onChange = (imageList, addUpdateIndex) => {
-        // data for submit
-        console.log(imageList, addUpdateIndex);
-        setImages(imageList);
-    };
     
-    //
+        //The Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAa8m8jdGb85y-Qzfm2TW1jv2R_-Qq6nCQ",
+            authDomain: "cosc4p02-project-a5335.firebaseapp.com",
+            projectId: "cosc4p02-project-a5335",
+            storageBucket: "cosc4p02-project-a5335.appspot.com",
+            messagingSenderId: "941095700018",
+            appId: "1:941095700018:web:88000e3b139f089d9ede2b",
+            measurementId: "G-W1X36PE2R1"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        //getting firestore
+        const db=getFirestore(app);
+        
 
+        async function getAllArtifacts() {
+            const colRef = collection(db, "Artifacts");
+            let tempArray=[];
+            let i=0;
+            try {
+                const docsSnap = await getDocs(colRef);
+                docsSnap.forEach(doc => {
+                    tempArray[i]=doc.data();
+                    //console.log(tempArray[i])
+                    i++;
+                })
+            } catch (error) {
+                console.log(error);
+            }
+            return tempArray;
+        }
 
-    return (
+        
+ 
+    const [artifacts, setArtifacts] = useState([]);
     
-        <ThemeProvider theme={theme}>
-        <div
-            id="logo-and-language"
-            style={{ backgroundColor: 'transparent', marginBottom: '100px' }}
-        >
+    
 
-            {/* Logo */}
-            <div className="logo">
-            <div className="logo-image">
-                <img
-                src={require('../../images/museum-logo.jpg')}
-                alt="Museum logo"
-                style={{ float: 'left', marginRight: '10px' }}
-                />
-            </div>
+    useEffect(() => {
+        getAllArtifacts().then((val) => {
+        setArtifacts(val);
+        });
+    }, []);
 
-            <div className="logo-text">
-                <span style={{ color: 'white' }}>Canadian Museum of History</span>
-                <hr style={{ borderColor: 'black' }}></hr>
-                <span style={{ color: 'white' }}>Museé Canadien de L'Histoire</span>
-            </div>
-            <div id="logout">
-                <Button
-                variant="contained"
-                component="label"
-                color='secondary'
-                >
-                Logout
+//   for (let index = 0; index < artifacts.length; index++) {
 
-                </Button>
-            </div>
-            </div>
+//     console.log("haha")
+//     console.log(artifacts[index]) 
+//     }
 
+  const handleArtifactClick = (artifact) => {
+    <Link to="/artifact" style={{ textDecoration: 'none' }}>
+    </Link>
+  };
+
+  return (
+    <>
+      
+      <div
+        id="logo-and-language"
+        style={{
+          backgroundColor: 'transparent',
+          marginBottom: '100px',
+          transform: 'scale(0.75)',
+          translate: '-12.5%',
+        }}
+
+      >
+        
+        <div className="logo">
+          <div className="logo-image">
+            <img
+              src={require('../../images/museum-logo.jpg')}
+              alt="Museum logo"
+              style={{ float: 'left', marginRight: '10px' }}
+            />
+          </div>
+
+          <div className="logo-text">
+
+            <span style={{ color: 'white' }}>Canadian Museum of History</span>
+            <hr style={{ borderColor: 'white' }}></hr>
+            <span style={{ color: 'white' }}>Museé Canadien de L'Histoire</span>
+
+          </div>
+
+          <div style={{ clear: 'both' }}></div>
         </div>
+      </div>
+      <div className='background'>
 
-        <div style={{ width: '80%', margin: '75px auto' }}>
-
-
-        </div>
-
-
-
-
-        <div id="artifact-add-form">
-
-
-            <Box
-            component="form"
-            sx={{
-                '& > :not(style)': { m: 1, width: '25ch' },
-            }}
-            noValidate
-            autoComplete="off"
-            >
-            <div id="form-outer">
-                <div id="left">
-                    <div id="name">
-                        <TextField id="name" label="Name" defaultValue={name} variant="filled" color='secondary' />
-                    </div>
-
-                    <div id="date">                
-                        <TextField id="date" label="Year" defaultValue={year} variant="filled"  color='secondary' />
-                        <TextField id="age" label="Age" defaultValue={era} variant="filled"  color='secondary' />
-                    </div>
-
-                    <div id="exhibit">
-                        <TextField id="exhibit" label="Exhibit" defaultValue={exhibit} variant="filled"  color='secondary' />
-                    </div>
-
+        <div className='body'>
+            <h1>Articles</h1>
+            
+            <div className='article-container'>
+            <List sx={{ width: '100%', maxWidth: 500 }}>
                     
-
-                </div>
-
-                <div id="right">
-                    <div id="description">
-                        <TextField id="description" label="Description" defaultValue={description} multiline rows={15}  color='secondary' />
-                    </div>
-                </div>
-
+                        {artifacts.map((artifact,i)=>{
+                            return(
+                                <ListItem key={i} className='individual-article'>
+                                <ListItemAvatar>
+                                <Avatar></Avatar>
+                                </ListItemAvatar>
+                                <ListItemText primary="Photos" secondary="Jan 9, 2014" />
+                                    <p>{artifact.Name}    {artifact.Exhibition}    {artifact.Year} {console.log(artifact)}</p>
+                                
+                                </ListItem> 
+                            )
+                            })}
+                    
+                </List>
             </div>
-            
-            
-            </Box>
-
-
-    <div className="upload">
-        <ImageUploading
-            multiple
-            value={images}
-            onChange={onChange}
-            maxNumber={maxNumber}
-            dataURLKey="data_url"
-        >
-            {({
-            imageList,
-            onImageUpload,
-            onImageRemoveAll,
-            onImageUpdate,
-            onImageRemove,
-            isDragging,
-            dragProps,
-            }) => (
-            // write your building UI
-            <div className="upload__image-wrapper">
-                <button
-                style={isDragging ? { color: 'red' } : undefined}
-                onClick={onImageUpload}
-                {...dragProps}
-                >
-                Upload File (click or drop here)
-                </button>
-                &nbsp;
-
-                {imageList.map((image, index) => (
-                <div key={index} className="image-item">
-                    <img src={image['data_url']} alt="" width="100" />
-                    <div className="image-item__btn-wrapper">
-                    <button onClick={() => onImageUpdate(index)}>Update</button>
-                    <button onClick={() => onImageRemove(index)}>Remove</button>
-                    </div>
-                </div>
-                ))}
-            </div>
-            )}
-        </ImageUploading>
-        </div>
-
 
 
         </div>
-        
-        </ThemeProvider>
-        
-        
 
+      </div>
+    </>
 
-    );
+  );
 }
