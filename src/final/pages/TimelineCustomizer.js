@@ -3,6 +3,7 @@ import { useState } from 'react';
 import YearRangeSlider from '../components/YearRangeSlider';
 import { createTheme, colors, ThemeProvider } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Logo from '../components/Logo';
 
 // Theme for Slider
 const theme = createTheme({
@@ -78,29 +79,7 @@ export default function TimelineCustomizer() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div
-        id="logo-and-language"
-        style={{ backgroundColor: 'transparent', marginBottom: '100px' }}
-      >
-        {/* Logo */}
-        <div className="logo">
-          <div className="logo-image">
-            <img
-              src={require('../../images/museum-logo.jpg')}
-              alt="Museum logo"
-              style={{ float: 'left', marginRight: '10px' }}
-            />
-          </div>
-
-          <div className="logo-text">
-            <span style={{ color: 'black' }}>Canadian Museum of History</span>
-            <hr style={{ borderColor: 'black' }}></hr>
-            <span style={{ color: 'black' }}>Museé Canadien de L'Histoire</span>
-          </div>
-
-          <div style={{ clear: 'both' }}></div>
-        </div>
-      </div>
+      <Logo color="var(--black)" style={{ position: 'relative' }} />
 
       <h4 className="instruction-heading">Select one or more exhibits</h4>
       <div className="button-row">

@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
-import '../styles/AdminPage.css';
+import styles from '../styles/AdminPage.module.css';
 import Logo from '../components/Logo';
-import {useNavigate } from "react-router-dom"
-import {UserAuth} from '../../utils/Auth.js'
+import { useNavigate } from 'react-router-dom';
+import { UserAuth } from '../../utils/Auth.js';
 
 const Login = () => {
   const [username, setUsername] = useState('Username');
@@ -12,8 +11,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
 
-  const navigate=useNavigate();
-  const {signIn,loggedIn}=UserAuth();
+  const navigate = useNavigate();
+  const { signIn, loggedIn } = UserAuth();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -21,47 +20,53 @@ const Login = () => {
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-
   };
 
   const handleShowPasswordClick = () => {
     setShowPassword(!showPassword);
   };
 
-  useEffect(()=>{
-    if (loggedIn()){
-        navigate("/adminHome");
+  useEffect(() => {
+    if (loggedIn()) {
+      navigate('/adminHome');
     }
-  })
+  });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('Submitted:', { username, password });
 
-    try{
-      await signIn(username,password);
-    }
-    catch(e){//how to know if login was succesful or not
+    try {
+      await signIn(username, password);
+    } catch (e) {
+      //how to know if login was succesful or not
       console.log(e.code);
       console.log(e.message);
     }
   };
 
-
   return (
     <>
-      <div className="login-container">
+      <div className={styles['login-container']}>
         <form onSubmit={handleSubmit}>
           <Logo color="var(--white)" />
-          <input id="username" placeholder="Username or Email" onChange={handleUsernameChange}></input>
+          <input
+            id="username"
+            placeholder="Username or Email"
+            onChange={handleUsernameChange}
+          ></input>
           <span>
             <input
               id="password"
+              className={styles['login-field']}
               type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               onChange={handlePasswordChange}
             ></input>
-            <button className="showButton" onClick={handleShowPasswordClick}>
+            <button
+              className={styles['showButton']}
+              onClick={handleShowPasswordClick}
+            >
               {showPassword ? 'Hide' : 'Show'}
             </button>
           </span>
@@ -72,7 +77,6 @@ const Login = () => {
         </form>
       </div>
     </>
-
   );
 };
 

@@ -15,7 +15,7 @@ justify-content: center;
 align-items: center;
 }
 
-input {
+.login-field {
 width: 100%;
 background-color: transparent;
 border: none;
@@ -29,11 +29,11 @@ font-size: 1.5rem;
 color: var(--white);
 }
 
-input:focus-visible {
+.login-field:focus-visible {
 outline: none;
 }
 
-::placeholder {
+.login-field::placeholder {
 color: var(--white);
 opacity: 1;
 }
@@ -59,14 +59,11 @@ font-size: 1.5rem;
 #username {
 border-bottom: 2px solid var(--grey);
 }
-
+/* 
 #logo-and-language {
 position: relative;
 margin: 0;
 transform: scale(1.5);
-/* position: absolute;
-top: 0;
-left: 0; */
 }
 
 .logo {
@@ -76,4 +73,4 @@ position: relative;
 div.logo-text > span {
 color: var(--white);
 width: max-content;
-}
+} */

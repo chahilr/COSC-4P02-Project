@@ -1,5 +1,4 @@
-
-import '../styles/Timeline.css';
+import styles from '../styles/Timeline.module.css';
 import '../../utils/firestoreFunctions';
 import {
   getDescrption,
@@ -9,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ArtifactBubble from '../components/ArtifactBubble';
 import ArtifactPreview from '../components/ArtifactPreview';
+import Logo from '../components/Logo';
 
 export default function Timeline() {
   const { state } = useLocation();
@@ -33,15 +33,16 @@ export default function Timeline() {
         title: artifact[1].Name,
         year: artifact[1].Year,
         exhibit: artifact[1].Exhibition,
-        description: description,
+        description: description.content,
+        image: artifact[1].Photos[0],
       });
     });
   };
 
   return (
     <>
-      <div
-        id="logo-and-language"
+      <Logo
+        color="var(--white)"
         style={{
           backgroundColor: 'transparent',
           marginBottom: '100px',
@@ -49,7 +50,7 @@ export default function Timeline() {
           translate: '-12.5%',
         }}
 
-      >
+      />
         {/* Logo */}
         <div className="logo">
           <div className="logo-image">
@@ -70,22 +71,25 @@ export default function Timeline() {
 
           <div style={{ clear: 'both' }}></div>
         </div>
-      </div>
 
-      <div className="background" onClick={() => setShowPreview(null)}>
-        <div className="timeline-container">
+
+      <div
+        className={styles['background']}
+        onClick={() => setShowPreview(null)}
+      >
+        <div className={styles['timeline-container']}>
           {showPreview != null && <ArtifactPreview {...showPreview} />}
           {artifacts.map((artifact) => {
             if (alternator++ % 2 === 0) {
               return (
-                <div key={artifact[0]} className="timeline-segment">
+                <div key={artifact[0]} className={styles['timeline-segment']}>
                   <ArtifactBubble
                     visible={true}
                     artifact={artifact[1]}
                     onClick={() => handleArtifactClick(artifact)}
                     alternator={alternator}
                   />
-                  <div className="timeline-line"></div>
+                  <div className={styles['timeline-line']}></div>
                   <ArtifactBubble
                     visible={false}
                     artifact={artifact[1]}
@@ -96,14 +100,14 @@ export default function Timeline() {
               );
             } else {
               return (
-                <div key={artifact[0]} className="timeline-segment">
+                <div key={artifact[0]} className={styles['timeline-segment']}>
                   <ArtifactBubble
                     visible={false}
                     artifact={artifact[1]}
                     onClick={() => handleArtifactClick(artifact)}
                     alternator={alternator}
                   />
-                  <div className="timeline-line"></div>
+                  <div className={styles['timeline-line']}></div>
                   <ArtifactBubble
                     visible={true}
                     artifact={artifact[1]}
@@ -115,8 +119,34 @@ export default function Timeline() {
             }
           })}
         </div>
+        <Legend exhibits={state.exhibitKeys} />
       </div>
     </>
 
   );
 }
+
+const Legend = ({ exhibits }) => {
+  const color = {
+    'Ancient Greece': 'green',
+    'Ancient Rome': 'red',
+    'Ancient Egypt': 'blue',
+    'Persian Empire': 'yellow',
+  };
+
+  return (
+    <div className={styles['legend-container']}>
+      <ul>
+        {exhibits.map((exhibit, id) => (
+          <li className={exhibit} key={id}>
+            <div
+              className={styles['icon']}
+              style={{ backgroundColor: color[exhibit] }}
+            ></div>
+            {exhibit}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};

@@ -31,3 +31,26 @@
     margin: 0px 50px;
     background-color: var(--red);
 }
+
+.legend-container {
+    position: fixed;
+    top: 0;
+    right: 25px;
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    color: var(--white);
+}
+.legend-container > ul {
+    list-style: none;
+}
+.legend-container > ul > li {
+    height: 50px;
+}
+.legend-container > ul > li > div {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: var(--white);
+    border-radius: 100%;
+    margin-right: 25px;
+}
