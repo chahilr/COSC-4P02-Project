@@ -1,0 +1,115 @@
+#logo-and-language {
+    background: var(--translucent-grey);
+    padding: 0em 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-text>span {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    color: var(--white);
+    font-size: 20px;
+}
+
+.logo-text>hr {
+    border: 1px solid var(--white);
+    margin: 0px 0px;
+    width: auto;
+}
+
+h1 {
+    color: white;
+}
+
+textfield {
+    color: white;
+}
+
+input[type=text] {
+    background-color: #3CBC8D;
+    color: white;
+}
+
+input[type=text] {
+    background-color:white;
+    color: black;
+}
+input{
+    width: 100%;
+}
+label{
+    color:white;
+}
+select{
+    color:white;
+}
+
+#artifact-add-form{
+    width: 80%;
+    margin: auto;
+}
+#form-outer{
+    width: 95%;
+    margin: auto;
+}
+#right{
+    float: right;
+    width: 50%;
+}
+#left{
+    float: left;
+    width: 50%;
+}
+#upload{
+    margin: 8px;
+}
+#add{
+    margin: 8px;
+    clear: left;
+}
+#add-button{
+    margin: auto;
+}
+.MuiInputBase-root{
+    margin:8px;
+   background: white;
+}
+.MuiButtonBase-root{
+    margin:10px;
+}
+.MuiSelect-select{
+    color:white;
+}
+.MuiFormLabel-colorSecondary{
+    color: white;
+}
+#logout{
+    float:right;
+    display: flex;
+    margin-left: 70%;
+}
+.logo{
+    float: left;
+}
+.MuiTextField-root{
+    width:100%;
+}

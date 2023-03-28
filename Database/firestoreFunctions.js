@@ -453,7 +453,7 @@ async function queryExhibitNames(){
     let exhibits = [];
     let query1 = query(
         collection(firestore, 'Artifacts'),
-
+    )
 
 
     return exhibits;
