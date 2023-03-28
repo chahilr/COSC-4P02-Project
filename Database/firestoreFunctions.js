@@ -448,6 +448,18 @@ async function queryTagsExhibitsYearRange(exhibit, tags, year1, year2){
     return result2;
 }
 
+//this function gets the names of all existing exhibits in the database
+async function queryExhibitNames(){
+    let exhibits = [];
+    let query1 = query(
+        collection(firestore, 'Artifacts'),
+    )
+
+
+    return exhibits;
+	
+}
+
 export {queryTagsExhibitsYearRange,queryTags,queryYearRange,queryName,queryExhibit,getDescrption,
     addArtifact,updateArtifactDescription,updateArtifactExhibit,updateArtifactName,updateArtifactYear,
     addArtifactPhotos,removeArtifactPhotos,updateArtifactPhotos,addArtifactVideos,removeArtifactVideos,
