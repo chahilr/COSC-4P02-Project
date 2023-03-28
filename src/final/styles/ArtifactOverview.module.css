@@ -1,11 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--black);
+  height: 100dvh;
+}
 .artifact-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin: 0 0;
-    padding: 0px 50px;
-    background-color: black;
-    height: 100vh;
+    padding: 20dvh 50px 0 50px;
   }
   
   .artifact-text {
@@ -22,8 +26,8 @@
   }
   
   .artifact-image img {
-    max-width: 100%;
-    height: auto;
+    width: auto;
+    height: 50dvh;
     border-radius: 40px;
   }
   
@@ -88,23 +92,30 @@
     bottom: 0;
     width: 90%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     padding: 40px;
   }
   
-  button {
-    color: white;
-    font-size: 16px;
-    background-color:#EA252E; /* Change background color to red */
-    border-radius: 20px;
-    padding: 13px 35px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  .button-container > button {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    background-color: var(--red);
+    color: var(--white);
+    border-style: none;
+    border-radius: 10px;
+  
+    display: flex;
+    margin: 0 5rem;
+    width: 20%;
+    justify-content: center;
+    padding: 10px 50px;
+    transition: all ease-in-out 200ms;
   }
   
-  button:hover {
-    background-color: #7C7B81;
+  .button-container > button:hover {
+    background-color: var(--white);
+    color: var(--red);
   }
   
   

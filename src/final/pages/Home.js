@@ -5,6 +5,8 @@ import ancientegypt from '../../images/ancient-egypt.png';
 import persianempire from '../../images/persian-empire.png';
 import museum from '../../images/museum.png';
 import { Link } from 'react-router-dom';
+import styles from '../styles/Home.module.css';
+import Logo from '../components/Logo';
 
 export default function Home() {
   const presetTags = ['Weapons', 'Paintings', 'Tools', 'Technology'];
@@ -34,7 +36,7 @@ export default function Home() {
         break;
       default:
     }
-    const homeDiv = document.querySelector('.home');
+    const homeDiv = document.querySelector('.Home_home__PXf2A');
     homeDiv.style.backgroundImage = 'url(' + image_id + ')';
   };
 
@@ -43,114 +45,96 @@ export default function Home() {
    */
   const handleMouseLeave = (event) => {
     const image_id = museum;
-    const homeDiv = document.querySelector('.home');
+    const homeDiv = document.querySelector('.Home_home__PXf2A');
     homeDiv.style.backgroundImage = 'url(' + image_id + ')';
   };
 
   return (
-    <div className="home">
-      <div id="logo-and-language">
-        {/* Logo */}
-        <div className="logo">
-          <div className="logo-image">
-            <img
-              src={require('../../images/museum-logo.jpg')}
-              alt="Museum logo"
-              style={{ float: 'left', marginRight: '10px' }}
-            />
-          </div>
-
-          <div className="logo-text">
-            <span>Canadian Museum of History</span>
-            <hr></hr>
-            <span>Museé Canadien de L'Histoire</span>
-          </div>
-
-          <div style={{ clear: 'both' }}></div>
-        </div>
-
-        {/* Language */}
-        <div className="logo-text">
-          <span>Language Select</span>
-        </div>
-      </div>
-
-      <div className="center">
-        <ul id="main-button-group">
-          <Link className="landing-page-main-button-link" to="/customizer">
-            <li className="landing-page-main-button">
-              Create Personalized Timeline
+    <>
+      <Logo color="var(--white)" />
+      <div className={styles['home']}>
+        <div className={styles['center']}>
+          <ul id={styles['main-button-group']}>
+            <Link
+              className={styles['landing-page-main-button-link']}
+              to="/customizer"
+            >
+              <li className={styles['landing-page-main-button']}>
+                Create Personalized Timeline
+              </li>
+            </Link>
+            <li>
+              <input
+                id={styles['landing-page-artifact-search-bar']}
+                type="text"
+                placeholder="Search for Artifact"
+              />
             </li>
-          </Link>
-          <li>
-            <input
-              id="landing-page-artifact-search-bar"
-              type={'text'}
-              placeholder="Search for Artifact"
-            />
-          </li>
+          </ul>
+        </div>
+
+        <span className={styles['translucent-banner']}>
+          Travel Through Time
+        </span>
+
+        <ul id={styles['exhibit-options-list']}>
+          {/* First set of buttons, further apart */}
+          <div id={styles['exhibit-options-r1']}>
+            <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              <Link
+                to="/timeline"
+                state={{
+                  exhibitKeys: ['Ancient Greece'],
+                  tagKeys: presetTags,
+                  yearRange: presetYearRange,
+                }}
+              >
+                <SelectButton name="Ancient Greece" />
+              </Link>
+            </li>
+            <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              <Link
+                to="/timeline"
+                state={{
+                  exhibitKeys: ['Ancient Rome'],
+                  tagKeys: presetTags,
+                  yearRange: presetYearRange,
+                }}
+              >
+                <SelectButton name="Ancient Rome" />
+              </Link>
+            </li>
+          </div>
+
+          {/* Second set of buttons, closer together */}
+          <div id={styles['exhibit-options-r2']}>
+            <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              <Link
+                to="/timeline"
+                state={{
+                  exhibitKeys: ['Ancient Egypt'],
+                  tagKeys: presetTags,
+                  yearRange: presetYearRange,
+                }}
+              >
+                <SelectButton name="Ancient Egypt" />
+              </Link>
+            </li>
+            <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              <Link
+                to="/timeline"
+                state={{
+                  exhibitKeys: ['Persian Empire'],
+                  tagKeys: presetTags,
+                  yearRange: presetYearRange,
+                }}
+              >
+                <SelectButton name="Persian Empire" />
+              </Link>
+            </li>
+          </div>
         </ul>
       </div>
-
-      <span className="translucent-banner">Travel Through Time</span>
-
-      <ul id="exhibit-options-list">
-        {/* First set of buttons, further apart */}
-        <div id="exhibit-options-r1">
-          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <Link
-              to="/timeline"
-              state={{
-                exhibitKeys: ['Ancient Greece'],
-                tagKeys: presetTags,
-                yearRange: presetYearRange,
-              }}
-            >
-              <SelectButton name="Ancient Greece" />
-            </Link>
-          </li>
-          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <Link
-              to="/timeline"
-              state={{
-                exhibitKeys: ['Ancient Rome'],
-                tagKeys: presetTags,
-                yearRange: presetYearRange,
-              }}
-            >
-              <SelectButton name="Ancient Rome" />
-            </Link>
-          </li>
-        </div>
-
-        {/* Second set of buttons, closer together */}
-        <div id="exhibit-options-r2">
-          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <Link
-              to="/timeline"
-              state={{
-                exhibitKeys: ['Ancient Egypt'],
-                tagKeys: presetTags,
-                yearRange: presetYearRange,
-              }}
-            >
-              <SelectButton name="Ancient Egypt" />
-            </Link>
-          </li>
-          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <Link
-              to="/timeline"
-              state={{
-                exhibitKeys: ['Persian Empire'],
-                tagKeys: presetTags,
-                yearRange: presetYearRange,
-              }}
-            >
-              <SelectButton name="Persian Empire" />
-            </Link>
-          </li>
-        </div>
-      </ul>
-    </div>
+    </>
   );
 }
