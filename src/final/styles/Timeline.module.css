@@ -19,6 +19,7 @@
     align-items: center;
     justify-content: center;
     flex-flow: column wrap;
+    min-height: 100vh;
 }
 
 .timeline-segment {
