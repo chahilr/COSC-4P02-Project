@@ -4,9 +4,7 @@
 */
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app';
 import {
-  getFirestore,
   doc,
   setDoc,
   collection,
@@ -24,26 +22,10 @@ import {
   arrayRemove,
 } from 'firebase/firestore';
 import algoliasearch from 'algoliasearch';
-
-//The Firebase configuration
-const firebaseConfig = {
-  apiKey: 'AIzaSyAa8m8jdGb85y-Qzfm2TW1jv2R_-Qq6nCQ',
-  authDomain: 'cosc4p02-project-a5335.firebaseapp.com',
-  projectId: 'cosc4p02-project-a5335',
-  storageBucket: 'cosc4p02-project-a5335.appspot.com',
-  messagingSenderId: '941095700018',
-  appId: '1:941095700018:web:88000e3b139f089d9ede2b',
-  measurementId: 'G-W1X36PE2R1',
-};
+import { firestore } from './FirebaseApp.js';
 
 // Connect and authenticate with Algolia
 const client = algoliasearch('GB2R7Y11QK', '004d4c4baa622b20321556edbae7d946');
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-//getting firestore
-const firestore = getFirestore(app);
 
 /* CHEKCING FUNCTIONS */
 

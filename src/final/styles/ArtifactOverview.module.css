@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--black);
+  height: 100dvh;
+}
+.artifact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 0;
+    padding: 20dvh 50px 0 50px;
+  }
+  
+  .artifact-text {
+    flex-basis: 50%;
+    color: white;
+    font-size: 20px;
+    font-family: 'Montserrat';
+  }
+  
+  .artifact-image {
+    flex-basis: 50%;
+    text-align: right;
+    margin-left: 100px;
+  }
+  
+  .artifact-image img {
+    width: auto;
+    height: 50dvh;
+    border-radius: 40px;
+  }
+  
+  #logo-and-language {
+    background: var(--translucent-grey);
+    padding: 0em 1em;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .logo {
+    display: flex;
+    /* width: 100%; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  }
+  
+ 
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .logo-text > span {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    color: var(--white);
+    font-size: 20px;
+  }
+  
+  .logo-text > hr {
+    border: 1px solid var(--white);
+    margin: 0px 0px;
+    width: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .logo-image > img {
+      height: calc(var(--logo-size) * 0.8);
+      width: calc(var(--logo-size) * 0.8);
+    }
+    
+    .logo-text > span {
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo-image > img {
+      height: calc(var(--logo-size) * 0.6);
+      width: calc(var(--logo-size) * 0.6);
+    }
+    
+  }
+  .button-container {
+    position: fixed;
+    bottom: 0;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  .button-container > button {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    background-color: var(--red);
+    color: var(--white);
+    border-style: none;
+    border-radius: 10px;
+  
+    display: flex;
+    margin: 0 5rem;
+    width: 20%;
+    justify-content: center;
+    padding: 10px 50px;
+    transition: all ease-in-out 200ms;
+  }
+  
+  .button-container > button:hover {
+    background-color: var(--white);
+    color: var(--red);
+  }
+  
+  
