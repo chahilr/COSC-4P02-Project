@@ -1,4 +1,4 @@
-import '../styles/ArtifactBubble.css';
+import styles from '../styles/ArtifactBubble.module.css';
 
 const ArtifactBubble = (props) => {
   let color;
@@ -22,7 +22,7 @@ const ArtifactBubble = (props) => {
     <>
       {props.alternator % 2 !== 0 && (
         <p
-          className="artifact-bubble-heading"
+          className={styles['artifact-bubble-heading']}
           style={{
             color: 'white',
             visibility: props.visible ? 'visible' : 'hidden',
@@ -33,7 +33,7 @@ const ArtifactBubble = (props) => {
       )}
 
       <img
-        className="timeline-image"
+        className={styles['timeline-image']}
         style={{
           border: `5px solid ${color}`,
           visibility: props.visible ? 'visible' : 'hidden',
@@ -45,7 +45,7 @@ const ArtifactBubble = (props) => {
 
       {props.alternator % 2 === 0 && (
         <p
-          className="artifact-bubble-heading"
+          className={styles['artifact-bubble-heading']}
           style={{
             color: 'white',
             visibility: props.visible ? 'visible' : 'hidden',

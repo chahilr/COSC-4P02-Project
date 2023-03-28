@@ -1,0 +1,76 @@
+.login-container {
+  background-image: url('../../images/black-background.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.login-field {
+width: 100%;
+background-color: transparent;
+border: none;
+border-radius: 25px;
+border-bottom: 2px solid var(--grey);
+padding: 25px;
+margin: 0px;
+
+font-family: 'Montserrat';
+font-size: 1.5rem;
+color: var(--white);
+}
+
+.login-field:focus-visible {
+outline: none;
+}
+
+.login-field::placeholder {
+color: var(--white);
+opacity: 1;
+}
+
+.submit-button {
+margin-top: 50px;
+}
+
+span {
+display: flex;
+padding: 0;
+}
+.showButton {
+background-color: transparent;
+border: none;
+padding: 0;
+margin: 0;
+color: var(--white);
+font-family: 'Montserrat';
+font-size: 1.5rem;
+}
+
+#username {
+border-bottom: 2px solid var(--grey);
+}
+/* 
+#logo-and-language {
+position: relative;
+margin: 0;
+transform: scale(1.5);
+}
+
+.logo {
+position: relative;
+}
+
+div.logo-text > span {
+color: var(--white);
+width: max-content;
+} */
