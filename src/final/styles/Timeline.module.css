@@ -26,11 +26,22 @@
     display: flex;
 }
 
+@keyframes slideIn {
+    from {
+        margin: 0 50vw;
+    }
+
+    to {
+        margin: 0 50px;
+    }
+}
+
 .timeline-line {
     width: 40px;
     height: 200px;
     margin: 0px 50px;
     background-color: var(--red);
+    animation: slideIn 500ms ease-out 0ms 1 normal forwards;
 }
 
 .legend-container {
