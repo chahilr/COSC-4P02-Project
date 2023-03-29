@@ -8,6 +8,9 @@ import TimelineCustomizer from './pages/TimelineCustomizer';
 import Timeline from './pages/Timeline';
 import AdminPage from './pages/AdminPage';
 import AdminHome from '../final/pages/AdminHome.js';
+import AddArtifact from './pages/AddArtifact';
+import EditArtifact from './pages/EditArtifact';
+import Artifactlist from './pages/ArtifactList';
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
         <Route element={<AdminRoutes />}>
           <Route path="/adminHome" element={<AdminHome />} />
         </Route>
+        <Route path="/addartifact" element={<AddArtifact/>} />      
+        <Route path="/editartifact" element={<EditArtifact/>} />
+        <Route path="/artifactlist" element={<Artifactlist/>} />
       </Routes>
     </AuthenticationContext>
   );
