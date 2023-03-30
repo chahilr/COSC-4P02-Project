@@ -23,27 +23,29 @@ export default function ArtifactList() {
     <>
       <Logo />
       <div className={styles['background']}>
-        <div className={styles['body']}>
-          <h1>Articles</h1>
+        <h1>Articles</h1>
 
-          <div className={styles['article-container']}>
-            <List sx={{ width: '100%', maxWidth: 500 }}>
-              {artifacts.map((artifact, i) => {
-                return (
-                  <ListItem key={i} className={styles['individual-article']}>
-                    <ListItemAvatar>
-                      <Avatar></Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary="Photos" secondary="Jan 9, 2014" />
-                    <p>
-                      {artifact.Name} {artifact.Exhibition} {artifact.Year}{' '}
-                      {console.log(artifact)}
-                    </p>
-                  </ListItem>
-                );
-              })}
-            </List>
-          </div>
+        <div className={styles['article-container']}>
+          <List sx={{ width: '100%', maxWidth: 500 }}>
+            {artifacts.map((artifact, i) => {
+              return (
+                <ListItem key={i} className={styles['individual-article']}>
+                  <ListItemAvatar>
+                    <Avatar
+                      sx={{ width: 75, height: 75, marginRight: 1 }}
+                      src={artifact.Photos[0]}
+                    ></Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    className={styles['list-item-text']}
+                    primary={artifact.Name}
+                    secondary={artifact.Year}
+                  />
+                  <p>{artifact.Exhibition}</p>
+                </ListItem>
+              );
+            })}
+          </List>
         </div>
       </div>
     </>
