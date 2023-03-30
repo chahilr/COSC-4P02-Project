@@ -41,14 +41,14 @@ export default function AddArtifact() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Logo />
+      <Logo color="var(--black)" />
       <div id={styles['logout']}>
         <Button variant="contained" component="label" color="secondary">
           Logout
         </Button>
       </div>
 
-      <div style={{ width: '80%', margin: '75px auto' }}></div>
+      <div style={{ width: '80%', margin: '100px auto' }}></div>
 
       <div id={styles['artifact-add-form']}>
         <Box
@@ -63,7 +63,7 @@ export default function AddArtifact() {
             <div id={styles['left']}>
               <div id={styles['name']}>
                 <TextField
-                  id="name"
+                  id={styles['name']}
                   label="Name of Artifact"
                   variant="filled"
                   color="secondary"
@@ -73,7 +73,7 @@ export default function AddArtifact() {
               <div id={styles['date']}>
                 <h1>Date of exhibit</h1>
                 <TextField
-                  id="date"
+                  id={styles['date']}
                   variant="standard"
                   placeholder="Year"
                   color="secondary"
@@ -81,12 +81,15 @@ export default function AddArtifact() {
 
                 <div>
                   <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label" color="secondary">
+                    <InputLabel
+                      id={styles['demo-simple-select-label']}
+                      color="secondary"
+                    >
                       Age
                     </InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
-                      id="demo-simple-select"
+                      id={styles['demo-simple-select']}
                       value="age"
                       label="Age"
                       onChange={handleChange}
@@ -101,12 +104,12 @@ export default function AddArtifact() {
 
               <div id={styles['exhibit']}>
                 <FormControl fullWidth>
-                  <InputLabel id="exhibit-label" color="secondary">
+                  <InputLabel id={styles['exhibit-label']} color="secondary">
                     Exhibit
                   </InputLabel>
                   <Select
                     labelId="exhibit-label"
-                    id="exhibit"
+                    id={styles['exhibit']}
                     value="exhibit"
                     label="Exhibit"
                     onChange={handleChange}
@@ -135,7 +138,7 @@ export default function AddArtifact() {
             <div id={styles['right']}>
               <div id={styles['description']}>
                 <TextField
-                  id="outlined-multiline-static"
+                  id={styles['outlined-multiline-static']}
                   label="Description"
                   multiline
                   rows={15}
@@ -148,7 +151,7 @@ export default function AddArtifact() {
               <Button
                 variant="contained"
                 component="label"
-                id="add-button"
+                id={styles['add-button']}
                 color="secondary"
               >
                 Add

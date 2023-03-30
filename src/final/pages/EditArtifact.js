@@ -30,11 +30,11 @@ const theme = createTheme({
 
 export default function EditArtifact() {
   const { state } = useLocation();
-  const [name, setName] = useState(state.name);
-  const [year, setYear] = useState(state.year);
-  const [era, setEra] = useState(state.era);
-  const [description, setDescription] = useState(state.description);
-  const [exhibit, setExibit] = useState(state.exhibit);
+  const [name, setName] = useState(state?.name);
+  const [year, setYear] = useState(state?.year);
+  const [era, setEra] = useState(state?.era);
+  const [description, setDescription] = useState(state?.description);
+  const [exhibit, setExibit] = useState(state?.exhibit);
 
   function handleChange() {}
   //new image stuff
@@ -49,14 +49,14 @@ export default function EditArtifact() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Logo />
+      <Logo color="var(--black)" />
       <div id={styles['logout']}>
         <Button variant="contained" component="label" color="secondary">
           Logout
         </Button>
       </div>
 
-      <div style={{ width: '80%', margin: '75px auto' }}></div>
+      <div style={{ width: '80%', margin: '100px auto' }}></div>
 
       <div id={styles['artifact-add-form']}>
         <Box

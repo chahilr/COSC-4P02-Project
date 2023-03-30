@@ -51,7 +51,8 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <Logo color="var(--white)" />
           <input
-            id="username"
+            id={styles['username']}
+            className={styles['login-field']}
             placeholder="Username or Email"
             onChange={handleUsernameChange}
           ></input>
