@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import ArtifactOverview from './pages/ArtifactOverview';
-import {AuthenticationContext} from '../utils/Auth.js'
+import { AuthenticationContext } from '../utils/Auth.js';
 import { AdminRoutes } from '../utils/AdminRoutes.js';
 
 import Home from './pages/Home';
@@ -10,7 +10,7 @@ import AdminPage from './pages/AdminPage';
 import AdminHome from '../final/pages/AdminHome.js';
 import AddArtifact from './pages/AddArtifact';
 import EditArtifact from './pages/EditArtifact';
-import Artifactlist from './pages/ArtifactList';
+import ArtifactList from './pages/ArtifactList';
 
 function App() {
   return (
@@ -24,9 +24,9 @@ function App() {
         <Route element={<AdminRoutes />}>
           <Route path="/adminHome" element={<AdminHome />} />
         </Route>
-        <Route path="/addartifact" element={<AddArtifact/>} />      
-        <Route path="/editartifact" element={<EditArtifact/>} />
-        <Route path="/artifactlist" element={<Artifactlist/>} />
+        <Route path="/addartifact" element={<AddArtifact />} />
+        <Route path="/editartifact" element={<EditArtifact />} />
+        <Route path="/artifactlist" element={<ArtifactList />} />
       </Routes>
     </AuthenticationContext>
   );
