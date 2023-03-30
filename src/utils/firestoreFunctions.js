@@ -310,6 +310,22 @@ async function getArtifact(id) {
   return docSnap.data();
 }
 
+async function getAllArtifacts() {
+  const colRef = collection(firestore, 'Artifacts');
+  let tempArray = [];
+  let i = 0;
+  try {
+    const docsSnap = await getDocs(colRef);
+    docsSnap.forEach((doc) => {
+      tempArray[i] = doc.data();
+      i++;
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  return tempArray;
+}
+
 async function queryExhibit(exhibit) {
   let exhibitionQuery = query(
     collection(firestore, 'Artifacts'),
@@ -483,6 +499,7 @@ export {
   updateArtifactTags,
   addData,
   getArtifact,
+  getAllArtifacts,
   deleteArtifact,
   removeRelated,
   addRelated,
