@@ -19,7 +19,7 @@ export default function SearchSuggestions({ results }) {
               image: result[1].Photos[0],
             }}
           >
-            <li>{result[1].Name}</li>
+            <li className={styles['search-list-item']}>{result[1].Name}</li>
           </Link>
         ))}
       </ul>

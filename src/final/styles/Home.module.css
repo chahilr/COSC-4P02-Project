@@ -68,7 +68,7 @@
 
 /* ╔⏤⏤⏤⏤╝ Homepage Time/Search Button/Button-wrappers ╚⏤⏤⏤⏤╗*/
 
-#main-button-group {
+.main-button-group {
     display: flex;
     margin-top: 8em;
     flex-direction: column;
@@ -77,6 +77,7 @@
     align-items: center;
     list-style: none;
     gap: 1em;
+    padding-left: 0;
 }
 
 .landing-page-main-button {
@@ -162,7 +163,7 @@
 /* ╚⏤⏤⏤⏤╗ Banners ╔⏤⏤⏤⏤╝*/
 
 /* ╔⏤⏤⏤⏤╝ Artifact Search/Timeline Generation ╚⏤⏤⏤⏤╗*/
-    #main-button-group {
+    .main-button-group {
         padding-left: 0px;
     }
     .landing-page-main-button {

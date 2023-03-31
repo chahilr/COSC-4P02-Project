@@ -67,7 +67,7 @@ export default function Home() {
       <Logo color="var(--white)" />
       <div className={styles['home']}>
         <div className={styles['center']}>
-          <ul id={styles['main-button-group']}>
+          <ul className={styles['main-button-group']}>
             <Link
               className={styles['landing-page-main-button-link']}
               to="/customizer"
