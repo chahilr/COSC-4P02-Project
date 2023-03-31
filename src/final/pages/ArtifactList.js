@@ -44,20 +44,26 @@ export default function ArtifactList() {
               )
               .map((artifact, i) => {
                 return (
-                  <ListItem key={i} className={styles['individual-article']}>
-                    <ListItemAvatar>
-                      <Avatar
-                        sx={{ width: 75, height: 75, marginRight: 1 }}
-                        src={artifact.Photos[0]}
-                      ></Avatar>
-                    </ListItemAvatar>
-                    <ListItemText
-                      className={styles['list-item-text']}
-                      primary={artifact.Name}
-                      secondary={artifact.Year}
-                    />
-                    <p>{artifact.Exhibition}</p>
-                  </ListItem>
+                  <Link
+                    to="/editartifact"
+                    state={{ artifact }}
+                    className={styles['link']}
+                  >
+                    <ListItem key={i} className={styles['individual-article']}>
+                      <ListItemAvatar>
+                        <Avatar
+                          sx={{ width: 75, height: 75, marginRight: 1 }}
+                          src={artifact.Photos[0]}
+                        ></Avatar>
+                      </ListItemAvatar>
+                      <ListItemText
+                        className={styles['list-item-text']}
+                        primary={artifact.Name}
+                        secondary={artifact.Year}
+                      />
+                      <p>{artifact.Exhibition}</p>
+                    </ListItem>
+                  </Link>
                 );
               })}
           </List>

@@ -5,8 +5,8 @@
     background-image: url('../../images/black-background.jpg');
     background-size: cover;
     background-position: center;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: max-content;
 
     display: flex;
     flex-direction: column;
@@ -25,6 +25,13 @@
 .background, .list-item-text, .list-item-text > p, .list-item-text > span{
     color: var(--white);
     font-family: 'Montserrat';
+}
+
+.link {
+    text-decoration: none;
+}
+.link:visited {
+    color: var(--white);
 }
 
 .individual-article {
