@@ -317,7 +317,7 @@ async function getAllArtifacts() {
   try {
     const docsSnap = await getDocs(colRef);
     docsSnap.forEach((doc) => {
-      tempArray[i] = doc.data();
+      tempArray[i] = { ...doc.data(), id: doc.id };
       i++;
     });
   } catch (error) {

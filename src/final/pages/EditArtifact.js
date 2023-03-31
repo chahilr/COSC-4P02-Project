@@ -11,8 +11,9 @@ import styles from '../styles/EditArtifact.module.css';
 //image upload stuff
 import ImageUploading from 'react-images-uploading';
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Logo from '../components/Logo';
+import { getDescrption } from '../../utils/firestoreFunctions';
 
 /**
  * Fahad Umair / Evan's code as reference
@@ -30,11 +31,11 @@ const theme = createTheme({
 
 export default function EditArtifact() {
   const { state } = useLocation();
-  const [name, setName] = useState(state?.name);
-  const [year, setYear] = useState(state?.year);
-  const [era, setEra] = useState(state?.era);
-  const [description, setDescription] = useState(state?.description);
-  const [exhibit, setExibit] = useState(state?.exhibit);
+  const [name, setName] = useState(state?.Name);
+  const [year, setYear] = useState(state?.Year);
+  // const [era, setEra] = useState(state?.era);
+  const [description, setDescription] = useState('');
+  const [exhibit, setExibit] = useState(state?.Exhibition);
 
   function handleChange() {}
   //new image stuff
@@ -46,6 +47,12 @@ export default function EditArtifact() {
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
+
+  useEffect(() => {
+    getDescrption(state?.id).then((result) => {
+      setDescription(result.content);
+    });
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -90,7 +97,7 @@ export default function EditArtifact() {
                 <TextField
                   id="age"
                   label="Age"
-                  defaultValue={era}
+                  defaultValue={year < 0 ? 'BC' : 'AD'}
                   variant="filled"
                   color="secondary"
                 />
@@ -112,7 +119,7 @@ export default function EditArtifact() {
                 <TextField
                   id="description"
                   label="Description"
-                  defaultValue={description}
+                  value={description}
                   multiline
                   rows={15}
                   color="secondary"

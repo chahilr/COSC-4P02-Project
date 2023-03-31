@@ -42,14 +42,14 @@ export default function ArtifactList() {
               .filter((artifact) =>
                 artifact.Name.toLowerCase().includes(searchSubstring)
               )
-              .map((artifact, i) => {
+              .map((artifact, id) => {
                 return (
                   <Link
                     to="/editartifact"
-                    state={{ artifact }}
+                    state={{ ...artifact }}
                     className={styles['link']}
                   >
-                    <ListItem key={i} className={styles['individual-article']}>
+                    <ListItem key={id} className={styles['individual-article']}>
                       <ListItemAvatar>
                         <Avatar
                           sx={{ width: 75, height: 75, marginRight: 1 }}
