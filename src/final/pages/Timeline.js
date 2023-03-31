@@ -41,20 +41,20 @@ export default function Timeline() {
 
   return (
     <>
-      <Logo
-        color="var(--white)"
-        style={{
-          backgroundColor: 'transparent',
-          marginBottom: '100px',
-          transform: 'scale(0.75)',
-          translate: '-12.5%',
-        }}
-      />
 
       <div
         className={styles['background']}
         onClick={() => setShowPreview(null)}
       >
+        <Logo
+          color="var(--white)"
+          style={{
+            backgroundColor: 'transparent',
+            marginBottom: '100px',
+            transform: 'scale(0.75)',
+            translate: '-12.5%',
+          }}
+        />
         <div className={styles['timeline-container']}>
           {showPreview != null && <ArtifactPreview {...showPreview} />}
           <div
@@ -62,7 +62,7 @@ export default function Timeline() {
             style={{ position: 'fixed', height: '100vh' }}
           ></div>
           <div
-            className={styles['timeline-line']}
+            className={`${styles['timeline-line']} ${styles['timeline-offset']}`}
             style={{ height: '3em' }}
           ></div>
           {artifacts.map((artifact) => {

@@ -66,3 +66,30 @@
     border-radius: 100%;
     margin-right: 25px;
 }
+
+.logo-and-language {
+    position: fixed !important;
+}
+
+@media only screen and (max-width: 750px) {
+    .timeline-offset {
+        height: 4em !important;
+        background-color: var(--black);
+    }
+
+    .legend-container {
+        font-size: 12px;
+        right: 10%;
+        top: 4.5em;
+        position: absolute;
+    }
+    .legend-container > ul > li > div {
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+    }
+    .logo-and-language {
+        position: absolute !important;
+    }
+
+}
