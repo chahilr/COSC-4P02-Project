@@ -94,6 +94,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  margin: 0 1em;
   /* height: 100vh; */
 }
 
@@ -105,8 +106,6 @@
   align-items: stretch;
   margin-bottom: 20px;
   gap: 1em;
-  /* align-items: center; */
-  /* padding: 40px; */
 }
 
 
@@ -116,8 +115,7 @@ button {
   background-color: #EA252E;
   min-width: 10em;
   border-radius: 15px;
-  padding: 2.5vw 5vw;
-  width: 26vw;
+  padding: 1vw 2vw;
   margin: 0 2vw;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;

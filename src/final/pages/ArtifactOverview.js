@@ -23,6 +23,7 @@ export default function ArtifactOverview() {
           position: 'relative',
           marginBottom: 0,
           marginTop: 0,
+          paddingTop: '1dvh',
           backgroundColor: 'black',
         }}
       />
