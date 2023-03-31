@@ -317,8 +317,7 @@ async function getAllArtifacts() {
   try {
     const docsSnap = await getDocs(colRef);
     docsSnap.forEach((doc) => {
-      //change made by Fahad, i needed ID as well, let me know if you are having trouble accessing this data
-      tempArray[i] = [doc.id, doc.data()]; 
+      tempArray[i] = { ...doc.data(), id: doc.id };
       i++;
     });
   } catch (error) {
@@ -479,83 +478,75 @@ async function queryTagsExhibitsYearRange(exhibit, tags, year1, year2) {
 
 /* FUNCTIONS: User Queries */
 
-async function getUserEmails(){
-  let q = query(
-      collection(firestore, 'Users')
-  );
+async function getUserEmails() {
+  let q = query(collection(firestore, 'Users'));
   let querySnapshot = await getDocs(q);
 
-  let result=[]
+  let result = [];
 
-  querySnapshot.forEach((snap)=>{ 
-      result.push(snap.data().Email);
+  querySnapshot.forEach((snap) => {
+    result.push(snap.data().Email);
   });
   return result;
 }
 
-async function getUserData(uid){
-  let artifact = doc(firestore, 'Users/'+uid);
+async function getUserData(uid) {
+  let artifact = doc(firestore, 'Users/' + uid);
 
   let querySnapshot = await getDoc(artifact);
-  
+
   return querySnapshot.data();
 }
 
-async function getUsersPassword(email){
-  let q = query(
-      collection(firestore, 'Users'),
-      where('Email',"==",email)
-  );
+async function getUsersPassword(email) {
+  let q = query(collection(firestore, 'Users'), where('Email', '==', email));
   let querySnapshot = await getDocs(q);
-  let result=[];
-  querySnapshot.forEach((snap)=>{
-      result.push(snap.data());
-  })
+  let result = [];
+  querySnapshot.forEach((snap) => {
+    result.push(snap.data());
+  });
   return result[0].Password;
 }
 
-async function getUserRole(email){
-  let q = query(
-      collection(firestore, 'Users'),
-      where('Email',"==",email)
-  );
+async function getUserRole(email) {
+  let q = query(collection(firestore, 'Users'), where('Email', '==', email));
   let querySnapshot = await getDocs(q);
 
   return querySnapshot.data().Role;
 }
 
-async function mainAdmin(uid){
-  let artifact = doc(firestore, 'Users/'+uid);
+async function mainAdmin(uid) {
+  let artifact = doc(firestore, 'Users/' + uid);
 
   let querySnapshot = await getDoc(artifact);
 
-  if (querySnapshot.data().Role=="mainAdmin"){
-      return true;
+  if (querySnapshot.data().Role == 'mainAdmin') {
+    return true;
   }
   return false;
 }
 
-async function updateE(uid, newEmail){
-  let artifact = doc(firestore, 'Users/'+uid);
-  await setDoc(artifact, {Email: newEmail},{merge: true});
+async function updateE(uid, newEmail) {
+  let artifact = doc(firestore, 'Users/' + uid);
+  await setDoc(artifact, { Email: newEmail }, { merge: true });
 }
 
-async function updateP(uid, newPass){
-  let artifact = doc(firestore, 'Users/'+uid);
-  await setDoc(artifact, {Password: newPass},{merge: true});
+async function updateP(uid, newPass) {
+  let artifact = doc(firestore, 'Users/' + uid);
+  await setDoc(artifact, { Password: newPass }, { merge: true });
 }
 
-async function removeU(uid){
-  let artifact = doc(firestore, 'Users/'+uid);
+async function removeU(uid) {
+  let artifact = doc(firestore, 'Users/' + uid);
   await deleteDoc(artifact);
 }
 
-async function addAdmin(uid, email, password, role){
+async function addAdmin(uid, email, password, role) {
   let description = doc(firestore, 'Users/' + uid);
   await setDoc(description, {
-      Email: email,
-      Password: password,
-      Role: role
+    Email: email,
+    Password: password,
+    Role: role,
   });
 }
 
@@ -595,5 +586,5 @@ export {
   updateE,
   updateP,
   removeU,
-  addAdmin
+  addAdmin,
 };

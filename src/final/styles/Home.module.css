@@ -75,7 +75,7 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
 
 /* ╔⏤⏤⏤⏤╝ Homepage Time/Search Button/Button-wrappers ╚⏤⏤⏤⏤╗*/
 
-#main-button-group {
+.main-button-group {
     display: flex;
     margin-top: 8em;
     flex-direction: column;
@@ -84,6 +84,7 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
     align-items: center;
     list-style: none;
     gap: 1em;
+    padding-left: 0;
 }
 
 .landing-page-main-button {
@@ -155,3 +156,70 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
 }
 
 /* ╚⏤⏤⏤⏤╗ Banners ╔⏤⏤⏤⏤╝*/
+
+
+
+
+/* MOBILE */
+@media only screen and (max-width: 750px) {
+/* ╔⏤⏤⏤⏤╝ Banners ╚⏤⏤⏤⏤╗*/
+    .translucent-banner {
+    margin: 1em 0em;
+    font-size: 22px;
+    }
+/* ╚⏤⏤⏤⏤╗ Banners ╔⏤⏤⏤⏤╝*/
+
+/* ╔⏤⏤⏤⏤╝ Artifact Search/Timeline Generation ╚⏤⏤⏤⏤╗*/
+    .main-button-group {
+        padding-left: 0px;
+    }
+    .landing-page-main-button {
+    width: 95vw;
+    height: 2em;
+    font-size: 22px;
+    }
+
+    .landing-page-main-button-link {
+        width: 95vw;
+    }
+
+    #landing-page-artifact-search-bar {
+    width: 90vw;
+    height: 2em;
+    font-size: 22px;
+    }
+/* ╚⏤⏤⏤⏤╗ Artifact Search/Timeline Generation ╔⏤⏤⏤⏤╝*/
+
+
+/* ╔⏤⏤⏤⏤╝ Homepage Exhibit Buttons/Button-wrappers ╚⏤⏤⏤⏤╗*/
+    #exhibit-options-list {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    #exhibit-options-list > div > li > a > .option-button {
+        width: 75vw !important;
+    }
+
+    /* Spaces the first row of buttons appropriately for desktop styles */
+    #exhibit-options-r1 {
+        flex-direction: column;
+        gap: 1em;
+        margin-bottom: 1em;
+    }
+
+    /* Spaces the second row of buttons appropriately for desktop styles */
+    #exhibit-options-r2 {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    #exhibit-options-list > div > li > a > .option-button {
+        font-size: 18px;
+        padding: 22px 0px;
+        border-radius: 20px;
+    }
+/* ╚⏤⏤⏤⏤╗ Homepage Exhibit Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
+}

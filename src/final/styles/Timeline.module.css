@@ -19,10 +19,21 @@
     align-items: center;
     justify-content: center;
     flex-flow: column wrap;
+    min-height: 100vh;
 }
 
 .timeline-segment {
     display: flex;
+}
+
+@keyframes slideIn {
+    from {
+        margin: 0 50vw;
+    }
+
+    to {
+        margin: 0 50px;
+    }
 }
 
 .timeline-line {
@@ -30,6 +41,7 @@
     height: 200px;
     margin: 0px 50px;
     background-color: var(--red);
+    animation: slideIn 500ms ease-out 0ms 1 normal forwards;
 }
 
 .legend-container {

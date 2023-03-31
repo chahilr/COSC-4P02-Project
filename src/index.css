@@ -20,14 +20,10 @@
 
   /* Website's sizes */
   --logo-size: 80px;
+  --mobile-logo-size: 3em;
 }
 
-
-
 /* ╔⏤⏤⏤⏤╝ Homepage Exhibit Buttons/Button-wrappers ╚⏤⏤⏤⏤╗*/
-
-
-
 /* Following rules made by Reet for the timeline customizer*/
 .instruction-heading {
   font-family: 'Montserrat';
@@ -67,4 +63,3 @@
   margin: auto;
   padding: 10px 50px;
 }
-

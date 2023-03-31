@@ -1,0 +1,38 @@
+@media only screen and (max-width: 750px) {
+
+/* ╔⏤⏤⏤⏤╝ HOME PAGE ╚⏤⏤⏤⏤╗*/
+
+  .option-button {
+    width: 75vw !important;
+  }
+
+/* ╚⏤⏤⏤⏤╗ HOME PAGE ╔⏤⏤⏤⏤╝*/
+
+
+  .button-row {
+    display: block;
+  }
+
+  .button-row > .customizer-button-group:first-of-type {
+    margin-bottom: 1em;
+  }
+
+  .button-row > .customizer-button-group {
+    display: flex;
+    justify-content: space-around;
+  }
+  .button-row > .customizer-button-group > button {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 45%;
+    padding: 0.8em 0em;
+  }
+  .search-button-container {
+    padding-bottom: 2em;
+  }
+  .slider-container {
+    margin-bottom: 2em !important;
+  }
+
+}

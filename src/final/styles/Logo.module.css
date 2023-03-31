@@ -43,3 +43,15 @@
 }
 
 /* ╚⏤⏤⏤⏤╗ Museum Logo ╔⏤⏤⏤⏤╝*/
+
+@media only screen and (max-width: 750px) {
+    /* Mobile */
+    .logo-text > span {
+        font-size: 18px !important;
+    }
+
+    .logo-image>img {
+        height: var(--mobile-logo-size);
+        width: var(--mobile-logo-size);
+    }
+}

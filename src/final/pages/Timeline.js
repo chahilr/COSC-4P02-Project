@@ -57,6 +57,14 @@ export default function Timeline() {
       >
         <div className={styles['timeline-container']}>
           {showPreview != null && <ArtifactPreview {...showPreview} />}
+          <div
+            className={styles['timeline-line']}
+            style={{ position: 'fixed', height: '100vh' }}
+          ></div>
+          <div
+            className={styles['timeline-line']}
+            style={{ height: '3em' }}
+          ></div>
           {artifacts.map((artifact) => {
             if (alternator++ % 2 === 0) {
               return (

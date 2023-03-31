@@ -31,23 +31,11 @@ const theme = createTheme({
 
 export default function EditArtifact() {
   const { state } = useLocation();
-  
-  const id=state?.id;
-  const [name, setName] = useState(state?.name);
-  const [year, setYear] = useState(state?.year);
-  const [era, setEra] = useState(state?.era);
-  const [description, setDescription] = useState();
-  const [exhibit, setExibit] = useState(state?.exhibit);
-
-  useEffect(() => {
-    //set description
-    getDescrption(id).then((data) => {
-      console.log(data.content)
-      setDescription(data.content);
-    })
-  }, []);
-
-  
+  const [name, setName] = useState(state?.Name);
+  const [year, setYear] = useState(state?.Year);
+  // const [era, setEra] = useState(state?.era);
+  const [description, setDescription] = useState('');
+  const [exhibit, setExibit] = useState(state?.Exhibition);
 
   function handleChange() {}
   //new image stuff
@@ -59,6 +47,12 @@ export default function EditArtifact() {
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
+
+  useEffect(() => {
+    getDescrption(state?.id).then((result) => {
+      setDescription(result.content);
+    });
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -100,13 +94,13 @@ export default function EditArtifact() {
                   variant="filled"
                   color="secondary"
                 />
-                {/* <TextField
+                <TextField
                   id="age"
                   label="Age"
-                  defaultValue={era}
+                  defaultValue={year < 0 ? 'BC' : 'AD'}
                   variant="filled"
                   color="secondary"
-                /> */}
+                />
               </div>
 
               <div id={styles['exhibit']}>
@@ -125,7 +119,7 @@ export default function EditArtifact() {
                 <TextField
                   id="description"
                   label="Description"
-                  defaultValue={description}
+                  value={description}
                   multiline
                   rows={15}
                   color="secondary"
