@@ -476,6 +476,80 @@ async function queryTagsExhibitsYearRange(exhibit, tags, year1, year2) {
   return result2;
 }
 
+/* FUNCTIONS: User Queries */
+
+async function getUserEmails() {
+  let q = query(collection(firestore, 'Users'));
+  let querySnapshot = await getDocs(q);
+
+  let result = [];
+
+  querySnapshot.forEach((snap) => {
+    result.push(snap.data().Email);
+  });
+  return result;
+}
+
+async function getUserData(uid) {
+  let artifact = doc(firestore, 'Users/' + uid);
+
+  let querySnapshot = await getDoc(artifact);
+
+  return querySnapshot.data();
+}
+
+async function getUsersPassword(email) {
+  let q = query(collection(firestore, 'Users'), where('Email', '==', email));
+  let querySnapshot = await getDocs(q);
+  let result = [];
+  querySnapshot.forEach((snap) => {
+    result.push(snap.data());
+  });
+  return result[0].Password;
+}
+
+async function getUserRole(email) {
+  let q = query(collection(firestore, 'Users'), where('Email', '==', email));
+  let querySnapshot = await getDocs(q);
+
+  return querySnapshot.data().Role;
+}
+
+async function mainAdmin(uid) {
+  let artifact = doc(firestore, 'Users/' + uid);
+
+  let querySnapshot = await getDoc(artifact);
+
+  if (querySnapshot.data().Role == 'mainAdmin') {
+    return true;
+  }
+  return false;
+}
+
+async function updateE(uid, newEmail) {
+  let artifact = doc(firestore, 'Users/' + uid);
+  await setDoc(artifact, { Email: newEmail }, { merge: true });
+}
+
+async function updateP(uid, newPass) {
+  let artifact = doc(firestore, 'Users/' + uid);
+  await setDoc(artifact, { Password: newPass }, { merge: true });
+}
+
+async function removeU(uid) {
+  let artifact = doc(firestore, 'Users/' + uid);
+  await deleteDoc(artifact);
+}
+
+async function addAdmin(uid, email, password, role) {
+  let description = doc(firestore, 'Users/' + uid);
+  await setDoc(description, {
+    Email: email,
+    Password: password,
+    Role: role,
+  });
+}
+
 export {
   queryTagsExhibitsYearRange,
   queryTags,
@@ -504,4 +578,13 @@ export {
   removeRelated,
   addRelated,
   updateRelated,
+  getUserEmails,
+  getUserData,
+  getUsersPassword,
+  getUserRole,
+  mainAdmin,
+  updateE,
+  updateP,
+  removeU,
+  addAdmin,
 };

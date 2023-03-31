@@ -10,19 +10,23 @@
 
     display: flex;
     flex-direction: column;
-    
+
     padding-top: 8vh;
 }
 
-.background > h1 {
+.background>h1 {
     text-align: center;
 }
+
 .article-container {
     display: flex;
     justify-content: center;
 }
 
-.background, .list-item-text, .list-item-text > p, .list-item-text > span{
+.background,
+.list-item-text,
+.list-item-text>p,
+.list-item-text>span {
     color: var(--white);
     font-family: 'Montserrat';
 }
@@ -30,6 +34,7 @@
 .link {
     text-decoration: none;
 }
+
 .link:visited {
     color: var(--white);
 }
@@ -45,6 +50,7 @@
     background-color: var(--white);
     cursor: pointer;
 }
+
 .individual-article:hover * {
     color: var(--red);
 }
