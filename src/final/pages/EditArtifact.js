@@ -11,8 +11,9 @@ import styles from '../styles/EditArtifact.module.css';
 //image upload stuff
 import ImageUploading from 'react-images-uploading';
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Logo from '../components/Logo';
+import { getDescrption } from '../../utils/firestoreFunctions';
 
 /**
  * Fahad Umair / Evan's code as reference
@@ -30,11 +31,23 @@ const theme = createTheme({
 
 export default function EditArtifact() {
   const { state } = useLocation();
+  
+  const id=state?.id;
   const [name, setName] = useState(state?.name);
   const [year, setYear] = useState(state?.year);
   const [era, setEra] = useState(state?.era);
-  const [description, setDescription] = useState(state?.description);
+  const [description, setDescription] = useState();
   const [exhibit, setExibit] = useState(state?.exhibit);
+
+  useEffect(() => {
+    //set description
+    getDescrption(id).then((data) => {
+      console.log(data.content)
+      setDescription(data.content);
+    })
+  }, []);
+
+  
 
   function handleChange() {}
   //new image stuff

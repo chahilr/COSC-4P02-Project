@@ -1,3 +1,10 @@
+/* make the text disappear when the user clicks on the searchbar */
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
+input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
+
+
+
 /* Homepage Background */
 .home {
     position: absolute;

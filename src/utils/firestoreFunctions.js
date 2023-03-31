@@ -317,7 +317,8 @@ async function getAllArtifacts() {
   try {
     const docsSnap = await getDocs(colRef);
     docsSnap.forEach((doc) => {
-      tempArray[i] = doc.data();
+      //change made by Fahad, i needed ID as well, let me know if you are having trouble accessing this data
+      tempArray[i] = [doc.id, doc.data()]; 
       i++;
     });
   } catch (error) {
