@@ -1,0 +1,32 @@
+.search-list-container {
+    background-color: var(--white);
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.search-list {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.search-list > a > li {
+    font-family: 'Montserrat';
+    font-size: 2rem;
+    border-bottom: 2px solid var(--grey);
+    padding: 1rem;
+    margin: 0;
+}
+
+.search-list > a > li:last-child {
+    border: none;
+}
+
+.search-list > a > li:hover {
+    background-color: var(--red);
+    color: var(--white);
+}
