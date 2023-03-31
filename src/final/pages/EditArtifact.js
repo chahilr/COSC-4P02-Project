@@ -100,13 +100,13 @@ export default function EditArtifact() {
                   variant="filled"
                   color="secondary"
                 />
-                <TextField
+                {/* <TextField
                   id="age"
                   label="Age"
                   defaultValue={era}
                   variant="filled"
                   color="secondary"
-                />
+                /> */}
               </div>
 
               <div id={styles['exhibit']}>

@@ -26,12 +26,13 @@ select{
     margin: auto;
 }
 #right{
+    padding-top: 20px;
     float: right;
-    width: 50%;
+    width: 70%;
 }
 #left{
     float: left;
-    width: 50%;
+    width: 30%;
 }
 #upload{
     margin: 8px;
@@ -64,4 +65,17 @@ select{
 
 .MuiTextField-root{
     width:100%;
+}
+
+
+#name{
+    padding-top: 20px;
+}
+
+#date{
+    padding-top: 20px;
+}
+
+#exhibit{
+    padding-top: 20px;
 }
