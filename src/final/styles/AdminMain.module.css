@@ -1,0 +1,63 @@
+.container {
+    background-image: url('../../images/black-background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 3cm;
+    height: 100vh;
+  }
+  
+  button {
+    width: 200px;
+    height: 200px;
+    border-radius: 3;
+    border: none;
+    background-color: #cccccc71;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .left-button {
+    margin-right: auto;
+    
+  }
+  
+  .middle-button {
+    margin: 0 auto;
+  }
+  
+  .right-button {
+    margin-left: auto;
+  }
+
+
+  .sign-out-button {
+    width: 10%;
+    height: 5%;
+    background-color: #EA252E;
+    color: white;
+    font-size: medium;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+
+  #logo-and-language {
+    scale: 80%;
+    padding-left: 3%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .FontAwesomeIcon{
+
+scale: 100%;
+
+  }
