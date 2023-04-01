@@ -2,15 +2,14 @@
   display: flex;
   flex-direction: column;
   background-color: var(--black);
-  height: 100dvh;
+  /* height: 100dvh; */
 }
 .artifact-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   margin: 0 0;
-  padding: 0px 50px;
-  background-color: black;
+  padding: 2em 50px;
   height: 100vh;
 }
 
@@ -30,6 +29,7 @@
 .artifact-image img {
   max-width: 100%;
   height: auto;
+  max-height: 66%;
   border-radius: 40px;
 }
 
@@ -130,8 +130,7 @@ button:hover {
     justify-content: flex-start;
     align-items: flex-start;
     margin: 0 0;
-    background-color: black;
-    height: 100%;
+    /* height: 100%; */
   }
   
   .artifact-text {
@@ -169,5 +168,8 @@ button:hover {
   .artifact-text {
     flex-basis: unset;
   }
- 
+
+  .artifact-image {
+    justify-items: center;
+  }
 }
