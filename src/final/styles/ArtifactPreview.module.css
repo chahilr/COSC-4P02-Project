@@ -2,7 +2,8 @@
     position: fixed;
     z-index: 1;
     top: 200px;
-    width: 500px;
+    width: 90%; /* change width to be a percentage */
+    max-width: 500px; /* add a max-width to avoid stretching */
     height: fit-content;
     padding-bottom: 25px;
     border-radius: 50px;
@@ -10,18 +11,35 @@
     text-align: center;
     font-family: 'Montserrat';
     color: var(--white);
-}
-
-.artifact-title {
+  }
+  
+  .artifact-title {
     font-size: 2.5rem;
-}
-
-.artifact-description {
+  }
+  
+  .artifact-description {
     font-size: 1rem;
-}
-
-.submit-button:hover {
+  }
+  
+  .submit-button:hover {
     background-color: var(--white);
     color: var(--red);
     border: 1px solid var(--red);
-}
+  }
+  
+  /* Media queries for responsive design */
+  @media only screen and (min-width: 768px) {
+    .artifact-preview {
+      width: 70%; /* adjust width for larger screens */
+      top: 20%; /* adjust position for larger screens */
+    }
+  
+    .artifact-title {
+      font-size: 3rem; /* increase font size for larger screens */
+    }
+  
+    .artifact-description {
+      font-size: 1.2rem; /* increase font size for larger screens */
+    }
+  }
+  
