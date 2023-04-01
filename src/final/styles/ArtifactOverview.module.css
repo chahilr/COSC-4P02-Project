@@ -2,15 +2,18 @@
   display: flex;
   flex-direction: column;
   background-color: var(--black);
-  /* height: 100dvh; */
+  height: max-content;
+  width: 100vw;
 }
 .artifact-container {
   display: flex;
   justify-content: space-between;
   /* align-items: center; */
   margin: 0 0;
-  padding: 2em 50px;
-  height: 100vh;
+  padding: 2em 50px 0 50px;
+  height: 100%;
+  /* height: auto; */
+  /* height: calc(100vh - 3em - var(--logo-size)); */
 }
 
 .artifact-text {
@@ -23,12 +26,12 @@
 .artifact-image {
   flex-basis: 50%;
   text-align: right;
-  margin-right: 100px;
+  margin: 0 auto;
 }
 
 .artifact-image img {
   max-width: 100%;
-  height: auto;
+  height: 100%;
   max-height: 66%;
   border-radius: 40px;
 }
@@ -130,7 +133,7 @@ button:hover {
     justify-content: flex-start;
     align-items: flex-start;
     margin: 0 0;
-    margin-bottom: 10vh;
+    padding: 0.5em;
     /* height: 100%; */
   }
   
@@ -145,8 +148,9 @@ button:hover {
   
   .artifact-image {
     width: 100%;
+    height: min-content;
     display: grid;
-    max-height: 0;
+    /* max-height: 0; */
   }
   
   .artifact-image img {
