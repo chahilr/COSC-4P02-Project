@@ -26,7 +26,7 @@ export default function ArtifactOverview() {
         //   paddingTop: '1dvh',
         //   backgroundColor: 'black',
         // }}
-        style={{position: 'relative', backgroundColor: "var(--translucent-grey)", width: "100vw", marginTop: "unset", padding: "1dvh 1em"}}
+        style={{position: 'relative', backgroundColor: "var(--translucent-grey)", marginTop: "unset", padding: "1dvh 1em"}}
       />
       <div className={styles['container']}>
         <div className={styles['artifact-container']}>
