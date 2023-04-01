@@ -11,6 +11,10 @@ import AdminHome from '../final/pages/AdminHome.js';
 import AddArtifact from './pages/AddArtifact';
 import EditArtifact from './pages/EditArtifact';
 import ArtifactList from './pages/ArtifactList';
+import ManageAdmins from '../final/pages/ManageAdmins.js';
+import { MainAdminRoutes } from '../utils/MainAdminRoutes';
+import AdminSettings from './pages/AdminSettings';
+import AddAdmin from './pages/AddAdmin';
 
 function App() {
   return (
@@ -22,7 +26,12 @@ function App() {
         <Route path="/timeline" element={<Timeline />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route element={<AdminRoutes />}>
-          <Route path="/adminHome" element={<AdminHome />} />
+        <Route path="/adminHome" element={<AdminHome />} />
+          <Route path="/adminSettings" element={<AdminSettings />} />
+          <Route element={<MainAdminRoutes />}>
+            <Route path="/mangeAdmins" element={<ManageAdmins />} />
+            <Route path="/addAdmin" element={<AddAdmin />} />
+          </Route>
         </Route>
         <Route path="/addartifact" element={<AddArtifact />} />
         <Route path="/editartifact" element={<EditArtifact />} />

@@ -1,0 +1,98 @@
+.adminHome {
+    background-image: url('../../images/black-background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button:hover {
+    background-color: #7C7B81;
+  }
+  
+
+button {
+    color: white;
+    font-size: 16px;
+    background-color:#EA252E; /* Change background color to red */
+    border-radius: 20px;
+    padding: 13px 35px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-radius: 25px;
+    border-bottom: 2px solid var(--grey);
+    padding: 25px;
+    margin: 0px;
+    
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.signout-settings {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    margin: 40px;
+}
+
+.settings-button{
+    background-image: url('../../images/settingsIcon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-size: 70%;
+    background-color: transparent;
+    width: 55px;
+    height: 55px;
+}
+
+.sign-out-button{
+    font-size: large;
+    height: 55px;
+}
+
+.sign-out{
+    float: left;
+    margin-right: 10px;
+}
+
+.settings{
+    float: right;
+    margin-left: 10px;
+}
+
+
+
+.logoAdmin {
+    position: absolute;
+}
+
+.add-artifact{
+    margin: 50px;
+    font-size:x-large;
+    width: 250px;
+    height: 250px;
+}
+
+.edit-artifact{
+    margin: 50px;
+    font-size:x-large;
+    width: 250px;
+    height: 250px;
+}
+
+.manage-admins{
+    margin: 50px;
+    font-size:x-large;
+    width: 250px;
+    height: 250px;
+}
