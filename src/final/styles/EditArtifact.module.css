@@ -1,22 +1,14 @@
+/* Desktop styles */
 input[type=text] {
     background-color: #3CBC8D;
     color: white;
 }
-
-input[type=text] {
-    background-color:white;
-    color: black;
-}
-input{
+input[type=text], select, label {
     width: 100%;
 }
-label{
-    color:white;
+label, select {
+    color: white;
 }
-select{
-    color:white;
-}
-
 #artifact-add-form{
     width: 80%;
     margin: auto;
@@ -45,7 +37,7 @@ select{
 }
 .MuiInputBase-root{
     margin:8px;
-   background: white;
+    background: white;
 }
 .MuiButtonBase-root{
     margin:10px;
@@ -61,7 +53,21 @@ select{
     top: 12px;
     right: 10px;
 }
-
 .MuiTextField-root{
     width:100%;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 600px) {
+    input[type=text], select, label {
+        width: 100%;
+    }
+    #right, #left {
+        width: 100%;
+        float: none;
+    }
+    #logout{
+        position: static;
+        margin-top: 20px;
+    }
 }
