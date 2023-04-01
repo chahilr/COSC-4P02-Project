@@ -23,16 +23,11 @@
   --mobile-logo-size: 3em;
 
   overflow-x: hidden;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 /* ╔⏤⏤⏤⏤╝ Homepage Exhibit Buttons/Button-wrappers ╚⏤⏤⏤⏤╗*/
-/* Following rules made by Reet for the timeline customizer*/
-.instruction-heading {
-  font-family: 'Montserrat';
-  font-size: 20px;
-  text-align: center;
-}
+
 /* Generic button */
 .option-button {
   font-family: 'Montserrat';

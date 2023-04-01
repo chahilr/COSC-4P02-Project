@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '../../index.css';
 
 const SelectButton = (props) => {
   const [clicked, setClicked] = useState(false);
