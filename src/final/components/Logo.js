@@ -5,9 +5,7 @@ export default function Logo(props) {
     <div
       className={styles['logo-and-language']}
       style={{
-        backgroundColor: 'transparent',
-        marginBottom: '100px',
-        ...props?.style,
+        ...props?.style
       }}
     >
       {/* Logo */}
