@@ -86,7 +86,7 @@
     }
     
     .timeline-offset {
-        height: 4em !important;
+        height: 4.5em !important;
         background-color: var(--black);
         z-index: 1;
     }
@@ -94,7 +94,7 @@
     .legend-container {
         font-size: 12px;
         right: 10%;
-        top: 4.5em;
+        top: 5em;
         position: absolute;
     }
     .legend-container > ul > li > div {
