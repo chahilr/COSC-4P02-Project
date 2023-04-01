@@ -109,11 +109,10 @@
 }
 
 
-button {
+.nav-container > .button-container > button {
   color: white;
   font-size: 16px;
   background-color: #EA252E;
-  min-width: 10em;
   border-radius: 15px;
   padding: 1vw 2vw;
   margin: 0 2vw;
@@ -154,9 +153,7 @@ button:hover {
     height: auto;
    
   }
-  button {
-    min-width: unset;
-  }
+
   button-container {
     position: fixed;
     left: 0;
