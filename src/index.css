@@ -21,6 +21,9 @@
   /* Website's sizes */
   --logo-size: 80px;
   --mobile-logo-size: 3em;
+
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 /* ╔⏤⏤⏤⏤╝ Homepage Exhibit Buttons/Button-wrappers ╚⏤⏤⏤⏤╗*/

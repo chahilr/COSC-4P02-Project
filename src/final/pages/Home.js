@@ -64,9 +64,10 @@ export default function Home() {
 
   return (
     <>
-      <Logo color="var(--white)" style={{background: "var(--translucent-grey)", marginTop: "unset", padding: "1dvh 1em"}} />
+      {/* The following line introduces an issue in the mobile design where there is vertical and horizontal overflow. */}
+      {/* <Logo color="var(--white)" style={{background: "var(--translucent-grey)", width: '100%', marginTop: "unset", padding: "1dvh 1em"}} /> */}
+      <Logo color="var(--white)" style={{marginTop: "unset", padding: "1dvh 1em"}} />
       <div className={styles['home']}>
-      {/* <div className={`${styles['home']} home-background`}> */}
         <div className={styles['center']}>
           <ul className={styles['main-button-group']}>
             <Link
