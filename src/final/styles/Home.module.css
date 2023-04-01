@@ -10,7 +10,9 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
     position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: max-content;
+    min-height: 100vh;
+
     background: url('../../images/museum.png');
     background-repeat: no-repeat;
     background-position: center;
