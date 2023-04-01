@@ -20,7 +20,12 @@ export default function ArtifactOverview() {
       <div className={styles['container']}>
         <Logo
           color="var(--white)"
-          style={{position: 'relative', backgroundColor: "var(--translucent-grey)", marginTop: "unset", padding: "1dvh 1em"}}
+          style={{
+            position: 'relative',
+            backgroundColor: 'var(--translucent-grey)',
+            marginTop: 'unset',
+            padding: '1dvh 1em',
+          }}
         />
         <div className={styles['artifact-container']}>
           <div className={styles['artifact-text']}>

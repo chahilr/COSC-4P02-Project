@@ -130,6 +130,7 @@ button:hover {
     justify-content: flex-start;
     align-items: flex-start;
     margin: 0 0;
+    margin-bottom: 10vh;
     /* height: 100%; */
   }
   
@@ -145,11 +146,12 @@ button:hover {
   .artifact-image {
     width: 100%;
     display: grid;
+    max-height: 0;
   }
   
   .artifact-image img {
     max-width: 100%;
-    height: auto;
+    height: 100%;
    
   }
 
