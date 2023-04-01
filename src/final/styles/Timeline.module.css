@@ -88,6 +88,7 @@
     .timeline-offset {
         height: 4em !important;
         background-color: var(--black);
+        z-index: 1;
     }
 
     .legend-container {
