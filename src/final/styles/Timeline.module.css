@@ -24,6 +24,7 @@
 
 .timeline-segment {
     display: flex;
+    align-items: center;
 }
 
 @keyframes slideIn {
@@ -41,6 +42,12 @@
     height: 200px;
     margin: 0px 50px;
     background-color: var(--red);
+}
+
+.spacer {
+    width: 40px;
+    margin: 0px 50px;
+    background-color: transparent;
     animation: slideIn 500ms ease-out 0ms 1 normal forwards;
 }
 
@@ -72,6 +79,12 @@
 }
 
 @media only screen and (max-width: 750px) {
+    .spacer {
+        width: 40px;
+        margin: 0px 20px;
+        background-color: var(--red);
+    }
+    
     .timeline-offset {
         height: 4em !important;
         background-color: var(--black);
