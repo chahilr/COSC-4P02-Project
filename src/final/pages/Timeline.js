@@ -41,7 +41,6 @@ export default function Timeline() {
 
   return (
     <>
-
       <div
         className={styles['background']}
         onClick={() => setShowPreview(null)}
@@ -59,7 +58,13 @@ export default function Timeline() {
           {showPreview != null && <ArtifactPreview {...showPreview} />}
           <div
             className={styles['timeline-line']}
-            style={{ position: 'fixed', height: '100vh' }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 'auto',
+              right: 'auto',
+              height: '100%',
+            }}
           ></div>
           <div
             className={`${styles['timeline-line']} ${styles['timeline-offset']}`}
@@ -75,7 +80,7 @@ export default function Timeline() {
                     onClick={() => handleArtifactClick(artifact)}
                     alternator={alternator}
                   />
-                  <div className={styles['timeline-line']}></div>
+                  <div className={styles['spacer']}></div>
                   <ArtifactBubble
                     visible={false}
                     artifact={artifact[1]}
@@ -93,7 +98,7 @@ export default function Timeline() {
                     onClick={() => handleArtifactClick(artifact)}
                     alternator={alternator}
                   />
-                  <div className={styles['timeline-line']}></div>
+                  <div className={styles['spacer']}></div>
                   <ArtifactBubble
                     visible={true}
                     artifact={artifact[1]}
