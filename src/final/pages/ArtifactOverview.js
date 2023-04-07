@@ -17,7 +17,10 @@ export default function ArtifactOverview() {
   );
   return (
     <>
-      <Logo color="var(--white)" />
+      <Logo
+        color="var(--white)"
+        style={{position: 'relative', backgroundColor: "var(--translucent-grey)", marginTop: "unset", padding: "1dvh 1em"}}
+      />
       <div className={styles['container']}>
         <div className={styles['artifact-container']}>
           <div className={styles['artifact-text']}>
@@ -28,10 +31,12 @@ export default function ArtifactOverview() {
             <img src={state.image} alt="" height={'100dvh'} />
           </div>
         </div>
-        <div className={styles['button-container']}>
-          <button id="return-button">Return</button>
-          <button id="related-artifact-button">Related Artifact</button>
-          <button id="other-media-button">Other Media</button>
+        <div className={styles['nav-container']}>
+          <div className={styles['button-container']}>
+            <button id="return-button">Back to Timeline</button>
+            <button id="related-artifact-button">Related Artifact</button>
+            <button id="other-media-button">Other Media</button>
+          </div>
         </div>
       </div>
     </>

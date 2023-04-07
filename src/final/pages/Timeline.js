@@ -41,28 +41,33 @@ export default function Timeline() {
 
   return (
     <>
-      <Logo
-        color="var(--white)"
-        style={{
-          backgroundColor: 'transparent',
-          marginBottom: '100px',
-          transform: 'scale(0.75)',
-          translate: '-12.5%',
-        }}
-      />
-
       <div
         className={styles['background']}
         onClick={() => setShowPreview(null)}
       >
+        <Logo
+          color="var(--white)"
+          style={{
+            backgroundColor: 'transparent',
+            marginBottom: '100px',
+            transform: 'scale(0.75)',
+            translate: '-12.5%',
+          }}
+        />
         <div className={styles['timeline-container']}>
           {showPreview != null && <ArtifactPreview {...showPreview} />}
           <div
             className={styles['timeline-line']}
-            style={{ position: 'fixed', height: '100vh' }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 'auto',
+              right: 'auto',
+              height: '100%',
+            }}
           ></div>
           <div
-            className={styles['timeline-line']}
+            className={`${styles['timeline-line']} ${styles['timeline-offset']}`}
             style={{ height: '3em' }}
           ></div>
           {artifacts.map((artifact) => {
@@ -75,7 +80,7 @@ export default function Timeline() {
                     onClick={() => handleArtifactClick(artifact)}
                     alternator={alternator}
                   />
-                  <div className={styles['timeline-line']}></div>
+                  <div className={styles['spacer']}></div>
                   <ArtifactBubble
                     visible={false}
                     artifact={artifact[1]}
@@ -93,7 +98,7 @@ export default function Timeline() {
                     onClick={() => handleArtifactClick(artifact)}
                     alternator={alternator}
                   />
-                  <div className={styles['timeline-line']}></div>
+                  <div className={styles['spacer']}></div>
                   <ArtifactBubble
                     visible={true}
                     artifact={artifact[1]}

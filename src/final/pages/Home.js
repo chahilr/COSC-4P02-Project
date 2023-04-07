@@ -40,7 +40,7 @@ export default function Home() {
         break;
       default:
     }
-    const homeDiv = document.querySelector('.Home_home__PXf2A');
+    const homeDiv = document.querySelector('.' + styles['home']);
     homeDiv.style.backgroundImage = 'url(' + image_id + ')';
   };
 
@@ -49,7 +49,7 @@ export default function Home() {
    */
   const handleMouseLeave = (event) => {
     const image_id = museum;
-    const homeDiv = document.querySelector('.Home_home__PXf2A');
+    const homeDiv = document.querySelector('.' + styles['home']);
     homeDiv.style.backgroundImage = 'url(' + image_id + ')';
   };
 
@@ -64,7 +64,9 @@ export default function Home() {
 
   return (
     <>
-      <Logo color="var(--white)" />
+      {/* The following line introduces an issue in the mobile design where there is vertical and horizontal overflow. */}
+      {/* <Logo color="var(--white)" style={{background: "var(--translucent-grey)", width: '100%', marginTop: "unset", padding: "1dvh 1em"}} /> */}
+      <Logo color="var(--white)" style={{marginTop: "unset", padding: "1dvh 1em"}} />
       <div className={styles['home']}>
         <div className={styles['center']}>
           <ul className={styles['main-button-group']}>

@@ -24,6 +24,7 @@
 
 .timeline-segment {
     display: flex;
+    align-items: center;
 }
 
 @keyframes slideIn {
@@ -41,6 +42,12 @@
     height: 200px;
     margin: 0px 50px;
     background-color: var(--red);
+}
+
+.spacer {
+    width: 40px;
+    margin: 0px 50px;
+    background-color: transparent;
     animation: slideIn 500ms ease-out 0ms 1 normal forwards;
 }
 
@@ -65,4 +72,46 @@
     background-color: var(--white);
     border-radius: 100%;
     margin-right: 25px;
+}
+
+.logo-and-language {
+    position: fixed !important;
+}
+
+@media only screen and (max-width: 750px) {
+    .spacer {
+        width: 40px;
+        margin: 0px 20px;
+        background-color: var(--red);
+    }
+    
+    .timeline-offset {
+        height: 4em !important;
+        background-color: var(--black);
+    }
+
+    .legend-container {
+        font-size: 12px;
+        right: 10%;
+        top: 4.5em;
+        position: absolute;
+    }
+    .legend-container > ul > li > div {
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+    }
+    .logo-and-language {
+        position: absolute !important;
+    }
+
+    @keyframes slideIn {
+        from {
+            margin: 0 50vw;
+        }
+    
+        to {
+            margin: 0 25px;
+        }
+    }
 }
