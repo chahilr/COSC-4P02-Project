@@ -36,8 +36,8 @@ export default function Home() {
         break;
       default:
     }
-    const homeDiv = document.querySelector('.Home_home__PXf2A');
-    homeDiv.style.backgroundImage = 'url(' + image_id + ')';
+    // const homeDiv = document.querySelector('.Home_home__PXf2A');
+    // homeDiv.style.backgroundImage = 'url(' + image_id + ')';
   };
 
   /** Handles mousing away from a button... changes the background image back to default
@@ -45,8 +45,8 @@ export default function Home() {
    */
   const handleMouseLeave = (event) => {
     const image_id = museum;
-    const homeDiv = document.querySelector('.Home_home__PXf2A');
-    homeDiv.style.backgroundImage = 'url(' + image_id + ')';
+    // const homeDiv = document.querySelector('.Home_home__PXf2A');
+    // homeDiv.style.backgroundImage = 'url(' + image_id + ')';
   };
 
   return (
