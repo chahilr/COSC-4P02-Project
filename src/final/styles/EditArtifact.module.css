@@ -18,12 +18,12 @@ select{
 }
 
 #artifact-add-form{
-    width: 80%;
+    
     margin: auto;
 }
 #form-outer{
     width: 95%;
-    margin: auto;
+    margin: 150px;
 }
 #right{
     padding-top: 20px;
@@ -72,10 +72,25 @@ select{
     padding-top: 20px;
 }
 
+#tag{
+    margin-top: 20px;
+}
+
 #date{
     padding-top: 20px;
+    
 }
 
 #exhibit{
     padding-top: 20px;
+}
+
+img{
+    margin-top: 20px;
+    width: 100px;
+}
+
+#chooseButton{
+    color: red;
+    background-color: black;
 }
