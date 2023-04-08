@@ -1,8 +1,3 @@
-/* make the text disappear when the user clicks on the searchbar */
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
-input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
-
 .background {
     position: absolute;
     top: 0;
@@ -10,38 +5,38 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
     background-image: url('../../images/black-background.jpg');
     background-size: cover;
     background-position: center;
-    width: 100vw;
+    width: 100%;
     min-height: 100%;
+
     display: flex;
     flex-direction: column;
-    
+
+}
+
+.background>h1 {
     padding-top: 8vh;
-}
-/* accountfor mobile view */
-@media (max-width: 1500px) {
-    .background {
-        padding-top: 20vh;
-    }
-}
-
-/* accountfor mobile view */
-@media (max-width: 1000px) {
-    .background {
-        padding-top: 30vh;
-    }
-}
-
-.background > h1 {
     text-align: center;
 }
+
 .article-container {
     display: flex;
     justify-content: center;
 }
 
-.background, .list-item-text, .list-item-text > p, .list-item-text > span{
+.background,
+.list-item-text,
+.list-item-text>p,
+.list-item-text>span {
     color: var(--white);
     font-family: 'Montserrat';
+}
+
+.link {
+    text-decoration: none;
+}
+
+.link:visited {
+    color: var(--white);
 }
 
 .individual-article {
@@ -55,22 +50,23 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
     background-color: var(--white);
     cursor: pointer;
 }
+
 .individual-article:hover * {
     color: var(--red);
 }
 
-
-#list-page-artifact-search-bar {
-
+#artifact-search-bar {
+    display: flex;
+    margin: 0 auto;
     text-align: center;
-    width: 400px;
-    height: 50px;
+    width: 675px;
+    height: 60px;
     padding: 0 15px !important;
 
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 32px;
     color: var(--black);
 
     background: var(--white);
@@ -78,9 +74,3 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
-
-#input-div{
-    text-align: center;
-}
-
-

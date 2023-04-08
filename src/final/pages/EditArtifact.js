@@ -256,10 +256,6 @@ export default function EditArtifact() {
 
 
 
-          
-
-
-
         </Box>
         
       </div>
