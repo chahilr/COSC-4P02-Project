@@ -56,7 +56,7 @@ async function addArtifact(
 
   for (let i = 0; i < ref.lengh; i++) {
     if (!checkRef(ref[i])) {
-      return 'Related must exsit';
+      return 'Related must exist';
     }
   }
 

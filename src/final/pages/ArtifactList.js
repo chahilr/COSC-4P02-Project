@@ -16,6 +16,7 @@ export default function ArtifactList() {
 
   useEffect(() => {
     getAllArtifacts().then((val) => {
+      console.log(val)
       setArtifacts(val);
     });
   }, []);
