@@ -17,7 +17,7 @@ import ImageUploading from 'react-images-uploading';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Logo from '../components/Logo';
-import { getDescrption } from '../../utils/firestoreFunctions';
+import { getDescrption,updateArtifact } from '../../utils/firestoreFunctions';
 import { storage } from '../../utils/FirebaseApp.js';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
@@ -36,6 +36,7 @@ const theme = createTheme({
 
 export default function EditArtifact() {
   const { state } = useLocation();
+  const id=state?.id;
   const [name, setName] = useState(state?.Name);
   const [year, setYear] = useState(state?.Year);
   // const [era, setEra] = useState(state?.era);
@@ -44,6 +45,8 @@ export default function EditArtifact() {
   const [tags,setTags]=useState(state?.Tags)
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState(state?.Photos[0]);
+  const [newPicture,setNewPicture]=useState([state?.Photos[0]])
+  const [newPictureGiven,setNewPictureGiven]=useState(false)
   const [percent, setPercent] = useState(0);
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
@@ -81,13 +84,44 @@ export default function EditArtifact() {
   function onMenuChange(event) {
     setExibit(event.target.value)
   }
+
+  function onNameChange(event) {
+    setName(event.target.value)
+    
+  }
+
+  function onDateChange(event) {
+    setYear(event.target.value)
+    
+  }
+
+  function onDescriptionChange(event){
+    setDescription(event.target.value)
+  }
+
+
+  const addToDatabase =  (event) => {
+    
+    console.log(exhibit)
+    console.log(name)
+    console.log(year)
+    console.log(tags)
+    console.log(description)
+    console.log(newPicture)
+    
+    updateArtifact(id,name,parseInt(year),description,exhibit,tags,newPicture)
+    alert("Artifact Updated!")
+  };
   
 
   useEffect(() => {
     getDescrption(state?.id).then((result) => {
       setDescription(result.content);
     });
-  }, []);
+    if(newPictureGiven){
+      addToDatabase();
+    }
+  }, [newPicture,newPictureGiven]);
 
 
   const handleFileChange = (event) => {
@@ -127,7 +161,8 @@ export default function EditArtifact() {
           // download url
           getDownloadURL(uploadTask.snapshot.ref).then((url) => {
             console.log(url);
-            setUrl(url);
+            setNewPicture([url]);
+            setNewPictureGiven(true);
           });
         }
       );
@@ -162,6 +197,7 @@ export default function EditArtifact() {
                   defaultValue={name}
                   variant="filled"
                   color="secondary"
+                  onChange={e=> onNameChange(e)}
                 />
               </div>
 
@@ -172,12 +208,14 @@ export default function EditArtifact() {
                   defaultValue={year}
                   variant="filled"
                   color="secondary"
+                  onChange={e=> onDateChange(e)}
                 />
                 <TextField
                   id="age"
                   label="Age"
                   variant="filled"
                   color="secondary"
+                  defaultValue={year < 0 ? 'BC' : 'AD'}
                 />
               </div>
 
@@ -232,7 +270,7 @@ export default function EditArtifact() {
               </div>
             )}
             <input type="file" onChange={handleFileChange} accept="image/*" id={styles['chooseButton']} />
-            <button onClick={handleUpload} disabled={!file}>
+            <button onClick={e=>handleUpload(e)} disabled={!file}>
               Update
             </button>
 
@@ -247,6 +285,7 @@ export default function EditArtifact() {
                   multiline
                   rows={15}
                   color="secondary"
+                  onChange={e=> onDescriptionChange(e)}
                 />
               </div>
             </div>

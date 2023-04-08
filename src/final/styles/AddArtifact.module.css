@@ -18,20 +18,21 @@ select{
 }
 
 #artifact-add-form{
-    width: 80%;
+    
     margin: auto;
 }
 #form-outer{
     width: 95%;
-    margin: auto;
+    margin: 150px;
 }
 #right{
+    padding-top: 20px;
     float: right;
-    width: 50%;
+    width: 70%;
 }
 #left{
     float: left;
-    width: 50%;
+    width: 30%;
 }
 #upload{
     margin: 8px;
@@ -43,7 +44,19 @@ select{
 #add-button{
     margin: auto;
 }
-
+.MuiInputBase-root{
+    margin:8px;
+   background: white;
+}
+.MuiButtonBase-root{
+    margin:10px;
+}
+.MuiSelect-select{
+    color:white;
+}
+.MuiFormLabel-colorSecondary{
+    color: white;
+}
 #logout{
     position: absolute;
     top: 10px;
@@ -52,4 +65,32 @@ select{
 
 .MuiTextField-root{
     width:100%;
+}
+
+
+#name{
+    padding-top: 20px;
+}
+
+#tag{
+    margin-top: 20px;
+}
+
+#date{
+    padding-top: 20px;
+    
+}
+
+#exhibit{
+    padding-top: 20px;
+}
+
+img{
+    margin-top: 20px;
+    width: 100px;
+}
+
+#chooseButton{
+    color: red;
+    background-color: black;
 }
