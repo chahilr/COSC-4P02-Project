@@ -7,10 +7,14 @@ import museum from '../../images/museum.png';
 import { Link } from 'react-router-dom';
 import styles from '../styles/Home.module.css';
 import Logo from '../components/Logo';
+import { queryName } from '../../utils/firestoreFunctions';
+import { useState } from 'react';
+import SearchSuggestions from '../components/SearchSuggestions';
 
 export default function Home() {
   const presetTags = ['Weapons', 'Paintings', 'Tools', 'Technology'];
   const presetYearRange = [-2000, 2000];
+  const [searchResults, setSearchResults] = useState([]);
 
   /** Handles mousing over any of the exhibit buttons. */
   const handleMouseEnter = (event) => {
@@ -36,8 +40,8 @@ export default function Home() {
         break;
       default:
     }
-    // const homeDiv = document.querySelector('.Home_home__PXf2A');
-    // homeDiv.style.backgroundImage = 'url(' + image_id + ')';
+    const homeDiv = document.querySelector('.' + styles['home']);
+    homeDiv.style.backgroundImage = 'url(' + image_id + ')';
   };
 
   /** Handles mousing away from a button... changes the background image back to default
@@ -45,16 +49,27 @@ export default function Home() {
    */
   const handleMouseLeave = (event) => {
     const image_id = museum;
-    // const homeDiv = document.querySelector('.Home_home__PXf2A');
-    // homeDiv.style.backgroundImage = 'url(' + image_id + ')';
+    const homeDiv = document.querySelector('.' + styles['home']);
+    homeDiv.style.backgroundImage = 'url(' + image_id + ')';
+  };
+
+  const getSuggestions = (event) => {
+    const value = event.target.value;
+    value === ''
+      ? setSearchResults([])
+      : queryName(value).then((results) => {
+          setSearchResults(results);
+        });
   };
 
   return (
     <>
-      <Logo color="var(--white)" />
+      {/* The following line introduces an issue in the mobile design where there is vertical and horizontal overflow. */}
+      {/* <Logo color="var(--white)" style={{background: "var(--translucent-grey)", width: '100%', marginTop: "unset", padding: "1dvh 1em"}} /> */}
+      <Logo color="var(--white)" style={{marginTop: "unset", padding: "1dvh 1em"}} />
       <div className={styles['home']}>
         <div className={styles['center']}>
-          <ul id={styles['main-button-group']}>
+          <ul className={styles['main-button-group']}>
             <Link
               className={styles['landing-page-main-button-link']}
               to="/customizer"
@@ -68,9 +83,11 @@ export default function Home() {
                 id={styles['landing-page-artifact-search-bar']}
                 type="text"
                 placeholder="Search for Artifact"
+                onChange={getSuggestions}
               />
             </li>
           </ul>
+          <SearchSuggestions results={searchResults} />
         </div>
 
         <span className={styles['translucent-banner']}>

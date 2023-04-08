@@ -4,7 +4,6 @@
     top: 0;
     left: 0;
     margin-top: 1dvh;
-    background: var(--translucent-grey);
     padding: 0em 1em;
     display: flex;
     flex-direction: row;
@@ -13,13 +12,14 @@
 
 .logo {
     display: flex;
-    /* width: 100%; */
+    width: 100%;
 }
 
 .logo-image>img {
     height: var(--logo-size);
-    width: var(--logo-size);
-    border-radius: 50%;
+    width: auto;
+    /* width: var(--logo-size); */
+    /* border-radius: 50%; */
 }
 
 .logo-text {
@@ -43,3 +43,15 @@
 }
 
 /* ╚⏤⏤⏤⏤╗ Museum Logo ╔⏤⏤⏤⏤╝*/
+
+@media only screen and (max-width: 750px) {
+    /* Mobile */
+    .logo-text > span {
+        font-size: 18px !important;
+    }
+
+    .logo-image>img {
+        height: var(--mobile-logo-size);
+        
+    }
+}

@@ -16,18 +16,21 @@ label{
 select{
     color:white;
 }
+#artifact-add-form {
+    background-color: lightblue;
+  }
+/* #artifact-add-form{
 
-#artifact-add-form{
-    width: 80%;
     margin: auto;
-}
+} */
 #form-outer{
     width: 95%;
-    margin: auto;
+    margin: 150px;
 }
 #right{
+    padding-top: 20px;
     float: right;
-    width: 50%;
+    width: 30%;
 }
 #left{
     float: left;
@@ -65,3 +68,30 @@ select{
 .MuiTextField-root{
     width:100%;
 }
+
+
+#name {
+    margin: auto;
+    padding-top: 26px;
+    font-size: 130%;
+  }
+  
+  #tag {
+    margin-top: 26px;
+    font-size: 130%;
+  }
+  
+  #date {
+    padding-top: 26px;
+    font-size: 130%;
+  }
+  
+  #exhibit {
+    padding-top: 26px;
+    font-size: 130%;
+  }
+  
+  img {
+    margin-top: 26px;
+    width: 100px;
+  }

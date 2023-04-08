@@ -19,7 +19,11 @@ const ArtifactBubble = (props) => {
       color = 'white';
   }
   return (
-    <>
+    <div
+      className={`${styles['bubble-container']} ${
+        props.alternator % 2 === 0 ? styles['column'] : styles['reverse-column']
+      }`}
+    >
       {props.alternator % 2 !== 0 && (
         <p
           className={styles['artifact-bubble-heading']}
@@ -54,7 +58,7 @@ const ArtifactBubble = (props) => {
           {props.artifact.Name} | {props.artifact.Year}
         </p>
       )}
-    </>
+    </div>
   );
 };
 

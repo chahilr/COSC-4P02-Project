@@ -5,9 +5,7 @@ export default function Logo(props) {
     <div
       className={styles['logo-and-language']}
       style={{
-        backgroundColor: 'transparent',
-        marginBottom: '100px',
-        ...props?.style,
+        ...props?.style
       }}
     >
       {/* Logo */}
@@ -21,10 +19,10 @@ export default function Logo(props) {
         </div>
 
         <div className={styles['logo-text']}>
-          <span style={{ color: props.color }}>Canadian Museum of History</span>
+          <span style={{ color: props.color }}>Niagara On The Lake</span>
           <hr style={{ borderColor: props.color }}></hr>
           <span style={{ color: props.color }}>
-            Museé Canadien de L'Histoire
+            History Museum
           </span>
         </div>
 
