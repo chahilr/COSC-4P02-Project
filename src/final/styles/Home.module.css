@@ -1,7 +1,18 @@
 /* make the text disappear when the user clicks on the searchbar */
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
-input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input:focus:-moz-placeholder {
+    color: transparent;
+}
+
+/* Firefox 18- */
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+/* Firefox 19+ */
 
 
 
@@ -47,6 +58,12 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
     transition-duration: 500ms;
 }
 
+#exhibit-options-list>div>li>button:hover {
+    background-color: var(--white);
+    color: red;
+    border: 2px solid red;
+}
+
 /* Styles the UL that wraps all 4 exhibit buttons */
 #exhibit-options-list {
     list-style-type: none;
@@ -56,7 +73,9 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
 
 /* Styles the home page exhibit buttons on hover */
 #exhibit-options-list>div>li>button:hover {
-    background-color: var(--red);
+    background-color: white;
+    color: red;
+    border: 2px solid red;
 }
 
 /* Spaces the first row of buttons appropriately for desktop styles */
@@ -105,6 +124,12 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
     border: 1px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
+}
+
+.landing-page-main-button:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
 }
 
 .landing-page-main-button-link {
@@ -164,21 +189,24 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
 
 /* MOBILE */
 @media only screen and (max-width: 750px) {
-/* ╔⏤⏤⏤⏤╝ Banners ╚⏤⏤⏤⏤╗*/
-    .translucent-banner {
-    margin: 1em 0em;
-    font-size: 22px;
-    }
-/* ╚⏤⏤⏤⏤╗ Banners ╔⏤⏤⏤⏤╝*/
 
-/* ╔⏤⏤⏤⏤╝ Artifact Search/Timeline Generation ╚⏤⏤⏤⏤╗*/
+    /* ╔⏤⏤⏤⏤╝ Banners ╚⏤⏤⏤⏤╗*/
+    .translucent-banner {
+        margin: 1em 0em;
+        font-size: 22px;
+    }
+
+    /* ╚⏤⏤⏤⏤╗ Banners ╔⏤⏤⏤⏤╝*/
+
+    /* ╔⏤⏤⏤⏤╝ Artifact Search/Timeline Generation ╚⏤⏤⏤⏤╗*/
     .main-button-group {
         padding-left: 0px;
     }
+
     .landing-page-main-button {
-    width: 95vw;
-    height: 2em;
-    font-size: 22px;
+        width: 95vw;
+        height: 2em;
+        font-size: 22px;
     }
 
     .landing-page-main-button-link {
@@ -186,14 +214,15 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
     }
 
     #landing-page-artifact-search-bar {
-    width: 90vw;
-    height: 2em;
-    font-size: 22px;
+        width: 90vw;
+        height: 2em;
+        font-size: 22px;
     }
-/* ╚⏤⏤⏤⏤╗ Artifact Search/Timeline Generation ╔⏤⏤⏤⏤╝*/
+
+    /* ╚⏤⏤⏤⏤╗ Artifact Search/Timeline Generation ╔⏤⏤⏤⏤╝*/
 
 
-/* ╔⏤⏤⏤⏤╝ Homepage Exhibit Buttons/Button-wrappers ╚⏤⏤⏤⏤╗*/
+    /* ╔⏤⏤⏤⏤╝ Homepage Exhibit Buttons/Button-wrappers ╚⏤⏤⏤⏤╗*/
     #exhibit-options-list {
         display: flex;
         justify-content: center;
@@ -201,7 +230,7 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
         flex-direction: column;
     }
 
-    #exhibit-options-list > div > li > a > .option-button {
+    #exhibit-options-list>div>li>a>.option-button {
         width: 75vw !important;
     }
 
@@ -218,10 +247,23 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
         gap: 1em;
     }
 
-    #exhibit-options-list > div > li > a > .option-button {
+    #exhibit-options-list>div>li>a>.option-button {
         font-size: 18px;
         padding: 22px 0px;
         border-radius: 20px;
     }
-/* ╚⏤⏤⏤⏤╗ Homepage Exhibit Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
+
+    /* ╚⏤⏤⏤⏤╗ Homepage Exhibit Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
+}
+
+button:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}
+
+SelectButton{
+    background-color: white;
+    color: red;
+    border: 2px solid red;
 }
