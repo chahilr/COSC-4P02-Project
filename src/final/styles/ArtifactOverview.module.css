@@ -5,6 +5,7 @@
   height: max-content;
   width: 100vw;
 }
+
 .artifact-container {
   display: flex;
   justify-content: space-between;
@@ -112,7 +113,7 @@
 }
 
 
-.nav-container > .button-container > button {
+.nav-container>.button-container>button {
   color: white;
   font-size: 16px;
   background-color: #EA252E;
@@ -121,11 +122,15 @@
   margin: 0 2vw;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
 }
 
 button:hover {
-  background-color: #7C7B81;
+  background-color: white;
+  color: red;
+  border: 2px solid red;
 }
+
 @media only screen and (max-width: 750px) {
   .artifact-container {
     display: flex;
@@ -136,7 +141,7 @@ button:hover {
     padding: 0.5em;
     /* height: 100%; */
   }
-  
+
   .artifact-text {
     display: grid;
     width: 100%;
@@ -145,18 +150,18 @@ button:hover {
     font-size: 20px;
     font-family: 'Montserrat';
   }
-  
+
   .artifact-image {
     width: 100%;
     height: min-content;
     display: grid;
     /* max-height: 0; */
   }
-  
+
   .artifact-image img {
     max-width: 100%;
     height: 100%;
-   
+
   }
 
   button-container {
@@ -168,9 +173,9 @@ button:hover {
     justify-content: space-evenly;
     align-items: unset !important;
     padding: 10px;
-    margin:2em;
+    margin: 2em;
   }
-  
+
   .artifact-text {
     flex-basis: unset;
   }
