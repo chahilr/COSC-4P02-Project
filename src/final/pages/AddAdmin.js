@@ -8,7 +8,7 @@ export default function AddAdmin() {
     const [email, setEmail]= useState("");
     const [password1, setPassword1] = useState("");
     const [password2, setPassword2] = useState("");
-    const [role, setRole] = useState("");
+    const [role, setRole] = useState("Admin");
 
     const navigate=useNavigate();
     const {signOut,addUser}=UserAuth();
@@ -32,11 +32,20 @@ export default function AddAdmin() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if(password1!=password2){
+            alert("Passwords must be the same");
+            return;
+        }else if(email=="" | password1==""|role==""){
+            alert("Fill in all inputs");
+            return;
+        }else if(password1.length<6){
+            alert("Password must be at least 6 characters long");
             return;
         }
-        await addUser(email,password1,role);
-        //add message to say that the user has been creaeted succesfully
-        navigate("/adminHome");
+        if(await addUser(email,password1,role)){
+            navigate("/adminHome");
+        }else{
+            alert("Enter an valid email");
+        }
     };
 
     const handleEmailChange = async (event) => {
@@ -58,6 +67,10 @@ export default function AddAdmin() {
         event.preventDefault();
         setRole(event.target.value);
     }
+
+    const handleRadioChange=(event)=>{
+        setRole(event.target.value);
+    }
     
     return (
         <>
@@ -69,17 +82,26 @@ export default function AddAdmin() {
                     </div>
                     <form onSubmit={handleSubmit}>
                         <h1 className={styles["title"]}>Add Admin</h1>
-                        <div className={styles["email"]}>
-                            <input type="email-input" className={styles["email-input"]} placeholder='Email' onChange={handleEmailChange}></input>
+                        <div className={styles["inputs"]}>
+                            <div className={styles["email"]}>
+                                <input type="email-input" className={styles["email-input"]} placeholder='Email' onChange={handleEmailChange}></input>
+                            </div>
+                            <div className={styles['Password1']}>
+                                <input type="password" className={styles["p1-input"]} placeholder='Password' onChange={handlePassword1Change}></input>
+                            </div>
+                            <div className={styles['Password2']}>
+                                <input type="password" className={styles["p2-input"]} placeholder='Re-enter Password' onChange={handlePassword2Change}></input>
+                            </div>
                         </div>
-                        <div className={styles['Password1']}>
-                            <input type="password" className={styles["p1-input"]} placeholder='Password' onChange={handlePassword1Change}></input>
-                        </div>
-                        <div className={styles['Password2']}>
-                            <input type="password" className={styles["p2-input"]} placeholder='Re-enter Password' onChange={handlePassword2Change}></input>
-                        </div>
-                        <div className={styles['role']}>
-                            <input type="input" className={styles["role-input"]} placeholder='Role' onChange={handleRoleChange}></input>
+                        <div className={styles["admin-container"]}>
+                            <label className={styles["admin-checkbox"]}>Admin
+                                <input type="radio" checked={role=='Admin'} value='Admin' onChange={handleRadioChange} name="radio"></input>
+                                <span className={styles["checkmark1"]}></span>
+                            </label>
+                            <label className={styles["admin-checkbox"]}>Main Admin
+                                <input  type="radio" checked={role=='mainAdmin'} value='mainAdmin' onChange={handleRadioChange}  name="radio"></input>
+                                <span className={styles["checkmark2"]}></span>
+                            </label>
                         </div>
                     </form>
                     <div className={styles["addingActions"]}>

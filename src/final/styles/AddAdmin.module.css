@@ -62,7 +62,7 @@ input {
 
 .title {
     position: absolute;
-    top: 200px;
+    top: 175px;
     font-size: 50px;
     color: #ffffff;
     left: 50%;
@@ -107,16 +107,80 @@ input {
 
 .Password1 {
     position: relative;
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 .Password2 {
     position: relative;
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 .email {
     position: relative;
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 .role {
     position: relative;
+}
+
+.inputs{
+    position: absolute;
+    top: 300px;
+}
+
+.admin-container{
+    display: block;
+    position: absolute;
+    padding-left: 35px;
+    left:50%;
+    transform: translate(-30%, 0%);
+    top: 650px;
+    font-size: 22px;
+}
+
+.admin-checkbox input {
+    opacity: 0;
+  }
+.mainAdmin-checkbox input {
+    opacity: 0;
+}
+
+.checkmark1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.checkmark2 {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.admin-checkbox:hover input~.checkmark1 {
+    background-color: #ccc;
+}
+
+.admin-checkbox input:checked~.checkmark1 {
+    background-color: #f32121;
+}
+
+.admin-checkbox:hover input~.checkmark2 {
+    background-color: #ccc;
+}
+
+.admin-checkbox input:checked~.checkmark2 {
+    background-color: #f32121;
 }
