@@ -64,7 +64,7 @@ input {
     font-size: 50px;
     color: #ffffff;
     left: 50%;
-    transform: translate(-70%, 0%);
+    transform: translate(-50%, 0%);
 }
 
 .settingActions{

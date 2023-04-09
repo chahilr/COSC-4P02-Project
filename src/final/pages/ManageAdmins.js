@@ -32,10 +32,12 @@ export default function ManageAdmins() {
         navigate("/addAdmin");
     }
 
-    const handleDelete=async(e,email)=>{
+    const handleDelete=(e,email)=>{
         e.preventDefault();
-        removeOtherUser(email);
-        navigate("/adminHome");
+        if(window.confirm("Are you sure you want to delete this admin?")){
+            removeOtherUser(email);
+            navigate("/adminHome");
+        }
     }
 
     useEffect(async ()=>{
@@ -69,15 +71,17 @@ export default function ManageAdmins() {
                             </div>
                         </div>
                         <h1 className={styles["title"]}>Manage Admins</h1>
-                        <div className={styles["admins-container"]}>
-                            {emails.map((email) => {
-                                return(
-                                    <div key={"container"+email[0]}>
-                                        <input type="email" key={"label"+email[0]} className={styles["emails"]} value={email[1]} readOnly></input>
-                                        <button key={"button"+email[0]} className={styles["deltes"]} onClick={(e)=>handleDelete(e,email[1])}>Delete</button>
-                                    </div>
-                                )})
-                            }
+                        <div className={styles["admins"]}>
+                            <div className={styles["admins-container"]}>
+                                {emails.map((email) => {
+                                    return(
+                                        <div key={"container"+email[0]}>
+                                            <input type="email" key={"label"+email[0]} className={styles["emails"]} value={email[1]} readOnly></input>
+                                            <button key={"button"+email[0]} className={styles["deltes"]} onClick={(e)=>handleDelete(e,email[1])}>Delete</button>
+                                        </div>
+                                    )})
+                                }
+                            </div>
                         </div>
                         <div className={styles["actions"]}>
                             <button className={styles["return"]} onClick={home}>Return to Main Menu</button>
