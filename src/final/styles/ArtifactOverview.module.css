@@ -36,6 +36,7 @@
 
 .artifact-image img {
   max-width: 100%;
+  max-height: 90vh; /* Adjust max-height here */
   height: auto;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -99,17 +100,19 @@
 .nav-container > .button-container > button {
   color: var(--white);
   font-size: 16px;
-  background-color: #ea2525;
+  background-image: linear-gradient(135deg, #ea2525, #c82222);
   border: none;
   border-radius: 15px;
   padding: 12px 24px;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 button:hover {
-  background-color: #7C7B81;
+  background-image: linear-gradient(135deg, #c82222, #ea2525);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
 }
 
 @media (max-width: 768px) {
