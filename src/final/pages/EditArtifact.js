@@ -226,10 +226,10 @@ export default function EditArtifact() {
               </div>
 
               {url && (
-              <div>
-                <img src={url} alt="Uploaded image" />
-              </div>
-            )}
+  <div style={{ marginTop: '20px' }}>
+    <img src={url} alt="Uploaded image" />
+  </div>
+)}
             <input type="file" onChange={handleFileChange} accept="image/*" />
             <button onClick={handleUpload} disabled={!file}>
               Upload Image
