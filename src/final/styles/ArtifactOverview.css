@@ -19,6 +19,8 @@
 .artifact-image {
   flex-basis: 50%;
   text-align: right;
+  width: 100%;
+  height: 60vh;
 }
 
 .artifact-image img {

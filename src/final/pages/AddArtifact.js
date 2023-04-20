@@ -1,4 +1,3 @@
-//import FileUpload from '../components/FileUpload';
 import {
   createTheme,
   colors,
@@ -10,15 +9,13 @@ import {
   InputLabel,
   Select,
   Button,
-} from '@mui/material';
+} from "@mui/material";
 
-import styles from '../styles/AddArtifact.module.css';
-//image upload stuff
-import ImageUploading from 'react-images-uploading';
-import { useState } from 'react';
-import Logo from '../components/Logo';
+import styles from "../styles/AddArtifact.module.css";
+import ImageUploading from "react-images-uploading";
+import { useState } from "react";
+import Logo from "../components/Logo";
 
-// Theme for Slider
 const theme = createTheme({
   palette: {
     secondary: {
@@ -28,13 +25,12 @@ const theme = createTheme({
 });
 
 export default function AddArtifact() {
-  function handleChange() {}
-  //new image stuff
+  const handleChange = () => {};
+
   const [images, setImages] = useState([]);
   const maxNumber = 1;
 
   const onChange = (imageList, addUpdateIndex) => {
-    // data for submit
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
@@ -42,97 +38,101 @@ export default function AddArtifact() {
   return (
     <ThemeProvider theme={theme}>
       <Logo color="var(--black)" />
-      <div id={styles['logout']}>
+      <div id={styles.logout}>
         <Button variant="contained" component="label" color="secondary">
           Logout
         </Button>
       </div>
 
-      <div style={{ width: '80%', margin: '100px auto' }}></div>
+      <div style={{ width: "80%", margin: "100px auto" }}></div>
 
-      <div id={styles['artifact-add-form']}>
+      <div id={styles["artifact-add-form"]}>
         <Box
           component="form"
           sx={{
-            '& > :not(style)': { m: 1, width: '25ch' },
+            "& > :not(style)": { m: 1, width: "25ch" },
           }}
           noValidate
           autoComplete="off"
         >
-          <div id={styles['form-outer']}>
-            <div id={styles['left']}>
-              <div id={styles['name']}>
+          <div id={styles["form-outer"]}>
+            <div id={styles.left}>
+              <div id={styles.name}>
                 <TextField
-                  id={styles['name']}
+                  id={styles.name}
                   label="Name of Artifact"
                   variant="filled"
                   color="secondary"
                 />
               </div>
 
-              <div id={styles['date']}>
+              <div id={styles.date}>
                 <h1>Date of exhibit</h1>
                 <TextField
-                  id={styles['date']}
+                  id={styles.date}
                   variant="standard"
                   placeholder="Year"
                   color="secondary"
+                  style={{ marginRight: '16px' }} // Add marginRight style her
                 />
 
                 <div>
                   <FormControl fullWidth>
                     <InputLabel
-                      id={styles['demo-simple-select-label']}
+                      id={styles["demo-simple-select-label"]}
                       color="secondary"
                     >
                       Age
                     </InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
-                      id={styles['demo-simple-select']}
+                      id={styles["demo-simple-select"]}
                       value="age"
                       label="Age"
                       onChange={handleChange}
                       color="secondary"
                     >
-                      <MenuItem value={'bc'}>BC</MenuItem>
-                      <MenuItem value={'ad'}>AD</MenuItem>
+                      <MenuItem value={"bc"}>BC</MenuItem>
+                      <MenuItem value={"ad"}>AD</MenuItem>
                     </Select>
                   </FormControl>
                 </div>
               </div>
 
-              <div id={styles['exhibit']}>
+              <div id={styles.exhibit}>
                 <FormControl fullWidth>
-                  <InputLabel id={styles['exhibit-label']} color="secondary">
+                  <InputLabel id={styles["exhibit-label"]} color="secondary">
                     Exhibit
                   </InputLabel>
                   <Select
                     labelId="exhibit-label"
-                    id={styles['exhibit']}
+                    id={styles.exhibit}
                     value="exhibit"
                     label="Exhibit"
                     onChange={handleChange}
                     color="secondary"
                   >
-                    <MenuItem value={'Greece'}>Greece</MenuItem>
-                    <MenuItem value={'Rome'}>Rome</MenuItem>
-                    <MenuItem value={'Egypt'}>Egypt</MenuItem>
-                    <MenuItem value={'Persian'}>Persian</MenuItem>
+                    <MenuItem value={"Greece"}>Greece</MenuItem>
+                    <MenuItem value={"Rome"}>Rome</MenuItem>
+                    <MenuItem value={"Egypt"}>Egypt</MenuItem>
+                    <MenuItem value={"Persian"}>Persian</MenuItem>
                   </Select>
                 </FormControl>
               </div>
 
-              <div id={styles['upload']}>
+              <div id={styles.upload}>
                 <Button variant="contained" component="label" color="secondary">
                   Upload File
                   <input
                     type="file"
                     accept="image/jpeg, image/png, image/jpg"
+
                     hidden
                   />
                 </Button>
               </div>
+           
+
             </div>
 
             <div id={styles['right']}>

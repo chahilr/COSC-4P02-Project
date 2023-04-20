@@ -1,142 +1,143 @@
 /* General styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: lightblue;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: lightblue;
 }
 
 input[type=text] {
-    background-color: #3CBC8D;
-    color: white;
+  background-color: #3CBC8D;
+  color: white;
 }
 
 input[type=text]:focus {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 input,
 select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 20px; /* Increased margin-bottom for better spacing */
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 label {
-    color: white;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
 }
 
 select {
-    color: white;
-    background-color: #3CBC8D;
+  color: white;
+  background-color: #3CBC8D;
 }
 
 #artifact-add-form {
-    padding: 20px;
-    width: 80%;
-    margin: auto;
+  padding: 20px;
+  width: 80%;
+  margin: auto;
 }
 
 #form-outer {
-    width: 95%;
-    margin: auto;
-    padding-top: 150px;
+  width: 95%;
+  margin: auto;
+  padding-top: 150px;
 }
 
 #right {
-    padding-top: 20px;
-    float: right;
-    width: 30%;
+  padding-top: 20px;
+  float: right;
+  width: 30%;
 }
 
 #left {
-    float: left;
-    width: 50%;
+  float: left;
+  width: 50%;
 }
 
 #upload {
-    margin: 8px;
+  margin: 8px;
 }
 
 #add {
-    margin: 8px;
-    clear: left;
+  margin: 8px;
+  clear: left;
 }
 
 #add-button {
-    margin: auto;
-    display: block;
-    background-color: #3CBC8D;
-    color: white;
-    text-align: center;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
+  margin: auto;
+  display: block;
+  background-color: #3CBC8D;
+  color: white;
+  text-align: center;
+  padding: 8px 16px; /* Updated padding */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px; /* Updated font-size */
+  transition: background-color 0.3s;
 }
 
 #add-button:hover {
-    background-color: #2D9A6A;
+  background-color: #2D9A6A;
 }
 
 .MuiInputBase-root {
-    margin: 8px;
-    background: white;
-  }
-  
-  .MuiButtonBase-root {
-    margin: 10px;
-  }
-  
-  .MuiSelect-select {
-    color: white;
-  }
-  
-  .MuiFormLabel-root {
-    color: white;
-  }
+  margin: 8px;
+  background: white;
+}
+
+.MuiButtonBase-root {
+  margin: 10px;
+}
+
+.MuiSelect-select {
+  color: white;
+}
+
+.MuiFormLabel-root {
+  color: white;
+}
 
 #logout {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 #name {
-    margin: auto;
-    padding-top: 26px;
-    font-size: 130%;
-  }
-  
-  #tag {
-    margin-top: 26px;
-    font-size: 130%;
-  }
-  
-  #date {
-    padding-top: 26px;
-    font-size: 130%;
-  }
-  
-  #exhibit {
-    padding-top: 26px;
-    font-size: 130%;
-  }
-  
-  img {
-    margin-top: 26px;
-    width: 100px;
-  }
+  margin: auto;
+  padding-top: 26px;
+  font-size: 130%;
+}
+
+#tag {
+  margin-top: 26px;
+  font-size: 130%;
+}
+
+#date {
+  padding-top: 26px;
+  font-size: 130%;
+}
+
+#exhibit {
+  padding-top: 26px;
+  font-size: 130%;
+}
 
 img {
-    margin-top: 26px;
-    width: 100px;
+  margin-top: 26px;
+  width: 100px;
+}
+
+img {
+  margin-top: 26px;
+  width: 100px;
 }
