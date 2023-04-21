@@ -2,16 +2,17 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: lightblue;
+  
+  background-image: url('../../images/black-background.jpg');
 }
 
 input[type=text] {
-  background-color: #3CBC8D;
-  color: white;
+  background-color: var(--white);
+  color: var(--white);
 }
 
 input[type=text]:focus {
-  background-color: white;
+  background-color: var(--white);
   color: black;
 }
 
@@ -26,14 +27,14 @@ select {
 }
 
 label {
-  color: white;
+  color: var(--white);
   font-weight: bold;
   display: block;
   margin-bottom: 10px;
 }
 
 select {
-  color: white;
+  color: var(--white);
   background-color: #3CBC8D;
 }
 
@@ -41,6 +42,13 @@ select {
   padding: 20px;
   width: 80%;
   margin: auto;
+}
+
+#description{
+  background-color: var(--white);
+  width: 55%;
+  border-radius: 10px;
+   
 }
 
 #form-outer {
@@ -73,7 +81,7 @@ select {
   margin: auto;
   display: block;
   background-color: #3CBC8D;
-  color: white;
+  color: var(--white);
   text-align: center;
   padding: 8px 16px; /* Updated padding */
   border: none;
@@ -82,6 +90,7 @@ select {
   font-weight: bold;
   font-size: 16px; /* Updated font-size */
   transition: background-color 0.3s;
+  
 }
 
 #add-button:hover {
@@ -90,7 +99,7 @@ select {
 
 .MuiInputBase-root {
   margin: 8px;
-  background: white;
+  background: var(--white);
 }
 
 .MuiButtonBase-root {
@@ -98,11 +107,11 @@ select {
 }
 
 .MuiSelect-select {
-  color: white;
+  color: var(--white);
 }
 
 .MuiFormLabel-root {
-  color: white;
+  color: var(--white);
 }
 
 #logout {
@@ -115,21 +124,34 @@ select {
   margin: auto;
   padding-top: 26px;
   font-size: 130%;
+  border-radius: 10px;
+   
 }
 
 #tag {
-  margin-top: 26px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   font-size: 130%;
+  background-color: var(--white);
+  border-radius: 10px;
+  
 }
 
 #date {
-  padding-top: 26px;
+  padding-top: 30px;
   font-size: 130%;
+  border-radius: 10px;
+  
+  
 }
 
 #exhibit {
-  padding-top: 26px;
+  padding-top: 0;
+  margin-top: 30px;
   font-size: 130%;
+  background-color: var(--white);
+  border-radius: 10px;
+  
 }
 
 img {
