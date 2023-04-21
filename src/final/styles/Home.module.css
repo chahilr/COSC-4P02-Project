@@ -255,11 +255,15 @@ input:focus::-moz-placeholder {
 
     /* ╚⏤⏤⏤⏤╗ Homepage Exhibit Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
 }
-
+button{
+    margin: 2px;
+}
 button:hover {
     background-color: white;
     color: red;
     border: 2px solid red;
+    margin: 0px;
+
 }
 
 SelectButton{

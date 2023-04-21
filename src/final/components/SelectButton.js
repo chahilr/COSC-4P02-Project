@@ -27,7 +27,7 @@ const SelectButton = (props) => {
         handleMouseLeave();
       }}
       style={{
-        backgroundColor: clicked || hover ? '#EA252E' : '#7C7B81',
+        backgroundColor: clicked || hover ? 'white' : '#7C7B81',
         // padding: hover ? '2vw' : '1vw',
       }}
     >

@@ -41,14 +41,21 @@
   border-radius: 20px;
 
   transition-duration: 500ms;
+  margin: 2px;
 }
+
 .option-button:hover {
-  background-color: var(--red);
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+  margin: 0px;
 }
+
 .button-row {
   display: flex;
   justify-content: space-between;
 }
+
 .submit-button {
   font-family: 'Montserrat';
   font-size: 20px;
@@ -58,6 +65,13 @@
   border-radius: 10px;
 
   display: flex;
-  margin: auto;
+  margin: 2px;
   padding: 10px 50px;
+}
+
+.submit-button:hover {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+  margin: 0px;
 }
