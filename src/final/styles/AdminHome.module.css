@@ -9,18 +9,22 @@
 }
 
 button:hover {
-    background-color: #7C7B81;
-  }
-  
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}
+
 
 button {
     color: white;
     font-size: 16px;
-    background-color:#EA252E; /* Change background color to red */
+    background-color: #EA252E;
+    /* Change background color to red */
     border-radius: 20px;
     padding: 13px 35px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
 }
 
 input {
@@ -31,7 +35,7 @@ input {
     border-bottom: 2px solid var(--grey);
     padding: 25px;
     margin: 0px;
-    
+
     font-family: 'Montserrat';
     font-size: 1.5rem;
     color: var(--white);
@@ -44,7 +48,7 @@ input {
     margin: 40px;
 }
 
-.settings-button{
+.settings-button {
     background-image: url('../../images/settingsIcon.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -55,17 +59,17 @@ input {
     height: 55px;
 }
 
-.sign-out-button{
+.sign-out-button {
     font-size: large;
     height: 55px;
 }
 
-.sign-out{
+.sign-out {
     float: left;
     margin-right: 10px;
 }
 
-.settings{
+.settings {
     float: right;
     margin-left: 10px;
 }
@@ -76,23 +80,23 @@ input {
     position: absolute;
 }
 
-.add-artifact{
+.add-artifact {
     margin: 50px;
-    font-size:x-large;
+    font-size: x-large;
     width: 250px;
     height: 250px;
 }
 
-.edit-artifact{
+.edit-artifact {
     margin: 50px;
-    font-size:x-large;
+    font-size: x-large;
     width: 250px;
     height: 250px;
 }
 
-.manage-admins{
+.manage-admins {
     margin: 50px;
-    font-size:x-large;
+    font-size: x-large;
     width: 250px;
     height: 250px;
 }
