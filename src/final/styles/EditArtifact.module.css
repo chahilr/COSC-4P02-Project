@@ -4,6 +4,7 @@
   --input-border-color: #ccc;
   --input-text-color: black;
   --form-bg-color: lightblue;
+  
 }
 
 input[type=text] {
@@ -32,7 +33,11 @@ select {
 }
 
 #artifact-add-form {
+  background-image: url('../../images/black-background.jpg');
   background-color: var(--form-bg-color);
+  background-size: cover; /* Adjust the size of the image to cover the entire element */
+  background-position: center; /* Center the image within the element */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
   padding: 20px;
   border-radius: 8px;
 }
@@ -45,7 +50,7 @@ select {
 #right {
   padding-top: 20px;
   float: right;
-  width: 30%;
+  width: 15%;
 }
 
 #left {
@@ -91,12 +96,32 @@ select {
 #tag,
 #date,
 #exhibit {
-  margin: auto;
-  padding-top: 26px;
+  margin-top: 20px;
+  /* padding-top: 26px; */
   font-size: 130%;
 }
 
+#chooseButton{
+  margin-top: 15px;
+}
+
+#description{
+  background-color: white;
+  padding: 0%;
+  margin: 0%;
+  padding: 0.5em; /* Add padding to create space between the text and the box edges */
+  margin: 0%;
+  border-radius: 10px;
+}
+
+#tag, #exhibit{
+  background-color: white;
+  padding: 0.5em; /* Add padding to create space between the text and the box edges */
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
 img {
-  margin-top: 26px;
+  margin-top: 30px;
   width: 100px;
 }
