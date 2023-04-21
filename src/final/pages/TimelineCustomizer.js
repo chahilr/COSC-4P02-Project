@@ -17,15 +17,20 @@ const theme = createTheme({
 
 export default function TimelineCustomizer() {
   const { state } = useLocation();
-  const [selectedExhibits, setSelectedExhibits] = useState(
-    // stores what exhibits are clicked
-    new Map([
-      ['Ancient Greece', false],
-      ['Ancient Rome', false],
-      ['Ancient Egypt', false],
-      ['Persian Empire', false],
-    ])
-  );
+  console.log(state?.exhibitKeys);
+
+  let keys = new Map([
+    ['Ancient Greece', false],
+    ['Ancient Rome', false],
+    ['Ancient Egypt', false],
+    ['Persian Empire', false],
+  ]);
+
+  for (let key in state?.exhibitKeys) {
+    keys.set(state.exhibitKeys[key], true);
+  }
+  const [selectedExhibits, setSelectedExhibits] = useState(keys);
+  console.log(keys);
   const [selectedTags, setSelectedTags] = useState(
     // stores what tags are clicked
     new Map([
@@ -37,7 +42,7 @@ export default function TimelineCustomizer() {
   );
 
   const [yearRange, setYearRange] = useState([-1000, 1000]); // stores [start year, end year] from slider
-
+  console.log(getUserInputs());
   // handles button clicks
   function toggle(buttonName) {
     if (selectedExhibits.get(buttonName) !== undefined) {
