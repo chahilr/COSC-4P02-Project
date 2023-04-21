@@ -62,7 +62,7 @@ input {
 
 .title {
     position: absolute;
-    top: 175px;
+    top: 125px;
     font-size: 50px;
     color: #ffffff;
     left: 50%;
@@ -129,7 +129,7 @@ input {
 
 .inputs{
     position: absolute;
-    top: 300px;
+    top: 225px;
 }
 
 .admin-container{
@@ -138,7 +138,7 @@ input {
     padding-left: 35px;
     left:50%;
     transform: translate(-30%, 0%);
-    top: 650px;
+    top: 550px;
     font-size: 22px;
 }
 
