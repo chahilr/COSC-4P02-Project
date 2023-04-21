@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './mobile.css';
 
-import App from './final/App';
+import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
 document.body.style.margin = 0;

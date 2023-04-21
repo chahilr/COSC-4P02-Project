@@ -1,15 +1,15 @@
 import styles from '../styles/Timeline.module.css';
-import '../../utils/firestoreFunctions';
+import '../utils/firestoreFunctions';
 import {
   getDescrption,
   queryTagsExhibitsYearRange,
-} from '../../utils/firestoreFunctions';
+} from '../utils/firestoreFunctions';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ArtifactBubble from '../components/ArtifactBubble';
 import ArtifactPreview from '../components/ArtifactPreview';
 import Logo from '../components/Logo';
-import PreferenceIcon from '../../images/preference-icon.svg';
+import PreferenceIcon from '../images/preference-icon.svg';
 
 export default function Timeline() {
   const { state } = useLocation();

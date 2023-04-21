@@ -2,7 +2,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url('../../images/black-background.jpg');
+    background-image: url('../images/black-background.jpg');
     background-size: cover;
     background-position: center;
     width: 100%;

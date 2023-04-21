@@ -1,13 +1,13 @@
 import SelectButton from '../components/SelectButton';
-import ancientgreece from '../../images/ancient-greece.png';
-import ancientrome from '../../images/ancient-rome.png';
-import ancientegypt from '../../images/ancient-egypt.png';
-import persianempire from '../../images/persian-empire.png';
-import museum from '../../images/museum.png';
+import ancientgreece from '../images/ancient-greece.png';
+import ancientrome from '../images/ancient-rome.png';
+import ancientegypt from '../images/ancient-egypt.png';
+import persianempire from '../images/persian-empire.png';
+import museum from '../images/museum.png';
 import { Link } from 'react-router-dom';
 import styles from '../styles/Home.module.css';
 import Logo from '../components/Logo';
-import { queryName } from '../../utils/firestoreFunctions';
+import { queryName } from '../utils/firestoreFunctions';
 import { useState } from 'react';
 import SearchSuggestions from '../components/SearchSuggestions';
 
@@ -58,14 +58,22 @@ export default function Home() {
     value === ''
       ? setSearchResults([])
       : queryName(value).then((results) => {
-        setSearchResults(results);
-      });
+          setSearchResults(results);
+        });
   };
 
   return (
     <>
       {/* The following line introduces an issue in the mobile design where there is vertical and horizontal overflow. */}
-      <Logo color="var(--white)" style={{ background: "var(--translucent-grey)", width: 'calc(100% - 2em)', marginTop: "unset", padding: "1dvh 1em" }} />
+      <Logo
+        color="var(--white)"
+        style={{
+          background: 'var(--translucent-grey)',
+          width: 'calc(100% - 2em)',
+          marginTop: 'unset',
+          padding: '1dvh 1em',
+        }}
+      />
       {/* <Logo color="var(--white)" style={{marginTop: "unset", padding: "1dvh 1em"}} /> */}
       <div className={styles['home']}>
         <div className={styles['center']}>
