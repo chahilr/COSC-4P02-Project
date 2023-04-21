@@ -16,23 +16,19 @@ label {
     color: white;
 }
 
-<<<<<<< HEAD
-#artifact-add-form{
-    
-=======
 select {
     color: white;
 }
 
 #artifact-add-form {
+    padding-top: 130px;
     width: 80%;
->>>>>>> f6f235bad0fd4e3275fa682c147d8ad5ee65448c
     margin: auto;
 }
 
 #form-outer {
     width: 95%;
-    margin: 150px;
+    margin: auto;
 }
 
 #right {
@@ -91,36 +87,16 @@ select {
     padding-top: 20px;
 }
 
-<<<<<<< HEAD
-#tag{
-    margin-top: 20px;
-}
-
-#date{
-=======
 #date {
->>>>>>> f6f235bad0fd4e3275fa682c147d8ad5ee65448c
     padding-top: 20px;
-    
 }
 
 #exhibit {
     padding-top: 20px;
 }
 
-<<<<<<< HEAD
-img{
-    margin-top: 20px;
-    width: 100px;
-}
-
-#chooseButton{
-    color: red;
-    background-color: black;
-=======
 botton:hover {
     background-color: white;
     color: red;
     border: 2px solid red;
->>>>>>> f6f235bad0fd4e3275fa682c147d8ad5ee65448c
 }

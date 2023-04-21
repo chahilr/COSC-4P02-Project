@@ -54,11 +54,11 @@ async function addArtifact(
 ) {
   let artifacts = collection(firestore, 'Artifacts');
 
-  for (let i = 0; i < ref.lengh; i++) {
-    if (!checkRef(ref[i])) {
-      return 'Related must exist';
-    }
-  }
+  // for (let i = 0; i < ref.lengh; i++) {
+  //   if (!checkRef(ref[i])) {
+  //     return 'Related must exsit';
+  //   }
+  // }
 
   const docData = {
     Exhibition: Exhibit,
@@ -97,6 +97,21 @@ async function deleteArtifact(id) {
   index.deleteObject(id).wait(); // adding await takes a couple secounds (waiting on algiol to update)
   return 'Done';
 }
+
+async function updateArtifact(id,name,year,des,Exhibit,Tags,photos){
+  const completed=[]
+  updateArtifactName(id, name).then(res=>completed.push("Name change "+ res));
+  updateArtifactDescription(id, des).then(res=>completed.push("Description change "+ res));
+  updateArtifactExhibit(id, Exhibit).then(res=>completed.push("Exhibit change "+ res));
+  updateArtifactYear(id, year).then(res=>completed.push("Year change "+ res));
+  updateArtifactPhotos(id, photos).then(res=>completed.push("Photo change "+ res));
+  updateArtifactTags(id, Tags).then(res=>completed.push("Tags change "+ res));
+  return completed;
+}
+
+
+
+
 
 //overwrite the given artifact's description
 async function updateArtifactDescription(id, des) {
@@ -571,6 +586,7 @@ export {
   addArtifactTags,
   removeArtifactTags,
   updateArtifactTags,
+  updateArtifact,
   addData,
   getArtifact,
   getAllArtifacts,
