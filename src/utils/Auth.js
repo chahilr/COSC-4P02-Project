@@ -19,10 +19,15 @@ export const AuthenticationContext= ({children}) =>{
     }
 
     const updateUsername=async(newEmail)=>{
-        await updateEmail(auth.currentUser,newEmail).catch((error)=>{
+        let result=false;
+        await updateEmail(auth.currentUser,newEmail).then(()=>{
+            updateE(curUser.uid,newEmail);
+            result=true;
+        }).catch((error)=>{
             console.log(error.message);
-        });
-        await updateE(curUser.uid,newEmail);
+            result=false;
+        })
+        return result;
     }
 
     const updatePass=async(newPass)=>{
@@ -40,12 +45,21 @@ export const AuthenticationContext= ({children}) =>{
     }
 
     const addUser=async(email,password, role)=>{
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredentail)=>{
-                addAdmin(userCredentail.user.uid, email, password, role);
+        let result=false;
+        let temp=curUser.email;
+
+        await createUserWithEmailAndPassword(auth, email, password)
+            .then(async (userCredentail)=>{
+                await addAdmin(userCredentail.user.uid, email, password, role);
+                await auth.signOut();
+                let p=await getUsersPassword(temp);
+                await signInWithEmailAndPassword(auth,temp,p);
+                result=true;
             }).catch((error)=>{
                 console.log(error.message);
+                result=false;
             })
+        return result
     }
 
     const removeOtherUser=async(email)=>{

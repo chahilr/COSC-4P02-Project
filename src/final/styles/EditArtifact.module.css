@@ -4,87 +4,111 @@ input[type=text] {
 }
 
 input[type=text] {
-    background-color:white;
+    background-color: white;
     color: black;
 }
-input{
+
+input {
     width: 100%;
 }
-label{
-    color:white;
-}
-select{
-    color:white;
+
+label {
+    color: white;
 }
 
+<<<<<<< HEAD
 #artifact-add-form{
     
+=======
+select {
+    color: white;
+}
+
+#artifact-add-form {
+    width: 80%;
+>>>>>>> f6f235bad0fd4e3275fa682c147d8ad5ee65448c
     margin: auto;
 }
-#form-outer{
+
+#form-outer {
     width: 95%;
     margin: 150px;
 }
-#right{
+
+#right {
     padding-top: 20px;
     float: right;
     width: 70%;
 }
-#left{
+
+#left {
     float: left;
     width: 30%;
 }
-#upload{
+
+#upload {
     margin: 8px;
 }
-#add{
+
+#add {
     margin: 8px;
     clear: left;
 }
-#add-button{
+
+#add-button {
     margin: auto;
 }
-.MuiInputBase-root{
-    margin:8px;
-   background: white;
+
+.MuiInputBase-root {
+    margin: 8px;
+    background: white;
 }
-.MuiButtonBase-root{
-    margin:10px;
+
+.MuiButtonBase-root {
+    margin: 10px;
 }
-.MuiSelect-select{
-    color:white;
-}
-.MuiFormLabel-colorSecondary{
+
+.MuiSelect-select {
     color: white;
 }
-#logout{
+
+.MuiFormLabel-colorSecondary {
+    color: white;
+}
+
+#logout {
     position: absolute;
     top: 10px;
     right: 10px;
 }
 
-.MuiTextField-root{
-    width:100%;
+.MuiTextField-root {
+    width: 100%;
 }
 
 
-#name{
+#name {
     padding-top: 20px;
 }
 
+<<<<<<< HEAD
 #tag{
     margin-top: 20px;
 }
 
 #date{
+=======
+#date {
+>>>>>>> f6f235bad0fd4e3275fa682c147d8ad5ee65448c
     padding-top: 20px;
     
 }
 
-#exhibit{
+#exhibit {
     padding-top: 20px;
 }
 
+<<<<<<< HEAD
 img{
     margin-top: 20px;
     width: 100px;
@@ -93,4 +117,10 @@ img{
 #chooseButton{
     color: red;
     background-color: black;
+=======
+botton:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+>>>>>>> f6f235bad0fd4e3275fa682c147d8ad5ee65448c
 }

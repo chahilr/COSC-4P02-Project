@@ -4,6 +4,7 @@ import YearRangeSlider from '../components/YearRangeSlider';
 import { createTheme, colors, ThemeProvider } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Logo from '../components/Logo';
+import styles from '../styles/TimelineCustomizer.module.css';
 
 // Theme for Slider
 const theme = createTheme({
@@ -81,32 +82,26 @@ export default function TimelineCustomizer() {
     <ThemeProvider theme={theme}>
       <Logo color="var(--black)" style={{ position: 'relative' }} />
 
-      <h4 className="instruction-heading">Select one or more exhibits</h4>
-      <div className="button-row">
-        {/* Row of Exhibit Buttons */}
-        <div class="customizer-button-group">
-          <SelectButton name="Ancient Greece" onClick={toggle} />
-          <SelectButton name="Ancient Rome" onClick={toggle} />
-        </div>
-        <div class="customizer-button-group">
-          <SelectButton name="Ancient Egypt" onClick={toggle} />
-          <SelectButton name="Persian Empire" onClick={toggle} />
-        </div>
+      <h4 className={styles['instruction-heading']}>
+        Select one or more exhibits
+      </h4>
+      {/* Row of Exhibit Buttons */}
+      <div class={styles['customizer-button-group']}>
+        <SelectButton name="Ancient Greece" onClick={toggle} />
+        <SelectButton name="Ancient Rome" onClick={toggle} />
+        <SelectButton name="Ancient Egypt" onClick={toggle} />
+        <SelectButton name="Persian Empire" onClick={toggle} />
       </div>
-      <h4 className="instruction-heading">Select one or more tags</h4>
+      <h4 className={styles['instruction-heading']}>Select one or more tags</h4>
       {/* Row of Tag Buttons */}
-      <div className="button-row">
-        <div class="customizer-button-group">
-          <SelectButton name="Paintings" onClick={toggle} />
-          <SelectButton name="Technology" onClick={toggle} />
-        </div>
-        <div class="customizer-button-group">
-          <SelectButton name="Weapons" onClick={toggle} />
-          <SelectButton name="Tools" onClick={toggle} />
-        </div>
+      <div class={styles['customizer-button-group']}>
+        <SelectButton name="Paintings" onClick={toggle} />
+        <SelectButton name="Technology" onClick={toggle} />
+        <SelectButton name="Weapons" onClick={toggle} />
+        <SelectButton name="Tools" onClick={toggle} />
       </div>
-      <h4 className="instruction-heading">Filter your date range</h4>
-      <div style={{ width: '80%', margin: '75px auto' }} className="slider-container">
+      <h4 className={styles['instruction-heading']}>Filter your date range</h4>
+      <div className={styles['slider-container']}>
         {/* Slider */}
         <YearRangeSlider
           value={yearRange}
@@ -115,7 +110,10 @@ export default function TimelineCustomizer() {
           }}
         />
       </div>
-      <div style={{ textAlign: 'center' }} className="search-button-container">
+      <div
+        style={{ textAlign: 'center' }}
+        className={styles['search-button-container']}
+      >
         {getUserInputs() != null ? (
           <Link
             style={{
@@ -125,11 +123,11 @@ export default function TimelineCustomizer() {
             to={getUserInputs() != null ? '/timeline' : '#'}
             state={getUserInputs()}
           >
-            <button className="submit-button">Search</button>
+            <button className={styles['submit-button']}>Search</button>
           </Link>
         ) : (
           <button
-            className="submit-button"
+            className={styles['submit-button']}
             onClick={() => alert('Must add atleast 1 exhibit and tag!')}
           >
             Search

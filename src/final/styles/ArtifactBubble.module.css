@@ -37,4 +37,7 @@
     .reverse-column {
         flex-direction: column-reverse;
     }
+    .artifact-bubble-heading {
+        margin: 25px 0;
+    }
 }
