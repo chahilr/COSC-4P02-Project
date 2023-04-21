@@ -12,6 +12,10 @@ input[type=text] {
   color: var(--input-text-color);
 }
 
+input[type=number]{
+  background-color: var(--white);
+}
+
 input,
 select {
   width: 100%;
@@ -48,9 +52,11 @@ select {
 }
 
 #right {
-  padding-top: 20px;
-  float: right;
+  padding-top: 0;
+  float: left;
   width: 15%;
+  
+  padding-left: 300px;
 }
 
 #left {
@@ -99,13 +105,16 @@ select {
   margin-top: 20px;
   /* padding-top: 26px; */
   font-size: 130%;
+  
 }
+
+
 
 #chooseButton{
   margin-top: 15px;
   margin-bottom: 15px;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 #description{
@@ -115,7 +124,7 @@ select {
   padding: 0.5em; /* Add padding to create space between the text and the box edges */
   margin: 0%;
   border-radius: 10px;
-  width: 100%;
+  width: 90%;
 }
 
 #tag, #exhibit{

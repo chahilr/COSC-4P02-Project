@@ -208,6 +208,11 @@ export default function EditArtifact() {
                   defaultValue={year}
                   variant="filled"
                   color="secondary"
+                  type="number"
+                  inputProps={{
+                    min: "0", // Set the minimum acceptable value
+                    max: "2000", // Set the maximum acceptable value
+                  }}
                   onChange={e=> onDateChange(e)}
                 />
                 <TextField

@@ -212,14 +212,26 @@ export default function EditArtifact() {
                   defaultValue={year}
                   variant="filled"
                   color="secondary"
-                  onChange={e=> onDateChange(e)}
+                  type="number"
+                  inputProps={{
+                    min: "0", // Set the minimum acceptable value
+                    max: "2000", // Set the maximum acceptable value
+                  }}
+                  onChange={e=> onDateChange(e)
+                  }
                 />
-                <TextField
-                  id="age"
-                  label="Age"
-                  variant="filled"
-                  color="secondary"
-                />
+              <FormControl variant="filled" color="secondary">
+  <InputLabel id="age-label">Age</InputLabel>
+  <Select
+    labelId="age-label"
+    id="age"
+    value={year}
+    onChange={onDateChange}
+  >
+    <MenuItem value="AD">AD</MenuItem>
+    <MenuItem value="BC">BC</MenuItem>
+  </Select>
+</FormControl>
               </div>
 
               <div id={styles['exhibit']}>

@@ -11,6 +11,15 @@ input[type=text] {
   color: var(--white);
 }
 
+input[type=number]{
+  background-color: var(--white);
+}
+
+input[type=select]{
+  background-color: var(--white );
+} 
+
+
 input[type=text]:focus {
   background-color: var(--white);
   color: black;
@@ -32,6 +41,8 @@ label {
   display: block;
   margin-bottom: 10px;
 }
+
+
 
 select {
   color: var(--white);
@@ -90,6 +101,7 @@ select {
   font-weight: bold;
   font-size: 16px; /* Updated font-size */
   transition: background-color 0.3s;
+  
   
 }
 
@@ -162,4 +174,8 @@ img {
 img {
   margin-top: 26px;
   width: 100px;
+}
+
+#chooseButton{
+  margin-bottom: 25px;
 }
