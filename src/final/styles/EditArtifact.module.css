@@ -103,6 +103,8 @@ select {
 
 #chooseButton{
   margin-top: 15px;
+  margin-bottom: 15px;
+  padding-top: 10px;
 }
 
 #description{
