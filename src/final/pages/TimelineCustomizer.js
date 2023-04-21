@@ -2,7 +2,7 @@ import SelectButton from '../components/SelectButton';
 import { useState } from 'react';
 import YearRangeSlider from '../components/YearRangeSlider';
 import { createTheme, colors, ThemeProvider } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../components/Logo';
 import styles from '../styles/TimelineCustomizer.module.css';
 
@@ -16,6 +16,7 @@ const theme = createTheme({
 });
 
 export default function TimelineCustomizer() {
+  const { state } = useLocation();
   const [selectedExhibits, setSelectedExhibits] = useState(
     // stores what exhibits are clicked
     new Map([
@@ -86,7 +87,7 @@ export default function TimelineCustomizer() {
         Select one or more exhibits
       </h4>
       {/* Row of Exhibit Buttons */}
-      <div class={styles['customizer-button-group']}>
+      <div className={styles['customizer-button-group']}>
         <SelectButton name="Ancient Greece" onClick={toggle} />
         <SelectButton name="Ancient Rome" onClick={toggle} />
         <SelectButton name="Ancient Egypt" onClick={toggle} />
@@ -94,7 +95,7 @@ export default function TimelineCustomizer() {
       </div>
       <h4 className={styles['instruction-heading']}>Select one or more tags</h4>
       {/* Row of Tag Buttons */}
-      <div class={styles['customizer-button-group']}>
+      <div className={styles['customizer-button-group']}>
         <SelectButton name="Paintings" onClick={toggle} />
         <SelectButton name="Technology" onClick={toggle} />
         <SelectButton name="Weapons" onClick={toggle} />
