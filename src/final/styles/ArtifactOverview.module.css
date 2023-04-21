@@ -159,7 +159,8 @@ button:hover {
    
   }
 
-  button-container {
+  /* None of this CSS was ever being applied */
+  /* button-container {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -169,7 +170,7 @@ button:hover {
     align-items: unset !important;
     padding: 10px;
     margin:2em;
-  }
+  } */
   
   .artifact-text {
     flex-basis: unset;
