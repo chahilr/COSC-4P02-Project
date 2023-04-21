@@ -126,6 +126,12 @@ input {
 .role {
     position: relative;
 }
+.signoutbutton, .submit, .exitAdding{
+    margin: 2px;
+}
+.signoutbutton:hover, .submit:hover, .exitAdding:hover{
+    margin: 0px;
+}
 
 .inputs{
     position: absolute;

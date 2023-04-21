@@ -256,14 +256,28 @@ input:focus::-moz-placeholder {
     /* ╚⏤⏤⏤⏤╗ Homepage Exhibit Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
 }
 
+button {
+    margin: 2px;
+}
+
 button:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+    margin: 0px;
+
+}
+
+SelectButton {
     background-color: white;
     color: red;
     border: 2px solid red;
 }
 
-SelectButton{
-    background-color: white;
-    color: red;
-    border: 2px solid red;
+.landing-page-main-button {
+    margin: 2px;
+}
+
+.landing-page-main-button:hover {
+    margin: 0px;
 }

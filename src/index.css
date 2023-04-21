@@ -41,14 +41,21 @@
   border-radius: 20px;
 
   transition-duration: 500ms;
+  margin: 2px;
 }
+
 .option-button:hover {
-  background-color: var(--red);
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+  margin: 0px;
 }
+
 .button-row {
   display: flex;
   justify-content: space-between;
 }
+
 .submit-button {
   font-family: 'Montserrat';
   font-size: 20px;
@@ -60,4 +67,28 @@
   display: flex;
   margin: auto;
   padding: 10px 50px;
+}
+
+.submit-button:hover {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+  margin: auto;
+}
+.landing-page-main-button{
+  margin:2px;
+}
+.landing-page-main-button:hover{
+  margin: 0px;
+}
+button {
+  margin: 2px;
+}
+
+button:hover {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+  margin: 0px;
+
 }

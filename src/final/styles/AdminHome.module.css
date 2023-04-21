@@ -12,9 +12,26 @@ button:hover {
     background-color: white;
     color: red;
     border: 2px solid red;
+    margin: 50px;
 }
-
-
+.sign-out-button{
+    margin: 2px;
+}
+.sign-out-button:hover{
+    margin: 0px;
+}
+.settings-button{
+    margin: 2px;
+}
+.settings-button:hover{
+    margin: 0px;
+}
+.add-artifact, .edit-artifact, .manage-admins{
+    margin: 50px;
+}
+.add-artifact:hover, .edit-artifact:hover, .manage-admins:hover{
+    margin: 50px;
+}
 button {
     color: white;
     font-size: 16px;
@@ -25,6 +42,7 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     border: none;
+    margin: 50px;
 }
 
 input {
