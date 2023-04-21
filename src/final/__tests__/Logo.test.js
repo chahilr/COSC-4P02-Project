@@ -1,8 +1,10 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from "react-dom";
-import { MemoryRouter } from 'react-router-dom';
 import { act } from "react-dom/test-utils";
-import App from '../App.js';
+import { BrowserRouter } from 'react-router-dom'
+import Logo from '../components/Logo.js';
+import ArtifactBubble from '../components/ArtifactBubble.js';
+import ArtifactPreview from '../components/ArtifactPreview.js';
 
 
 let container = null;
@@ -19,11 +21,13 @@ afterEach(() => {
 });
 
 
-  test('renders home page by default', () => {
-  	//act(() => {
-    	//	render(<App/>, container);
-  	//});
-  //expect(container.textContent).toContain("e");
+  test('Logo component', () => {
+  	act(() => {
+  	render(<BrowserRouter><Logo/></BrowserRouter>, container);
+  	
+    		//render(<Logo/>, container);
+  	});
+  expect(container.textContent).toContain("Niagara On The LakeHistory Museum");
     //render(<App/>);
     //expect(screen.getByText('e')).toBeInTheDocument();
   });
