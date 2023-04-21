@@ -8,7 +8,10 @@ import {
   FormControl,
   InputLabel,
   Select,
-  Button,OutlinedInput,ListItemText,Checkbox
+  Button,
+  OutlinedInput,
+  ListItemText,
+  Checkbox,
 } from '@mui/material';
 
 import styles from '../styles/AddArtifact.module.css';
@@ -17,11 +20,9 @@ import ImageUploading from 'react-images-uploading';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Logo from '../components/Logo';
-import { getDescrption,addArtifact } from '../../utils/firestoreFunctions';
-import { storage } from '../../utils/FirebaseApp.js';
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-
-
+import { getDescrption, addArtifact } from '../utils/firestoreFunctions';
+import { storage } from '../utils/FirebaseApp.js';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 const theme = createTheme({
   palette: {
@@ -31,36 +32,27 @@ const theme = createTheme({
   },
 });
 
-
-
-
 export default function EditArtifact() {
-  
   const [name, setName] = useState();
   const [year, setYear] = useState();
   // const [era, setEra] = useState(state?.era);
   const [description, setDescription] = useState('');
   const [exhibit, setExibit] = useState('');
-  const [tags,setTags]=useState([])
+  const [tags, setTags] = useState([]);
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState();
-  const [picture,setPicture]=useState([])
+  const [picture, setPicture] = useState([]);
   const [percent, setPercent] = useState(0);
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
 
   useEffect(() => {
-    if(picture.length!=0){
+    if (picture.length != 0) {
       addToDatabase();
     }
   }, [picture]);
 
-  const tagNames = [
-    'Paintings',
-    'Technology',
-    'Weapons',
-    'Tools',
-  ];
+  const tagNames = ['Paintings', 'Technology', 'Weapons', 'Tools'];
 
   const handleTagChange = (event) => {
     const {
@@ -68,11 +60,9 @@ export default function EditArtifact() {
     } = event;
     setTags(
       // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
+      typeof value === 'string' ? value.split(',') : value
     );
-    
   };
-
 
   const MenuProps = {
     PaperProps: {
@@ -83,51 +73,45 @@ export default function EditArtifact() {
     },
   };
 
-  
-
   //drop down menu for exhibit
   function onMenuChange(event) {
-    setExibit(event.target.value)
-    
+    setExibit(event.target.value);
   }
 
   function onNameChange(event) {
-    setName(event.target.value)
-    
+    setName(event.target.value);
   }
 
   function onDateChange(event) {
-    setYear(event.target.value)
-    
+    setYear(event.target.value);
   }
 
-  function onDescriptionChange(event){
-    setDescription(event.target.value)
+  function onDescriptionChange(event) {
+    setDescription(event.target.value);
   }
 
+  const addToDatabase = (event) => {
+    console.log(exhibit);
+    console.log(name);
+    console.log(year);
+    console.log(tags);
+    console.log(description);
+    console.log(picture);
 
-
-  const addToDatabase =  (event) => {
-    
-    console.log(exhibit)
-    console.log(name)
-    console.log(year)
-    console.log(tags)
-    console.log(description)
-    console.log(picture)
-    
-      addArtifact(exhibit,name,parseInt(year),picture,"",tags,[],description)
-      alert("Artifact Added!")
+    addArtifact(
+      exhibit,
+      name,
+      parseInt(year),
+      picture,
+      '',
+      tags,
+      [],
+      description
+    );
+    alert('Artifact Added!');
   };
 
-  
-  
-
-  
-
-
   const handleFileChange = (event) => {
-    
     const selectedFile = event.target.files[0];
     setFile(selectedFile);
     const reader = new FileReader();
@@ -138,40 +122,35 @@ export default function EditArtifact() {
   };
 
   const handleUpload = async (event) => {
-    event.preventDefault()
-    
+    event.preventDefault();
+
     if (!file) {
-        alert("Please upload an image first!");
-      }
-      
-      const storageRef = ref(storage, `/Pictures/${file.name}`);
-      
-      
-      const uploadTask = uploadBytesResumable(storageRef, file);
-      
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const percent = Math.round(
+      alert('Please upload an image first!');
+    }
+
+    const storageRef = ref(storage, `/Pictures/${file.name}`);
+
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      'state_changed',
+      (snapshot) => {
+        const percent = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-      
-      // update progress
+
+        // update progress
         setPercent(percent);
       },
       (err) => console.log(err),
       () => {
-          // download url
-          getDownloadURL(uploadTask.snapshot.ref).then((newUrl) => {
-            
-            setPicture([newUrl]);
-            
-          });
-        }
-      );
-    
+        // download url
+        getDownloadURL(uploadTask.snapshot.ref).then((newUrl) => {
+          setPicture([newUrl]);
+        });
+      }
+    );
   };
-  
 
   return (
     <ThemeProvider theme={theme}>
@@ -181,7 +160,6 @@ export default function EditArtifact() {
           Logout
         </Button>
       </div>
-
 
       <div id={styles['artifact-add-form']}>
         <Box
@@ -201,7 +179,7 @@ export default function EditArtifact() {
                   defaultValue={name}
                   variant="filled"
                   color="secondary"
-                  onChange={e=> onNameChange(e)}
+                  onChange={(e) => onNameChange(e)}
                 />
               </div>
 
@@ -212,7 +190,7 @@ export default function EditArtifact() {
                   defaultValue={year}
                   variant="filled"
                   color="secondary"
-                  onChange={e=> onDateChange(e)}
+                  onChange={(e) => onDateChange(e)}
                 />
                 <TextField
                   id="age"
@@ -224,28 +202,30 @@ export default function EditArtifact() {
 
               <div id={styles['exhibit']}>
                 <FormControl fullWidth>
-                    <InputLabel id={styles['exhibit-label']} color="secondary">
-                      Exhibit
-                    </InputLabel>
-                    <Select
-                      labelId="exhibit-label"
-                      id={styles['exhibit']}
-                      value={exhibit}
-                      label="Exhibit"
-                      onChange={e=> onMenuChange(e)}
-                      color="secondary"
-                    >
-                      <MenuItem value={'Ancient Greece'}>Ancient Greece</MenuItem>
-                      <MenuItem value={'Ancient Rome'}>Ancient Rome</MenuItem>
-                      <MenuItem value={'Ancient Egypt'}>Ancient Egypt</MenuItem>
-                      <MenuItem value={'Persian Empire'}>Persian Empire</MenuItem>
-                    </Select>
-                  </FormControl>
+                  <InputLabel id={styles['exhibit-label']} color="secondary">
+                    Exhibit
+                  </InputLabel>
+                  <Select
+                    labelId="exhibit-label"
+                    id={styles['exhibit']}
+                    value={exhibit}
+                    label="Exhibit"
+                    onChange={(e) => onMenuChange(e)}
+                    color="secondary"
+                  >
+                    <MenuItem value={'Ancient Greece'}>Ancient Greece</MenuItem>
+                    <MenuItem value={'Ancient Rome'}>Ancient Rome</MenuItem>
+                    <MenuItem value={'Ancient Egypt'}>Ancient Egypt</MenuItem>
+                    <MenuItem value={'Persian Empire'}>Persian Empire</MenuItem>
+                  </Select>
+                </FormControl>
               </div>
 
               <div>
-                <FormControl id={styles['tag']}  fullWidth>
-                  <InputLabel id="demo-multiple-checkbox-label" >Tags</InputLabel>
+                <FormControl id={styles['tag']} fullWidth>
+                  <InputLabel id="demo-multiple-checkbox-label">
+                    Tags
+                  </InputLabel>
                   <Select
                     labelId="demo-multiple-checkbox-label"
                     id="demo-multiple-checkbox"
@@ -268,15 +248,17 @@ export default function EditArtifact() {
               </div>
 
               {url && (
-              <div>
-                <img src={url} alt="Uploaded image" />
-              </div>
-            )}
-            <input type="file" onChange={handleFileChange} accept="image/*" id={styles['chooseButton']} />
-            <button onClick={e=>handleUpload(e)} >
-              Add to database
-            </button>
-
+                <div>
+                  <img src={url} alt="Uploaded image" />
+                </div>
+              )}
+              <input
+                type="file"
+                onChange={handleFileChange}
+                accept="image/*"
+                id={styles['chooseButton']}
+              />
+              <button onClick={(e) => handleUpload(e)}>Add to database</button>
             </div>
 
             <div id={styles['right']}>
@@ -288,18 +270,12 @@ export default function EditArtifact() {
                   multiline
                   rows={15}
                   color="secondary"
-                  onChange={e=> onDescriptionChange(e)}
+                  onChange={(e) => onDescriptionChange(e)}
                 />
               </div>
             </div>
-
-            
           </div>
-
-
-
         </Box>
-        
       </div>
     </ThemeProvider>
   );

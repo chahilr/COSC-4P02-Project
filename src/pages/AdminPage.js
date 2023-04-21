@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from '../styles/AdminPage.module.css';
 import Logo from '../components/Logo';
 import { useNavigate } from 'react-router-dom';
-import { UserAuth } from '../../utils/Auth.js';
+import { UserAuth } from '../utils/Auth.js';
 
 const Login = () => {
   const [username, setUsername] = useState('Username');

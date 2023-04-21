@@ -24,7 +24,7 @@ input:focus::-moz-placeholder {
     height: max-content;
     min-height: 100vh;
 
-    background: url('../../images/museum.png');
+    background: url('../images/museum.png');
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;

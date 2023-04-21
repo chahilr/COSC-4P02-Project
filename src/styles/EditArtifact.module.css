@@ -33,7 +33,7 @@ select {
 }
 
 #artifact-add-form {
-  background-image: url('../../images/black-background.jpg');
+  background-image: url('../images/black-background.jpg');
   background-color: var(--form-bg-color);
   background-size: cover; /* Adjust the size of the image to cover the entire element */
   background-position: center; /* Center the image within the element */

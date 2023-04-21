@@ -1,7 +1,7 @@
 import styles from '../styles/ArtifactList.module.css';
-import '../../utils/firestoreFunctions';
+import '../utils/firestoreFunctions';
 import { Link } from 'react-router-dom';
-import { getAllArtifacts, queryName } from '../../utils/firestoreFunctions';
+import { getAllArtifacts, queryName } from '../utils/firestoreFunctions';
 import { useEffect, useState } from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';

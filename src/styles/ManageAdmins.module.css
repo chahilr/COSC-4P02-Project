@@ -1,5 +1,5 @@
 .manageAdmin {
-    background-image: url('../../images/black-background.jpg');
+    background-image: url('../images/black-background.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -49,7 +49,7 @@ input {
 }
 
 .settings-button {
-    background-image: url('../../images/settingsIcon.png');
+    background-image: url('../images/settingsIcon.png');
     background-repeat: no-repeat;
     background-position: center;
     border: none;

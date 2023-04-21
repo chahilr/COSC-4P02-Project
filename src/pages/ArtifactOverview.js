@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { getDescrption } from '../../utils/firestoreFunctions';
+import { getDescrption } from '../utils/firestoreFunctions';
 import Logo from '../components/Logo';
 import styles from '../styles/ArtifactOverview.module.css';
 

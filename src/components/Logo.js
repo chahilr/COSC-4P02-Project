@@ -6,30 +6,24 @@ export default function Logo(props) {
     <div
       className={styles['logo-and-language']}
       style={{
-        ...props?.style
+        ...props?.style,
       }}
     >
       {/* Logo */}
-      <Link to="/"style={{ textDecoration: 'none' }}>
+      <Link to="/" style={{ textDecoration: 'none' }}>
         <div className={styles['logo']}>
           <div className={styles['logo-image']}>
             <img
-              src={require('../../images/museum-logo.jpg')}
+              src={require('../images/museum-logo.jpg')}
               alt="Museum logo"
               style={{ float: 'left', marginRight: '10px' }}
             />
           </div>
 
           <div className={styles['logo-text']}>
-            <span style={{ color: props.color }}>
-
-              Niagara On The Lake
-
-            </span>
+            <span style={{ color: props.color }}>Niagara On The Lake</span>
             <hr style={{ borderColor: props.color }}></hr>
-            <span style={{ color: props.color }}>
-              History Museum
-            </span>
+            <span style={{ color: props.color }}>History Museum</span>
           </div>
 
           <div style={{ clear: 'both' }}></div>

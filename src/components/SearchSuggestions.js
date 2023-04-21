@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { getDescrption } from '../../utils/firestoreFunctions';
+import { getDescrption } from '../utils/firestoreFunctions';
 import styles from '../styles/SearchSuggestions.module.css';
 
 export default function SearchSuggestions({ results }) {
