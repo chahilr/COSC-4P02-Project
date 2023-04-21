@@ -220,18 +220,12 @@ export default function EditArtifact() {
                   onChange={e=> onDateChange(e)
                   }
                 />
-              <FormControl variant="filled" color="secondary">
-  <InputLabel id="age-label">Age</InputLabel>
-  <Select
-    labelId="age-label"
-    id="age"
-    value={year}
-    onChange={onDateChange}
-  >
-    <MenuItem value="AD">AD</MenuItem>
-    <MenuItem value="BC">BC</MenuItem>
-  </Select>
-</FormControl>
+              <TextField
+  id="age"
+  label="Age"
+  variant="filled"
+  color="secondary"
+/>
               </div>
 
               <div id={styles['exhibit']}>
