@@ -2,7 +2,7 @@ import SelectButton from '../components/SelectButton';
 import { useState } from 'react';
 import YearRangeSlider from '../components/YearRangeSlider';
 import { createTheme, colors, ThemeProvider } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../components/Logo';
 import styles from '../styles/TimelineCustomizer.module.css';
 
@@ -16,15 +16,21 @@ const theme = createTheme({
 });
 
 export default function TimelineCustomizer() {
-  const [selectedExhibits, setSelectedExhibits] = useState(
-    // stores what exhibits are clicked
-    new Map([
-      ['Ancient Greece', false],
-      ['Ancient Rome', false],
-      ['Ancient Egypt', false],
-      ['Persian Empire', false],
-    ])
-  );
+  const { state } = useLocation();
+  console.log(state?.exhibitKeys);
+
+  let keys = new Map([
+    ['Ancient Greece', false],
+    ['Ancient Rome', false],
+    ['Ancient Egypt', false],
+    ['Persian Empire', false],
+  ]);
+
+  for (let key in state?.exhibitKeys) {
+    keys.set(state.exhibitKeys[key], true);
+  }
+  const [selectedExhibits, setSelectedExhibits] = useState(keys);
+  console.log(keys);
   const [selectedTags, setSelectedTags] = useState(
     // stores what tags are clicked
     new Map([
@@ -36,7 +42,7 @@ export default function TimelineCustomizer() {
   );
 
   const [yearRange, setYearRange] = useState([-1000, 1000]); // stores [start year, end year] from slider
-
+  console.log(getUserInputs());
   // handles button clicks
   function toggle(buttonName) {
     if (selectedExhibits.get(buttonName) !== undefined) {
@@ -86,7 +92,7 @@ export default function TimelineCustomizer() {
         Select one or more exhibits
       </h4>
       {/* Row of Exhibit Buttons */}
-      <div class={styles['customizer-button-group']}>
+      <div className={styles['customizer-button-group']}>
         <SelectButton name="Ancient Greece" onClick={toggle} />
         <SelectButton name="Ancient Rome" onClick={toggle} />
         <SelectButton name="Ancient Egypt" onClick={toggle} />
@@ -94,7 +100,7 @@ export default function TimelineCustomizer() {
       </div>
       <h4 className={styles['instruction-heading']}>Select one or more tags</h4>
       {/* Row of Tag Buttons */}
-      <div class={styles['customizer-button-group']}>
+      <div className={styles['customizer-button-group']}>
         <SelectButton name="Paintings" onClick={toggle} />
         <SelectButton name="Technology" onClick={toggle} />
         <SelectButton name="Weapons" onClick={toggle} />

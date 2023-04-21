@@ -154,12 +154,8 @@ select {
   
 }
 
-img {
+/* If needed, make the selector more specific. Causes problems with the logo. */
+/* img {
   margin-top: 26px;
   width: 100px;
-}
-
-img {
-  margin-top: 26px;
-  width: 100px;
-}
+} */
