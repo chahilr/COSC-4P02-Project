@@ -1,111 +1,112 @@
-input[type=text] {
-    background-color: white;
-    color: black;
-  }
+.background{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../images/black-background.jpg');
+
+  justify-content: center;
+}
+
+#artifact-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.column1 > ::placeholder, .year-container > ::placeholder {
+  color: var(--white);
+}
+
+.column1 {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.column1 > *, .year-container > * {
+  font-size: 2rem;
+}
+
+#input-name, #input-year {
+  background-color: transparent;
+  color: var(--white);
+  text-align: center;
+  width: 25vw;
+  border-bottom: 2px solid var(--white);
+}
+
+.year-container {
+  display: flex;
+}
+#input-year {
+  flex: 1;
+}
+
+#input-name {
+  width: auto;
+}
+
+#input-era, #input-exhibit {
+  color: var(--white);
+  background-color: transparent;
+
+  padding: 1em;
+  text-align: center;
+
+  border: none;
+  border-bottom: 2px solid var(--white);
+}
+
+
+
+#input-image {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+#image-display {
+  display: flex;
+  align-self: center;
+  width: auto;
+  height: 20vh;
+  border-radius: 25px;
+}
+
+.column2 {
+  height: 100%;
+}
+
+#input-description {
+  width: 25vw;
+  height: 100%;
+  background-color: var(--white);
+  color: var(--black);
   
-  input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  label {
-    color: #444;
-  }
-  
-  select {
-    color: black;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  #artifact-add-form {
-    background-color: lightblue;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  #form-outer {
-    width: 95%;
-    margin: 150px;
-  }
-  
-  #right {
-    padding-top: 20px;
-    float: right;
-    width: 30%;
-  }
-  
-  #left {
-    float: left;
-    width: 50%;
-  }
-  
-  #upload {
-    margin: 8px;
-  }
-  
-  #add {
-    margin: 8px;
-    clear: left;
-  }
-  
-  #add-button {
-    margin: auto;
-  }
-  
-  .MuiInputBase-root {
-    margin: 8px;
-    background: white;
-  }
-  
-  .MuiButtonBase-root {
-    margin: 10px;
-  }
-  
-  .MuiSelect-select {
-    color: black;
-  }
-  
-  .MuiFormLabel-colorSecondary {
-    color: #444;
-  }
-  
-  #logout {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  
-  .MuiTextField-root {
-    width: 100%;
-  }
-  
-  #name {
-    margin: auto;
-    padding-top: 26px;
-    font-size: 130%;
-  }
-  
-  #tag {
-    margin-top: 26px;
-    font-size: 130%;
-  }
-  
-  #date {
-    padding-top: 26px;
-    font-size: 130%;
-  }
-  
-  #exhibit {
-    padding-top: 26px;
-    font-size: 130%;
-  }
-  
-  img {
-    margin-top: 26px;
-    width: 100px;
-  }
-  
+  font-family: 'Montserrat';
+  font-size: 1rem;
+
+  padding: 1rem;
+  border-radius: 25px;
+
+  resize: none;
+}
+
+.submit-button {
+  display: flex;
+  align-self: center;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  border-radius: 10px;
+  margin-top: 2.5rem;
+
+  font-size: 1.5rem;
+  font-family: 'Montserrat';
+}
+
+.submit-button:hover {
+  background-color: var(--white);
+  color: var(--red);
+}

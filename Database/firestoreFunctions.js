@@ -448,6 +448,9 @@ async function queryTagsExhibitsYearRange(exhibit, tags, year1, year2){
     return result2;
 }
 
+
+  
+
 export {queryTagsExhibitsYearRange,queryTags,queryYearRange,queryName,queryExhibit,getDescrption,
     addArtifact,updateArtifactDescription,updateArtifactExhibit,updateArtifactName,updateArtifactYear,
     addArtifactPhotos,removeArtifactPhotos,updateArtifactPhotos,addArtifactVideos,removeArtifactVideos,

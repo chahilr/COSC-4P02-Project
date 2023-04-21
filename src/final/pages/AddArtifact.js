@@ -8,13 +8,20 @@ import {
   FormControl,
   InputLabel,
   Select,
-  Button,
-} from "@mui/material";
+  Button,OutlinedInput,ListItemText,Checkbox
+} from '@mui/material';
 
-import styles from "../styles/AddArtifact.module.css";
-import ImageUploading from "react-images-uploading";
-import { useState } from "react";
-import Logo from "../components/Logo";
+import styles from '../styles/AddArtifact.module.css';
+//image upload stuff
+import ImageUploading from 'react-images-uploading';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import Logo from '../components/Logo';
+import { getDescrption,addArtifact } from '../../utils/firestoreFunctions';
+import { storage } from '../../utils/FirebaseApp.js';
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
+
 
 const theme = createTheme({
   palette: {
@@ -24,188 +31,275 @@ const theme = createTheme({
   },
 });
 
-export default function AddArtifact() {
-  const handleChange = () => {};
 
-  const [images, setImages] = useState([]);
-  const maxNumber = 1;
 
-  const onChange = (imageList, addUpdateIndex) => {
-    console.log(imageList, addUpdateIndex);
-    setImages(imageList);
+
+export default function EditArtifact() {
+  
+  const [name, setName] = useState();
+  const [year, setYear] = useState();
+  // const [era, setEra] = useState(state?.era);
+  const [description, setDescription] = useState('');
+  const [exhibit, setExibit] = useState('');
+  const [tags,setTags]=useState([])
+  const [file, setFile] = useState(null);
+  const [url, setUrl] = useState();
+  const [picture,setPicture]=useState([])
+  const [percent, setPercent] = useState(0);
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+
+  useEffect(() => {
+    if(picture.length!=0){
+      addToDatabase();
+    }
+  }, [picture]);
+
+  const tagNames = [
+    'Paintings',
+    'Technology',
+    'Weapons',
+    'Tools',
+  ];
+
+  const handleTagChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setTags(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+    
   };
+
+
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+      },
+    },
+  };
+
+  
+
+  //drop down menu for exhibit
+  function onMenuChange(event) {
+    setExibit(event.target.value)
+    
+  }
+
+  function onNameChange(event) {
+    setName(event.target.value)
+    
+  }
+
+  function onDateChange(event) {
+    setYear(event.target.value)
+    
+  }
+
+  function onDescriptionChange(event){
+    setDescription(event.target.value)
+  }
+
+
+
+  const addToDatabase =  (event) => {
+    
+    console.log(exhibit)
+    console.log(name)
+    console.log(year)
+    console.log(tags)
+    console.log(description)
+    console.log(picture)
+    
+      addArtifact(exhibit,name,parseInt(year),picture,"",tags,[],description)
+      alert("Artifact Added!")
+  };
+
+  
+  
+
+  
+
+
+  const handleFileChange = (event) => {
+    
+    const selectedFile = event.target.files[0];
+    setFile(selectedFile);
+    const reader = new FileReader();
+    reader.readAsDataURL(selectedFile);
+    reader.onloadend = () => {
+      setUrl(reader.result);
+    };
+  };
+
+  const handleUpload = async (event) => {
+    event.preventDefault()
+    
+    if (!file) {
+        alert("Please upload an image first!");
+      }
+      
+      const storageRef = ref(storage, `/Pictures/${file.name}`);
+      
+      
+      const uploadTask = uploadBytesResumable(storageRef, file);
+      
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const percent = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+      
+      // update progress
+        setPercent(percent);
+      },
+      (err) => console.log(err),
+      () => {
+          // download url
+          getDownloadURL(uploadTask.snapshot.ref).then((newUrl) => {
+            
+            setPicture([newUrl]);
+            
+          });
+        }
+      );
+    
+  };
+  
 
   return (
     <ThemeProvider theme={theme}>
-      <Logo color="var(--black)" />
-      <div id={styles.logout}>
+      <Logo />
+      <div id={styles['logout']}>
         <Button variant="contained" component="label" color="secondary">
           Logout
         </Button>
       </div>
 
-      <div style={{ width: "80%", margin: "100px auto" }}></div>
 
-      <div id={styles["artifact-add-form"]}>
+      <div id={styles['artifact-add-form']}>
         <Box
           component="form"
           sx={{
-            "& > :not(style)": { m: 1, width: "25ch" },
+            '& > :not(style)': { m: 1, width: '25ch' },
           }}
           noValidate
           autoComplete="off"
         >
-          <div id={styles["form-outer"]}>
-            <div id={styles.left}>
-              <div id={styles.name}>
+          <div id={styles['form-outer']}>
+            <div id={styles['left']}>
+              <div id={styles['name']}>
                 <TextField
-                  id={styles.name}
-                  label="Name of Artifact"
+                  id="name"
+                  label="Name"
+                  defaultValue={name}
+                  variant="filled"
+                  color="secondary"
+                  onChange={e=> onNameChange(e)}
+                />
+              </div>
+
+              <div id={styles['date']}>
+                <TextField
+                  id="date"
+                  label="Year"
+                  defaultValue={year}
+                  variant="filled"
+                  color="secondary"
+                  onChange={e=> onDateChange(e)}
+                />
+                <TextField
+                  id="age"
+                  label="Age"
                   variant="filled"
                   color="secondary"
                 />
               </div>
 
-              <div id={styles.date}>
-                <h1>Date of exhibit</h1>
-                <TextField
-                  id={styles.date}
-                  variant="standard"
-                  placeholder="Year"
-                  color="secondary"
-                  style={{ marginRight: '16px' }} // Add marginRight style her
-                />
-
-                <div>
-                  <FormControl fullWidth>
-                    <InputLabel
-                      id={styles["demo-simple-select-label"]}
-                      color="secondary"
-                    >
-                      Age
+              <div id={styles['exhibit']}>
+                <FormControl fullWidth>
+                    <InputLabel id={styles['exhibit-label']} color="secondary">
+                      Exhibit
                     </InputLabel>
                     <Select
-                      labelId="demo-simple-select-label"
-                      id={styles["demo-simple-select"]}
-                      value="age"
-                      label="Age"
-                      onChange={handleChange}
+                      labelId="exhibit-label"
+                      id={styles['exhibit']}
+                      value={exhibit}
+                      label="Exhibit"
+                      onChange={e=> onMenuChange(e)}
                       color="secondary"
                     >
-                      <MenuItem value={"bc"}>BC</MenuItem>
-                      <MenuItem value={"ad"}>AD</MenuItem>
+                      <MenuItem value={'Ancient Greece'}>Ancient Greece</MenuItem>
+                      <MenuItem value={'Ancient Rome'}>Ancient Rome</MenuItem>
+                      <MenuItem value={'Ancient Egypt'}>Ancient Egypt</MenuItem>
+                      <MenuItem value={'Persian Empire'}>Persian Empire</MenuItem>
                     </Select>
                   </FormControl>
-                </div>
               </div>
 
-              <div id={styles.exhibit}>
-                <FormControl fullWidth>
-                  <InputLabel id={styles["exhibit-label"]} color="secondary">
-                    Exhibit
-                  </InputLabel>
+              <div>
+                <FormControl id={styles['tag']}  fullWidth>
+                  <InputLabel id="demo-multiple-checkbox-label" >Tags</InputLabel>
                   <Select
-                    labelId="exhibit-label"
-                    id={styles.exhibit}
-                    value="exhibit"
-                    label="Exhibit"
-                    onChange={handleChange}
+                    labelId="demo-multiple-checkbox-label"
+                    id="demo-multiple-checkbox"
+                    multiple
+                    value={tags}
+                    onChange={handleTagChange}
+                    input={<OutlinedInput label="Tag" />}
+                    renderValue={(selected) => selected.join(', ')}
+                    MenuProps={MenuProps}
                     color="secondary"
                   >
-                    <MenuItem value={"Greece"}>Greece</MenuItem>
-                    <MenuItem value={"Rome"}>Rome</MenuItem>
-                    <MenuItem value={"Egypt"}>Egypt</MenuItem>
-                    <MenuItem value={"Persian"}>Persian</MenuItem>
+                    {tagNames.map((name) => (
+                      <MenuItem key={name} value={name}>
+                        <Checkbox checked={tags.indexOf(name) > -1} />
+                        <ListItemText primary={name} />
+                      </MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
               </div>
 
-              <div id={styles.upload}>
-                <Button variant="contained" component="label" color="secondary">
-                  Upload File
-                  <input
-                    type="file"
-                    accept="image/jpeg, image/png, image/jpg"
-
-                    hidden
-                  />
-                </Button>
+              {url && (
+              <div>
+                <img src={url} alt="Uploaded image" />
               </div>
-           
+            )}
+            <input type="file" onChange={handleFileChange} accept="image/*" id={styles['chooseButton']} />
+            <button onClick={e=>handleUpload(e)} >
+              Add to database
+            </button>
 
             </div>
 
             <div id={styles['right']}>
               <div id={styles['description']}>
                 <TextField
-                  id={styles['outlined-multiline-static']}
+                  id="description"
                   label="Description"
+                  value={description}
                   multiline
                   rows={15}
-                  defaultValue=""
                   color="secondary"
+                  onChange={e=> onDescriptionChange(e)}
                 />
               </div>
             </div>
-            <div id={styles['add']}>
-              <Button
-                variant="contained"
-                component="label"
-                id={styles['add-button']}
-                color="secondary"
-              >
-                Add
-              </Button>
-            </div>
+
+            
           </div>
 
-          <div></div>
-        </Box>
 
-        <div className={styles['upload']}>
-          <ImageUploading
-            multiple
-            value={images}
-            onChange={onChange}
-            maxNumber={maxNumber}
-            dataURLKey="data_url"
-          >
-            {({
-              imageList,
-              onImageUpload,
-              onImageRemoveAll,
-              onImageUpdate,
-              onImageRemove,
-              isDragging,
-              dragProps,
-            }) => (
-              // write your building UI
-              <div className={styles['upload__image-wrapper']}>
-                <button
-                  style={isDragging ? { color: 'red' } : undefined}
-                  onClick={onImageUpload}
-                  {...dragProps}
-                >
-                  Upload File (click or drop here)
-                </button>
-                &nbsp;
-                {imageList.map((image, index) => (
-                  <div key={index} className={styles['image-item']}>
-                    <img src={image['data_url']} alt="" width="100" />
-                    <div className={styles['image-item__btn-wrapper']}>
-                      <button onClick={() => onImageUpdate(index)}>
-                        Update
-                      </button>
-                      <button onClick={() => onImageRemove(index)}>
-                        Remove
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </ImageUploading>
-        </div>
+
+        </Box>
+        
       </div>
     </ThemeProvider>
   );
