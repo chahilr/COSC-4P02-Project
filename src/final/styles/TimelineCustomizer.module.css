@@ -14,7 +14,7 @@
     justify-content: space-around;
 }
 
-.customizer-button-group > button {
+.customizer-button-group>button {
     width: 20vw;
 }
 
@@ -25,6 +25,13 @@
 
 .submit-button {
     margin-bottom: 2em;
+    border: none;
+}
+
+.submit-button:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
 }
 
 @media only screen and (max-width: 750px) {
@@ -33,11 +40,11 @@
     }
 
     .customizer-button-group {
-            display: flex;
-            flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
     }
 
-    .customizer-button-group > button {
+    .customizer-button-group>button {
         font-size: 1rem;
         width: 10rem !important;
         margin: 0.5rem 0;
