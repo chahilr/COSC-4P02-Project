@@ -5,10 +5,11 @@ import {
   queryTagsExhibitsYearRange,
 } from '../../utils/firestoreFunctions';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ArtifactBubble from '../components/ArtifactBubble';
 import ArtifactPreview from '../components/ArtifactPreview';
 import Logo from '../components/Logo';
+import PreferenceIcon from '../../images/preference-icon.svg';
 
 export default function Timeline() {
   const { state } = useLocation();
@@ -33,6 +34,7 @@ export default function Timeline() {
         title: artifact[1].Name,
         year: artifact[1].Year,
         exhibit: artifact[1].Exhibition,
+        tags: artifact[1].Tags,
         description: description.content,
         image: artifact[1].Photos[0],
       });
@@ -54,6 +56,13 @@ export default function Timeline() {
             translate: '-12.5%',
           }}
         />
+        <Link to="/customizer" state={state}>
+          <img
+            className={styles['preference-icon']}
+            src={PreferenceIcon}
+            alt="Customizer"
+          />
+        </Link>
         <div className={styles['timeline-container']}>
           {showPreview != null && <ArtifactPreview {...showPreview} />}
           <div

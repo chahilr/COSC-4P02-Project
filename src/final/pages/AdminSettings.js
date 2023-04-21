@@ -41,15 +41,24 @@ export default function AdminSettings() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if(password1!=password2){
+            alert("Passwords must be the same");
             return;
+        }
+        if(password1.length<6 & password1!=""){
+            alert("Password must be at least 6 characters long or blank to not update");
+            return;
+        }
+        if(emailChanged){
+            let test=(await updateUsername(email));
+            if(!test){
+                alert("Eamil must be valid");
+                return;
+            }
+            console.log("email updated");
         }
         if(password1!=""){
             await updatePass(password1);
             console.log("pass updated");
-        }
-        if(emailChanged){
-            await updateUsername(email);
-            console.log("email updated");
         }
         navigate("/adminHome");
     };

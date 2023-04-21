@@ -82,9 +82,10 @@ input {
 
 .title {
     text-align: center;
-    margin-left: 60px;
+    left: 50%;
+    transform: translate(-50%, 0%);
     position: absolute;
-    top: 200px;
+    top: 125px;
     font-size: 50px;
     color: #ffffff;
 }
@@ -92,6 +93,8 @@ input {
 .actions {
     position: absolute;
     bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
 
 .return {
@@ -102,9 +105,22 @@ input {
     margin: 20px;
 }
 
-.admins-container {
+.admins{
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    transform: translate(-46%, 0%);
+    overflow: hidden;
+    width:  500px;
+}
+
+.admins-container{
+    height: 510px;
+    width: 100%;
     color: #ffffff;
     align-items: center;
+    overflow-y: scroll;
+    padding-right: 17px; 
 }
 
 .emails {

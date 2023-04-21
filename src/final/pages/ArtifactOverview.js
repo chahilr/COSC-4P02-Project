@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getDescrption } from '../../utils/firestoreFunctions';
 import Logo from '../components/Logo';
 import styles from '../styles/ArtifactOverview.module.css';
 
 export default function ArtifactOverview() {
+  const navigate = useNavigate();
   const { state } = useLocation();
   const [description, setDescription] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
@@ -38,8 +39,24 @@ export default function ArtifactOverview() {
         </div>
         <div className={styles['nav-container']}>
           <div className={styles['button-container']}>
-            <button id="return-button">Back to Timeline</button>
-            <button id="related-artifact-button">Related Artifact</button>
+            <button id="return-button" onClick={() => navigate(-1)}>
+              Back to Timeline
+            </button>
+            <Link
+              to="/timeline"
+              state={{
+                exhibitKeys: [
+                  'Ancient Greece',
+                  'Ancient Rome',
+                  'Ancient Egypt',
+                  'Persian Empire',
+                ],
+                tagKeys: state.tags,
+                yearRange: [-2000, 2000],
+              }}
+            >
+              <button id="related-artifact-button">Related Artifact</button>
+            </Link>
             <button id="other-media-button">Other Media</button>
           </div>
         </div>

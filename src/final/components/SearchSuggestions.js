@@ -17,6 +17,7 @@ export default function SearchSuggestions({ results }) {
               year: result[1].Year,
               exhibit: result[1].Exhibition,
               image: result[1].Photos[0],
+              tags: result[1].Tags,
             }}
           >
             <li className={styles['search-list-item']}>{result[1].Name}</li>
