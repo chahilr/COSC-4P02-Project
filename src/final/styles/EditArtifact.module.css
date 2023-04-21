@@ -125,7 +125,8 @@ select {
   border-radius: 10px;
 }
 
-img {
+/* If needed, make the selector more specific. Causes problems with logo. */
+/* img {
   margin-top: 30px;
   width: 100px;
-}
+} */
