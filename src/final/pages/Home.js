@@ -58,14 +58,14 @@ export default function Home() {
     value === ''
       ? setSearchResults([])
       : queryName(value).then((results) => {
-          setSearchResults(results);
-        });
+        setSearchResults(results);
+      });
   };
 
   return (
     <>
       {/* The following line introduces an issue in the mobile design where there is vertical and horizontal overflow. */}
-      <Logo color="var(--white)" style={{background: "var(--translucent-grey)", width: 'calc(100% - 2em)', marginTop: "unset", padding: "1dvh 1em"}} />
+      <Logo color="var(--white)" style={{ background: "var(--translucent-grey)", width: 'calc(100% - 2em)', marginTop: "unset", padding: "1dvh 1em" }} />
       {/* <Logo color="var(--white)" style={{marginTop: "unset", padding: "1dvh 1em"}} /> */}
       <div className={styles['home']}>
         <div className={styles['center']}>

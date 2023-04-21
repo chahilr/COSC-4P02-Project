@@ -65,7 +65,7 @@
   border-radius: 10px;
 
   display: flex;
-  margin: 2px;
+  margin: auto;
   padding: 10px 50px;
 }
 
@@ -73,5 +73,22 @@
   background-color: white;
   color: red;
   border: 2px solid red;
+  margin: auto;
+}
+.landing-page-main-button{
+  margin:2px;
+}
+.landing-page-main-button:hover{
   margin: 0px;
+}
+button {
+  margin: 2px;
+}
+
+button:hover {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+  margin: 0px;
+
 }

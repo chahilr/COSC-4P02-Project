@@ -19,7 +19,9 @@
 .artifact-description {
     font-size: 1rem;
 }
-
+.submit-button{
+    margin:auto;
+}
 .submit-button:hover {
     background-color: var(--white);
     color: var(--red);
