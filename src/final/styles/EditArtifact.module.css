@@ -1,111 +1,102 @@
+:root {
+  --primary-color: #444;
+  --input-bg-color: white;
+  --input-border-color: #ccc;
+  --input-text-color: black;
+  --form-bg-color: lightblue;
+}
+
 input[type=text] {
-    background-color: white;
-    color: black;
-  }
-  
-  input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  label {
-    color: #444;
-  }
-  
-  select {
-    color: black;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  #artifact-add-form {
-    background-color: lightblue;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  #form-outer {
-    width: 95%;
-    margin: 150px;
-  }
-  
-  #right {
-    padding-top: 20px;
-    float: right;
-    width: 30%;
-  }
-  
-  #left {
-    float: left;
-    width: 50%;
-  }
-  
-  #upload {
-    margin: 8px;
-  }
-  
-  #add {
-    margin: 8px;
-    clear: left;
-  }
-  
-  #add-button {
-    margin: auto;
-  }
-  
-  .MuiInputBase-root {
-    margin: 8px;
-    background: white;
-  }
-  
-  .MuiButtonBase-root {
-    margin: 10px;
-  }
-  
-  .MuiSelect-select {
-    color: black;
-  }
-  
-  .MuiFormLabel-colorSecondary {
-    color: #444;
-  }
-  
-  #logout {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  
-  .MuiTextField-root {
-    width: 100%;
-  }
-  
-  #name {
-    margin: auto;
-    padding-top: 26px;
-    font-size: 130%;
-  }
-  
-  #tag {
-    margin-top: 26px;
-    font-size: 130%;
-  }
-  
-  #date {
-    padding-top: 26px;
-    font-size: 130%;
-  }
-  
-  #exhibit {
-    padding-top: 26px;
-    font-size: 130%;
-  }
-  
-  img {
-    margin-top: 26px;
-    width: 100px;
-  }
-  
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+}
+
+label,
+.MuiFormLabel-colorSecondary {
+  color: var(--primary-color);
+}
+
+select {
+  color: var(--input-text-color);
+  padding: 8px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+}
+
+#artifact-add-form {
+  background-color: var(--form-bg-color);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+#form-outer {
+  width: 95%;
+  margin: 150px;
+}
+
+#right {
+  padding-top: 20px;
+  float: right;
+  width: 30%;
+}
+
+#left {
+  float: left;
+  width: 50%;
+}
+
+#upload,
+#add {
+  margin: 8px;
+}
+
+#add {
+  clear: left;
+}
+
+#add-button {
+  margin: auto;
+}
+
+.MuiInputBase-root,
+.MuiTextField-root {
+  margin: 8px;
+  background: var(--input-bg-color);
+  width: 100%;
+}
+
+.MuiButtonBase-root {
+  margin: 10px;
+}
+
+.MuiSelect-select {
+  color: var(--input-text-color);
+}
+
+#logout {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#name,
+#tag,
+#date,
+#exhibit {
+  margin: auto;
+  padding-top: 26px;
+  font-size: 130%;
+}
+
+img {
+  margin-top: 26px;
+  width: 100px;
+}
