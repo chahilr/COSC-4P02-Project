@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   
-  background-image: url('../../images/black-background.jpg');
+  /* background-image: url('../../images/black-background.jpg'); */
 }
 
 input[type=text] {
