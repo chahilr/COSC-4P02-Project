@@ -42,7 +42,21 @@ export default function ArtifactOverview() {
             <button id="return-button" onClick={() => navigate(-1)}>
               Back to Timeline
             </button>
-            <button id="related-artifact-button">Related Artifact</button>
+            <Link
+              to="/timeline"
+              state={{
+                exhibitKeys: [
+                  'Ancient Greece',
+                  'Ancient Rome',
+                  'Ancient Egypt',
+                  'Persian Empire',
+                ],
+                tagKeys: state.tags,
+                yearRange: [-2000, 2000],
+              }}
+            >
+              <button id="related-artifact-button">Related Artifact</button>
+            </Link>
             <button id="other-media-button">Other Media</button>
           </div>
         </div>

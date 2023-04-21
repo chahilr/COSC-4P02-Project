@@ -33,6 +33,7 @@ export default function Timeline() {
         title: artifact[1].Name,
         year: artifact[1].Year,
         exhibit: artifact[1].Exhibition,
+        tags: artifact[1].Tags,
         description: description.content,
         image: artifact[1].Photos[0],
       });
