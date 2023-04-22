@@ -53,15 +53,17 @@ export default function AdminHome() {
             ></button>
           </div>
         </div>
-        <button className={styles['add-artifact']} onClick={add}>
-          Add New Artifact
-        </button>
-        <button className={styles['edit-artifact']} onClick={update}>
-          Edit an Artifact
-        </button>
-        <button className={styles['manage-admins']} onClick={manage}>
-          Manage Administrators
-        </button>
+        <div className={styles['main-menu-button-group']}>
+          <button className={styles['main-menu-button']} onClick={add}>
+            Add New Artifact
+          </button>
+          <button className={styles['main-menu-button']} onClick={update}>
+            Edit an Artifact
+          </button>
+          <button className={styles['main-menu-button']} onClick={manage}>
+            Manage Administrators
+          </button>
+        </div>
       </div>
     </>
   );
