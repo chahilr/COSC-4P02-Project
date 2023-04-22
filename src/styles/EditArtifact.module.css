@@ -12,6 +12,10 @@ input[type=text] {
   color: var(--input-text-color);
 }
 
+input[type=number]{
+  background-color: var(--white);
+}
+
 input,
 select {
   width: 100%;
@@ -29,7 +33,7 @@ select {
   color: var(--input-text-color);
   padding: 8px;
   border: 1px solid var(--input-border-color);
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 #artifact-add-form {
@@ -38,7 +42,7 @@ select {
   background-size: cover; /* Adjust the size of the image to cover the entire element */
   background-position: center; /* Center the image within the element */
   background-repeat: no-repeat; /* Prevent the image from repeating */
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
 }
 
@@ -48,9 +52,11 @@ select {
 }
 
 #right {
-  padding-top: 20px;
-  float: right;
+  padding-top: 0;
+  float: left;
   width: 15%;
+  
+  padding-left: 300px;
 }
 
 #left {
@@ -96,37 +102,40 @@ select {
 #tag,
 #date,
 #exhibit {
-  margin-top: 20px;
+  margin-top: 30px;
   /* padding-top: 26px; */
   font-size: 130%;
+  margin-bottom: 15px;
+  
 }
+
+
 
 #chooseButton{
   margin-top: 15px;
   margin-bottom: 15px;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 #description{
   background-color: var(--white);
   padding: 0%;
   margin: 0%;
-  padding: 0.5em; /* Add padding to create space between the text and the box edges */
+  padding-top: 0.3em; /* Add padding to create space between the text and the box edges */
   margin: 0%;
-  border-radius: 10px;
-  width: 100%;
+  border-radius: 20px;
+  width: 80%;
 }
 
 #tag, #exhibit{
   background-color: var(--white);
-  padding: 0.2em; /* Add padding to create space between the text and the box edges */
-  margin-top: 20px;
+  padding-top: 0.2em; /* Add padding to create space between the text and the box edges */
+  margin-bottom: 15px;
   border-radius: 10px;
 }
 
-/* If needed, make the selector more specific. Causes problems with logo. */
-/* img {
+img {
   margin-top: 30px;
   width: 100px;
-} */
+}

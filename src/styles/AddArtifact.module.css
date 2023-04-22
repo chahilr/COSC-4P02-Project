@@ -3,13 +3,24 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   
-  /* background-image: url('../../images/black-background.jpg'); */
+  background-image: url('../images/black-background.jpg');
 }
+
+
 
 input[type=text] {
   background-color: var(--white);
   color: var(--white);
 }
+
+input[type=number]{
+  background-color: var(--white);
+}
+
+input[type=select]{
+  background-color: var(--white );
+} 
+
 
 input[type=text]:focus {
   background-color: var(--white);
@@ -33,6 +44,8 @@ label {
   margin-bottom: 10px;
 }
 
+
+
 select {
   color: var(--white);
   background-color: #3CBC8D;
@@ -46,10 +59,16 @@ select {
 
 #description{
   background-color: var(--white);
-  width: 55%;
+  width: 45%;
   border-radius: 10px;
    
 }
+.menuItem {
+  color: white;
+}
+
+
+
 
 #form-outer {
   width: 95%;
@@ -90,6 +109,7 @@ select {
   font-weight: bold;
   font-size: 16px; /* Updated font-size */
   transition: background-color 0.3s;
+  
   
 }
 
@@ -154,8 +174,16 @@ select {
   
 }
 
-/* If needed, make the selector more specific. Causes problems with the logo. */
-/* img {
+img {
   margin-top: 26px;
   width: 100px;
-} */
+}
+
+img {
+  margin-top: 26px;
+  width: 100px;
+}
+
+#chooseButton{
+  margin-bottom: 25px;
+}

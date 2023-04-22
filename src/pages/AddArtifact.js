@@ -190,14 +190,56 @@ export default function EditArtifact() {
                   defaultValue={year}
                   variant="filled"
                   color="secondary"
+                  type="number"
+                  inputProps={{
+                    min: '0', // Set the minimum acceptable value
+                    max: '2000', // Set the maximum acceptable value
+                  }}
                   onChange={(e) => onDateChange(e)}
                 />
-                <TextField
-                  id="age"
-                  label="Age"
-                  variant="filled"
-                  color="secondary"
-                />
+                <FormControl variant="filled">
+                  <InputLabel id="age-label">Age</InputLabel>
+                  <Select
+                    labelId="age-label"
+                    id="age"
+                    value={year}
+                    onChange={onDateChange}
+                    sx={{
+                      bgcolor: 'white', // Set the background color to white
+                      color: 'black', // Adjust the text color as needed
+                      width: '100px', // Set the width of the field
+                      borderRadius: '20px', // Set the border radius for round edges
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'white', // Set the border color to white
+                      },
+                      '&:hover': {
+                        bgcolor: 'white', // Set the background color on hover to white
+                      },
+                      '&.Mui-focused': {
+                        bgcolor: 'white', // Keep the background color white when focused
+                      },
+                    }}
+                    MenuProps={{
+                      PaperProps: {
+                        sx: {
+                          '& .MuiMenuItem-root': {
+                            '&.Mui-selected': {
+                              bgcolor: 'white', // Keep the background color white for selected menu items
+                              color: 'black', // Adjust the text color as needed
+                            },
+                            '&:hover': {
+                              bgcolor: 'white', // Keep the background color white for hovered menu items
+                              color: 'black', // Adjust the text color as needed
+                            },
+                          },
+                        },
+                      },
+                    }}
+                  >
+                    <MenuItem value="AD">AD</MenuItem>
+                    <MenuItem value="BC">BC</MenuItem>
+                  </Select>
+                </FormControl>
               </div>
 
               <div id={styles['exhibit']}>
