@@ -81,14 +81,3 @@
 .landing-page-main-button:hover{
   margin: 0px;
 }
-button {
-  margin: 2px;
-}
-
-button:hover {
-  background-color: white;
-  color: red;
-  border: 2px solid red;
-  margin: 0px;
-
-}

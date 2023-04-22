@@ -4,6 +4,7 @@ import Logo from '../components/Logo';
 import { UserAuth } from '../utils/Auth.js';
 import { useNavigate } from 'react-router-dom';
 import { getUserEmails } from '../utils/firestoreFunctions.js';
+import SettingsIcon from '../images/settingsIcon.svg';
 
 export default function ManageAdmins() {
   const [waiting, setState] = useState(true);
@@ -62,17 +63,15 @@ export default function ManageAdmins() {
           <div>
             <Logo color="var(--white)" />
             <div className={styles['signout-settings']}>
-              <div className={styles['sign-out']}>
-                <button className={styles['sign-out-button']} onClick={logOut}>
-                  Sign Out
-                </button>
-              </div>
-              <div className={styles['settings']}>
-                <button
-                  className={styles['settings-button']}
-                  onClick={settings}
-                ></button>
-              </div>
+              <button className={styles['sign-out-button']} onClick={logOut}>
+                Sign Out
+              </button>
+              <img
+                className={styles['settings-button']}
+                src={SettingsIcon}
+                alt="Settings"
+                onClick={settings}
+              />
             </div>
             <h1 className={styles['title']}>Manage Admins</h1>
             <div className={styles['admins']}>

@@ -23,36 +23,23 @@ input {
 }
 
 .signout-settings {
+    display: flex;
     position: absolute;
-    top: 8px;
-    right: 16px;
-    margin: 40px;
-}
-
-.settings-button {
-    background-image: url('../images/settingsIcon.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    background-size: 70%;
-    background-color: transparent;
-    width: 55px;
-    height: 55px;
+    top: 1em;
+    right: 1em;
 }
 
 .sign-out-button {
-    font-size: large;
-    height: 55px;
+    padding: 1em 2em;
+    background-color: var(--red);
+    color: var(--white);
+    border: none;
+    border-radius: 1em;
 }
 
-.sign-out {
-    float: left;
-    margin-right: 10px;
-}
-
-.settings {
-    float: right;
-    margin-left: 10px;
+.settings-button {
+    width: max-content;
+    height: max-content;
 }
 
 .logoAdmin {

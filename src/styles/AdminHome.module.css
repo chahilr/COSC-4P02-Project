@@ -1,132 +1,65 @@
 .adminHome {
     background-image: url('../images/black-background.jpg');
     background-size: cover;
-    background-position: center;
+    min-height: 100dvh;
+    height: max-content;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
+}
+
+.signout-settings {
+    display: flex;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+
+.sign-out-button {
+    padding: 1em 2em;
+    background-color: var(--red);
+    color: var(--white);
+    border: none;
+    border-radius: 1em;
+    font-size: 1em;
+}
+
+.sign-out-button, .settings_button {
+    margin: 1em;
+    cursor: pointer;
 }
 
 .main-menu-button-group {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
-    justify-content: space-around;
-    
-
-    background-color: green;
+    /* background-color: var(--grey); */
 }
 
 .main-menu-button {
-    flex: content;
-    height: 10em;
-    color: var(--white);
-    font-size: 1.5em;
-    text-align: center;
-    word-wrap: break-word;
+    width: 11em;
+    height: 11em;
+    margin: 1em 1em;
+
     background-color: var(--red);
-    /* Change background color to red */
-    border-radius: 20px;
-    padding: 1em 2em;
-    margin: 1em;
+    color: var(--white);
+    border: none;
+    border-radius: 2em;
+    padding: 0.5em 1em;
+
+    font-size: 2em;
+    font-family: 'Montserrat';
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 300ms ease-in-out;
 }
 .main-menu-button:hover {
     background-color: var(--white);
     color: var(--red);
-    border: 2px solid var(--red);
-}
-.sign-out-button{
-    margin: 2px;
-}
-.sign-out-button:hover{
-    margin: 0px;
-}
-.settings-button{
-    margin: 2px;
-}
-.settings-button:hover{
-    margin: 0px;
-}
-.add-artifact, .edit-artifact, .manage-admins{
-    margin: 50px;
-}
-.add-artifact:hover, .edit-artifact:hover, .manage-admins:hover{
-    margin: 50px;
 }
 
-input {
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    border-radius: 25px;
-    border-bottom: 2px solid var(--grey);
-    padding: 25px;
-    margin: 0px;
-
-    font-family: 'Montserrat';
-    font-size: 1.5rem;
-    color: var(--white);
-}
-
-.signout-settings {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    margin: 40px;
-}
-
-.settings-button {
-    background-image: url('../images/settingsIcon.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    background-size: 70%;
-    background-color: transparent;
-    width: 55px;
-    height: 55px;
-}
-
-.sign-out-button {
-    font-size: large;
-    height: 55px;
-}
-
-.sign-out {
-    float: left;
-    margin-right: 10px;
-}
-
-.settings {
-    float: right;
-    margin-left: 10px;
-}
-
-
-
-.logoAdmin {
-    position: absolute;
-}
-
-.add-artifact {
-    margin: 50px;
-    font-size: x-large;
-    width: 250px;
-    height: 250px;
-}
-
-.edit-artifact {
-    margin: 50px;
-    font-size: x-large;
-    width: 250px;
-    height: 250px;
-}
-
-.manage-admins {
-    margin: 50px;
-    font-size: x-large;
-    width: 250px;
-    height: 250px;
-}
+/* @media only screen and (max-width: 1000px) {
+    .main-menu-button-group {
+        flex-direction: column;
+    }
+} */
