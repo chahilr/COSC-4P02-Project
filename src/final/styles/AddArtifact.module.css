@@ -6,6 +6,8 @@ body {
   background-image: url('../../images/black-background.jpg');
 }
 
+
+
 input[type=text] {
   background-color: var(--white);
   color: var(--white);
@@ -57,10 +59,16 @@ select {
 
 #description{
   background-color: var(--white);
-  width: 55%;
+  width: 45%;
   border-radius: 10px;
    
 }
+.menuItem {
+  color: white;
+}
+
+
+
 
 #form-outer {
   width: 95%;

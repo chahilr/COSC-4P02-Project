@@ -33,7 +33,7 @@ select {
   color: var(--input-text-color);
   padding: 8px;
   border: 1px solid var(--input-border-color);
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 #artifact-add-form {
@@ -42,7 +42,7 @@ select {
   background-size: cover; /* Adjust the size of the image to cover the entire element */
   background-position: center; /* Center the image within the element */
   background-repeat: no-repeat; /* Prevent the image from repeating */
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
 }
 
@@ -102,9 +102,10 @@ select {
 #tag,
 #date,
 #exhibit {
-  margin-top: 20px;
+  margin-top: 30px;
   /* padding-top: 26px; */
   font-size: 130%;
+  margin-bottom: 15px;
   
 }
 
@@ -121,16 +122,16 @@ select {
   background-color: var(--white);
   padding: 0%;
   margin: 0%;
-  padding: 0.5em; /* Add padding to create space between the text and the box edges */
+  padding-top: 0.3em; /* Add padding to create space between the text and the box edges */
   margin: 0%;
-  border-radius: 10px;
-  width: 90%;
+  border-radius: 20px;
+  width: 80%;
 }
 
 #tag, #exhibit{
   background-color: var(--white);
-  padding: 0.2em; /* Add padding to create space between the text and the box edges */
-  margin-top: 20px;
+  padding-top: 0.2em; /* Add padding to create space between the text and the box edges */
+  margin-bottom: 15px;
   border-radius: 10px;
 }
 
