@@ -1,0 +1,192 @@
+.manageAdmin {
+    background-image: url('../images/black-background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button {
+    color: white;
+    font-size: 16px;
+    background-color: #EA252E;
+    /* Change background color to red */
+    border-radius: 20px;
+    padding: 13px 35px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+}
+
+button:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}
+
+input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-radius: 25px;
+    border-bottom: 2px solid var(--grey);
+    padding: 25px;
+    margin: 0px;
+
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.signoutbutton {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    margin: 40px;
+    font-size: large;
+    height: 55px;
+}
+
+.sign-out {
+    float: left;
+    margin-right: 10px;
+}
+
+.logoAdmin {
+    position: absolute;
+    top: 30px;
+    left: 100px;
+}
+
+.title {
+    position: absolute;
+    top: 125px;
+    font-size: 50px;
+    color: #ffffff;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.addingActions {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+}
+
+.submit {
+    transform: translate(-50%, 0%);
+    margin-bottom: 20px;
+}
+
+.exitAdding {
+    transform: translate(-50%, 0%);
+    margin-bottom: 20px;
+}
+
+.p1-input {
+    width: 300px;
+    height: 20px;
+}
+
+.p2-input {
+    width: 300px;
+    height: 20px;
+}
+
+.email-input {
+    width: 300px;
+    height: 20px;
+}
+
+.role-input {
+    width: 300px;
+    height: 20px;
+}
+
+.Password1 {
+    position: relative;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.Password2 {
+    position: relative;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.email {
+    position: relative;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.role {
+    position: relative;
+}
+.signoutbutton, .submit, .exitAdding{
+    margin: 2px;
+}
+.signoutbutton:hover, .submit:hover, .exitAdding:hover{
+    margin: 0px;
+}
+
+.inputs{
+    position: absolute;
+    top: 225px;
+}
+
+.admin-container{
+    display: block;
+    position: absolute;
+    padding-left: 35px;
+    left:50%;
+    transform: translate(-30%, 0%);
+    top: 550px;
+    font-size: 22px;
+}
+
+.admin-checkbox input {
+    opacity: 0;
+  }
+.mainAdmin-checkbox input {
+    opacity: 0;
+}
+
+.checkmark1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.checkmark2 {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.admin-checkbox:hover input~.checkmark1 {
+    background-color: #ccc;
+}
+
+.admin-checkbox input:checked~.checkmark1 {
+    background-color: #f32121;
+}
+
+.admin-checkbox:hover input~.checkmark2 {
+    background-color: #ccc;
+}
+
+.admin-checkbox input:checked~.checkmark2 {
+    background-color: #f32121;
+}
