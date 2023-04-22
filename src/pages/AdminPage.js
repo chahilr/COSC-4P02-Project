@@ -67,6 +67,7 @@ const Login = () => {
             <button
               className={styles['showButton']}
               onClick={handleShowPasswordClick}
+              type="button"
             >
               {showPassword ? 'Hide' : 'Show'}
             </button>
