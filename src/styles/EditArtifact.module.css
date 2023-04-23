@@ -1,136 +1,180 @@
-:root {
-  --primary-color: #444;
-  --input-bg-color: var(--white);
-  --input-border-color: #ccc;
-  --input-text-color: black;
-  --form-bg-color: lightblue;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
   
-}
-
-input[type=text] {
-  background-color: var(--input-bg-color);
-  color: var(--input-text-color);
-}
-
-input[type=number]{
-  background-color: var(--white);
-}
-
-input,
-select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid var(--input-border-color);
-  border-radius: 4px;
-}
-
-label,
-.MuiFormLabel-colorSecondary {
-  color: var(--primary-color);
-}
-
-select {
-  color: var(--input-text-color);
-  padding: 8px;
-  border: 1px solid var(--input-border-color);
-  border-radius: 10px;
-}
-
-#artifact-add-form {
   background-image: url('../images/black-background.jpg');
-  background-color: var(--form-bg-color);
-  background-size: cover; /* Adjust the size of the image to cover the entire element */
-  background-position: center; /* Center the image within the element */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  padding: 10px;
-  border-radius: 8px;
-}
-
-#form-outer {
-  width: 95%;
-  margin: 150px;
-}
-
-#right {
-  padding-top: 0;
-  float: left;
-  width: 15%;
-  
-  padding-left: 300px;
-}
-
-#left {
-  float: left;
-  width: 50%;
-}
-
-#upload,
-#add {
-  margin: 8px;
-}
-
-#add {
-  clear: left;
-}
-
-#add-button {
-  margin: auto;
-}
-
-.MuiInputBase-root,
-.MuiTextField-root {
-  margin: 8px;
-  background: var(--input-bg-color);
-  width: 100%;
-}
-
-.MuiButtonBase-root {
-  margin: 10px;
-}
-
-.MuiSelect-select {
-  color: var(--input-text-color);
 }
 
 #logout {
+  z-index: 2;
   position: absolute;
-  top: 10px;
+  top: 28px;
   right: 10px;
 }
 
-#name,
-#tag,
-#date,
-#exhibit {
-  margin-top: 30px;
-  /* padding-top: 26px; */
-  font-size: 130%;
-  margin-bottom: 15px;
-  
+
+#container{
+  margin-top: 20px;
+}
+
+#title{
+  display: block;
+  margin: auto;
+  color: white;
+  margin-bottom: 20px;
+}
+
+
+#first-col{
+  height: 500;
+  width: 460;
+  background-color: var(--translucent-grey);
+  margin: '2000px';
+}
+
+#second-col{
+  height: 500;
+  width: 400;
+  background-color: var(--translucent-grey);
+}
+
+#third-col{
+  height: 500;
+  width: 460;
+  background-color: var(--translucent-grey);
+}
+
+.new-img {
+  margin-top: 10px;
+  width:460px;
+  max-height: 50dvh;
+  flex-basis: 50%;
+  border-radius: 40px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+#choose-button button{
+  color: red;
 }
 
 
 
-#chooseButton{
-  margin-top: 15px;
-  margin-bottom: 15px;
-  padding-top: 10px;
-  padding-bottom: 20px;
-}
 
-#description{
-  background-color: var(--white);
-  padding: 0%;
-  margin: 0%;
-  padding-top: 0.3em; /* Add padding to create space between the text and the box edges */
-  margin: 0%;
+.custom-file-upload {
+  display: block;
+  width: 150px;
+  text-align: center;
+  margin: 50px auto ;
+  color: white;
+  font-size: 16px;
+  background-color: #EA252E;
   border-radius: 20px;
-  width: 80%;
+  padding: 13px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
 }
 
-#tag, #exhibit{
+.custom-file-upload:hover{
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+}
+
+.no-url-upload{
+  margin-top: 10px;
+  display: flex;
+  font-size: 4.5rem;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #ec262a;
+  width: 460px;
+  height: 42vh;
+  flex-basis: 50%;
+  border-radius: 40px;
+  cursor: pointer;
+  border: 5px solid white;
+}
+
+.no-url-upload:hover{
+  background-color: white;
+  color: red;
+  border: 5px solid red;
+}
+
+#final-button{
+  display: block;
+  margin: 75px auto;
+  width: 300px;
+  font-size: large;
+  font-weight: 600;
+}
+
+#delete-button{
+  background-color: #FBFF00;
+  color: #FF0000;
+  display: block;
+  margin: -50px auto;
+  width: 300px;
+  font-size: large;
+  font-weight: 600;
+}
+
+#delete-button:hover{
+  background-color: #FF0000;
+  color: #FBFF00;
+  border-color: #FBFF00;
+}
+
+
+.error-msg{
+  color: red;
+  padding-top: 2px;
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+
+
+
+.delete-preview {
+  position: fixed;
+  z-index: 99;
+  top: 200px;
+  width: 500px;
+  height: fit-content;
+  padding-bottom: 25px;
+  border-radius: 50px;
+  background-color: var(--grey);
+  text-align: center;
+  color: var(--white);
+}
+
+.submit-button{
+  margin:auto;
+}
+
+.cancel-button{
+  background-color:rgb(51, 39, 39);
+  
+  margin-right: 10px;
+}
+.cancel-button:hover{
+ 
+  margin-right: 10px;
+}
+
+.submit-button:hover {
   background-color: var(--white);
-  padding-top: 0.2em; /* Add padding to create space between the text and the box edges */
-  margin-bottom: 15px;
-  border-radius: 10px;
+  color: var(--red);
+  border: 2px solid var(--red);
 }

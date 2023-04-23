@@ -11,18 +11,20 @@ import {
   Button,
   OutlinedInput,
   ListItemText,
-  Checkbox,
+  Checkbox,Grid,
 } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
 import styles from '../styles/EditArtifact.module.css';
 //image upload stuff
 import ImageUploading from 'react-images-uploading';
-import { useLocation } from 'react-router-dom';
+import { useLocation,Link  } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Logo from '../components/Logo';
-import { getDescrption, updateArtifact } from '../utils/firestoreFunctions';
+import { getDescrption, updateArtifact,deleteArtifact } from '../utils/firestoreFunctions';
 import { storage } from '../utils/FirebaseApp.js';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+
 
 const theme = createTheme({
   palette: {
@@ -32,12 +34,83 @@ const theme = createTheme({
   },
 });
 
+
+const CssTextField = styled(TextField)({
+  marginTop:10,
+  '& label.Mui-focused': {
+    color: 'red',
+    padding:'0 6px 0 6px',
+    backgroundColor:'white',
+    borderRadius:"5px",
+    borderColor: 'red',
+  },
+  '& label': {
+    fontSize:'1.3rem',
+    padding:'0 6px 0 6px',
+    backgroundColor:'white',
+    borderRadius:"5px"
+  },
+
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'red',
+      borderRadius: '25px',
+    },
+    '&:hover fieldset': {
+      borderColor: '#ff726f',
+      borderRadius: '25px',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'red',
+      borderRadius: '25px',
+    },
+  },
+
+});
+
+const CssFormField = styled(FormControl)({
+  marginTop:30,
+  backgroundColor:'white',
+  borderRadius:'25px',
+  width:400,
+  '& label.Mui-focused': {
+  color: 'red',
+  padding:'0 6px 0 6px',
+  backgroundColor:'white',
+  borderRadius:"5px",
+  borderColor: 'red',
+  },
+  '& label': {
+  fontSize:'1.3rem',
+  padding:'0 6px 0 6px',
+  backgroundColor:'white',
+  borderRadius:"5px"
+  },
+
+  '& .MuiOutlinedInput-root': {
+  '& fieldset': {
+    borderColor: 'red',
+    borderRadius: '25px',
+  },
+  '&:hover fieldset': {
+    borderColor: '#ff726f',
+    borderRadius: '25px',
+  },
+  '&.Mui-focused fieldset': {
+    borderColor: 'red',
+    borderRadius: '25px',
+  },
+  },
+
+});
+
+
 export default function EditArtifact() {
   const { state } = useLocation();
   const id = state?.id;
   const [name, setName] = useState(state?.Name);
   const [year, setYear] = useState(state?.Year);
-  // const [era, setEra] = useState(state?.era);
+  const [era, setEra] = useState('');
   const [description, setDescription] = useState('');
   const [exhibit, setExibit] = useState(state?.Exhibition);
   const [tags, setTags] = useState(state?.Tags);
@@ -45,9 +118,13 @@ export default function EditArtifact() {
   const [url, setUrl] = useState(state?.Photos[0]);
   const [newPicture, setNewPicture] = useState([state?.Photos[0]]);
   const [newPictureGiven, setNewPictureGiven] = useState(false);
+  const [finalButtonPressed, setFinalButtonPressed] = useState(false);
+  const [wantToDelete, setWantToDelete] = useState(false);
   const [percent, setPercent] = useState(0);
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
+
+  
 
   const tagNames = ['Paintings', 'Technology', 'Weapons', 'Tools'];
 
@@ -70,7 +147,7 @@ export default function EditArtifact() {
     },
   };
 
-  console.log(tags);
+  
 
   //drop down menu for exhibit
   function onMenuChange(event) {
@@ -79,6 +156,10 @@ export default function EditArtifact() {
 
   function onNameChange(event) {
     setName(event.target.value);
+  }
+
+  function onEraChange(event) {
+    setEra(event.target.value);
   }
 
   function onDateChange(event) {
@@ -93,14 +174,21 @@ export default function EditArtifact() {
     console.log(exhibit);
     console.log(name);
     console.log(year);
+    console.log(era);
     console.log(tags);
     console.log(description);
     console.log(newPicture);
 
+    var updatedYear=parseInt(year);
+
+    if(era==="BC"){
+      updatedYear=-Math.abs(updatedYear);
+    }
+
     updateArtifact(
       id,
       name,
-      parseInt(year),
+      updatedYear,
       description,
       exhibit,
       tags,
@@ -116,7 +204,28 @@ export default function EditArtifact() {
     if (newPictureGiven) {
       addToDatabase();
     }
-  }, [newPicture, newPictureGiven]);
+    if(year<0){
+      setYear(year*-1)
+      setEra(`BC`)
+      console.log("bcccc")
+    }else{
+      setEra(`AD`)
+    }
+  }, [newPicture, newPictureGiven],year);
+
+
+  const onDeleteArtifact=async(event)=>{
+    setWantToDelete(true)
+  }
+
+  const cancelButton=async(event)=>{
+    setWantToDelete(false)
+  }
+
+
+  const confirmDeleteTheArtifact=async(event)=>{   
+    await deleteArtifact(id);
+  }
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
@@ -131,132 +240,113 @@ export default function EditArtifact() {
   const handleUpload = async (event) => {
     event.preventDefault();
 
-    if (!file) {
-      alert('Please upload an image first!');
-    }
+    setFinalButtonPressed(true);
 
-    const storageRef = ref(storage, `/Pictures/${file.name}`);
-
-    const uploadTask = uploadBytesResumable(storageRef, file);
-
-    uploadTask.on(
-      'state_changed',
-      (snapshot) => {
-        const percent = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-
-        // update progress
-        setPercent(percent);
-      },
-      (err) => console.log(err),
-      () => {
-        // download url
-        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          console.log(url);
-          setNewPicture([url]);
-          setNewPictureGiven(true);
-        });
+    if ( !name || !year || !era || !exhibit || !description || tags.length==0) {
+      if(year>2000 || year<0){
+        alert('The year needs to be between 0-2000. There could be missing data too, re-check the form!');
+      }else{
+        alert('Missing data, re-check the form!');
       }
-    );
+      
+    }
+    
+    else if(file && !(!name || !year || !era || !exhibit || !description || tags.length==0)){
+
+      const storageRef = ref(storage, `/Pictures/${file.name}`);
+
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+      uploadTask.on(
+        'state_changed',
+        (snapshot) => {
+          const percent = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+
+          // update progress
+          setPercent(percent);
+        },
+        (err) => console.log(err),
+        () => {
+          // download url
+          getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+            console.log(url);
+            setNewPicture([url]);
+            setNewPictureGiven(true);
+          });
+        }
+      );
+    }else{
+      setNewPicture([url]);
+      setNewPictureGiven(true);
+    }
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Logo />
+    
+      
+      
+    <ThemeProvider theme={theme} >
+      <Logo
+          color="var(--white)"
+          style={{
+            position: 'relative',
+            backgroundColor: 'var(--translucent-grey)',
+            marginTop: 'unset',
+            padding: '1dvh 1em',
+          }}
+        />
       <div id={styles['logout']}>
         <Button variant="contained" component="label" color="secondary">
           Logout
         </Button>
       </div>
+      <div className={styles['body-overlay']}>
 
-      <div id={styles['artifact-add-form']}>
-        <Box
-          component="form"
-          sx={{
-            '& > :not(style)': { m: 1, width: '25ch' },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <div id={styles['form-outer']}>
-            <div id={styles['left']}>
-              <div id={styles['name']}>
-                <TextField
-                  id="name"
-                  label="Name"
-                  defaultValue={name}
-                  variant="filled"
-                  color="secondary"
-                  onChange={(e) => onNameChange(e)}
-                />
-              </div>
+      <Grid sx={{ flexGrow: 1 }} container id={styles['container']}  >
+        <h1 id={styles['title']}>Edit Artifact</h1>
+        <Grid item xs={500}>
+          <Grid container justifyContent="center" spacing={2}>
+            
+              <Grid item  sx={{height: 500,width: 430,backgroundColor:'var(--translucent-grey)',margin:1,borderRadius:'25px'}} >
+                
+                
+                <CssTextField label="Name" sx={{backgroundColor:'white',borderRadius:'25px'}}
+                value={name} onChange={(e) => onNameChange(e)} />
 
-              <div id={styles['date']}>
-                <TextField
-                  id="date"
-                  label="Year"
-                  defaultValue={year}
-                  variant="filled"
-                  color="secondary"
-                  type="number"
-                  inputProps={{
-                    min: '0', // Set the minimum acceptable value
-                    max: '2000', // Set the maximum acceptable value
-                  }}
-                  onChange={(e) => onDateChange(e)}
-                />
-                <FormControl variant="filled">
-                  <InputLabel id="age-label">Age</InputLabel>
-                  <Select
-                    labelId="age-label"
-                    id="age"
-                    value={year}
-                    onChange={onDateChange}
-                    sx={{
-                      bgcolor: 'white', // Set the background color to white
-                      color: 'black', // Adjust the text color as needed
-                      width: '100px', // Set the width of the field
-                      borderRadius: '20px', // Set the border radius for round edges
-                      '& .MuiOutlinedInput-notchedOutline': {
-                        borderColor: 'white', // Set the border color to white
-                      },
-                      '&:hover': {
-                        bgcolor: 'white', // Set the background color on hover to white
-                      },
-                      '&.Mui-focused': {
-                        bgcolor: 'white', // Keep the background color white when focused
-                      },
-                    }}
-                    MenuProps={{
-                      PaperProps: {
-                        sx: {
-                          '& .MuiMenuItem-root': {
-                            '&.Mui-selected': {
-                              bgcolor: 'white', // Keep the background color white for selected menu items
-                              color: 'black', // Adjust the text color as needed
-                            },
-                            '&:hover': {
-                              bgcolor: 'white', // Keep the background color white for hovered menu items
-                              color: 'black', // Adjust the text color as needed
-                            },
-                          },
-                        },
-                      },
-                    }}
-                  >
+                {finalButtonPressed && !name  &&(<p className={styles['error-msg']}>*Name is required</p>)}
+                <br/>
+                <CssTextField
+                  sx={{backgroundColor:'white',borderRadius:'25px',marginTop:3}}
+                  label="Year" type="number" 
+                  value={year} 
+                  onChange={(e) => onDateChange(e)}/>
+                
+
+                <CssFormField  sx={{marginTop:3,marginLeft:3, width:100,}} >
+                  <InputLabel id="age-label" >Era</InputLabel>
+                    <Select
+                      inputProps={{MenuProps: {disableScrollLock: true}}}
+                      labelId="era-label"
+                      id="era"
+                      value={era}
+                      onChange={onEraChange}
+                      >
                     <MenuItem value="AD">AD</MenuItem>
                     <MenuItem value="BC">BC</MenuItem>
                   </Select>
-                </FormControl>
-              </div>
-
-              <div id={styles['exhibit']}>
-                <FormControl fullWidth>
+                </CssFormField>
+                {finalButtonPressed && !year  && (<p className={styles['error-msg']}>*Year is required</p>)}
+                {finalButtonPressed &&  !era && (<p className={styles['error-msg']}>*Era is required</p>)}
+                {finalButtonPressed && (year<0 || year>2000) && (<p className={styles['error-msg']}>*Year needs to be between 0-2000</p>)}
+                <br/>
+                <CssFormField >
                   <InputLabel id={styles['exhibit-label']} color="secondary">
                     Exhibit
                   </InputLabel>
                   <Select
+                    inputProps={{MenuProps: {disableScrollLock: true}}}
                     labelId="exhibit-label"
                     id={styles['exhibit']}
                     value={exhibit}
@@ -269,13 +359,18 @@ export default function EditArtifact() {
                     <MenuItem value={'Ancient Egypt'}>Ancient Egypt</MenuItem>
                     <MenuItem value={'Persian Empire'}>Persian Empire</MenuItem>
                   </Select>
-                </FormControl>
-              </div>
+                </CssFormField>
+                {finalButtonPressed && !exhibit && (<p className={styles['error-msg']}>*Select an Exhibit</p>)}
+                <br/>
 
-              <div>
-                <FormControl id={styles['tag']}>
-                  <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
+                
+                
+                <CssFormField >
+                  <InputLabel >
+                    Tags
+                  </InputLabel>
                   <Select
+                    inputProps={{MenuProps: {disableScrollLock: true}}}
                     labelId="demo-multiple-checkbox-label"
                     id="demo-multiple-checkbox"
                     multiple
@@ -287,47 +382,106 @@ export default function EditArtifact() {
                     color="secondary"
                   >
                     {tagNames.map((name) => (
-                      <MenuItem key={name} value={name}>
+                      <MenuItem  key={name} value={name} >
                         <Checkbox checked={tags.indexOf(name) > -1} />
                         <ListItemText primary={name} />
                       </MenuItem>
                     ))}
                   </Select>
-                </FormControl>
-              </div>
+                </CssFormField>
+                {finalButtonPressed &&  (tags.length==0) && (<p className={styles['error-msg']}>*At least one Tag is required</p>)}
 
-              {url && (
-                <div>
-                  <img src={url} alt="Uploaded image" />
-                </div>
-              )}
-              <input
-                type="file"
-                onChange={handleFileChange}
-                accept="image/*"
-                id={styles['chooseButton']}
-              />
-              <button onClick={(e) => handleUpload(e)} disabled={!file}>
-                Update
-              </button>
-            </div>
 
-            <div id={styles['right']}>
-              <div id={styles['description']}>
-                <TextField
+
+                
+                
+                
+              </Grid>
+              
+              {wantToDelete  && (<div             
+                className={styles['delete-preview']}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <h1 className={styles['artifact-title']}>Are you sure you want to delete?</h1>
+                  <button className={styles['cancel-button']} onClick={cancelButton}>Cancel</button>
+                <Link
+                  to="/artifactlist"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <button className={styles['submit-button']} onClick={confirmDeleteTheArtifact}>! Delete !</button>
+                </Link>
+              </div>)}
+              
+              <Grid item sx={{height: 630,width: 385,backgroundColor:'var(--translucent-grey)',margin:1,borderRadius:'25px'}}>
+                
+                <CssTextField
+                  sx={{backgroundColor:'white',borderRadius:'25px',width: 350,}}
                   id="description"
                   label="Description"
                   value={description}
                   multiline
                   rows={15}
-                  color="secondary"
                   onChange={(e) => onDescriptionChange(e)}
                 />
-              </div>
-            </div>
-          </div>
-        </Box>
-      </div>
+                  {finalButtonPressed && !description && (<p className={styles['error-msg']}>*Description cannot be empty!</p>)}
+                  
+                  <button  id={styles['final-button']} onClick={(e) => handleUpload(e)}>
+                    Update Artifact
+                  </button>
+                  
+                  <button  id={styles['delete-button']} onClick={(e) => onDeleteArtifact(e)}>
+                    !! Delete Artifact !!
+                  </button>
+                  
+              </Grid>
+
+              <Grid item sx={{height: 500,width: 500,backgroundColor:'var(--translucent-grey)',margin:1,borderRadius:'25px'}} >
+              
+              {url && (
+                <div>
+                  <img className={styles['new-img']} src={url} alt="Uploaded image" />
+                </div>
+              )}
+
+
+              {!url && (
+                <label className={styles['no-url-upload']}><input
+                type="file"
+                onChange={handleFileChange}
+                accept="image/*"
+                />
+                  Click To Select Image
+                </label>
+              )}
+
+              {finalButtonPressed && !url && (<p className={styles['error-msg']}>*An Image is required</p>)}
+
+              {url && (
+                <label className={styles['custom-file-upload']}><input
+                type="file"
+                onChange={handleFileChange}
+                accept="image/*"
+                />
+                  Change Image
+                </label>
+              )}
+
+            
+                
+              </Grid>
+            
+          </Grid>
+         
+        </Grid>  
+         
+      </Grid>   
+      </div>           
     </ThemeProvider>
+    
   );
+
+
 }
+
+
+
