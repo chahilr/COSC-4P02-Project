@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Logo(props) {
   return (
     <div
-      className={styles['logo-and-language']}
+      className={`${styles['logo-and-language']} ${styles[props.className]}`}
       style={{
         ...props?.style,
       }}

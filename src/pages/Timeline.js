@@ -48,6 +48,7 @@ export default function Timeline() {
         onClick={() => setShowPreview(null)}
       >
         <Logo
+          className="special-logo"
           color="var(--white)"
           style={{
             backgroundColor: 'transparent',
