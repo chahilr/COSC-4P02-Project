@@ -8,7 +8,7 @@
     height: 100vh;
 }
 
-input {
+.input {
     width: 100%;
     background-color: transparent;
     border: none;
