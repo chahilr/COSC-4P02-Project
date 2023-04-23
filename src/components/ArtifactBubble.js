@@ -32,7 +32,7 @@ const ArtifactBubble = (props) => {
             visibility: props.visible ? 'visible' : 'hidden',
           }}
         >
-          {props.artifact.Name} | {props.artifact.Year}
+          {props.artifact.Name} <br></br> {(props.artifact.Year < 0)?((-1*props.artifact.Year) + " BC"):(props.artifact.Year) + " AD"}
         </p>
       )}
 
@@ -55,7 +55,7 @@ const ArtifactBubble = (props) => {
             visibility: props.visible ? 'visible' : 'hidden',
           }}
         >
-          {props.artifact.Name} | {props.artifact.Year}
+          {props.artifact.Name} <br></br> {(props.artifact.Year < 0)?((-1*props.artifact.Year) + " BC"):(props.artifact.Year) + " AD"}
         </p>
       )}
     </div>

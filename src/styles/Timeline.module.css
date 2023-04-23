@@ -12,7 +12,7 @@
 }
 
 .preference-icon {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 2rem;
     padding: 0.5em;
@@ -87,11 +87,13 @@
     margin-right: 25px;
 }
 
-.logo-and-language {
-    position: fixed !important;
-}
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 1090px) {
+    .preference-icon {
+        position: absolute !important;
+        width: 2rem;
+    }
+
     .spacer {
         width: 40px;
         margin: 0px 20px;
@@ -106,17 +108,18 @@
 
     .legend-container {
         font-size: 12px;
-        right: 10%;
         top: 5em;
         position: absolute;
     }
+
+    .legend-container > ul > li {
+        height: 32px;
+    }
+    
     .legend-container > ul > li > div {
         width: 12px;
         height: 12px;
         margin-right: 5px;
-    }
-    .logo-and-language {
-        position: absolute !important;
     }
 
     @keyframes slideIn {

@@ -5,6 +5,7 @@
     align-items: center;
     background-color: transparent;
     margin: 0;
+    text-align: center;
 }
 
 .artifact-bubble-heading {
@@ -39,5 +40,6 @@
     }
     .artifact-bubble-heading {
         margin: 25px 0;
+        width: unset;
     }
 }

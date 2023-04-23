@@ -10,6 +10,10 @@
     z-index: 2;
 }
 
+.special-logo {
+    position: fixed !important;
+}
+
 .logo {
     display: flex;
     width: 100%;
@@ -43,6 +47,19 @@
 }
 
 /* ╚⏤⏤⏤⏤╗ Museum Logo ╔⏤⏤⏤⏤╝*/
+
+
+@media only screen and (max-width: 1090px) {
+    .special-logo {
+        position: absolute !important;
+    }
+    .special-logo > * img {
+        height: var(--mobile-logo-size);
+    }
+    .special-logo > * span {
+        font-size: 18px !important;
+    }
+}
 
 @media only screen and (max-width: 750px) {
     /* Mobile */
