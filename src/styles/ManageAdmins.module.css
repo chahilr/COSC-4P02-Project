@@ -39,25 +39,18 @@
 }
 
 .title {
-    
     text-align: center;
     font-size: 50px;
     color: #ffffff;
 }
 
 .actions {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-}
-
-.return {
-    margin: 20px;
-}
-
-.add {
-    margin: 20px;
+    position: relative;
+    height: 5em;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .admins{

@@ -87,7 +87,7 @@ export default function ManageAdmins() {
                     ></input>
                     <button
                       key={'button' + email[0]}
-                      className={styles['deltes']}
+                      className={'primary-button'}
                       onClick={(e) => handleDelete(e, email[1])}
                     >
                       Delete
@@ -97,10 +97,10 @@ export default function ManageAdmins() {
               })}
             </div>
             <div className={styles['actions']}>
-              <button className={styles['return']} onClick={home}>
+              <button className={'primary-button'} onClick={home}>
                 Return to Main Menu
               </button>
-              <button className={styles['add']} onClick={add}>
+              <button className={'primary-button'} onClick={add}>
                 Add Admin
               </button>
             </div>
