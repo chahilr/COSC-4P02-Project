@@ -104,12 +104,21 @@
         z-index: 1;
     }
 
+    .preference-icon {
+        width: 2rem;
+    }
+
     .legend-container {
         font-size: 12px;
         right: 10%;
         top: 5em;
         position: absolute;
     }
+
+    .legend-container > ul > li {
+        height: 32px;
+    }
+    
     .legend-container > ul > li > div {
         width: 12px;
         height: 12px;
