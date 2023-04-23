@@ -126,11 +126,11 @@ input:focus::-moz-placeholder {
     border-radius: 20px;
 }
 
-.landing-page-main-button:hover {
+/* .landing-page-main-button:hover {
     background-color: white;
     color: red;
     border: 2px solid red;
-}
+} */
 
 .landing-page-main-button-link {
     color: var(--black);
@@ -256,7 +256,7 @@ input:focus::-moz-placeholder {
     /* ╚⏤⏤⏤⏤╗ Homepage Exhibit Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
 }
 
-button {
+/* button {
     margin: 2px;
 }
 
@@ -280,4 +280,4 @@ SelectButton {
 
 .landing-page-main-button:hover {
     margin: 0px;
-}
+} */

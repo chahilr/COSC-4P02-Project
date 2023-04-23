@@ -8,12 +8,12 @@
     height: 100vh;
 }
 
-button:hover {
+/* button:hover {
     background-color: white;
     color: red;
     border: 2px solid red;
     margin: 50px;
-}
+} */
 .sign-out-button{
     margin: 2px;
 }
@@ -32,18 +32,17 @@ button:hover {
 .add-artifact:hover, .edit-artifact:hover, .manage-admins:hover{
     margin: 50px;
 }
-button {
+/* button {
     color: white;
     font-size: 16px;
     background-color: #EA252E;
-    /* Change background color to red */
     border-radius: 20px;
     padding: 13px 35px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     border: none;
     margin: 50px;
-}
+} */
 
 input {
     width: 100%;

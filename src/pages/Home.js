@@ -114,7 +114,7 @@ export default function Home() {
                   yearRange: presetYearRange,
                 }}
               >
-                <SelectButton name="Ancient Greece" />
+                <SelectButton name="Ancient Greece"/>
               </Link>
             </li>
             <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -142,7 +142,7 @@ export default function Home() {
                   yearRange: presetYearRange,
                 }}
               >
-                <SelectButton name="Ancient Egypt" />
+                <SelectButton name="Ancient Egypt" className="option-button" />
               </Link>
             </li>
             <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>

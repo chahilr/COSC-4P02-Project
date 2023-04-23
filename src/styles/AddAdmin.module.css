@@ -8,23 +8,22 @@
     height: 100vh;
 }
 
-button {
+/* button {
     color: white;
     font-size: 16px;
     background-color: #EA252E;
-    /* Change background color to red */
     border-radius: 20px;
     padding: 13px 35px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     border: none;
-}
+} */
 
-button:hover {
+/* button:hover {
     background-color: white;
     color: red;
     border: 2px solid red;
-}
+} */
 
 input {
     width: 100%;
