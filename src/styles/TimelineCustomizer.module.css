@@ -23,17 +23,6 @@
     margin: 75px auto;
 }
 
-.submit-button {
-    margin-bottom: 2em;
-    border: none;
-}
-
-.submit-button:hover {
-    background-color: white;
-    color: red;
-    border: 2px solid red;
-}
-
 @media only screen and (max-width: 750px) {
     .instruction-heading {
         margin: 3vh 0;
