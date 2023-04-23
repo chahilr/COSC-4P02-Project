@@ -58,7 +58,7 @@ export default function ManageAdmins() {
     <>
       <div className={styles['manageAdmin']}>
         {waiting ? (
-          <>loding...</>
+          <>loading...</>
         ) : (
           <div>
             <Logo color="var(--white)" />
@@ -74,29 +74,27 @@ export default function ManageAdmins() {
               />
             </div>
             <h1 className={styles['title']}>Manage Admins</h1>
-            <div className={styles['admins']}>
-              <div className={styles['admins-container']}>
-                {emails.map((email) => {
-                  return (
-                    <div key={'container' + email[0]}>
-                      <input
-                        type="email"
-                        key={'label' + email[0]}
-                        className={styles['emails']}
-                        value={email[1]}
-                        readOnly
-                      ></input>
-                      <button
-                        key={'button' + email[0]}
-                        className={styles['deltes']}
-                        onClick={(e) => handleDelete(e, email[1])}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
+            <div className={styles['admins-container']}>
+              {emails.map((email) => {
+                return (
+                  <div key={'container' + email[0]}>
+                    <input
+                      type="email"
+                      key={'label' + email[0]}
+                      className={styles['emails']}
+                      value={email[1]}
+                      readOnly
+                    ></input>
+                    <button
+                      key={'button' + email[0]}
+                      className={styles['deltes']}
+                      onClick={(e) => handleDelete(e, email[1])}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                );
+              })}
             </div>
             <div className={styles['actions']}>
               <button className={styles['return']} onClick={home}>

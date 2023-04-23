@@ -8,8 +8,10 @@
     height: 100vh;
 }
 
-input {
-    width: 100%;
+.emails {
+    font-size: 20px;
+    width: 300px;
+    height: 20px;
     background-color: transparent;
     border: none;
     border-radius: 25px;
@@ -18,7 +20,6 @@ input {
     margin: 0px;
 
     font-family: 'Montserrat';
-    font-size: 1.5rem;
     color: var(--white);
 }
 
@@ -37,23 +38,9 @@ input {
     border-radius: 1em;
 }
 
-.settings-button {
-    width: max-content;
-    height: max-content;
-}
-
-.logoAdmin {
-    position: absolute;
-    top: 5px;
-    left: 10px;
-}
-
 .title {
+    
     text-align: center;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    position: absolute;
-    top: 125px;
     font-size: 50px;
     color: #ffffff;
 }
@@ -92,9 +79,7 @@ input {
 }
 
 .emails {
-    font-size: 20px;
-    width: 300px;
-    height: 20px;
+    
 }
 .sign-out-button:hover{
     margin: 0px;
