@@ -135,7 +135,8 @@ select {
   border-radius: 10px;
 }
 
-img {
+/* Causes problems */
+/* img {
   margin-top: 30px;
   width: 100px;
-}
+} */
