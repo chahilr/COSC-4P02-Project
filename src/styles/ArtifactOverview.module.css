@@ -127,11 +127,11 @@
   border: none;
 }
 
-button:hover {
+/* button:hover {
   background-color: white;
   color: red;
   border: 2px solid red;
-}
+} */
 
 @media only screen and (max-width: 750px) {
   .artifact-container {

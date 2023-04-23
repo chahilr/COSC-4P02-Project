@@ -13,7 +13,7 @@ const SelectButton = (props) => {
 
   return (
     <button
-      className="option-button"
+      className="primary-button"
       onClick={() => {
         props.onClick?.(props.name);
         setClicked(!clicked);
@@ -34,7 +34,7 @@ const SelectButton = (props) => {
         //backgroundColor: hover ? 'white' : 'red',
         //backgroundColor: clicked ? '#7C7B81' : "red",
 
-        backgroundColor: clicked || hover?  'grey': "red",
+        // backgroundColor: clicked || hover?  'grey': "red",
         // padding: hover ? '2vw' : '1vw',
       }}
     >
