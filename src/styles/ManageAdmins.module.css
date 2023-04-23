@@ -8,27 +8,10 @@
     height: 100vh;
 }
 
-button:hover {
-    background-color: white;
-    color: red;
-    border: 2px solid red;
-}
-
-
-button {
-    color: white;
-    font-size: 16px;
-    background-color: #EA252E;
-    /* Change background color to red */
-    border-radius: 20px;
-    padding: 13px 35px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin:2px;
-}
-
-input {
-    width: 100%;
+.emails {
+    font-size: 20px;
+    width: 300px;
+    height: 20px;
     background-color: transparent;
     border: none;
     border-radius: 25px;
@@ -37,72 +20,39 @@ input {
     margin: 0px;
 
     font-family: 'Montserrat';
-    font-size: 1.5rem;
     color: var(--white);
 }
 
+.email-container {
+    display: flex;
+    margin: 1em 0;
+}
+
 .signout-settings {
+    display: flex;
     position: absolute;
-    top: 8px;
-    right: 16px;
-    margin: 40px;
+    top: 1em;
+    right: 1em;
+    gap: 1em;
 }
 
 .settings-button {
-    background-image: url('../images/settingsIcon.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    background-size: 70%;
-    background-color: transparent;
-    width: 55px;
-    height: 55px;
-}
-
-.sign-out-button {
-    font-size: large;
-    height: 55px;
-}
-
-.sign-out {
-    float: left;
-    margin-right: 10px;
-}
-
-.settings {
-    float: right;
-    margin-left: 10px;
-}
-
-.logoAdmin {
-    position: absolute;
-    top: 5px;
-    left: 10px;
+    cursor: pointer;
 }
 
 .title {
     text-align: center;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    position: absolute;
-    top: 125px;
     font-size: 50px;
     color: #ffffff;
 }
 
 .actions {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-}
-
-.return {
-    margin: 20px;
-}
-
-.add {
-    margin: 20px;
+    position: relative;
+    height: 8em;
+    
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
 }
 
 .admins{
@@ -124,16 +74,12 @@ input {
 }
 
 .emails {
-    font-size: 20px;
-    width: 300px;
-    height: 20px;
+    
 }
 .sign-out-button:hover{
     margin: 0px;
 }
-button:hover{
-    margin: 0px;
-}
+
 .return:hover,.add:hover{
     margin: 0px;
 }

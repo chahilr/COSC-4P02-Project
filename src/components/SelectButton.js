@@ -13,7 +13,7 @@ const SelectButton = (props) => {
 
   return (
     <button
-      className="option-button"
+      className="primary-button"
       onClick={() => {
         props.onClick?.(props.name);
         setClicked(!clicked);
@@ -27,15 +27,8 @@ const SelectButton = (props) => {
         handleMouseLeave();
       }}
       style={{
-        //backgroundColor: 'red',
-
-        //backgroundColor:  hover && clicked ? 'white' : '#7C7B81',
-        
-        //backgroundColor: hover ? 'white' : 'red',
-        //backgroundColor: clicked ? '#7C7B81' : "red",
-
-        backgroundColor: clicked || hover?  'grey': "red",
-        // padding: hover ? '2vw' : '1vw',
+        backgroundColor: clicked || hover?  'var(--red)': 'var(--grey)',
+        color: 'var(--white)'
       }}
     >
       {props.name}

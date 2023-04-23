@@ -39,7 +39,7 @@ export default function ArtifactOverview() {
         </div>
         <div className={styles['nav-container']}>
           <div className={styles['button-container']}>
-            <button id="return-button" onClick={() => navigate(-1)}>
+            <button className="secondary-button" onClick={() => navigate(-1)}>
               Back to Timeline
             </button>
             <Link
@@ -55,9 +55,8 @@ export default function ArtifactOverview() {
                 yearRange: [-2000, 2000],
               }}
             >
-              <button id="related-artifact-button">Related Artifact</button>
+              <button className="secondary-button">Related Artifact</button>
             </Link>
-            <button id="other-media-button">Other Media</button>
           </div>
         </div>
       </div>

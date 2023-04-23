@@ -124,12 +124,13 @@ input:focus::-moz-placeholder {
     border: 1px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
+    transition: all 300ms ease-in-out;
 }
 
 .landing-page-main-button:hover {
     background-color: white;
     color: red;
-    border: 2px solid red;
+    border: 1px solid red;
 }
 
 .landing-page-main-button-link {
@@ -184,9 +185,6 @@ input:focus::-moz-placeholder {
 
 /* ╚⏤⏤⏤⏤╗ Banners ╔⏤⏤⏤⏤╝*/
 
-
-
-
 /* MOBILE */
 @media only screen and (max-width: 750px) {
 
@@ -230,7 +228,7 @@ input:focus::-moz-placeholder {
         flex-direction: column;
     }
 
-    #exhibit-options-list>div>li>a>.option-button {
+    #exhibit-options-list>div>li>a>button {
         width: 75vw !important;
     }
 
@@ -247,37 +245,11 @@ input:focus::-moz-placeholder {
         gap: 1em;
     }
 
-    #exhibit-options-list>div>li>a>.option-button {
+    #exhibit-options-list>div>li>a>button {
         font-size: 18px;
         padding: 22px 0px;
         border-radius: 20px;
     }
 
     /* ╚⏤⏤⏤⏤╗ Homepage Exhibit Button/Button-wrappers ╔⏤⏤⏤⏤╝*/
-}
-
-button {
-    margin: 2px;
-}
-
-button:hover {
-    background-color: white;
-    color: red;
-    border: 2px solid red;
-    margin: 0px;
-
-}
-
-SelectButton {
-    background-color: white;
-    color: red;
-    border: 2px solid red;
-}
-
-.landing-page-main-button {
-    margin: 2px;
-}
-
-.landing-page-main-button:hover {
-    margin: 0px;
 }

@@ -3,6 +3,7 @@ import styles from '../styles/AdminHome.module.css';
 import Logo from '../components/Logo';
 import { UserAuth } from '../utils/Auth.js';
 import { useNavigate } from 'react-router-dom';
+import SettingsIcon from '../images/settingsIcon.svg';
 
 export default function AdminHome() {
   const { signOut } = UserAuth();
@@ -41,27 +42,27 @@ export default function AdminHome() {
       <div className={styles['adminHome']}>
         <Logo color="var(--white)" />
         <div className={styles['signout-settings']}>
-          <div className={styles['sign-out']}>
-            <button className={styles['sign-out-button']} onClick={logOut}>
-              Sign Out
-            </button>
-          </div>
-          <div className={styles['settings']}>
-            <button
-              className={styles['settings-button']}
-              onClick={settings}
-            ></button>
-          </div>
+          <button className={styles['sign-out-button']} onClick={logOut}>
+            Sign Out
+          </button>
+          <img
+            className={styles['settings-button']}
+            src={SettingsIcon}
+            alt="Settings"
+            onClick={settings}
+          />
         </div>
-        <button className={styles['add-artifact']} onClick={add}>
-          Add New Artifact
-        </button>
-        <button className={styles['edit-artifact']} onClick={update}>
-          Edit an Artifact
-        </button>
-        <button className={styles['manage-admins']} onClick={manage}>
-          Manage Administrators
-        </button>
+        <div className={styles['main-menu-button-group']}>
+          <button className={styles['main-menu-button']} onClick={add}>
+            Add New Artifact
+          </button>
+          <button className={styles['main-menu-button']} onClick={update}>
+            Edit an Artifact
+          </button>
+          <button className={styles['main-menu-button']} onClick={manage}>
+            Manage Administrators
+          </button>
+        </div>
       </div>
     </>
   );

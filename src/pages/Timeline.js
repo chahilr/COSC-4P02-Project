@@ -9,7 +9,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ArtifactBubble from '../components/ArtifactBubble';
 import ArtifactPreview from '../components/ArtifactPreview';
 import Logo from '../components/Logo';
-import PreferenceIcon from '../images/preference-icon.svg';
+import PreferenceIcon from '../images/exit-arrow.svg';
 
 export default function Timeline() {
   const { state } = useLocation();
@@ -48,6 +48,7 @@ export default function Timeline() {
         onClick={() => setShowPreview(null)}
       >
         <Logo
+          className="special-logo"
           color="var(--white)"
           style={{
             backgroundColor: 'transparent',

@@ -4,6 +4,7 @@ import Logo from '../components/Logo';
 import { UserAuth } from '../utils/Auth.js';
 import { useNavigate } from 'react-router-dom';
 import { getUserEmails } from '../utils/firestoreFunctions.js';
+import SettingsIcon from '../images/settingsIcon.svg';
 
 export default function ManageAdmins() {
   const [waiting, setState] = useState(true);
@@ -57,53 +58,52 @@ export default function ManageAdmins() {
     <>
       <div className={styles['manageAdmin']}>
         {waiting ? (
-          <>loding...</>
+          <>loading...</>
         ) : (
           <div>
             <Logo color="var(--white)" />
             <div className={styles['signout-settings']}>
-              <div className={styles['sign-out']}>
-                <button className={styles['sign-out-button']} onClick={logOut}>
-                  Sign Out
-                </button>
-              </div>
-              <div className={styles['settings']}>
-                <button
-                  className={styles['settings-button']}
-                  onClick={settings}
-                ></button>
-              </div>
+              <button className="secondary-button" onClick={logOut}>
+                Sign Out
+              </button>
+              <img
+                className={styles['settings-button']}
+                src={SettingsIcon}
+                alt="Settings"
+                onClick={settings}
+              />
             </div>
             <h1 className={styles['title']}>Manage Admins</h1>
-            <div className={styles['admins']}>
-              <div className={styles['admins-container']}>
-                {emails.map((email) => {
-                  return (
-                    <div key={'container' + email[0]}>
-                      <input
-                        type="email"
-                        key={'label' + email[0]}
-                        className={styles['emails']}
-                        value={email[1]}
-                        readOnly
-                      ></input>
-                      <button
-                        key={'button' + email[0]}
-                        className={styles['deltes']}
-                        onClick={(e) => handleDelete(e, email[1])}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
+            <div className={styles['admins-container']}>
+              {emails.map((email) => {
+                return (
+                  <div
+                    className={styles['email-container']}
+                    key={'container' + email[0]}
+                  >
+                    <input
+                      type="email"
+                      key={'label' + email[0]}
+                      className={styles['emails']}
+                      value={email[1]}
+                      readOnly
+                    ></input>
+                    <button
+                      key={'button' + email[0]}
+                      className={'secondary-button'}
+                      onClick={(e) => handleDelete(e, email[1])}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                );
+              })}
             </div>
             <div className={styles['actions']}>
-              <button className={styles['return']} onClick={home}>
+              <button className={'secondary-button'} onClick={home}>
                 Return to Main Menu
               </button>
-              <button className={styles['add']} onClick={add}>
+              <button className={'secondary-button'} onClick={add}>
                 Add Admin
               </button>
             </div>

@@ -99,59 +99,59 @@ export default function AdminSettings() {
         {waiting ? (
           <>loding...</>
         ) : (
-          <div>
+          <>
             <Logo color="var(--white)" />
             <div className={styles['sign-out']}>
-              <button className={styles['signoutbutton']} onClick={logOut}>
+              <button className={'secondary-button'} onClick={logOut}>
                 Sign Out
               </button>
             </div>
-            <form onSubmit={handleSubmit}>
-              <h1 className={styles['title']}>Profile Settings</h1>
-              <div className={styles['email']}>
-                <label className={styles['email-label']}>Email</label>
-                <input
-                  type="email-input"
-                  className={styles['email-input']}
-                  value={email}
-                  onChange={handleEmailChange}
-                ></input>
-              </div>
-              <div className={styles['Password1']}>
-                <label className={styles['p1']}>Password</label>
-                <input
-                  type="password"
-                  className={styles['p1-input']}
-                  onChange={handlePassword1Change}
-                ></input>
-              </div>
-              <div className={styles['Password2']}>
-                <label className={styles['p2']}>Re-enter Password</label>
-                <input
-                  type="password"
-                  className={styles['p2-input']}
-                  onChange={handlePassword2Change}
-                ></input>
-              </div>
-            </form>
-            <div className={styles['settingActions']}>
-              <div>
-                <button className={styles['save']} onClick={save}>
+            <div className={styles['settings-container']}>
+              <form onSubmit={handleSubmit}>
+                <h1 className={styles['title']}>Profile Settings</h1>
+                <div className={styles['grid']}>
+                  <div className={styles['input-container']}>
+                    <label className={styles['input-label']}>Email</label>
+                    <input
+                      type="email-input"
+                      className={styles['input']}
+                      value={email}
+                      onChange={handleEmailChange}
+                    ></input>
+                  </div>
+                  <div className={styles['input-container']}>
+                    <label className={styles['input-label']}>Password</label>
+                    <input
+                      type="password"
+                      className={styles['input']}
+                      onChange={handlePassword1Change}
+                    ></input>
+                  </div>
+                  <div className={styles['input-container']}>
+                    <label className={styles['input-label']}>
+                      Re-enter Password
+                    </label>
+                    <input
+                      type="password"
+                      className={styles['input']}
+                      onChange={handlePassword2Change}
+                    ></input>
+                  </div>
+                </div>
+              </form>
+              <div className={styles['settingActions']}>
+                <button className="secondary-button" onClick={save}>
                   Save & Exit
                 </button>
-              </div>
-              <div>
-                <button className={styles['exit']} onClick={exit}>
+                <button className="secondary-button" onClick={exit}>
                   Exit Without Saving
                 </button>
-              </div>
-              <div>
-                <button className={styles['delete']} onClick={remove}>
+                <button className="secondary-button" onClick={remove}>
                   Delete Account
                 </button>
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </>
