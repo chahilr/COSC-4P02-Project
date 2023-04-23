@@ -129,11 +129,11 @@ export default function TimelineCustomizer() {
             to={getUserInputs() != null ? '/timeline' : '#'}
             state={getUserInputs()}
           >
-            <button className={styles['submit-button']}>Search</button>
+            <button className="secondary-button">Search</button>
           </Link>
         ) : (
           <button
-            className={styles['submit-button']}
+            className="secondary-button"
             onClick={() => alert('Must add atleast 1 exhibit and tag!')}
           >
             Search

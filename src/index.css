@@ -28,74 +28,23 @@
 
 /* ╔⏤⏤⏤⏤╝ Homepage Exhibit Buttons/Button-wrappers ╚⏤⏤⏤⏤╗*/
 
-/* Generic button */
-.option-button {
-  font-family: 'Montserrat';
-  font-size: 20px;
-
-  background-color: var(--grey);
-  color: var(--white);
-
-  width: 25vw;
-  padding: 25px 0px;
-  border-radius: 20px;
-
-  transition-duration: 500ms;
-  margin: 2px;
-}
-
-.option-button:hover {
-  background-color: white;
-  color: red;
-  border: 2px solid red;
-  margin: 0px;
-}
-
 .button-row {
   display: flex;
   justify-content: space-between;
 }
 
-.submit-button {
-  font-family: 'Montserrat';
-  font-size: 20px;
-  background-color: var(--red);
-  color: var(--white);
-  border-style: none;
-  border-radius: 10px;
-
-  display: flex;
-  margin: auto;
-  padding: 10px 50px;
-}
-
-/* .submit-button:hover {
-  background-color: white;
-  color: red;
-  border: 2px solid red;
-  margin: auto;
-} */
 .landing-page-main-button{
   margin:2px;
 }
 .landing-page-main-button:hover{
   margin: 0px;
 }
-/* button {
-  margin: 2px;
-}
-
-button:hover {
-  background-color: white;
-  color: red;
-  border: 2px solid red;
-  margin: 0px;
-} */
 
 .primary-button {
   font-size: 20px;
   width: 25vw;
   padding: 25px 0px;
+  border:none;
   border-radius: 20px;
   transition-duration: 500ms;
   margin: 2px;
@@ -103,4 +52,27 @@ button:hover {
 
 .primary-button:hover {
   cursor: pointer;
+  box-shadow: 0px 0px 5px 2px var(--black);
+}
+
+.secondary-button {
+  font-family: 'Montserrat';
+  font-size: 20px;
+  background-color: var(--red);
+  color: var(--white);
+  border-radius: 10px;
+  border: 2px solid var(--red);
+
+  transition: all 300ms ease-in-out;
+
+  display: flex;
+  margin: auto;
+  padding: 10px 50px;
+}
+
+.secondary-button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: var(--red);
+  border: 2px solid var(--red);
 }

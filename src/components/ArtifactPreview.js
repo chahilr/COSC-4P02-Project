@@ -15,10 +15,10 @@ export default function ArtifactPreview(props) {
       <p className={styles['artifact-description']}>{props.description}</p>
       <Link
         to="/artifact"
-        style={{ textDecoration: 'none' }}
+        style={{textDecoration: 'none'}}
         state={{ ...props }}
       >
-        <button className="submit-button">More Info</button>
+        <button className={`secondary-button ${styles["submit-button"]}`}>More Info</button>
       </Link>
     </div>
   );

@@ -19,14 +19,16 @@
 .artifact-description {
     font-size: 1rem;
 }
-.submit-button{
+
+.submit-button {
     margin:auto;
 }
-.submit-button:hover {
+/* .submit-button:hover {
     background-color: var(--white);
     color: var(--red);
     border: 2px solid var(--red);
-}
+    cursor: pointer;
+} */
 
 @media only screen and (max-width: 750px) {
     .artifact-preview {

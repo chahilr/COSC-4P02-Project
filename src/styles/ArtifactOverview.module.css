@@ -114,24 +114,9 @@
   gap: 1em;
 }
 
-
-.nav-container>.button-container>button {
-  color: white;
-  font-size: 16px;
-  background-color: #EA252E;
-  border-radius: 15px;
-  padding: 1vw 2vw;
-  margin: 0 2vw;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border: none;
+.nav-container>.button-container>a {
+  text-decoration: none;
 }
-
-/* button:hover {
-  background-color: white;
-  color: red;
-  border: 2px solid red;
-} */
 
 @media only screen and (max-width: 750px) {
   .artifact-container {
