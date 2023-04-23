@@ -23,19 +23,21 @@
     color: var(--white);
 }
 
+.email-container {
+    display: flex;
+    margin: 1em 0;
+}
+
 .signout-settings {
     display: flex;
     position: absolute;
     top: 1em;
     right: 1em;
+    gap: 1em;
 }
 
-.sign-out-button {
-    padding: 1em 2em;
-    background-color: var(--red);
-    color: var(--white);
-    border: none;
-    border-radius: 1em;
+.settings-button {
+    cursor: pointer;
 }
 
 .title {
@@ -46,10 +48,10 @@
 
 .actions {
     position: relative;
-    height: 5em;
+    height: 8em;
     
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: space-between;
 }
 

@@ -63,7 +63,7 @@ export default function ManageAdmins() {
           <div>
             <Logo color="var(--white)" />
             <div className={styles['signout-settings']}>
-              <button className={styles['sign-out-button']} onClick={logOut}>
+              <button className="secondary-button" onClick={logOut}>
                 Sign Out
               </button>
               <img
@@ -77,7 +77,10 @@ export default function ManageAdmins() {
             <div className={styles['admins-container']}>
               {emails.map((email) => {
                 return (
-                  <div key={'container' + email[0]}>
+                  <div
+                    className={styles['email-container']}
+                    key={'container' + email[0]}
+                  >
                     <input
                       type="email"
                       key={'label' + email[0]}
@@ -87,7 +90,7 @@ export default function ManageAdmins() {
                     ></input>
                     <button
                       key={'button' + email[0]}
-                      className={'primary-button'}
+                      className={'secondary-button'}
                       onClick={(e) => handleDelete(e, email[1])}
                     >
                       Delete
@@ -97,10 +100,10 @@ export default function ManageAdmins() {
               })}
             </div>
             <div className={styles['actions']}>
-              <button className={'primary-button'} onClick={home}>
+              <button className={'secondary-button'} onClick={home}>
                 Return to Main Menu
               </button>
-              <button className={'primary-button'} onClick={add}>
+              <button className={'secondary-button'} onClick={add}>
                 Add Admin
               </button>
             </div>
