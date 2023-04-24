@@ -42,7 +42,7 @@ export default function AdminHome() {
       <div className={styles['adminHome']}>
         <Logo color="var(--white)" />
         <div className={styles['signout-settings']}>
-          <button className={styles['sign-out-button']} onClick={logOut}>
+          <button className="secondary-button" onClick={logOut}>
             Sign Out
           </button>
           <img

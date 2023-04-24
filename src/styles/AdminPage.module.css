@@ -38,13 +38,13 @@ form {
   opacity: 1;
 }
 
-.submit-button {
-  margin-top: 50px;
-}
-
 span {
   display: flex;
   padding: 0;
+}
+
+.password-container {
+  margin-bottom: 2em;
 }
 
 .showButton {
@@ -55,13 +55,14 @@ span {
   color: var(--white);
   font-family: 'Montserrat';
   font-size: 1.5rem;
-  border: none;
+  border-radius: 10%;
+  cursor: pointer;
 }
 
 .showButton:hover {
-  background-color: white;
-  color: red;
-  border: 2px solid red;
+  background-color: var(--white);
+  color: var(--red);
+  border: 2px solid var(--red);
 }
 
 #username {
