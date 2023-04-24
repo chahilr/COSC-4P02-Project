@@ -1,0 +1,74 @@
+/* ╔⏤⏤⏤⏤╝ Museum Logo and Language Toggle ╚⏤⏤⏤⏤╗*/
+.logo-and-language {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 1dvh;
+    padding: 0em 1em;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+}
+
+.special-logo {
+    position: fixed !important;
+}
+
+.logo {
+    display: flex;
+    width: 100%;
+}
+
+.logo-image>img {
+    height: var(--logo-size);
+    width: auto;
+    /* width: var(--logo-size); */
+    /* border-radius: 50%; */
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-text>span {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    color: var(--white);
+}
+
+.logo-text>hr {
+    border: 1px solid var(--white);
+    margin: 0px 0px;
+    width: auto;
+}
+
+/* ╚⏤⏤⏤⏤╗ Museum Logo ╔⏤⏤⏤⏤╝*/
+
+
+@media only screen and (max-width: 1090px) {
+    .special-logo {
+        position: absolute !important;
+    }
+    .special-logo > * img {
+        height: var(--mobile-logo-size);
+    }
+    .special-logo > * span {
+        font-size: 18px !important;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    /* Mobile */
+    .logo-text > span {
+        font-size: 18px !important;
+    }
+
+    .logo-image>img {
+        height: var(--mobile-logo-size);
+        
+    }
+}

@@ -1,0 +1,68 @@
+.manageAdmin {
+    background-image: url('../images/black-background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Montserrat';
+}
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+}
+
+
+.input-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 50vw;
+}
+
+.input {
+    background-color: transparent;
+    border: none;
+    border-radius: 25px;
+    border-bottom: 2px solid var(--grey);
+    padding: 25px;
+    margin-left: 2em;
+
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.input-label {
+    display: inline-block;
+    text-align: right;
+    color: var(--white);
+    font-size: 25px;
+    min-width: 5em;
+}
+
+.sign-out{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+
+.title{
+    text-align: center;
+    font-size: 50px;
+    color: var(--white);
+}
+
+.settingActions{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
