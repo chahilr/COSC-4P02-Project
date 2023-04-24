@@ -20,7 +20,7 @@ afterEach(() => {
 
   test('ArtifactPreview component', () => {
   	act(() => {
-  	render(<BrowserRouter><ArtifactPreview></BrowserRouter>, container);
+  	render(<BrowserRouter><ArtifactPreview/></BrowserRouter>, container);
   	
   	});
   expect(container.textContent).toContain("e");

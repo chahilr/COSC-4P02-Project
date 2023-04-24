@@ -1,5 +1,7 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from "react-dom";
+//import {unmountComponentAtNode } from "react-dom";
+//import {render, screen, fireEvent} from '@testing-library/react'
 import { act } from "react-dom/test-utils";
 import { BrowserRouter } from 'react-router-dom'
 import Home from '../pages/Home.js';
@@ -26,4 +28,7 @@ afterEach(() => {
   	});
   expect(container.textContent).toContain("e");
   });
+
+
+
 
