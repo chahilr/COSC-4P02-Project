@@ -25,7 +25,7 @@
     font-size: 1em;
 }
 
-.sign-out-button, .settings_button {
+.sign-out-button, .settings-button {
     margin: 1em;
     cursor: pointer;
 }
