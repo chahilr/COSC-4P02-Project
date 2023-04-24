@@ -105,6 +105,13 @@ input[type="file"] {
   border: 5px solid red;
 }
 
+.update-delete-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: 2em;
+}
+
 #final-button{
   display: block;
   margin: 75px auto;
