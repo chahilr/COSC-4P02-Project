@@ -59,7 +59,11 @@ export default function ArtifactList() {
                       <ListItemText
                         className={styles['list-item-text']}
                         primary={artifact.Name}
-                        secondary={artifact.Year}
+                        secondary={
+                          artifact.Year < 0
+                            ? `${-artifact.Year} BC`
+                            : `${artifact.Year} AD`
+                        }
                       />
                       <p>{artifact.Exhibition}</p>
                     </ListItem>

@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     background-image: url('../images/black-background.jpg');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     width: 100%;
     min-height: 100%;
@@ -44,11 +44,12 @@
     border-radius: 20px;
     margin: 1rem 0;
     transition: all ease-in-out 200ms;
+    cursor: pointer;
 }
 
 .individual-article:hover {
     background-color: var(--white);
-    cursor: pointer;
+    scale: 1.2;
 }
 
 .individual-article:hover * {
