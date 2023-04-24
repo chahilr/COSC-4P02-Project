@@ -18,9 +18,6 @@ export default function Home() {
 
   /** Handles mousing over any of the exhibit buttons. */
   const handleMouseEnter = (event) => {
-  console.log(event);
-  const str = JSON.stringify(event);
-  console.log(str);
     const target = event.target;
     const button_id = target.innerText.toLowerCase().replace(/\s/g, '');
     let image_id;
