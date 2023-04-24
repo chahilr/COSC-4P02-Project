@@ -99,12 +99,6 @@
         margin: 0px 20px;
         background-color: var(--red);
     }
-    
-    .timeline-offset {
-        height: 4.5em !important;
-        background-color: var(--black);
-        z-index: 1;
-    }
 
     .legend-container {
         font-size: 12px;
@@ -130,5 +124,19 @@
         to {
             margin: 0 25px;
         }
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .timeline-offset {
+        height: 4.5em !important;
+        background-color: var(--red);
+        z-index: 1;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .timeline-offset {
+        background-color: var(--black);
     }
 }
