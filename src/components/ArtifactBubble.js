@@ -4,16 +4,16 @@ const ArtifactBubble = (props) => {
   let color;
   switch (props.artifact.Exhibition) {
     case 'Ancient Greece':
-      color = 'green';
+      color = '#80FF72';
       break;
     case 'Ancient Rome':
-      color = 'red';
+      color = '#8A4F7D';
       break;
     case 'Ancient Egypt':
-      color = 'blue';
+      color = '#3DA5D9';
       break;
     case 'Persian Empire':
-      color = 'yellow';
+      color = '#CBA135';
       break;
     default:
       color = 'white';
