@@ -12,6 +12,7 @@ import Logo from '../components/Logo';
 import PreferenceIcon from '../images/exit-arrow.svg';
 
 export default function Timeline() {
+  const navigate = useNavigate();
   const { state } = useLocation();
   const [artifacts, setArtifacts] = useState([]);
   const [showPreview, setShowPreview] = useState(null);
@@ -57,13 +58,12 @@ export default function Timeline() {
             translate: '-12.5%',
           }}
         />
-        <Link to="/customizer" state={state}>
-          <img
-            className={styles['preference-icon']}
-            src={PreferenceIcon}
-            alt="Customizer"
-          />
-        </Link>
+        <img
+          className={styles['preference-icon']}
+          src={PreferenceIcon}
+          alt="Customizer"
+          onClick={()=>navigate(-1)}
+        />
         <div className={styles['timeline-container']}>
           {showPreview != null && <ArtifactPreview {...showPreview} />}
           <div
@@ -128,10 +128,10 @@ export default function Timeline() {
 
 const Legend = ({ exhibits }) => {
   const color = {
-    'Ancient Greece': 'green',
-    'Ancient Rome': 'red',
-    'Ancient Egypt': 'blue',
-    'Persian Empire': 'yellow',
+    'Ancient Greece': '#80FF72',
+    'Ancient Rome': '#8A4F7D',
+    'Ancient Egypt': '#3DA5D9',
+    'Persian Empire': '#CBA135',
   };
 
   return (
