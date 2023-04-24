@@ -9,6 +9,7 @@ export default function ArtifactOverview() {
   const { state } = useLocation();
   const [description, setDescription] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
+  console.log(state);
   useEffect(
     () =>
       getDescrption(state.id).then((result) => {
@@ -31,6 +32,9 @@ export default function ArtifactOverview() {
         <div className={styles['artifact-container']}>
           <div className={styles['artifact-text']}>
             <h2>{state.title}</h2>
+            <h4>{state.exhibit}</h4>
+            <h6>Tags: {(state.tags).join(", ")}</h6>
+            <h3>Description</h3>
             <p>{state.description ?? description}</p>
           </div>
           <div className={styles['artifact-image']}>
@@ -55,7 +59,7 @@ export default function ArtifactOverview() {
                 yearRange: [-2000, 2000],
               }}
             >
-              <button className="secondary-button">Related Artifact</button>
+              <button className="secondary-button">Related Artifacts</button>
             </Link>
           </div>
         </div>
