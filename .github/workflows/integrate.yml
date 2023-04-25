@@ -22,7 +22,7 @@ jobs:
           node-version: 16.x
 
       - name: Install dependencies
-        run: npm ci --production
+        run: npm ci
 
       - name: Run tests
         run: npm test
