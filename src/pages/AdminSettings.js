@@ -100,7 +100,7 @@ export default function AdminSettings() {
           <>loding...</>
         ) : (
           <>
-            <Logo color="var(--white)" />
+            <Logo color="var(--white)" background="var(--translucent-grey)" />
             <div className={styles['sign-out']}>
               <button className={'secondary-button'} onClick={logOut}>
                 Sign Out

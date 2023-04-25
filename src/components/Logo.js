@@ -2,6 +2,12 @@ import styles from '../styles/Logo.module.css';
 import { Link } from 'react-router-dom';
 
 export default function Logo(props) {
+  const image_styles = {
+    float: 'left',
+    marginRight: '10px',
+    background: props.background,
+    ...(props.background && {padding: '1px'})
+  };
   return (
     <div
       className={`${styles['logo-and-language']} ${styles[props.className]}`}
@@ -16,7 +22,7 @@ export default function Logo(props) {
             <img
               src={require('../images/museum-logo.jpg')}
               alt="Museum logo"
-              style={{ float: 'left', marginRight: '10px' }}
+              style={image_styles}
             />
           </div>
 

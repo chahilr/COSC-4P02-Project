@@ -33,7 +33,7 @@ export default function ArtifactList() {
 
   return (
     <>
-      <Logo />
+      <Logo background="var(--translucent-grey)" />
       <div className={styles['background']}>
         <h1>Articles</h1>
         <input

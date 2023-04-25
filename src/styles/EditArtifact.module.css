@@ -3,6 +3,11 @@ body {
   margin: 0;
 }
 
+div.background {
+  background-image: url('../images/black-background.jpg');
+  min-height: 100dvh;
+}
+
 #logout {
   z-index: 2;
   position: absolute;

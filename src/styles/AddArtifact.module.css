@@ -3,6 +3,11 @@ body {
   margin: 0;
 }
 
+div.background {
+  background-image: url('../images/black-background.jpg');
+  min-height: 100dvh;
+}
+
 #logout {
   z-index: 2;
   position: absolute;
@@ -85,7 +90,7 @@ input[type="file"] {
 .no-url-upload{
   margin-top: 10px;
   display: flex;
-  font-size: 4.5rem;
+  font-size: 2.5rem;
   color: white;
   justify-content: center;
   align-items: center;
