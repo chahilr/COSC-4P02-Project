@@ -45,18 +45,21 @@ span {
 
 .password-container {
   margin-bottom: 2em;
+  gap: 1em;
 }
 
 .showButton {
   background-color: transparent;
   border: none;
   padding: 0;
-  margin: 0;
+  width: 6em;
+  margin: 0.5em 0em;
   color: var(--white);
   font-family: 'Montserrat';
   font-size: 1.5rem;
   border-radius: 10%;
   cursor: pointer;
+  border: 2px solid var(--white)
 }
 
 .showButton:hover {

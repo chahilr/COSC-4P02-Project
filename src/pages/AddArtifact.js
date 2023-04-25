@@ -251,302 +251,93 @@ export default function AddArtifact() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Logo
-        color="var(--white)"
-        style={{
-          position: 'relative',
-          backgroundColor: 'var(--translucent-grey)',
-          marginTop: 'unset',
-          padding: '1dvh 1em',
-        }}
-      />
-      <div id={styles['logout']}>
-        <Button variant="contained" component="label" color="secondary" onClick={logOut}>
-          Logout
-        </Button>
-      </div>
-
-      <Grid sx={{ flexGrow: 1 }} container id={styles['container']}>
-        <h1 id={styles['title']}>Add Artifact</h1>
-        <Grid item xs={500}>
-          <Grid container justifyContent="center" spacing={2}>
-            <Grid
-              item
-              sx={{
-                height: 500,
-                width: 430,
-                backgroundColor: 'var(--translucent-grey)',
-                margin: 1,
-                borderRadius: '25px',
-              }}
-            >
-              <CssTextField
-                label="Name"
-                value={name}
-                onChange={(e) => onNameChange(e)}
-              />
-              {finalButtonPressed && !name && (
-                <p className={styles['error-msg']}>*Name is required</p>
-              )}
-              <br />
-              <CssTextField
-                label="Year"
-                type="number"
-                defaultValue={year}
-                sx={{ marginTop: 3 }}
-                onChange={(e) => onDateChange(e)}
-              />
-
-              <CssFormField sx={{ marginTop: 3, marginLeft: 3, width: 100 }}>
-                <InputLabel id="age-label">Era</InputLabel>
-                <Select
-                  inputProps={{ MenuProps: { disableScrollLock: true } }}
-                  labelId="era-label"
-                  id="era"
-                  value={era}
-                  onChange={onEraChange}
-                >
-                  <MenuItem value="AD">AD</MenuItem>
-                  <MenuItem value="BC">BC</MenuItem>
-                </Select>
-              </CssFormField>
-              {finalButtonPressed && !year && (
-                <p className={styles['error-msg']}>*Year is required</p>
-              )}
-              {finalButtonPressed && !era && (
-                <p className={styles['error-msg']}>*Era is required</p>
-              )}
-              {finalButtonPressed && (year < 0 || year > 2000) && (
-                <p className={styles['error-msg']}>
-                  *Year needs to be between 0-2000
-                </p>
-              )}
-              <br />
-              <CssFormField>
-                <InputLabel id={styles['exhibit-label']} color="secondary">
-                  Exhibit
-                </InputLabel>
-                <Select
-                  inputProps={{ MenuProps: { disableScrollLock: true } }}
-                  labelId="exhibit-label"
-                  id={styles['exhibit']}
-                  value={exhibit}
-                  label="Exhibit"
-                  onChange={(e) => onMenuChange(e)}
-                  color="secondary"
-                >
-                  <MenuItem value={'Ancient Greece'}>Ancient Greece</MenuItem>
-                  <MenuItem value={'Ancient Rome'}>Ancient Rome</MenuItem>
-                  <MenuItem value={'Ancient Egypt'}>Ancient Egypt</MenuItem>
-                  <MenuItem value={'Persian Empire'}>Persian Empire</MenuItem>
-                </Select>
-              </CssFormField>
-              {finalButtonPressed && !exhibit && (
-                <p className={styles['error-msg']}>*Select an Exhibit</p>
-              )}
-              <br />
-
-              <CssFormField>
-                <InputLabel>Tags</InputLabel>
-                <Select
-                  inputProps={{ MenuProps: { disableScrollLock: true } }}
-                  labelId="demo-multiple-checkbox-label"
-                  id="demo-multiple-checkbox"
-                  multiple
-                  value={tags}
-                  onChange={handleTagChange}
-                  input={<OutlinedInput label="Tag" />}
-                  renderValue={(selected) => selected.join(', ')}
-                  MenuProps={MenuProps}
-                  color="secondary"
-                >
-                  {tagNames.map((name) => (
-                    <MenuItem key={name} value={name}>
-                      <Checkbox checked={tags.indexOf(name) > -1} />
-                      <ListItemText primary={name} />
-                    </MenuItem>
-                  ))}
-                </Select>
-              </CssFormField>
-              {finalButtonPressed && tags.length == 0 && (
-                <p className={styles['error-msg']}>
-                  *At least one Tag is required
-                </p>
-              )}
-            </Grid>
-
-            {/* second column wit hthe description input */}
-            <Grid
-              item
-              sx={{
-                height: 550,
-                width: 385,
-                backgroundColor: 'var(--translucent-grey)',
-                margin: 1,
-                borderRadius: '25px',
-              }}
-            >
-              <CssTextField
-                sx={{
-                  backgroundColor: 'white',
-                  borderRadius: '25px',
-                  width: 350,
-                }}
-                id="description"
-                label="Description"
-                value={description}
-                multiline
-                rows={15}
-                onChange={(e) => onDescriptionChange(e)}
-              />
-              {finalButtonPressed && !description && (
-                <p className={styles['error-msg']}>
-                  *Description cannot be empty!
-                </p>
-              )}
-              <button
-                id={styles['final-button']}
-                className="secondary-button"
-                onClick={(e) => handleUpload(e)}
-              >
-                Add to database
-              </button>
-            </Grid>
-
-            <Grid
-              item
-              sx={{
-                height: 500,
-                width: 500,
-                backgroundColor: 'var(--translucent-grey)',
-                margin: 1,
-                borderRadius: '25px',
-              }}
-            >
-              {url && (
-                <div>
-                  <img
-                    className={styles['new-img']}
-                    src={url}
-                    alt="Uploaded image"
-                  />
-                </div>
-              )}
-
-              {!url && (
-                <label className={styles['no-url-upload']}>
-                  <input
-                    type="file"
-                    onChange={handleFileChange}
-                    accept="image/*"
-                  />
-                  Click To Select Image
-                </label>
-              )}
-
-              {finalButtonPressed && !url && (
-                <p className={styles['error-msg']}>*An Image is required</p>
-              )}
-
-              {url && (
-                <label className={styles['custom-file-upload']}>
-                  <input
-                    type="file"
-                    onChange={handleFileChange}
-                    accept="image/*"
-                  />
-                  Change Image
-                </label>
-              )}
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-
-      {/* <div id={styles['artifact-add-form']}>
-        <Box
-          component="form"
-          sx={{
-            '& > :not(style)': { m: 1, width: '25ch' },
+      <div className={styles['background']}>
+        <Logo
+          color="var(--white)"
+          style={{
+            position: 'relative',
+            backgroundColor: 'var(--translucent-grey)',
+            marginTop: 'unset',
+            padding: '1dvh 1em',
           }}
-          noValidate
-          autoComplete="off"
-        >
-          <div id={styles['form-outer']}>
-            <div id={styles['left']}>
-              <div >
-                <TextField
-                  id="name"
+        />
+        <div id={styles['logout']}>
+          <Button variant="contained" component="label" color="secondary" onClick={logOut}>
+            Logout
+          </Button>
+        </div>
+      
+        <Grid sx={{ flexGrow: 1 }} container id={styles['container']}>
+          <h1 id={styles['title']}>Add Artifact</h1>
+          <Grid item xs={500}>
+            <Grid container justifyContent="center" spacing={2}>
+              <Grid
+                item
+                sx={{
+                  height: 500,
+                  width: 430,
+                  backgroundColor: 'var(--translucent-grey)',
+                  margin: 1,
+                  borderRadius: '25px',
+                }}
+              >
+                <CssTextField
                   label="Name"
-                  defaultValue={name}
-                  variant="filled"
-                  color="secondary"
+                  value={name}
+                  sx={{
+                    backgroundColor: 'white',
+                    borderRadius: '25px',
+                    marginTop: 3
+                  }}
                   onChange={(e) => onNameChange(e)}
                 />
-              </div>
-
-              <div id={styles['date']}>
-                <TextField
-                  id="date"
+                {finalButtonPressed && !name && (
+                  <p className={styles['error-msg']}>*Name is required</p>
+                )}
+                <br />
+                <CssTextField
                   label="Year"
-                  defaultValue={year}
-                  variant="filled"
-                  color="secondary"
                   type="number"
-                  
+                  defaultValue={year}
+                  sx={{
+                    backgroundColor: 'white',
+                    borderRadius: '25px',
+                    marginTop: 3
+                  }}
                   onChange={(e) => onDateChange(e)}
                 />
-                <FormControl variant="filled">
-                  <InputLabel id="age-label">Age</InputLabel>
+      
+                <CssFormField sx={{ marginTop: 3, marginLeft: 3, width: 100 }}>
+                  <InputLabel id="age-label">Era</InputLabel>
                   <Select
-                    labelId="age-label"
-                    id="age"
-                    value={year}
-                    onChange={onDateChange}
-                    sx={{
-                      bgcolor: 'white', // Set the background color to white
-                      color: 'black', // Adjust the text color as needed
-                      width: '100px', // Set the width of the field
-                      borderRadius: '20px', // Set the border radius for round edges
-                      '& .MuiOutlinedInput-notchedOutline': {
-                        borderColor: 'white', // Set the border color to white
-                      },
-                      '&:hover': {
-                        bgcolor: 'white', // Set the background color on hover to white
-                      },
-                      '&.Mui-focused': {
-                        bgcolor: 'white', // Keep the background color white when focused
-                      },
-                    }}
-                    MenuProps={{
-                      PaperProps: {
-                        sx: {
-                          '& .MuiMenuItem-root': {
-                            '&.Mui-selected': {
-                              bgcolor: 'white', // Keep the background color white for selected menu items
-                              color: 'black', // Adjust the text color as needed
-                            },
-                            '&:hover': {
-                              bgcolor: 'white', // Keep the background color white for hovered menu items
-                              color: 'black', // Adjust the text color as needed
-                            },
-                          },
-                        },
-                      },
-                    }}
+                    inputProps={{ MenuProps: { disableScrollLock: true } }}
+                    labelId="era-label"
+                    id="era"
+                    value={era}
+                    onChange={onEraChange}
                   >
                     <MenuItem value="AD">AD</MenuItem>
                     <MenuItem value="BC">BC</MenuItem>
                   </Select>
-                </FormControl>
-              </div>
-
-              <div id={styles['exhibit']}>
-                <FormControl fullWidth>
+                </CssFormField>
+                {finalButtonPressed && !year && (
+                  <p className={styles['error-msg']}>*Year is required</p>
+                )}
+                {finalButtonPressed && !era && (
+                  <p className={styles['error-msg']}>*Era is required</p>
+                )}
+                {finalButtonPressed && (year < 0 || year > 2000) && (
+                  <p className={styles['error-msg']}>
+                    *Year needs to be between 0-2000
+                  </p>
+                )}
+                <br />
+                <CssFormField>
                   <InputLabel id={styles['exhibit-label']} color="secondary">
                     Exhibit
                   </InputLabel>
                   <Select
+                    inputProps={{ MenuProps: { disableScrollLock: true } }}
                     labelId="exhibit-label"
                     id={styles['exhibit']}
                     value={exhibit}
@@ -559,15 +350,16 @@ export default function AddArtifact() {
                     <MenuItem value={'Ancient Egypt'}>Ancient Egypt</MenuItem>
                     <MenuItem value={'Persian Empire'}>Persian Empire</MenuItem>
                   </Select>
-                </FormControl>
-              </div>
-
-              <div>
-                <FormControl id={styles['tag']} fullWidth>
-                  <InputLabel id="demo-multiple-checkbox-label">
-                    Tags
-                  </InputLabel>
+                </CssFormField>
+                {finalButtonPressed && !exhibit && (
+                  <p className={styles['error-msg']}>*Select an Exhibit</p>
+                )}
+                <br />
+      
+                <CssFormField>
+                  <InputLabel>Tags</InputLabel>
                   <Select
+                    inputProps={{ MenuProps: { disableScrollLock: true } }}
                     labelId="demo-multiple-checkbox-label"
                     id="demo-multiple-checkbox"
                     multiple
@@ -585,39 +377,258 @@ export default function AddArtifact() {
                       </MenuItem>
                     ))}
                   </Select>
-                </FormControl>
-              </div>
-
-              {url && (
-                <div>
-                  <img src={url} alt="Uploaded image" />
-                </div>
-              )}
-              <input
-                type="file"
-                onChange={handleFileChange}
-                accept="image/*"
-                id={styles['chooseButton']}
-              />
-              <button onClick={(e) => handleUpload(e)}>Add to database</button>
-            </div>
-
-            <div id={styles['right']}>
-              <div id={styles['description']}>
-                <TextField
+                </CssFormField>
+                {finalButtonPressed && tags.length == 0 && (
+                  <p className={styles['error-msg']}>
+                    *At least one Tag is required
+                  </p>
+                )}
+              </Grid>
+      
+              {/* second column wit hthe description input */}
+              <Grid
+                item
+                sx={{
+                  height: 550,
+                  width: 385,
+                  backgroundColor: 'var(--translucent-grey)',
+                  margin: 1,
+                  borderRadius: '25px',
+                }}
+              >
+                <CssTextField
+                  sx={{
+                    backgroundColor: 'white',
+                    borderRadius: '25px',
+                    width: 350,
+                  }}
                   id="description"
                   label="Description"
                   value={description}
                   multiline
                   rows={15}
-                  color="secondary"
                   onChange={(e) => onDescriptionChange(e)}
                 />
+                {finalButtonPressed && !description && (
+                  <p className={styles['error-msg']}>
+                    *Description cannot be empty!
+                  </p>
+                )}
+                <button
+                  id={styles['final-button']}
+                  className="secondary-button"
+                  onClick={(e) => handleUpload(e)}
+                >
+                  Add to database
+                </button>
+              </Grid>
+      
+              <Grid
+                item
+                sx={{
+                  height: 500,
+                  width: 500,
+                  backgroundColor: 'var(--translucent-grey)',
+                  margin: 1,
+                  borderRadius: '25px',
+                }}
+              >
+                {url && (
+                  <div>
+                    <img
+                      className={styles['new-img']}
+                      src={url}
+                      alt="Uploaded image"
+                    />
+                  </div>
+                )}
+      
+                {!url && (
+                  <label className={styles['no-url-upload']}>
+                    <input
+                      type="file"
+                      onChange={handleFileChange}
+                      accept="image/*"
+                    />
+                    Click To Select Image
+                  </label>
+                )}
+      
+                {finalButtonPressed && !url && (
+                  <p className={styles['error-msg']}>*An Image is required</p>
+                )}
+      
+                {url && (
+                  <label className={styles['custom-file-upload']}>
+                    <input
+                      type="file"
+                      onChange={handleFileChange}
+                      accept="image/*"
+                    />
+                    Change Image
+                  </label>
+                )}
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      
+        {/* <div id={styles['artifact-add-form']}>
+          <Box
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <div id={styles['form-outer']}>
+              <div id={styles['left']}>
+                <div >
+                  <TextField
+                    id="name"
+                    label="Name"
+                    defaultValue={name}
+                    variant="filled"
+                    color="secondary"
+                    onChange={(e) => onNameChange(e)}
+                  />
+                </div>
+      
+                <div id={styles['date']}>
+                  <TextField
+                    id="date"
+                    label="Year"
+                    defaultValue={year}
+                    variant="filled"
+                    color="secondary"
+                    type="number"
+                    
+                    onChange={(e) => onDateChange(e)}
+                  />
+                  <FormControl variant="filled">
+                    <InputLabel id="age-label">Age</InputLabel>
+                    <Select
+                      labelId="age-label"
+                      id="age"
+                      value={year}
+                      onChange={onDateChange}
+                      sx={{
+                        bgcolor: 'white', // Set the background color to white
+                        color: 'black', // Adjust the text color as needed
+                        width: '100px', // Set the width of the field
+                        borderRadius: '20px', // Set the border radius for round edges
+                        '& .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'white', // Set the border color to white
+                        },
+                        '&:hover': {
+                          bgcolor: 'white', // Set the background color on hover to white
+                        },
+                        '&.Mui-focused': {
+                          bgcolor: 'white', // Keep the background color white when focused
+                        },
+                      }}
+                      MenuProps={{
+                        PaperProps: {
+                          sx: {
+                            '& .MuiMenuItem-root': {
+                              '&.Mui-selected': {
+                                bgcolor: 'white', // Keep the background color white for selected menu items
+                                color: 'black', // Adjust the text color as needed
+                              },
+                              '&:hover': {
+                                bgcolor: 'white', // Keep the background color white for hovered menu items
+                                color: 'black', // Adjust the text color as needed
+                              },
+                            },
+                          },
+                        },
+                      }}
+                    >
+                      <MenuItem value="AD">AD</MenuItem>
+                      <MenuItem value="BC">BC</MenuItem>
+                    </Select>
+                  </FormControl>
+                </div>
+      
+                <div id={styles['exhibit']}>
+                  <FormControl fullWidth>
+                    <InputLabel id={styles['exhibit-label']} color="secondary">
+                      Exhibit
+                    </InputLabel>
+                    <Select
+                      labelId="exhibit-label"
+                      id={styles['exhibit']}
+                      value={exhibit}
+                      label="Exhibit"
+                      onChange={(e) => onMenuChange(e)}
+                      color="secondary"
+                    >
+                      <MenuItem value={'Ancient Greece'}>Ancient Greece</MenuItem>
+                      <MenuItem value={'Ancient Rome'}>Ancient Rome</MenuItem>
+                      <MenuItem value={'Ancient Egypt'}>Ancient Egypt</MenuItem>
+                      <MenuItem value={'Persian Empire'}>Persian Empire</MenuItem>
+                    </Select>
+                  </FormControl>
+                </div>
+      
+                <div>
+                  <FormControl id={styles['tag']} fullWidth>
+                    <InputLabel id="demo-multiple-checkbox-label">
+                      Tags
+                    </InputLabel>
+                    <Select
+                      labelId="demo-multiple-checkbox-label"
+                      id="demo-multiple-checkbox"
+                      multiple
+                      value={tags}
+                      onChange={handleTagChange}
+                      input={<OutlinedInput label="Tag" />}
+                      renderValue={(selected) => selected.join(', ')}
+                      MenuProps={MenuProps}
+                      color="secondary"
+                    >
+                      {tagNames.map((name) => (
+                        <MenuItem key={name} value={name}>
+                          <Checkbox checked={tags.indexOf(name) > -1} />
+                          <ListItemText primary={name} />
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </div>
+      
+                {url && (
+                  <div>
+                    <img src={url} alt="Uploaded image" />
+                  </div>
+                )}
+                <input
+                  type="file"
+                  onChange={handleFileChange}
+                  accept="image/*"
+                  id={styles['chooseButton']}
+                />
+                <button onClick={(e) => handleUpload(e)}>Add to database</button>
+              </div>
+      
+              <div id={styles['right']}>
+                <div id={styles['description']}>
+                  <TextField
+                    id="description"
+                    label="Description"
+                    value={description}
+                    multiline
+                    rows={15}
+                    color="secondary"
+                    onChange={(e) => onDescriptionChange(e)}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </Box>
-      </div> */}
+          </Box>
+        </div> */}
+    </div>
     </ThemeProvider>
   );
 }

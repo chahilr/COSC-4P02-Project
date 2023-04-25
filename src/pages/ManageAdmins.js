@@ -61,7 +61,7 @@ export default function ManageAdmins() {
           <>loading...</>
         ) : (
           <div>
-            <Logo color="var(--white)" />
+            <Logo color="var(--white)" background="var(--translucent-grey)" />
             <div className={styles['signout-settings']}>
               <button className="secondary-button" onClick={logOut}>
                 Sign Out
