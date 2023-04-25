@@ -1,6 +1,5 @@
 name: Continuous Integration
 
-
 on:
   push:
     branches:
@@ -27,3 +26,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build app
+        run: npm run build
