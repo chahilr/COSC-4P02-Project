@@ -27,6 +27,8 @@ import { getDescrption, addArtifact } from '../utils/firestoreFunctions';
 import { storage } from '../utils/FirebaseApp.js';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
+import { UserAuth } from '../utils/Auth.js';
+
 const theme = createTheme({
   palette: {
     secondary: {
@@ -116,6 +118,12 @@ export default function AddArtifact() {
   const [finalButtonPressed, setFinalButtonPressed] = useState(false);
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
+
+  const { signOut } = UserAuth();
+  const logOut = async (e) => {
+    e.preventDefault();
+    await signOut();
+  };
 
   useEffect(() => {
     if (picture.length != 0) {
@@ -253,7 +261,7 @@ export default function AddArtifact() {
         }}
       />
       <div id={styles['logout']}>
-        <Button variant="contained" component="label" color="secondary">
+        <Button variant="contained" component="label" color="secondary" onClick={logOut}>
           Logout
         </Button>
       </div>

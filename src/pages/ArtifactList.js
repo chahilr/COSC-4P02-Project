@@ -9,10 +9,17 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Logo from '../components/Logo';
+import { UserAuth } from '../utils/Auth.js';
 
 export default function ArtifactList() {
   const [artifacts, setArtifacts] = useState([]);
   const [searchSubstring, setSearchSubstring] = useState([]);
+
+  const { signOut } = UserAuth();
+  const logOut = async (e) => {
+    e.preventDefault();
+    await signOut();
+  };
 
   useEffect(() => {
     getAllArtifacts().then((val) => {
