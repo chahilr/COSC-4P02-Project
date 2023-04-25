@@ -78,17 +78,17 @@ export default function AddAdmin() {
         <div>
           <Logo color="var(--white)" />
           <div className={styles['sign-out']}>
-            <button className={styles['signoutbutton']} onClick={logOut}>
+            <button className="secondary-button" onClick={logOut}>
               Sign Out
             </button>
           </div>
           <form onSubmit={handleSubmit}>
-            <h1 className={styles['title']}>Add Admin</h1>
-            <div className={styles['inputs']}>
+            <div className={styles['inputs-container']}>
+              <h1 className={styles['title']}>Add Admin</h1>
               <div className={styles['email']}>
                 <input
                   type="email-input"
-                  className={styles['email-input']}
+                  className={styles['input']}
                   placeholder="Email"
                   onChange={handleEmailChange}
                 ></input>
@@ -96,7 +96,7 @@ export default function AddAdmin() {
               <div className={styles['Password1']}>
                 <input
                   type="password"
-                  className={styles['p1-input']}
+                  className={styles['input']}
                   placeholder="Password"
                   onChange={handlePassword1Change}
                 ></input>
@@ -104,48 +104,46 @@ export default function AddAdmin() {
               <div className={styles['Password2']}>
                 <input
                   type="password"
-                  className={styles['p2-input']}
+                  className={styles['input']}
                   placeholder="Re-enter Password"
                   onChange={handlePassword2Change}
                 ></input>
               </div>
-            </div>
-            <div className={styles['admin-container']}>
-              <label className={styles['admin-checkbox']}>
-                Admin
-                <input
-                  type="radio"
-                  checked={role == 'Admin'}
-                  value="Admin"
-                  onChange={handleRadioChange}
-                  name="radio"
-                ></input>
-                <span className={styles['checkmark1']}></span>
-              </label>
-              <label className={styles['admin-checkbox']}>
-                Main Admin
-                <input
-                  type="radio"
-                  checked={role == 'mainAdmin'}
-                  value="mainAdmin"
-                  onChange={handleRadioChange}
-                  name="radio"
-                ></input>
-                <span className={styles['checkmark2']}></span>
-              </label>
+              <div className={styles['admin-container']}>
+                <label className={styles['admin-checkbox']}>
+                  Admin
+                  <input
+                    className={styles['role-input']}
+                    type="radio"
+                    checked={role == 'Admin'}
+                    value="Admin"
+                    onChange={handleRadioChange}
+                    name="radio"
+                  ></input>
+                  <span className={styles['checkmark1']}></span>
+                </label>
+                <label className={styles['admin-checkbox']}>
+                  Main Admin
+                  <input
+                    className={styles['role-input']}
+                    type="radio"
+                    checked={role == 'mainAdmin'}
+                    value="mainAdmin"
+                    onChange={handleRadioChange}
+                    name="radio"
+                  ></input>
+                  <span className={styles['checkmark2']}></span>
+                </label>
+              </div>
             </div>
           </form>
           <div className={styles['addingActions']}>
-            <div>
-              <button className={styles['submit']} onClick={submit}>
-                submit
-              </button>
-            </div>
-            <div>
-              <button className={styles['exitAdding']} onClick={exit}>
-                Exit Without Saving
-              </button>
-            </div>
+            <button className="secondary-button" onClick={submit}>
+              Submit
+            </button>
+            <button className="secondary-button" onClick={exit}>
+              Exit Without Saving
+            </button>
           </div>
         </div>
       </div>
