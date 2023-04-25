@@ -62,7 +62,7 @@ export default function Timeline() {
           className={styles['preference-icon']}
           src={PreferenceIcon}
           alt="Customizer"
-          onClick={()=>navigate(-1)}
+          onClick={() => navigate(-1)}
         />
         <div className={styles['timeline-container']}>
           {showPreview != null && <ArtifactPreview {...showPreview} />}
