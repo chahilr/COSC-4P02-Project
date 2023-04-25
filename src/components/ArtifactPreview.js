@@ -12,7 +12,7 @@ export default function ArtifactPreview(props) {
         {props.year < 0 ? `${-props.year}BC` : `${props.year}AD`} |{' '}
         {props.exhibit}
       </p>
-      <p className={styles['artifact-description']}>{props.description.substr(0,250) + (props.description.length > 250?"\u2026":"")}</p>
+      <p className={styles['artifact-description']}>{(props.description.substr(0,250)) + (props.description.length > 250?"\u2026":"")}</p>
       <Link
         to="/artifact"
         style={{textDecoration: 'none'}}
