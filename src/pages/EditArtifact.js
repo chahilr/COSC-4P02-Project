@@ -29,6 +29,7 @@ import {
 } from '../utils/firestoreFunctions';
 import { storage } from '../utils/FirebaseApp.js';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { UserAuth } from '../utils/Auth.js';
 
 const theme = createTheme({
   palette: {
@@ -37,6 +38,7 @@ const theme = createTheme({
     },
   },
 });
+
 
 const CssTextField = styled(TextField)({
   marginTop: 10,
@@ -125,6 +127,12 @@ export default function EditArtifact() {
   const ITEM_PADDING_TOP = 8;
 
   const tagNames = ['Paintings', 'Technology', 'Weapons', 'Tools'];
+
+  const { signOut } = UserAuth();
+  const logOut = async (e) => {
+    e.preventDefault();
+    await signOut();
+  };
 
   const handleTagChange = (event) => {
     const {
@@ -301,7 +309,7 @@ export default function EditArtifact() {
         }}
       />
       <div id={styles['logout']}>
-        <Button variant="contained" component="label" color="secondary">
+        <Button variant="contained" component="label" color="secondary" onClick={logOut}>
           Logout
         </Button>
       </div>

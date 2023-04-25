@@ -23,13 +23,13 @@ export default function AdminHome() {
   const add = async (e) => {
     e.preventDefault();
     console.log('move to addartifact page');
-    //navigate("/addartifact");
+    navigate("/addartifact");
   };
 
   const update = async (e) => {
     e.preventDefault();
     console.log('move to updateArtifact page');
-    //navigate("/updateArtifact");
+    navigate("/artifactlist");
   };
 
   const manage = async (e) => {

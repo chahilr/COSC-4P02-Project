@@ -28,14 +28,14 @@ function App() {
         <Route element={<AdminRoutes />}>
           <Route path="/adminHome" element={<AdminHome />} />
           <Route path="/adminSettings" element={<AdminSettings />} />
+          <Route path="/addartifact" element={<AddArtifact />} />
+          <Route path="/editartifact" element={<EditArtifact />} />
+          <Route path="/artifactlist" element={<ArtifactList />} />
           <Route element={<MainAdminRoutes />}>
             <Route path="/mangeAdmins" element={<ManageAdmins />} />
             <Route path="/addAdmin" element={<AddAdmin />} />
           </Route>
         </Route>
-        <Route path="/addartifact" element={<AddArtifact />} />
-        <Route path="/editartifact" element={<EditArtifact />} />
-        <Route path="/artifactlist" element={<ArtifactList />} />
       </Routes>
     </AuthenticationContext>
   );
