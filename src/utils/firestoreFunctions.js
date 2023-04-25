@@ -109,10 +109,6 @@ async function updateArtifact(id,name,year,des,Exhibit,Tags,photos){
   return completed;
 }
 
-
-
-
-
 //overwrite the given artifact's description
 async function updateArtifactDescription(id, des) {
   let description = doc(firestore, 'Artifacts/' + id + '/Description/1');
@@ -541,8 +537,17 @@ async function getUserRole(email){
 
 async function mainAdmin(uid){
   let artifact = doc(firestore, 'Users/'+uid);
+  let denied=false;
 
-  let querySnapshot = await getDoc(artifact);
+  let querySnapshot = await getDoc(artifact).catch((error)=>{
+    if(error.code=="permission-denied"){
+      console.log("denied");
+      denied=true;
+    }
+  });
+  if(denied){
+    return false;
+  }
 
   if (querySnapshot.data().Role=="mainAdmin"){
       return true;
