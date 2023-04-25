@@ -9,7 +9,8 @@
 }
 
 .input {
-    width: 100%;
+    width: 300px;
+    height: 20px;
     background-color: transparent;
     border: none;
     border-radius: 25px;
@@ -22,18 +23,10 @@
     color: var(--white);
 }
 
-.signoutbutton {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    margin: 40px;
-    font-size: large;
-    height: 55px;
-}
-
 .sign-out {
-    float: left;
-    margin-right: 10px;
+    position: absolute;
+    top: 1em;
+    right: 1em;
 }
 
 .logoAdmin {
@@ -43,104 +36,46 @@
 }
 
 .title {
-    position: absolute;
-    top: 125px;
+    text-align: center;
     font-size: 50px;
-    color: #ffffff;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    color: var(--white);
 }
 
 .addingActions {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 2em;
 }
 
-.submit {
-    transform: translate(-50%, 0%);
-    margin-bottom: 20px;
-}
-
-.exitAdding {
-    transform: translate(-50%, 0%);
-    margin-bottom: 20px;
-}
-
-.p1-input {
-    width: 300px;
-    height: 20px;
-}
-
-.p2-input {
-    width: 300px;
-    height: 20px;
-}
-
-.email-input {
-    width: 300px;
-    height: 20px;
-}
-
-.role-input {
-    width: 300px;
-    height: 20px;
-}
-
-.Password1 {
-    position: relative;
-    padding-bottom: 15px;
-    padding-top: 15px;
-}
-
-.Password2 {
-    position: relative;
-    padding-bottom: 15px;
-    padding-top: 15px;
-}
-
-.email {
-    position: relative;
-    padding-bottom: 15px;
-    padding-top: 15px;
-}
-
-.role {
-    position: relative;
-}
-.signoutbutton, .submit, .exitAdding{
-    margin: 2px;
-}
-.signoutbutton:hover, .submit:hover, .exitAdding:hover{
-    margin: 0px;
-}
-
-.inputs{
-    position: absolute;
-    top: 225px;
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    font-family: 'Montserrat';
 }
 
 .admin-container{
-    display: block;
-    position: absolute;
-    padding-left: 35px;
-    left:50%;
-    transform: translate(-30%, 0%);
-    top: 550px;
+    display: flex;
     font-size: 22px;
+    color: var(--white);
+    width: 100%;
+    justify-content: space-around;
+}
+
+.admin-checkbox {
+    display: flex;
 }
 
 .admin-checkbox input {
     opacity: 0;
-  }
+}
+
 .mainAdmin-checkbox input {
     opacity: 0;
 }
 
 .checkmark1 {
-    position: absolute;
-    top: 0;
-    left: 0;
     height: 25px;
     width: 25px;
     background-color: #eee;
@@ -148,9 +83,6 @@
 }
 
 .checkmark2 {
-    position: absolute;
-    top: 50px;
-    left: 0;
     height: 25px;
     width: 25px;
     background-color: #eee;
@@ -162,7 +94,7 @@
 }
 
 .admin-checkbox input:checked~.checkmark1 {
-    background-color: #f32121;
+    background-color: var(--red);
 }
 
 .admin-checkbox:hover input~.checkmark2 {
@@ -170,5 +102,5 @@
 }
 
 .admin-checkbox input:checked~.checkmark2 {
-    background-color: #f32121;
+    background-color: var(--red);
 }

@@ -9,10 +9,17 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Logo from '../components/Logo';
+import { UserAuth } from '../utils/Auth.js';
 
 export default function ArtifactList() {
   const [artifacts, setArtifacts] = useState([]);
   const [searchSubstring, setSearchSubstring] = useState([]);
+
+  const { signOut } = UserAuth();
+  const logOut = async (e) => {
+    e.preventDefault();
+    await signOut();
+  };
 
   useEffect(() => {
     getAllArtifacts().then((val) => {
@@ -59,7 +66,11 @@ export default function ArtifactList() {
                       <ListItemText
                         className={styles['list-item-text']}
                         primary={artifact.Name}
-                        secondary={artifact.Year}
+                        secondary={
+                          artifact.Year < 0
+                            ? `${-artifact.Year} BC`
+                            : `${artifact.Year} AD`
+                        }
                       />
                       <p>{artifact.Exhibition}</p>
                     </ListItem>

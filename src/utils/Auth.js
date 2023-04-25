@@ -47,13 +47,13 @@ export const AuthenticationContext= ({children}) =>{
     const addUser=async(email,password, role)=>{
         let result=false;
         let temp=curUser.email;
-
+        let p=await getUsersPassword(temp);
         await createUserWithEmailAndPassword(auth, email, password)
             .then(async (userCredentail)=>{
-                await addAdmin(userCredentail.user.uid, email, password, role);
+                let newUID=userCredentail.user.uid;
                 await auth.signOut();
-                let p=await getUsersPassword(temp);
                 await signInWithEmailAndPassword(auth,temp,p);
+                await addAdmin(newUID, email, password, role);
                 result=true;
             }).catch((error)=>{
                 console.log(error.message);
@@ -64,15 +64,16 @@ export const AuthenticationContext= ({children}) =>{
 
     const removeOtherUser=async(email)=>{
         let temp=curUser.email;
-        let p=await getUsersPassword(email);
-        await signInWithEmailAndPassword(auth,email,p);
-        await removeU(auth.currentUser.uid);
+        let p1=await getUsersPassword(email);
+        let p2=await getUsersPassword(temp);
+        await signInWithEmailAndPassword(auth,email,p1);
+        let oldUID= auth.currentUser.uid;
         await deleteUser(auth.currentUser).catch((error)=>{
             console.log(error.message);
         });
         await auth.signOut();
-        p=await getUsersPassword(temp);
-        await signInWithEmailAndPassword(auth,temp,p);
+        await signInWithEmailAndPassword(auth,temp,p2);
+        await removeU(oldUID);
     }
 
     const signOut= async ()=>{

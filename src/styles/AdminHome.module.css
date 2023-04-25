@@ -13,6 +13,7 @@
     position: absolute;
     top: 1em;
     right: 1em;
+    width: 20em;
 }
 
 .sign-out-button {
@@ -24,7 +25,7 @@
     font-size: 1em;
 }
 
-.sign-out-button, .settings_button {
+.sign-out-button, .settings-button {
     margin: 1em;
     cursor: pointer;
 }
