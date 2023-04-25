@@ -39,7 +39,6 @@ const theme = createTheme({
   },
 });
 
-
 const CssTextField = styled(TextField)({
   marginTop: 10,
   '& label.Mui-focused': {
@@ -299,7 +298,7 @@ export default function EditArtifact() {
 
   return (
     <ThemeProvider theme={theme}>
-    <div className={styles['background']}>
+      <div className={styles['background']}>
         <Logo
           color="var(--white)"
           style={{
@@ -310,7 +309,12 @@ export default function EditArtifact() {
           }}
         />
         <div id={styles['logout']}>
-          <Button variant="contained" component="label" color="secondary" onClick={logOut}>
+          <Button
+            variant="contained"
+            component="label"
+            color="secondary"
+            onClick={logOut}
+          >
             Logout
           </Button>
         </div>
@@ -335,7 +339,7 @@ export default function EditArtifact() {
                     value={name}
                     onChange={(e) => onNameChange(e)}
                   />
-      
+
                   {finalButtonPressed && !name && (
                     <p className={styles['error-msg']}>*Name is required</p>
                   )}
@@ -348,11 +352,19 @@ export default function EditArtifact() {
                     }}
                     label="Year"
                     type="number"
+                    inputProps={{
+                      min: 0,
+                      pattern: '[0-9]*',
+                      inputMode: 'numeric',
+                      step: '1',
+                    }}
                     value={year}
                     onChange={(e) => onDateChange(e)}
                   />
-      
-                  <CssFormField sx={{ marginTop: 3, marginLeft: 3, width: 100 }}>
+
+                  <CssFormField
+                    sx={{ marginTop: 3, marginLeft: 3, width: 100 }}
+                  >
                     <InputLabel id="age-label">Era</InputLabel>
                     <Select
                       inputProps={{ MenuProps: { disableScrollLock: true } }}
@@ -390,17 +402,21 @@ export default function EditArtifact() {
                       onChange={(e) => onMenuChange(e)}
                       color="secondary"
                     >
-                      <MenuItem value={'Ancient Greece'}>Ancient Greece</MenuItem>
+                      <MenuItem value={'Ancient Greece'}>
+                        Ancient Greece
+                      </MenuItem>
                       <MenuItem value={'Ancient Rome'}>Ancient Rome</MenuItem>
                       <MenuItem value={'Ancient Egypt'}>Ancient Egypt</MenuItem>
-                      <MenuItem value={'Persian Empire'}>Persian Empire</MenuItem>
+                      <MenuItem value={'Persian Empire'}>
+                        Persian Empire
+                      </MenuItem>
                     </Select>
                   </CssFormField>
                   {finalButtonPressed && !exhibit && (
                     <p className={styles['error-msg']}>*Select an Exhibit</p>
                   )}
                   <br />
-      
+
                   <CssFormField>
                     <InputLabel>Tags</InputLabel>
                     <Select
@@ -429,7 +445,7 @@ export default function EditArtifact() {
                     </p>
                   )}
                 </Grid>
-      
+
                 {wantToDelete && (
                   <div
                     className={styles['delete-preview']}
@@ -454,7 +470,7 @@ export default function EditArtifact() {
                     </Link>
                   </div>
                 )}
-      
+
                 <Grid
                   item
                   sx={{
@@ -483,7 +499,7 @@ export default function EditArtifact() {
                       *Description cannot be empty!
                     </p>
                   )}
-      
+
                   <div className={styles['update-delete-button-container']}>
                     <button
                       className={'secondary-button'}
@@ -491,7 +507,7 @@ export default function EditArtifact() {
                     >
                       Update Artifact
                     </button>
-      
+
                     <button
                       className={'secondary-button'}
                       onClick={(e) => onDeleteArtifact(e)}
@@ -500,7 +516,7 @@ export default function EditArtifact() {
                     </button>
                   </div>
                 </Grid>
-      
+
                 <Grid
                   item
                   sx={{
@@ -520,7 +536,7 @@ export default function EditArtifact() {
                       />
                     </div>
                   )}
-      
+
                   {!url && (
                     <label className={styles['no-url-upload']}>
                       <input
@@ -531,11 +547,11 @@ export default function EditArtifact() {
                       Click To Select Image
                     </label>
                   )}
-      
+
                   {finalButtonPressed && !url && (
                     <p className={styles['error-msg']}>*An Image is required</p>
                   )}
-      
+
                   {url && (
                     <label className={styles['custom-file-upload']}>
                       <input
@@ -551,7 +567,7 @@ export default function EditArtifact() {
             </Grid>
           </Grid>
         </div>
-    </div>
+      </div>
     </ThemeProvider>
   );
 }
