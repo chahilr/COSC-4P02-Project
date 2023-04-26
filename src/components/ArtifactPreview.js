@@ -9,7 +9,7 @@ export default function ArtifactPreview(props) {
     >
       <p className={styles['artifact-title']}>{props.title}</p>
       <p>
-        {props.year < 0 ? `${-props.year}BC` : `${props.year}AD`} |{' '}
+        {props.year < 0 ? `${-props.year} BC` : `${props.year} AD`} |{' '}
         {props.exhibit}
       </p>
       <p>Tags: {props.tags.join(', ')}</p>
