@@ -30,9 +30,6 @@
     color: var(--white);
     font-family: 'Montserrat';
 }
-.list-item-exhibit {
-    color: var(--white);
-}
 
 .link {
     text-decoration: none;

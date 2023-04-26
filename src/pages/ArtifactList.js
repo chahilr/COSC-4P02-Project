@@ -72,7 +72,7 @@ export default function ArtifactList() {
                             : `${artifact.Year} AD`
                         }
                       />
-                      <p className={styles['list-item-exhibit']}>{artifact.Exhibition}</p>
+                      <p>{artifact.Exhibition}</p>
                     </ListItem>
                   </Link>
                 );
