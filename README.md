@@ -1,6 +1,6 @@
 # COSC-4P02-Project
 
-This is an implementation of an interactie timeline for the museum assistance application for COSC 4P02 (Winter 2023).
+This is an implementation of an interactive timeline for the museum assistance application for COSC 4P02 (Winter 2023). The app is currently live at https://cosc4p02-project-a5335.web.app/.
 
 # Authors
 |Name|Student ID|Git Hub Username|
@@ -22,11 +22,13 @@ All documents and reports will be in the documents folders.
 
 ## Key Technologies Used
 Front-end: HTML, CSS, JS, React.js \
-Backend: Node.js \
-Database: Firebase Firestore
+Back-end: Firebase \
+Database: Firebase Firestore (No-SQL Database)
 
 ## Setup
-
-run npm i
-run npm start
+Run the following commands\
+```
+npm ci
+npm start
+```
 ## License
