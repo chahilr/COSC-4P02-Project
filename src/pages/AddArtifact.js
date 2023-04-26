@@ -253,7 +253,6 @@ export default function AddArtifact() {
     <ThemeProvider theme={theme}>
       <div className={styles['background']}>
         <Logo
-          background="var(--translucent-grey)"
           color="var(--white)"
           style={{
             position: 'relative',
