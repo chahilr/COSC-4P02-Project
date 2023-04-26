@@ -23,13 +23,13 @@ export default function AdminHome() {
   const add = async (e) => {
     e.preventDefault();
     console.log('move to addartifact page');
-    //navigate("/addartifact");
+    navigate("/addartifact");
   };
 
   const update = async (e) => {
     e.preventDefault();
     console.log('move to updateArtifact page');
-    //navigate("/updateArtifact");
+    navigate("/artifactlist");
   };
 
   const manage = async (e) => {
@@ -40,9 +40,9 @@ export default function AdminHome() {
   return (
     <>
       <div className={styles['adminHome']}>
-        <Logo color="var(--white)" />
+        <Logo color="var(--white)" background="var(--translucent-grey)" />
         <div className={styles['signout-settings']}>
-          <button className={styles['sign-out-button']} onClick={logOut}>
+          <button className="secondary-button" onClick={logOut}>
             Sign Out
           </button>
           <img

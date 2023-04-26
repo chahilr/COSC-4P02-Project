@@ -49,14 +49,14 @@ const Login = () => {
     <>
       <div className={styles['login-container']}>
         <form onSubmit={handleSubmit}>
-          <Logo color="var(--white)" />
+          <Logo color="var(--white)" background="var(--translucent-grey)" />
           <input
             id={styles['username']}
             className={styles['login-field']}
             placeholder="Username or Email"
             onChange={handleUsernameChange}
           ></input>
-          <span>
+          <span className={styles['password-container']}>
             <input
               id="password"
               className={styles['login-field']}
@@ -73,7 +73,7 @@ const Login = () => {
             </button>
           </span>
 
-          <button className="submit-button" type="submit-button">
+          <button className="secondary-button" type="submit-button">
             Login
           </button>
         </form>

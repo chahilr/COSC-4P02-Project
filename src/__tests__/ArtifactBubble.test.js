@@ -1,14 +1,14 @@
 // ArtifactBubble.test.js
 
 import React from 'react';
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import ArtifactBubble from '../components/ArtifactBubble';
 
 let container = null;
 beforeEach(() => {
-  container = document.createElement("div");
+  container = document.createElement('div');
   document.body.appendChild(container);
 });
 
@@ -43,6 +43,6 @@ test('ArtifactBubble component', () => {
 
   const imageElement = container.querySelector('img');
   expect(imageElement.style.border).toContain('green');
-  expect(container.textContent).toContain("Sample Artifact");
-  expect(container.textContent).toContain("500 BC");
+  expect(container.textContent).toContain('Sample Artifact');
+  expect(container.textContent).toContain('500 BC');
 });

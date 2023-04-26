@@ -47,7 +47,10 @@
       "last 1 safari version"
     ]
   },
+  
   "devDependencies": {
     "jest": "^27.5.1"
-  }
+  },
+
+  "homepage": "."
 }

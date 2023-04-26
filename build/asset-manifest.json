@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "./static/css/main.de8add44.css",
+    "main.js": "./static/js/main.4f3f6343.js",
+    "static/media/museum.png": "./static/media/museum.668738a207084c0fc52c.png",
+    "static/media/ancient-rome.png": "./static/media/ancient-rome.d87502724531e44c48a2.png",
+    "static/media/black-background.jpg": "./static/media/black-background.0a47f3283338950bf940.jpg",
+    "static/media/ancient-egypt.png": "./static/media/ancient-egypt.04e37fd691af0c905c2d.png",
+    "static/media/ancient-greece.png": "./static/media/ancient-greece.1155000da6a046ef9c3e.png",
+    "static/media/persian-empire.png": "./static/media/persian-empire.11b86096cce569c8d7a4.png",
+    "static/media/settingsIcon.svg": "./static/media/settingsIcon.78091c127056c47f1315e434af0b2005.svg",
+    "static/media/exit-arrow.svg": "./static/media/exit-arrow.b1f0c0e99b33392cf46a25aec0a6b345.svg",
+    "index.html": "./index.html",
+    "main.de8add44.css.map": "./static/css/main.de8add44.css.map",
+    "main.4f3f6343.js.map": "./static/js/main.4f3f6343.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.de8add44.css",
+    "static/js/main.4f3f6343.js"
+  ]
+}

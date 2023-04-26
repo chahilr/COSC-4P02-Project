@@ -3,6 +3,11 @@ body {
   margin: 0;
 }
 
+div.background {
+  background-image: url('../images/black-background.jpg');
+  min-height: 100dvh;
+}
+
 #logout {
   z-index: 2;
   position: absolute;
@@ -103,6 +108,13 @@ input[type="file"] {
   background-color: white;
   color: red;
   border: 5px solid red;
+}
+
+.update-delete-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: 2em;
 }
 
 #final-button{
