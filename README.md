@@ -26,9 +26,21 @@ Back-end: Firebase \
 Database: Firebase Firestore (No-SQL Database)
 
 ## Setup
-Run the following commands\
+1. Clone the repo
+```
+git clone https://github.com/chahilr/COSC-4P02-Project.git
+```
+2. cd into the repo
+```
+cd COSC-4P02-Project
+```
+3. Install the dependencies
 ```
 npm ci
+```
+4. Run the project
+```
 npm start
 ```
+
 ## License
