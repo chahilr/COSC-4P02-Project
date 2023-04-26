@@ -1,9 +1,10 @@
+// ArtifactBubble.test.js
+
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
-import ArtifactBubble from '../components/ArtifactBubble.js';
-import styles from '../styles/ArtifactBubble.module.css';
+import ArtifactBubble from '../components/ArtifactBubble';
 
 let container = null;
 beforeEach(() => {
@@ -19,25 +20,29 @@ afterEach(() => {
 });
 
 test('ArtifactBubble component', () => {
+  const sampleArtifact = {
+    Exhibition: 'Ancient Greece',
+    Name: 'Sample Artifact',
+    Year: -500,
+    Photos: ['sample-image-url.jpg'],
+    // Add other properties required by ArtifactBubble component
+  };
+
   act(() => {
     render(
       <BrowserRouter>
         <ArtifactBubble
           visible={true}
-          artifact={{
-            Name: 'Mask',
-            Year: 1000,
-            Exhibition: 'Ancient Greece',
-            Photos: [null],
-          }}
-          onClick={null}
-          alternator={1}
+          artifact={sampleArtifact}
+          alternator={0} // Set the alternator to 0 so that the first condition is met
         />
       </BrowserRouter>,
       container
     );
   });
-  expect(container.textContent).toContain('Mask');
-  //render(<App/>);
-  //expect(screen.getByText('e')).toBeInTheDocument();
+
+  const imageElement = container.querySelector('img');
+  expect(imageElement.style.borderColor).toContain('#80ff72');
+  expect(container.textContent).toContain('Sample Artifact');
+  expect(container.textContent).toContain('500 BC');
 });

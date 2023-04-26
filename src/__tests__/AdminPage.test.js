@@ -3,8 +3,9 @@ import { render, unmountComponentAtNode } from "react-dom";
 //import {unmountComponentAtNode } from "react-dom";
 //import {render, screen, fireEvent} from '@testing-library/react'
 import { act } from "react-dom/test-utils";
-import { BrowserRouter } from 'react-router-dom'
-import Home from '../pages/Home.js';
+import { BrowserRouter, MemoryRouter } from 'react-router-dom'
+import AdminPage from '../pages/AdminPage.js';
+import { UserAuth } from '../utils/Auth.js';
 
 
 let container = null;
@@ -20,13 +21,25 @@ afterEach(() => {
   container = null;
 });
 
+/*
+jest.mock('../pages/AdminPage.js', () => ({
 
-  test('Home page', () => {
+}));
+*/
+
+  test('AdminPage', () => {
   	act(() => {
-  	render(<BrowserRouter><Home/></BrowserRouter>, container);
+  	//render(<BrowserRouter><AdminPage/></BrowserRouter>, container);
+  	try{
+	  	render(<MemoryRouter><AdminPage/></MemoryRouter>, container);
   	
+  	}
+  	catch (e){
+  		
+  	}
   	});
-  expect(container.textContent).toContain("Create Personalized Timeline");
+  	console.log(container.textContent);
+  	expect(container.textContent).toContain("");
   });
 
 

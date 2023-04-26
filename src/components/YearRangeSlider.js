@@ -1,6 +1,6 @@
 import { Slider } from '@mui/material';
 
-function formatYear(val) {
+export function formatYear(val) {
   return val < 0 ? `${-val}BCE` : `${val}AD`;
 }
 
@@ -19,5 +19,6 @@ function YearRangeSlider(props) {
     </>
   );
 }
+
 
 export default YearRangeSlider;
