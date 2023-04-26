@@ -42,7 +42,7 @@ test('ArtifactBubble component', () => {
   });
 
   const imageElement = container.querySelector('img');
-  expect(imageElement.style.border).toContain('green');
+  expect(imageElement.style.borderColor).toContain('#80ff72');
   expect(container.textContent).toContain('Sample Artifact');
   expect(container.textContent).toContain('500 BC');
 });
