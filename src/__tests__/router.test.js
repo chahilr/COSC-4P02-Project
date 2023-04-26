@@ -34,7 +34,7 @@ afterEach(() => {
 });
 
 */
-
+	
 test('should redirect and update dom', () => {
     //render(<BrowserRouter><App/></BrowserRouter>, container);
     render(<BrowserRouter><App/></BrowserRouter>);
