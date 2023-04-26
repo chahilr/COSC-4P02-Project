@@ -173,14 +173,20 @@ input[type="file"] {
   margin:auto;
 }
 
+.delete-button-container {
+  display: flex;
+  justify-content: space-around;
+}
+.delete-button-container > button {
+  margin: 0;
+}
+
 .cancel-button{
-  background-color:rgb(51, 39, 39);
+  /* background-color:rgb(51, 39, 39); */
   
-  margin-right: 10px;
 }
 .cancel-button:hover{
  
-  margin-right: 10px;
 }
 
 .submit-button:hover {

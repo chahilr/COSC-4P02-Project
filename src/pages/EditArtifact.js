@@ -19,7 +19,7 @@ import { styled } from '@mui/material/styles';
 import styles from '../styles/EditArtifact.module.css';
 //image upload stuff
 import ImageUploading from 'react-images-uploading';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Logo from '../components/Logo';
 import {
@@ -107,6 +107,7 @@ const CssFormField = styled(FormControl)({
 });
 
 export default function EditArtifact() {
+  const navigate = useNavigate();
   const { state } = useLocation();
   const id = state?.id;
   const [name, setName] = useState(state?.Name);
@@ -230,6 +231,7 @@ export default function EditArtifact() {
 
   const confirmDeleteTheArtifact = async (event) => {
     await deleteArtifact(id);
+    navigate(-1);
   };
 
   const handleFileChange = (event) => {
@@ -454,20 +456,21 @@ export default function EditArtifact() {
                     <h1 className={styles['artifact-title']}>
                       Are you sure you want to delete?
                     </h1>
-                    <button
-                      className={styles['cancel-button']}
-                      onClick={cancelButton}
-                    >
-                      Cancel
-                    </button>
-                    <Link to="/artifactlist" style={{ textDecoration: 'none' }}>
+                    <div className={styles['delete-button-container']}>
                       <button
-                        className={styles['submit-button']}
+                        className={`secondary-button ${styles['cancel-button']}`}
+                        onClick={cancelButton}
+                      >
+                        Cancel
+                      </button>
+
+                      <button
+                        className={`secondary-button ${styles['submit-button']}`}
                         onClick={confirmDeleteTheArtifact}
                       >
                         ! Delete !
                       </button>
-                    </Link>
+                    </div>
                   </div>
                 )}
 
