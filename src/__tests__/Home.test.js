@@ -26,7 +26,7 @@ afterEach(() => {
   	render(<BrowserRouter><Home/></BrowserRouter>, container);
   	
   	});
-  expect(container.textContent).toContain("e");
+  expect(container.textContent).toContain("Create Personalized Timeline");
   });
 
 
