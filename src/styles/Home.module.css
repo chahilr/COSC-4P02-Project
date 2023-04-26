@@ -22,7 +22,7 @@ input:focus::-moz-placeholder {
     top: 0;
     left: 0;
     height: max-content;
-    min-height: 100vh;
+    min-height: 100%;
 
     background: url('../images/museum.png');
     background-repeat: no-repeat;
