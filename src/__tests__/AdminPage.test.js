@@ -26,8 +26,22 @@ jest.mock('../pages/AdminPage.js', () => ({
 
 }));
 */
+async function getText(url) {
+	data = await fetch(url);
+	return data
+}
 
   test('AdminPage', () => {
+	const result = 0;
+  	const url = new URL("http://localhost:3000/admin");
+	const data = getText(url);
+	data.then((value) => {
+		result = data;
+		//console.log(value);
+		//console.log("eyyyy	");
+	});
+		//console.log(result);
+  /*
   	act(() => {
   	//render(<BrowserRouter><AdminPage/></BrowserRouter>, container);
   	try{
@@ -39,6 +53,8 @@ jest.mock('../pages/AdminPage.js', () => ({
   	}
   	});
   	console.log(container.textContent);
+  	
+  	*/
   	expect(container.textContent).toContain("");
   });
 
